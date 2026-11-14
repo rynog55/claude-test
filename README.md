@@ -11,6 +11,7 @@ Phone-friendly browser games built with Claude Code. Each game is one self-conta
 | `games/hook-grid.html` | 2010s pop trivia grid (artists × chart facts, featured guests, Grammy nods). |
 | `games/swiftie-grid.html` | Taylor Swift trivia grid (albums × lyric themes, track positions, co-writers, charts). |
 | `games/zeppelin-grid.html` | Led Zeppelin trivia grid (albums × vinyl sides, writing credits, live sets, lyric themes). |
+| `games/flannel-grid.html` | '90s alternative trivia grid built from a 327-song Spotify playlist (bands × chart, mood and release facts). |
 
 The trivia grids share one engine: 9 guesses, a seeded daily grid, random grids, and a "1 of N" rarity count. Progress is saved in the browser's local storage.
 
@@ -26,7 +27,8 @@ Facts come from Wikipedia (text available under CC BY-SA 4.0): NBA draft pages, 
 | `build/pop/` | Hook Grid | `parse.py` (charts → `songs.json`), `types.py` (artist types), `build.py` (→ `data.json`), `template.html` (shared grid engine) |
 | `build/ts/` | Swiftie Grid | `parse.py`, `tags.py` (hand tags), `build.py` (→ `data.json`), `head.js` (categories) |
 | `build/lz/` | Zeppelin Grid | `parse.py`, `build.py` (hand tags inside), `head.js` (categories) |
-| `build/` | | `build_sg.py` and `build_lz_base.py` turn `pop/template.html` plus a game's `head.js` and `data.json` into a game page. |
+| `build/flannel/` | Flannel Grid | `charts.py` (Billboard No. 1 lists → `charts.json`), `build.py` (playlist CSV + charts + hand band types → `data.json`). The Spotify CSV export is not committed; put it at `in/playlist.csv` to rebuild. |
+| `build/` | | `build_sg.py`, `build_lz_base.py` and `build_lith.py` turn `pop/template.html` plus a game's `head.js` and `data.json` into a game page. |
 | `build/checks/` | | Playwright smoke tests that load a page at phone size and generate 300 random grids. |
 
 The raw Wikipedia downloads are not committed. To rebuild a game, download that game's Wikipedia pages into a `raw/` folder next to its `parse.py`, then run the scripts in order. The scripts use relative paths that match the folder layout they were written in, so a few paths may need adjusting.

@@ -1,0 +1,315 @@
+<title>Flannel Grid</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a photocopied zine page: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #e7e6e2;
+  --panel: #f8f7f4;
+  --ink: #1a1916;
+  --muted: #625e56;
+  --line: #d0cdc5;
+  --accent: #b02a20;
+  --accent-2: #2d6a4c;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "Special Elite", "Courier New", monospace;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131310; --panel: #1e1d19; --ink: #efece4; --muted: #a39e92; --line: #363329;
+    --accent: #e8604f; --accent-2: #6fc39a; --accent-ink: #1c0805; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131310; --panel: #1e1d19; --ink: #efece4; --muted: #a39e92; --line: #363329;
+  --accent: #e8604f; --accent-2: #6fc39a; --accent-ink: #1c0805; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 9vw, 42px); line-height: 1; margin: 0; letter-spacing: -.01em; white-space: nowrap; }
+h1 span { color: var(--accent); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(11px, 3.2vw, 15px); letter-spacing: -.035em; overflow-wrap: normal; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -.02em; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 18px 18px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,.25);
+  padding-top: 14px; padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: 78vh; display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Flannel <span>Grid</span></h1>
+      <p class="sub" id="label">Daily grid</p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Tap a square and name a song from <b>your '90s alt-radio playlist</b> that fits the <b>band on the left</b> and the <b>fact on top</b>. You get 9 guesses, and each song can be used once.</p>
+  <p class="rules">The answer list is the 327 songs on your Spotify playlist of tracks heard on SiriusXM's '90s alternative channel. This game isn't affiliated with SiriusXM. Length, popularity, label, explicit flag and the mood, energy, key and acoustic ratings come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. Modern Rock and Mainstream Rock No. 1s come from Wikipedia. Years use the song's original release, and band facts were tagged by hand. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search songs or artists…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = {"songs":[["Jane Says","Jane's Addiction","a:Jane's Addiction california lolla","y1",1988],["Been Caught Stealing","Jane's Addiction","a:Jane's Addiction california lolla","altno1 upbeat blast y1",1990],["No Rain","Blind Melon","lostsinger onesong","altno1 rockno1 acoustic smash y1 selftitled",1992],["1979","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","altno1 rockno1 upbeat y2 oneword",1995],["Interstate Love Song","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","rockno1 blast deep y2",1994],["Hunger Strike","Temple Of The Dog","seattle lostsinger","dark smash y1 selftitled",1991],["Cannonball","The Breeders","female lolla onesong","upbeat deep y1 oneword",1993],["Santa Monica","Everclear","","rockno1 blast smash y2",1995],["Good","Better Than Ezra","","altno1 upbeat y2 oneword",1995],["Sex & Candy","Marcy Playground","onesong","upbeat short smash y3 selftitled",1997],["One Headlight","The Wallflowers","","altno1 rockno1 upbeat long smash y3",1996],["Semi-Charmed Life","Third Eye Blind","a:Third Eye Blind california","upbeat smash y3 selftitled",1997],["Man in the Box","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","upbeat smash explicit y1",1990],["Vasoline","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","rockno1 blast short deep y2 oneword",1994],["Even Flow","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor dark blast smash explicit y1",1991],["Far Behind","Candlebox","seattle","smash y1 selftitled",1993],["Bullet With Butterfly Wings","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","minor y2",1995],["Nearly Lost You","Screaming Trees","seattle lostsinger lolla onesong","blast y1",1992],["Shine","Collective Soul","a:Collective Soul","long deep y2 oneword",1994],["Lump","The Presidents Of The United States Of America","seattle","altno1 upbeat short deep y2 oneword",1995],["Heart-Shaped Box","Nirvana","a:Nirvana seattle lostsinger unplugged","altno1 smash y1 geffen",1993],["River of Deceit","Mad Season","seattle lostsinger onesong","dark long y2",1995],["In the Meantime","Spacehog","onesong","rockno1 dark smash y2",1995],["Would?","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","smash y1 oneword",1992],["Possum Kingdom","Toadies","onesong","upbeat long y2",1994],["I Alone","Live","a:Live","dark smash y2",1994],["Jeremy","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark long smash explicit y1 oneword",1991],["Touch, Peel And Stand","Days Of The New","","rockno1 upbeat deep y3 selftitled",1997],["Hey Jealousy","Gin Blossoms","a:Gin Blossoms","minor smash y1",1992],["Shimmer","Fuel","onesong","minor y3 oneword",1998],["Everlong","Foo Fighters","a:Foo Fighters seattle","minor smash y3 oneword",1997],["Bound For The Floor","Local H","","smash y3",1996],["Inside Out","Eve 6","california onesong","altno1 upbeat smash y3 selftitled",1998],["If You Could Only See","Tonic","california onesong","minor blast smash y3",1996],["Low","Cracker","","y1 oneword",1993],["Cumbersome","Seven Mary Three","","rockno1 smash y2 oneword",1995],["Hey Man, Nice Shot","Filter","","long deep y2",1995],["Flagpole Sitta","Harvey Danger","seattle onesong","minor blast smash y3",1997],["Pepper","Butthole Surfers","lolla onesong","upbeat smash y3 oneword",1996],["Counting Blue Cars (Tell Me Your Thoughts On God)","Dishwalla","california onesong","altno1 minor y2",1995],["Alive","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor long smash y1 oneword",1991],["The Distance","CAKE","california","minor upbeat short deep y3",1996],["Plowed","Sponge","","deep y2 oneword",1994],["Runaway Train","Soul Asylum","unplugged","smash y1",1992],["Rooster","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","dark long smash y1 oneword",1992],["Backwater","Meat Puppets","onesong","y2 oneword",1994],["Cherub Rock","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","y1",1993],["Down","311","a:311","altno1 minor blast short y2 selftitled oneword",1995],["Standing Outside a Broken Phone Booth with Money in My Hand","Primitive Radio Gods","onesong","altno1 long y3",1996],["My Own Worst Enemy","Lit","california","upbeat blast short smash explicit y3",1999],["Seether","Veruca Salt","female","upbeat y2 oneword",1994],["All I Want","Toad The Wet Sprocket","a:Toad The Wet Sprocket california","upbeat deep y1",1991],["Superman's Dead","Our Lady Peace","abroad","upbeat deep y3",1997],["The Way","Fastball","onesong","altno1 minor upbeat smash y3",1998],["Say It Ain't So","Weezer","a:Weezer california","deep y2 selftitled",1994],["Got You (Where I Want You)","The Flys","california onesong","y3",1998],["Take a Picture","Filter","","dark long deep y3",1999],["I Got A Girl","Tripping Daisy","onesong","upbeat y2",1995],["The World I Know","Collective Soul","a:Collective Soul","rockno1 deep y2 selftitled",1995],["Popular","Nada Surf","onesong","dark y3 oneword",1996],["Stars","Hum","onesong","dark long y2 oneword",1995],["Pets","Porno for Pyros","california lolla","altno1 explicit y1 selftitled oneword",1993],["Sucked Out","Superdrag","onesong","upbeat short y3",1996],["Feel the Pain","Dinosaur Jr.","lolla onesong","upbeat deep y2",1994],["Molly (16 Candles)","Sponge","","deep y2 oneword",1994],["She Don't Use Jelly","The Flaming Lips","lolla onesong","y1",1993],["Only Happy When It Rains","Garbage","female onesong","minor deep y2",1995],["Self Esteem","The Offspring","a:The Offspring california","upbeat blast deep y2",1994],["The Impression That I Get","The Mighty Mighty Bosstones","onesong","altno1 upbeat blast deep y3",1997],["Clumsy","Our Lady Peace","abroad","deep y3 oneword",1997],["Sister","The Nixons","onesong","y2 oneword geffen",1995],["Naked Eye","Luscious Jackson","female onesong","minor upbeat y3",1996],["Mother Mother","Tracy Bonham","female onesong","altno1 upbeat y3",1996],["Banditos","The Refreshments","onesong","upbeat y3 oneword",1996],["Here and Now","Letters To Cleo","female onesong","y2",1994],["Volcano Girls","Veruca Salt","female","blast y3",1997],["Connection","Elastica","female abroad lolla onesong","upbeat short y2 selftitled oneword geffen",1995],["Super Bon Bon","Soul Coughing","onesong","upbeat deep y3",1996],["Ready to Go","Republica","female abroad onesong","dark blast long y3 selftitled",1996],["You Get What You Give","New Radicals","onesong","upbeat blast long smash y3 geffen",1998],["All Over You","Live","a:Live","y2",1994],["Here In Your Bedroom","Goldfinger","california onesong","upbeat y3 selftitled",1996],["Your Woman","White Town","abroad onesong","minor upbeat deep y3",1997],["Girlfriend","Matthew Sweet","onesong","upbeat y1 titletrack oneword",1991],["Doll Parts","Hole","a:Hole female california unplugged lolla","live y2 geffen",1994],["Tomorrow","Silverchair","abroad onesong","rockno1 y2 oneword",1995],["Why I'm Here","Oleander","california onesong","minor y3",1999],["Epic","Faith No More","california","minor dark smash y1 oneword",1989],["Violet","Hole","a:Hole female california unplugged lolla","live y2 oneword geffen",1994],["Fade Into You","Mazzy Star","female california onesong","dark smash y1",1993],["Til I Hear It From You","Gin Blossoms","a:Gin Blossoms","upbeat y3",1999],["Whoever You Are","Geggy Tah","california onesong","deep y3",1996],["Tahitian Moon","Porno for Pyros","california lolla","y3",1996],["Hook","Blues Traveler","","upbeat smash y2 oneword",1994],["What Do I Have to Do?","Stabbing Westward","","dark deep y3",1996],["Song 2","Blur","abroad onesong","upbeat short smash y3 selftitled",1997],["Fall Down","Toad The Wet Sprocket","a:Toad The Wet Sprocket california","altno1 upbeat deep y3",1999],["Criminal","Fiona Apple","female","minor long y3 oneword",1996],["Found Out About You","Gin Blossoms","a:Gin Blossoms","altno1 upbeat y1",1992],["6th Avenue Heartache","The Wallflowers","","long y3",1996],["Spiderwebs","No Doubt","female california onesong","upbeat y2 oneword",1995],["Where It's At","Beck","a:Beck california lolla","long deep y3 geffen",1996],["Brimful of Asha","Cornershop","abroad onesong","acoustic upbeat long y3",1997],["Sell Out","Reel Big Fish","california onesong","upbeat y3",1996],["Ruby Soho","Rancid","california lolla","upbeat blast short deep y2",1995],["Two Princes","Spin Doctors","","upbeat blast smash y1",1991],["All Mixed Up","311","a:311","minor upbeat short explicit y2 selftitled",1995],["Big Bang Baby","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","rockno1 minor upbeat blast y3",1996],["Save Yourself","Stabbing Westward","","dark explicit y3",1998],["El Scorcho","Weezer","a:Weezer california","upbeat y3 geffen",1996],["Big Me","Foo Fighters","a:Foo Fighters seattle","upbeat short y2 selftitled",1995],["Detachable Penis","King Missile","onesong","upbeat y1",1992],["Cut Your Hair","Pavement","lolla onesong","minor upbeat deep y2",1994],["Somebody to Shove","Soul Asylum","unplugged","altno1 blast y1",1992],["Mr. Jones","Counting Crows","a:Counting Crows california","upbeat smash y1 geffen",1993],["High","Feeder","abroad onesong","dark deep y3 oneword",1997],["Trippin' on a Hole in a Paper Heart","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","rockno1 blast short y3",1996],["Zero","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","upbeat short explicit y2 oneword",1995],["Pretty Noose","Soundgarden","a:Soundgarden seattle lostsinger lolla","blast y3",1996],["Follow You Down","Gin Blossoms","a:Gin Blossoms","minor upbeat blast deep y3 titletrack",1996],["Bulls On Parade","Rage Against The Machine","california lolla","blast smash explicit y3",1996],["This Is a Call","Foo Fighters","a:Foo Fighters seattle","blast y2 selftitled",1995],["Walk On The Ocean","Toad The Wet Sprocket","a:Toad The Wet Sprocket california","short deep y3",1999],["Undone - The Sweater Song","Weezer","a:Weezer california","long deep y2 selftitled",1994],["What's The Frequency, Kenneth?","R.E.M.","unplugged","altno1 upbeat blast deep explicit y2",1994],["Better Days (And the Bottom Drops Out)","Citizen King","onesong","upbeat y3",1999],["Long Way Down","The Goo Goo Dolls","a:The Goo Goo Dolls","minor blast y2",1995],["Buddy Holly","Weezer","a:Weezer california","upbeat blast short deep y2 selftitled",1994],["Heaven Beside You","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","minor long explicit y2 selftitled",1995],["Something's Always Wrong","Toad The Wet Sprocket","a:Toad The Wet Sprocket california","minor deep y2",1994],["Brick","Ben Folds Five","onesong","acoustic dark y3 oneword",1997],["December","Collective Soul","a:Collective Soul","acoustic deep y2 oneword",1995],["Name","The Goo Goo Dolls","a:The Goo Goo Dolls","smash y2 oneword",1995],["Run-Around","Blues Traveler","","upbeat smash y2 oneword",1994],["Right Here Right Now","Jesus Jones","abroad onesong","altno1 upbeat y1",1991],["Stuck On You","Failure","onesong","dark deep y3",1996],["Closer","Nine Inch Nails","a:Nine Inch Nails lolla","minor long deep explicit y2 oneword",1994],["A Long December","Counting Crows","a:Counting Crows california","y3 geffen",1996],["Starseed","Our Lady Peace","abroad","blast deep y2 oneword",1994],["A Girl Like You","Edwyn Collins","abroad onesong","minor deep y2",1994],["I'll Stick Around","Foo Fighters","a:Foo Fighters seattle","dark blast y2 selftitled",1995],["Naked","The Goo Goo Dolls","a:The Goo Goo Dolls","y2 oneword",1995],["High And Dry","Radiohead","a:Radiohead abroad","deep y2",1995],["How's It Going to Be","Third Eye Blind","a:Third Eye Blind california","smash y3 selftitled",1997],["Slide","The Goo Goo Dolls","a:The Goo Goo Dolls","smash y3 oneword",1998],["Graduate","Third Eye Blind","a:Third Eye Blind california","minor blast y3 selftitled oneword",1997],["Gel","Collective Soul","a:Collective Soul","upbeat short deep y2 selftitled oneword",1995],["Sabotage","Beastie Boys","lostsinger lolla onesong","minor blast short smash explicit y2 oneword",1994],["You Oughta Know","Alanis Morissette","a:Alanis Morissette female abroad unplugged","altno1 smash explicit y2",1995],["About A Girl","Nirvana","a:Nirvana seattle lostsinger unplugged","altno1 minor upbeat short deep y1",1989],["Negative Creep","Nirvana","a:Nirvana seattle lostsinger unplugged","blast short deep y1",1989],["Love Buzz","Nirvana","a:Nirvana seattle lostsinger unplugged","upbeat deep y1",1989],["Molly's Lips","Nirvana","a:Nirvana seattle lostsinger unplugged","live blast short deep y1",1989],["Smells Like Teen Spirit","Nirvana","a:Nirvana seattle lostsinger unplugged","altno1 upbeat blast long y1 geffen",1991],["In Bloom","Nirvana","a:Nirvana seattle lostsinger unplugged","minor y1 geffen",1991],["Come As You Are","Nirvana","a:Nirvana seattle lostsinger unplugged","minor y1 geffen",1991],["Breed","Nirvana","a:Nirvana seattle lostsinger unplugged","dark blast deep y1 oneword geffen",1991],["Lithium","Nirvana","a:Nirvana seattle lostsinger unplugged","y1 oneword geffen",1991],["Polly","Nirvana","a:Nirvana seattle lostsinger unplugged","acoustic minor short deep y1 oneword geffen",1991],["Drain You","Nirvana","a:Nirvana seattle lostsinger unplugged","minor dark blast deep y1 geffen",1991],["Lounge Act","Nirvana","a:Nirvana seattle lostsinger unplugged","minor blast short deep explicit y1 geffen",1991],["Stay Away","Nirvana","a:Nirvana seattle lostsinger unplugged","minor dark blast deep y1 geffen",1991],["On A Plain","Nirvana","a:Nirvana seattle lostsinger unplugged","blast deep y1 geffen",1991],["Something In The Way","Nirvana","a:Nirvana seattle lostsinger unplugged","acoustic dark deep y1 geffen",1991],["Aneurysm","Nirvana","a:Nirvana seattle lostsinger unplugged","minor dark deep y1 oneword geffen",1991],["Rape Me","Nirvana","a:Nirvana seattle lostsinger unplugged","dark short y1 geffen",1993],["Frances Farmer Will Have Her Revenge On Seattle","Nirvana","a:Nirvana seattle lostsinger unplugged","minor y1 geffen",1993],["Dumb","Nirvana","a:Nirvana seattle lostsinger unplugged","upbeat short smash y1 oneword geffen",1993],["Pennyroyal Tea","Nirvana","a:Nirvana seattle lostsinger unplugged","minor dark y1 geffen",1993],["All Apologies","Nirvana","a:Nirvana seattle lostsinger unplugged","altno1 smash y1 geffen",1993],["The Man Who Sold The World","Nirvana","a:Nirvana seattle lostsinger unplugged","live minor smash y2 geffen",1994],["Lake Of Fire","Nirvana","a:Nirvana seattle lostsinger unplugged","live minor upbeat short smash y2 geffen",1994],["Corduroy","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark blast explicit y2 oneword",1994],["Father Of Mine","Everclear","","upbeat blast smash y3",1997],["Miserable","Lit","california","dark y3 oneword",1999],["Water's Edge","Seven Mary Three","","minor explicit y2",1995],["When I Come Around","Green Day","a:Green Day california lolla","altno1 upbeat blast short smash y2",1994],["Get Off This","Cracker","","upbeat blast y1",1993],["Creep","Radiohead","a:Radiohead abroad","dark deep explicit y1 oneword",1993],["You","Candlebox","seattle","minor explicit y1 selftitled oneword",1993],["Where Did You Sleep Last Night","Nirvana","a:Nirvana seattle lostsinger unplugged","live acoustic long smash y2 geffen",1994],["Jumper","Third Eye Blind","a:Third Eye Blind california","upbeat smash y3 selftitled oneword",1997],["Shadowboxer","Fiona Apple","female","minor dark long y3 oneword",1996],["Aeroplane","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","upbeat explicit y2 oneword",1995],["Brain Stew","Green Day","a:Green Day california lolla","smash explicit y2",1995],["Say Hello 2 Heaven","Temple Of The Dog","seattle lostsinger","long y1 selftitled",1990],["Soul to Squeeze","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","altno1 upbeat smash y1",1993],["Head Like A Hole","Nine Inch Nails","a:Nine Inch Nails lolla","y1",1989],["Shelf In The Room","Days Of The New","","deep y3 selftitled",1997],["Outshined","Soundgarden","a:Soundgarden seattle lostsinger lolla","minor long y1 oneword",1991],["Dammit","blink-182","california onesong","blast short smash explicit y3 oneword geffen",1997],["Cover Me","Candlebox","seattle","explicit y1 selftitled",1993],["Basket Case","Green Day","a:Green Day california lolla","altno1 upbeat blast smash y2",1994],["Blow Up The Outside World","Soundgarden","a:Soundgarden seattle lostsinger lolla","rockno1 dark long y3",1996],["Round Here","Counting Crows","a:Counting Crows california","dark long y1 geffen",1993],["Hurt","Nine Inch Nails","a:Nine Inch Nails lolla","acoustic minor dark long deep y2 oneword",1994],["Black Gold","Soul Asylum","unplugged","dark y1",1992],["Hand in My Pocket","Alanis Morissette","a:Alanis Morissette female abroad unplugged","altno1 upbeat smash y2",1995],["Little Miss Can't Be Wrong","Spin Doctors","","upbeat blast y1",1991],["Longview","Green Day","a:Green Day california lolla","altno1 minor upbeat smash explicit y2 oneword",1994],["Beautiful Disaster","311","a:311","upbeat explicit y3",1997],["Time Bomb","Rancid","california lolla","upbeat blast short deep y2",1995],["Only Wanna Be With You","Hootie & The Blowfish","onesong","smash y2",1994],["Devils Haircut","Beck","a:Beck california lolla","upbeat deep y3 geffen",1996],["My Friends","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","altno1 rockno1 y2",1995],["Dyslexic Heart","Paul Westerberg","onesong","upbeat blast y1",1992],["Gotta Get Away","The Offspring","a:The Offspring california","minor upbeat deep y2",1994],["Geek Stink Breath","Green Day","a:Green Day california lolla","upbeat blast short y2",1995],["Killing In The Name","Rage Against The Machine","california lolla","upbeat long smash explicit y1",1992],["The Beautiful People","Marilyn Manson","onesong","minor upbeat smash explicit y3",1996],["White, Discussion","Live","a:Live","minor blast long y2",1994],["All I Really Want","Alanis Morissette","a:Alanis Morissette female abroad unplugged","minor y2",1995],["Under the Bridge","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","smash y1",1991],["Gone Away","The Offspring","a:The Offspring california","rockno1 dark blast smash y3",1997],["Too Much","Dave Matthews Band","","minor upbeat blast y3",1996],["Miss World","Hole","a:Hole female california unplugged lolla","live y2 geffen",1994],["What Would You Say","Dave Matthews Band","","upbeat blast deep y2",1994],["The New Pollution","Beck","a:Beck california lolla","upbeat deep y3 geffen",1996],["Where Is My Mind?","Pixies","onesong","dark deep y1",1988],["Ironic","Alanis Morissette","a:Alanis Morissette female abroad unplugged","altno1 smash y2 oneword",1995],["Infected","Bad Religion","california onesong","minor upbeat y2 oneword",1994],["Fake Plastic Trees","Radiohead","a:Radiohead abroad","dark deep y2",1995],["People of the Sun","Rage Against The Machine","california lolla","upbeat short y3",1996],["Kitty","The Presidents Of The United States Of America","seattle","deep y2 oneword",1995],["Thunder Kiss '65","White Zombie","","y1 geffen",1992],["Midlife Crisis","Faith No More","california","altno1 y1",1992],["Eddie Vedder","Local H","","blast explicit y3",1996],["Stop","Jane's Addiction","a:Jane's Addiction california lolla","altno1 y1 oneword",1990],["What It's Like","Everlast","onesong","altno1 rockno1 long deep explicit y3",1998],["Blue Monday","Orgy","california onesong","upbeat y3",1998],["The Perfect Drug","Nine Inch Nails","a:Nine Inch Nails lolla","minor dark long deep y3",1997],["Ants Marching","Dave Matthews Band","","upbeat y2",1994],["Wrong Way","Sublime","lostsinger california onesong","upbeat short deep explicit y3 selftitled",1996],["Karma Police","Radiohead","a:Radiohead abroad","deep y3",1997],["Never There","CAKE","california","altno1 minor short y3",1998],["Operation Spirit (The Tyranny Of Tradition)","Live","a:Live","minor y1",1991],["Ball and Chain","Social Distortion","california onesong","blast long y1 selftitled",1990],["Pure Morning","Placebo","abroad onesong","dark deep y3",1998],["Mountain Song","Jane's Addiction","a:Jane's Addiction california lolla","blast y1",1988],["Joey","Concrete Blonde","female california onesong","altno1 y1 oneword",1990],["Wild Horses","The Sundays","female abroad onesong","acoustic dark y1 geffen",1992],["Mysterious Ways","U2","abroad onesong","altno1 upbeat y1",1991],["Are You Gonna Go My Way","Lenny Kravitz","onesong","rockno1 minor upbeat smash y1 titletrack",1993],["Rush","Big Audio Dynamite","abroad onesong","upbeat y1 oneword",1991],["Hell","Squirrel Nut Zippers","onesong","deep y3 oneword",1996],["Black","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor dark long smash y1 oneword",1991],["Last Kiss","Pearl Jam","a:Pearl Jam seattle unplugged lolla","upbeat smash y3",1999],["Once","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor dark explicit y1 oneword",1991],["Go","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor explicit y1 oneword",1993],["Animal","Pearl Jam","a:Pearl Jam seattle unplugged lolla","blast short y1 oneword",1993],["Glorified G","Pearl Jam","a:Pearl Jam seattle unplugged lolla","upbeat y1",1993],["Dissident","Pearl Jam","a:Pearl Jam seattle unplugged lolla","y1 oneword",1993],["Rearviewmirror","Pearl Jam","a:Pearl Jam seattle unplugged lolla","minor blast explicit y1 oneword",1993],["Elderly Woman Behind the Counter in a Small Town","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark y1",1993],["Nothingman","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark y2 oneword",1994],["Better Man","Pearl Jam","a:Pearl Jam seattle unplugged lolla","rockno1 dark smash y2",1994],["Hail, Hail","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark blast y3",1996],["Given to Fly","Pearl Jam","a:Pearl Jam seattle unplugged lolla","rockno1 explicit y3",1998],["Wishlist","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark y3 oneword",1998],["Do the Evolution","Pearl Jam","a:Pearl Jam seattle unplugged lolla","blast y3",1998],["Nutshell","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","minor dark smash y2 oneword",1994],["No Excuses","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","rockno1 upbeat y2",1994],["Sea Of Sorrow","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","long y1",1990],["Got Me Wrong","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","dark y1",1992],["Them Bones","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","blast short smash y1",1992],["Angry Chair","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","dark blast y1",1992],["I Stay Away","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","dark smash y2",1994],["Don't Follow","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","acoustic dark y2",1994],["Again","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","y2 selftitled oneword",1995],["Rusty Cage","Soundgarden","a:Soundgarden seattle lostsinger lolla","dark blast y1",1991],["Jesus Christ Pose","Soundgarden","a:Soundgarden seattle lostsinger lolla","dark blast long y1",1991],["My Wave","Soundgarden","a:Soundgarden seattle lostsinger lolla","minor upbeat blast long y2",1994],["Fell On Black Days","Soundgarden","a:Soundgarden seattle lostsinger lolla","minor smash y2",1994],["Black Hole Sun","Soundgarden","a:Soundgarden seattle lostsinger lolla","rockno1 dark long smash y2",1994],["Spoonman","Soundgarden","a:Soundgarden seattle lostsinger lolla","upbeat blast smash y2 oneword",1994],["The Day I Tried To Live","Soundgarden","a:Soundgarden seattle lostsinger lolla","live long y2",1994],["Rhinosaur","Soundgarden","a:Soundgarden seattle lostsinger lolla","minor upbeat y3 oneword",1996],["Burden In My Hand","Soundgarden","a:Soundgarden seattle lostsinger lolla","rockno1 y3",1996],["You Know You're Right","Nirvana","a:Nirvana seattle lostsinger unplugged","minor smash y3 selftitled geffen",2002],["Yellow Ledbetter","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark long smash y1",1991],["Muzzle","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","minor y2 oneword",1995],["Novocaine For The Soul","Eels","california onesong","altno1 deep explicit y3",1996],["Down In A Hole","Alice In Chains","a:Alice In Chains seattle lostsinger unplugged lolla","long smash y1",1992],["Daughter","Pearl Jam","a:Pearl Jam seattle unplugged lolla","altno1 rockno1 upbeat smash y1 oneword",1993],["Big Empty","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","deep y2",1994],["Loser","Beck","a:Beck california lolla","altno1 upbeat smash y2 oneword geffen",1994],["Zombie","The Cranberries","female lostsinger abroad unplugged","altno1 long deep y2 oneword",1994],["Tonight, Tonight","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","dark smash y2",1995],["In the Blood","Better Than Ezra","","minor y2",1995],["Closing Time","Semisonic","onesong","altno1 dark smash y3 geffen",1998],["Lakini's Juice","Live","a:Live","altno1 y3",1997],["Disarm","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","minor dark smash y1 oneword",1993],["More Human Than Human","White Zombie","","blast explicit y2 geffen",1995],["Laid","James","abroad onesong","upbeat blast short y1 titletrack oneword",1993],["Down By The Water","PJ Harvey","female abroad onesong","y2",1995],["Today","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","y1 oneword",1993],["Love Spreads","The Stone Roses","abroad onesong","long y2 geffen",1994],["Lady Picture Show","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","rockno1 blast y3",1996],["Pain Lies On The Riverside","Live","a:Live","minor upbeat blast long y1",1991],["Rain King","Counting Crows","a:Counting Crows california","acoustic upbeat y1 geffen",1993],["Come Out And Play (Keep ‘Em Separated)","The Offspring","a:The Offspring california","altno1 upbeat deep y2",1994],["Celebrity Skin","Hole","a:Hole female california unplugged lolla","altno1 upbeat blast short smash y3 titletrack geffen",1998],["Unglued","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","blast short deep y2 oneword",1994],["J.A.R. (Jason Andrew Relva)","Green Day","a:Green Day california lolla","altno1 upbeat blast short deep y2 oneword",1995],["Sliver","Nirvana","a:Nirvana seattle lostsinger unplugged","short deep y1 selftitled oneword geffen",1990],["Linger","The Cranberries","female lostsinger abroad unplugged","dark deep y1 oneword",1993],["She","Green Day","a:Green Day california lolla","minor upbeat blast short y2 oneword",1994],["Bitter Sweet Symphony","The Verve","abroad onesong","blast long smash y3",1997],["The Dolphin's Cry","Live","a:Live","minor y3",1999],["Unsung","Helmet","onesong","upbeat y1 oneword",1992],["My Hero","Foo Fighters","a:Foo Fighters seattle","blast smash y3",1997],["Dreams","The Cranberries","female lostsinger abroad unplugged","deep y1 oneword",1993],["Fire Water Burn","Bloodhound Gang","onesong","upbeat explicit y3 geffen",1996],["Don't Stay Home","311","a:311","minor upbeat short y2 selftitled",1995],["Mrs. Robinson","The Lemonheads","onesong","minor upbeat blast deep y1",1992],["Sour Girl","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","upbeat y3",1999],["Warped","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","dark blast long deep y2 oneword",1995],["Walking Contradiction","Green Day","a:Green Day california lolla","upbeat blast short y2",1995],["Wicked Garden","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","blast y1",1992],["Lightning Crashes","Live","a:Live","altno1 rockno1 long smash y2",1994],["Crush With Eyeliner","R.E.M.","unplugged","upbeat deep y2",1994],["Wynona's Big Brown Beaver","Primus","california lolla onesong","blast y2",1995],["Give It Away","Red Hot Chili Peppers","a:Red Hot Chili Peppers california lolla","altno1 upbeat blast smash y1",1991],["I Got Id","Pearl Jam","a:Pearl Jam seattle unplugged lolla","dark y2",1995],["Rocket","The Smashing Pumpkins","a:The Smashing Pumpkins lolla","y1 oneword",1993],["Pretty Penny","Stone Temple Pilots","a:Stone Temple Pilots lostsinger california unplugged","acoustic y2",1994],["Slaves & Bulldozers","Soundgarden","a:Soundgarden seattle lostsinger lolla","dark long y1",1991]],"artists":["Nirvana","Pearl Jam","Alice In Chains","Soundgarden","Stone Temple Pilots","The Smashing Pumpkins","Live","Green Day","Red Hot Chili Peppers","Foo Fighters","Jane's Addiction","Third Eye Blind","Collective Soul","Gin Blossoms","311","Toad The Wet Sprocket","Weezer","The Offspring","Hole","Beck","Counting Crows","The Goo Goo Dolls","Nine Inch Nails","Radiohead","Alanis Morissette"]};
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split(' ').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const TYPE_ROWS = {
+  seattle: ['Seattle-area band', 'Washington State'],
+  female: ['Female lead singer', 'Band or solo'],
+  lostsinger: ['Lead singer has died', 'Or a lead vocalist'],
+  california: ['From California', 'Formed or based there'],
+  abroad: ['From outside the US', 'UK, Ireland, Canada, Australia'],
+  unplugged: ['Did MTV Unplugged', 'In the 1990s'],
+  lolla: ['Played Lollapalooza', '1991 to 1997 tours'],
+  onesong: ['Only one song here', 'Just one on the playlist']
+};
+const COLS = {
+  altno1: ['Modern Rock No. 1', 'Billboard alternative chart'],
+  rockno1: ['Mainstream Rock No. 1', 'Billboard rock chart'],
+  live: ['Live recording', 'The version on the playlist'],
+  acoustic: ['Mostly acoustic', 'Spotify acoustic rating'],
+  minor: ['In a minor key', 'Spotify key analysis'],
+  dark: ['Dark mood', 'Spotify mood rating'],
+  upbeat: ['Upbeat mood', 'Spotify mood rating'],
+  blast: ['Full blast', 'Top energy rating'],
+  long: ['5 minutes or longer', 'Track length'],
+  short: ['Under 3 minutes', 'Track length'],
+  deep: ['Deep cut', 'Least-played quarter on Spotify'],
+  smash: ['Spotify smash', 'Most-played quarter'],
+  explicit: ['Explicit', 'Spotify explicit tag'],
+  y1: ['Released by 1993', 'Original release'],
+  y2: ['Released 1994–95', 'Original release'],
+  y3: ['Released 1996 or later', 'Original release'],
+  selftitled: ['From a self-titled album', 'Album shares the band name'],
+  oneword: ['One-word title', 'Ignoring parentheses'],
+  geffen: ['On Geffen or DGC', 'Record label']
+};
+const CLASH = [['y1','y2'],['y1','y3'],['y2','y3'],['dark','upbeat'],['long','short'],['deep','smash']];
+const ROWS = DATA.artists.map(a => 'a:' + a).concat(Object.keys(TYPE_ROWS));
+const rowLabel = r => r.startsWith('a:') ? [r.slice(2), ''] : TYPE_ROWS[r];
+
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function makeGrid(seed) {
+  const r = rng(seed);
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(Object.keys(COLS), r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    const rows = shuffle(ROWS, r).slice(0, 3);
+    if (rows.filter(x => !x.startsWith('a:')).length > 1) continue;
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (!n) ok = false; if (n === 1) thin++; }
+    if (ok && thin <= 2) return { rows, cols };
+  }
+  return { rows: ['a:Nirvana', 'a:Pearl Jam', 'seattle'], cols: ['altno1', 'minor', 'y1'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('fl:' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('fl:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('fl:' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Band × song fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row.startsWith('a:') ? '' : ' type'); rh.append(lab);
+    if (!row.startsWith('a:')) { const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm); }
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.credit;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title + ' by ' + s.credit);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show songs that would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.credit) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a song or band.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; if (a.split(' ').some(w => w.startsWith(q)) || a.startsWith(q)) return 3; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">That song isn’t on the playlist.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.credit + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+const last = store.get('fl:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>
