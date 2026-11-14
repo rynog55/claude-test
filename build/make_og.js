@@ -9,6 +9,7 @@ const games = [
   ['og-ride-grid.png', 'Ride Grid', 'Por favor, manténganse alejados de las puertas.', '#0c1820', '#eef5f8', '#ff7a5c', '#5cc9e0'],
   ['og-wizard-grid.png', 'Wizard Grid', 'Harry Potter trivia from the seven books', '#15121a', '#f2ecf6', '#e0687a', '#e2b75a'],
   ['og-galaxy-grid.png', 'Galaxy Grid', 'Episodes I–VI. Nothing after.', '#07080d', '#eef0f6', '#ffe81f', '#5aa9ff'],
+  ['og-throne-grid.png', 'Throne Grid', 'The show only. Yes, season 8 counts.', '#121316', '#ecebe8', '#e05a4a', '#c9a557'],
   ['og-index.png', 'Grid Games', 'Daily music trivia', '#141312', '#f1eee9', '#ef6a5c', '#6fc39a'],
 ];
 (async () => {

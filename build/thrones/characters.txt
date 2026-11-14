@@ -1,0 +1,111 @@
+# name | groups | tags | death season (0 = alive at the end; - = never shown dying)     HBO show only, seasons 1–8
+# groups: stark lannister targaryen baratheon greyjoy tyrell martell tully bolton (birth, or married in and took the name; Jon counts as Stark and Targaryen;
+#         Joffrey/Tommen/Myrcella count as Baratheon and Lannister), watch (Night's Watch), kingsguard (incl. Queensguard), council (Small Council, any time), freefolk
+# tags: king (king or queen, ruler or claimant), hand (Hand of the King/Queen), dragon (rode a dragon), resurrected, aryakill (killed by Arya), bastard
+Eddard "Ned" Stark|stark council|hand|1
+Catelyn Stark|stark tully||3
+Robb Stark|stark|king|3
+Sansa Stark|stark|king|0
+Arya Stark|stark||0
+Bran Stark|stark|king|0
+Rickon Stark|stark||6
+Jon Snow|stark targaryen watch|king dragon resurrected bastard|0
+Benjen Stark|stark watch||7
+Talisa Stark|stark||3
+Tywin Lannister|lannister council|hand|4
+Cersei Lannister|lannister council|king|8
+Jaime Lannister|lannister kingsguard||8
+Tyrion Lannister|lannister council|hand|0
+Kevan Lannister|lannister council|hand|6
+Lancel Lannister|lannister||6
+Joffrey Baratheon|baratheon lannister|king|4
+Tommen Baratheon|baratheon lannister|king|6
+Myrcella Baratheon|baratheon lannister||5
+Robert Baratheon|baratheon|king|1
+Stannis Baratheon|baratheon|king|5
+Renly Baratheon|baratheon council|king|2
+Shireen Baratheon|baratheon||5
+Selyse Baratheon|baratheon||5
+Gendry|baratheon|bastard|0
+Daenerys Targaryen|targaryen|king dragon|8
+Viserys Targaryen|targaryen|king|1
+Maester Aemon|targaryen watch||5
+Balon Greyjoy|greyjoy|king|6
+Theon Greyjoy|greyjoy||8
+Yara Greyjoy|greyjoy||0
+Euron Greyjoy|greyjoy|king|8
+Olenna Tyrell|tyrell||7
+Margaery Tyrell|tyrell||6
+Loras Tyrell|tyrell||6
+Mace Tyrell|tyrell council||6
+Oberyn Martell|martell||4
+Doran Martell|martell||6
+Trystane Martell|martell||6
+Obara Sand|martell|bastard|7
+Nymeria Sand|martell|bastard|7
+Tyene Sand|martell|bastard|-
+Ellaria Sand||bastard|-
+Roose Bolton|bolton||6
+Ramsay Bolton|bolton|bastard|6
+Walder Frey||aryakill|6
+Edmure Tully|tully||0
+Brynden "Blackfish" Tully|tully||6
+Hoster Tully|tully||3
+Lysa Arryn|tully||4
+Robin Arryn|||0
+Jeor Mormont|watch||3
+Jorah Mormont|||8
+Lyanna Mormont|||8
+Samwell Tarly|watch council||0
+Alliser Thorne|watch||6
+Grenn|watch||4
+Pypar|watch||4
+Eddison Tollett|watch||8
+Olly|watch||6
+Janos Slynt|watch||5
+Yoren|watch||2
+Qhorin Halfhand|watch||2
+Rast|watch||3
+Barristan Selmy|kingsguard||5
+Sandor "The Hound" Clegane|kingsguard||8
+Gregor "The Mountain" Clegane|kingsguard|resurrected|8
+Meryn Trant|kingsguard|aryakill|5
+Mandon Moore|kingsguard||2
+Preston Greenfield|kingsguard||1
+Brienne of Tarth|kingsguard council||0
+Podrick Payne|kingsguard||0
+Petyr "Littlefinger" Baelish|council|aryakill|7
+Varys|council||8
+Grand Maester Pycelle|council||6
+Qyburn|council|hand|8
+Davos Seaworth|council|hand|0
+Bronn|council||0
+Mance Rayder|freefolk|king|5
+Tormund Giantsbane|freefolk||0
+Ygritte|freefolk||4
+Orell|freefolk||3
+Gilly|freefolk||0
+Craster|freefolk||3
+Osha|freefolk||6
+Wun Wun|freefolk||6
+Melisandre|||8
+Hodor|||6
+Meera Reed|||0
+Jojen Reed|||4
+Grey Worm|||0
+Missandei|||8
+Daario Naharis|||0
+Shae|||4
+Ros|||3
+Hot Pie|||0
+The High Sparrow|||6
+Beric Dondarrion||resurrected|8
+Thoros of Myr|||7
+Jaqen H'ghar|||0
+The Waif||aryakill|6
+Polliver||aryakill|4
+The Night King||dragon aryakill|8
+Khal Drogo|||1
+Syrio Forel|||-
+Ilyn Payne|||-
+Matthos Seaworth|||2
