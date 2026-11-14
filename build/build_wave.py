@@ -2,7 +2,7 @@ t = open('pop/template.html').read()
 def rep(a, b, n=1):
     global t
     assert a in t, a[:70]; t = t.replace(a, b) if n == 0 else t.replace(a, b, n)
-rep('<title>Hook Grid</title>', '<title>Wave Grid</title>')
+rep('<title>Hook Grid</title>', '<title>First Wave Grid</title>')
 rep('family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans', 'family=Bebas+Neue&family=DM+Sans')
 rep('like a chart sheet', 'like a neon club flyer')
 rep("""  --bg: #f3effa;
@@ -21,14 +21,14 @@ rep("""  --bg: #f3effa;
 rep('--font-display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;', '--font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;')
 rep("--bg: #130e20; --panel: #1f1833; --ink: #f2edfb; --muted: #a79cc2; --line: #342a4d;", "--bg: #110d22; --panel: #1b1633; --ink: #f3efff; --muted: #a59fc4; --line: #2f2a4f;", 0)
 rep("--accent: #ff4f96; --accent-2: #6aa0ff; --accent-ink: #1a0610;", "--accent: #ff4fa3; --accent-2: #33d6e6; --accent-ink: #1e0414;", 0)
-rep('h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 9vw, 40px); line-height: .95; margin: 0; letter-spacing: -.03em;', 'h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 12vw, 56px); line-height: .9; margin: 0; letter-spacing: .02em;')
+rep('h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 9vw, 40px); line-height: .95; margin: 0; letter-spacing: -.03em;', 'h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 10vw, 52px); line-height: .9; margin: 0; letter-spacing: .02em;')
 rep('.left b { display: block; font-family: var(--font-display); font-weight: 800;', '.left b { display: block; font-family: var(--font-display); font-weight: 400;')
 rep('.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-display); font-weight: 700; font-size: 13.5px; letter-spacing: -.01em; }', '.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }')
 rep('font-family: var(--font-display); font-weight: 800; font-size: clamp(12.5px, 3.6vw, 16px); letter-spacing: -.02em; }', 'font-family: var(--font-display); font-weight: 400; font-size: clamp(15px, 4.4vw, 20px); letter-spacing: .02em; overflow-wrap: normal; }')
 rep('.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 800;', '.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400;')
 rep('.prompt { font-family: var(--font-display); font-weight: 700;', '.prompt { font-family: var(--font-display); font-weight: 400;')
 rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, minmax(0, 1fr)); gap: 6px; }', '.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }')
-rep('<h1>Hook <span>Grid</span></h1>', '<h1>Wave <span>Grid</span></h1>')
+rep('<h1>Hook <span>Grid</span></h1>', '<h1>First Wave <span>Grid</span></h1>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a song from <b>your new wave playlist</b> that fits the <b>band on the left</b> and the <b>fact on top</b>. You get 9 guesses, and each song can be used once.</p>
   <p class="rules">The answer list is the songs on your Spotify playlist of classic new wave, synth-pop and post-punk heard on satellite radio. This game isn't affiliated with SiriusXM. Length, popularity, danceability, mood, key and genre come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. US top 10 and UK No. 1 hits come from Wikipedia's chart pages. Years use the song's original release, and band facts were tagged by hand. Your guesses are saved on this device.</p>

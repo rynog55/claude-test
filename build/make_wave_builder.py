@@ -2,7 +2,7 @@ p = open('build_lith.py').read()
 def sub(a, b):
     global p
     assert a in p, a[:80]; p = p.replace(a, b)
-sub("'<title>Flannel Grid</title>'", "'<title>Wave Grid</title>'")
+sub("'<title>Flannel Grid</title>'", "'<title>First Wave Grid</title>'")
 sub("'family=Special+Elite&family=DM+Sans'", "'family=Bebas+Neue&family=DM+Sans'")
 sub("'like a photocopied zine page'", "'like a neon club flyer'")
 sub('''  --bg: #e7e6e2;
@@ -21,9 +21,9 @@ sub('''  --bg: #e7e6e2;
 sub("""'--font-display: "Special Elite", "Courier New", monospace;'""", """'--font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;'""")
 sub('"--bg: #131310; --panel: #1e1d19; --ink: #efece4; --muted: #a39e92; --line: #363329;"', '"--bg: #110d22; --panel: #1b1633; --ink: #f3efff; --muted: #a59fc4; --line: #2f2a4f;"')
 sub('"--accent: #e8604f; --accent-2: #6fc39a; --accent-ink: #1c0805;"', '"--accent: #ff4fa3; --accent-2: #33d6e6; --accent-ink: #1e0414;"')
-sub("font-size: clamp(30px, 9vw, 42px); line-height: 1; margin: 0; letter-spacing: -.01em;", "font-size: clamp(40px, 12vw, 56px); line-height: .9; margin: 0; letter-spacing: .02em;")
+sub("font-size: clamp(30px, 9vw, 42px); line-height: 1; margin: 0; letter-spacing: -.01em;", "font-size: clamp(34px, 10vw, 52px); line-height: .9; margin: 0; letter-spacing: .02em;")
 sub("font-size: clamp(11px, 3.2vw, 15px); letter-spacing: -.035em; overflow-wrap: normal; }'", "font-size: clamp(15px, 4.4vw, 20px); letter-spacing: .02em; overflow-wrap: normal; }'")
-sub("'<h1>Flannel <span>Grid</span></h1>'", "'<h1>Wave <span>Grid</span></h1>'")
+sub("'<h1>Flannel <span>Grid</span></h1>'", "'<h1>First Wave <span>Grid</span></h1>'")
 a = p.index('t = t[:a] + """  <p class="rules">'); b = p.index('""" + t[b:]', a)
 p = p[:a] + '''t = t[:a] + """  <p class="rules">Tap a square and name a song from <b>your new wave playlist</b> that fits the <b>band on the left</b> and the <b>fact on top</b>. You get 9 guesses, and each song can be used once.</p>
   <p class="rules">The answer list is the songs on your Spotify playlist of classic new wave, synth-pop and post-punk heard on satellite radio. This game isn't affiliated with SiriusXM. Length, popularity, danceability, mood, key and genre come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. US top 10 and UK No. 1 hits come from Wikipedia's chart pages. Years use the song's original release, and band facts were tagged by hand. Your guesses are saved on this device.</p>
