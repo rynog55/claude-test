@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111">
 <title>First Wave Grid</title>
+<meta name="description" content="Today’s 3×3 music trivia grid. Can you fill every square?">
+<meta property="og:type" content="website">
+<meta property="og:title" content="First Wave Grid">
+<meta property="og:description" content="Today’s 3×3 music trivia grid. Can you fill every square?">
+<meta property="og:image" content="https://rynog55.github.io/claude-test/site/og-first-wave-grid.png">
+<meta property="og:url" content="https://rynog55.github.io/claude-test/site/first-wave-grid.html">
+<meta name="twitter:card" content="summary_large_image">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -131,6 +138,7 @@ h1 span { color: var(--accent); }
 .ans .bar { height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
 .ans .bar i { display: block; height: 100%; background: var(--accent); }
 .ans.mine { background: var(--hit-soft); border-radius: 8px; }
+.share-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
 .ans .mine-tag { font-size: 11px; font-weight: 700; color: var(--hit); text-transform: uppercase; letter-spacing: .06em; }
 </style>
 
@@ -401,6 +409,7 @@ function decorate() {
       btn.appendChild(top);
     }
   }
+  if (over) addShareRow();
   if (over) { const p = $('sumText'); if (p && !p.dataset.tapHint) { p.dataset.tapHint = '1'; p.textContent += ' Tap any square to see every answer that worked and how often players picked it.'; } }
 }
 function openAnswers(idx) {
@@ -428,6 +437,47 @@ function openAnswers(idx) {
   if (typeof fitSheet === 'function') fitSheet();
 }
 window.__gridTest = { firstAnswer: () => answers(G.rows[0], G.cols[0])[0].title };
+
+const LAUNCH = Date.UTC(2026, 10, 14);
+function puzzleNo() { if (!isDaily()) return null; const d = seed.slice(6).split('-').map(Number); return Math.round((Date.UTC(d[0], d[1] - 1, d[2]) - LAUNCH) / 864e5) + 1; }
+function shareText() {
+  const n = S.cells.filter(c => c !== null).length, no = puzzleNo();
+  const mode = (typeof MODE !== 'undefined') ? ' (' + MODE[0].toUpperCase() + MODE.slice(1) + ')' : '';
+  const head = document.title + (no ? ' #' + no : ' · random grid') + mode + ' ' + n + '/9';
+  const rows = [0, 1, 2].map(r => [0, 1, 2].map(c => S.cells[r * 3 + c] !== null ? '\u{1F7E9}' : '\u{1F7E5}').join('')).join('\n');
+  return head + '\n' + rows;
+}
+const shareUrl = () => location.origin + location.pathname;
+async function shareScore(btn) {
+  const text = shareText(), url = shareUrl();
+  if (navigator.share) {
+    try { await navigator.share({ text: text + '\nPlay Here', url }); return; }
+    catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  copyScore($('copyScore'));
+}
+async function copyScore(btn) {
+  const text = shareText(), url = shareUrl(), plain = text + '\nPlay Here: ' + url;
+  const html = text.split('\n').join('<br>') + '<br><a href="' + url + '">Play Here</a>';
+  let ok = false;
+  try {
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+      await navigator.clipboard.write([new ClipboardItem({ 'text/plain': new Blob([plain], { type: 'text/plain' }), 'text/html': new Blob([html], { type: 'text/html' }) })]);
+      ok = true;
+    }
+  } catch (e) {}
+  if (!ok) { try { await navigator.clipboard.writeText(plain); ok = true; } catch (e) {} }
+  if (btn) { btn.textContent = ok ? 'Copied!' : 'Couldn’t copy'; setTimeout(() => { btn.textContent = 'Copy score'; }, 2000); }
+}
+function addShareRow() {
+  const sum = $('summary'); if (!sum || $('shareRow')) return;
+  const row = document.createElement('div'); row.className = 'share-row'; row.id = 'shareRow';
+  const a = document.createElement('button'); a.type = 'button'; a.className = 'btn primary'; a.id = 'shareScore'; a.textContent = 'Share score';
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.id = 'copyScore'; b.textContent = 'Copy score';
+  a.addEventListener('click', () => shareScore(a)); b.addEventListener('click', () => copyScore(b));
+  row.append(a, b); sum.appendChild(row);
+}
+window.__gridTest.shareText = () => shareText();
 const _render = render; render = function () { _render(); renderStats(); decorate(); };
 const _openSheet = openSheet; openSheet = function (idx) { $('q').hidden = false; _openSheet(idx); };
 const _load = load; load = function (sd) { STATS = null; STATS_STATE = 'idle'; _load(sd); loadStats(); };
