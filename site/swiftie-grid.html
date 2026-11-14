@@ -219,6 +219,22 @@ function rng(seedStr) {
 const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
 
+function solvable(rs, cs) {
+  // Bipartite matching: can every square get its own distinct answer?
+  const lists = [];
+  for (const r of rs) for (const c of cs) lists.push(answers(r, c).map(x => x.i));
+  const owner = new Map();
+  const tryCell = (k, seen) => {
+    for (const a of lists[k]) {
+      if (seen.has(a)) continue; seen.add(a);
+      if (!owner.has(a) || tryCell(owner.get(a), seen)) { owner.set(a, k); return true; }
+    }
+    return false;
+  };
+  for (let k = 0; k < lists.length; k++) if (!tryCell(k, new Set())) return false;
+  return true;
+}
+window.__solvable = () => (G.schools ? solvable(G.schools, G.cats) : solvable(G.rows, G.cols));
 function makeGrid(seed) {
   const r = rng(seed);
   for (let tries = 0; tries < 6000; tries++) {
@@ -228,7 +244,7 @@ function makeGrid(seed) {
     const rows = shuffle(ROWS, r).slice(0, 3);
     let ok = true, thin = 0;
     for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (!n) ok = false; if (n === 1) thin++; }
-    if (ok && thin <= 3) return { rows, cols };
+    if (ok && solvable(rows, cols) && thin <= 3) return { rows, cols };
   }
   return { rows: ['red', '1989', 'folklore'], cols: ['color', 'single', 'oneword'] };
 }

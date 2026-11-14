@@ -189,6 +189,22 @@ function rng(seedStr) {
 const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
 
+function solvable(rs, cs) {
+  // Bipartite matching: can every square get its own distinct answer?
+  const lists = [];
+  for (const r of rs) for (const c of cs) lists.push(answers(r, c).map(x => x.i));
+  const owner = new Map();
+  const tryCell = (k, seen) => {
+    for (const a of lists[k]) {
+      if (seen.has(a)) continue; seen.add(a);
+      if (!owner.has(a) || tryCell(owner.get(a), seen)) { owner.set(a, k); return true; }
+    }
+    return false;
+  };
+  for (let k = 0; k < lists.length; k++) if (!tryCell(k, new Set())) return false;
+  return true;
+}
+window.__solvable = () => (G.schools ? solvable(G.schools, G.cats) : solvable(G.rows, G.cols));
 function makeGrid(seed) {
   const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;
   for (let tries = 0; tries < 6000; tries++) {
@@ -198,7 +214,7 @@ function makeGrid(seed) {
     if (cols.some(c => c.startsWith('in_') && rows.includes(c.slice(3)))) continue;
     let ok = true, thin = 0;
     for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (n < (c.startsWith('in_') ? 1 : MIN)) ok = false; if (n === 1) thin++; }
-    if (ok && thin <= 2) return { rows, cols };
+    if (ok && solvable(rows, cols) && thin <= 2) return { rows, cols };
   }
   return { rows: ['ep4', 'ep5', 'jedi'], cols: ['saber', 'dies', 'in_ep6'] };
 }
