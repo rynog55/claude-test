@@ -1,0 +1,91 @@
+# name | films | groups | tags      Episodes I–VI only, current versions (Special Editions count)
+# films: 1 Phantom Menace, 2 Attack of the Clones, 3 Revenge of the Sith, 4 A New Hope, 5 Empire Strikes Back, 6 Return of the Jedi
+# groups: jedi sith rebel empire republic separatist hunter
+# tags: saber (wields a lightsaber on screen), dies (dies on screen), pilot (flies a ship on screen), droid, alien (non-human, not a droid),
+#       skywalker (family by blood or marriage), tatooine (lived on Tatooine), limb (loses a hand, arm or more on screen)
+Anakin Skywalker / Darth Vader|1 2 3 4 5 6|jedi sith empire|saber dies pilot skywalker tatooine limb
+Luke Skywalker|3 4 5 6|jedi rebel|saber pilot skywalker tatooine limb
+Leia Organa|3 4 5 6|rebel|skywalker
+Han Solo|4 5 6|rebel|saber pilot
+Chewbacca|3 4 5 6|rebel|pilot alien
+C-3PO|1 2 3 4 5 6|rebel|droid tatooine
+R2-D2|1 2 3 4 5 6|rebel|droid
+Obi-Wan Kenobi|1 2 3 4 5 6|jedi|saber dies pilot tatooine
+Yoda|1 2 3 5 6|jedi|saber dies alien
+Palpatine / Darth Sidious|1 2 3 5 6|sith empire republic|saber dies
+Qui-Gon Jinn|1|jedi|saber dies
+Padmé Amidala|1 2 3|republic|dies skywalker
+Mace Windu|1 2 3|jedi|saber dies limb
+Count Dooku|2 3|sith separatist|saber dies limb
+Darth Maul|1|sith|saber dies alien limb
+General Grievous|3|separatist|saber dies alien limb
+Jango Fett|2|hunter|dies pilot
+Boba Fett|2 4 5 6|hunter|pilot
+Jabba the Hutt|1 4 6||dies alien tatooine
+Lando Calrissian|5 6|rebel|pilot
+Wedge Antilles|4 5 6|rebel|pilot
+Biggs Darklighter|4|rebel|dies pilot tatooine
+Jek Porkins|4|rebel|dies pilot
+Red Leader (Garven Dreis)|4|rebel|dies pilot
+General Dodonna|4|rebel|
+Admiral Ackbar|6|rebel|alien
+Nien Nunb|6|rebel|pilot alien
+General Rieekan|5|rebel|
+Dak Ralter|5|rebel|dies pilot
+Mon Mothma|6|rebel|
+General Madine|6|rebel|
+Wicket|6||alien
+Bail Organa|2 3|republic|
+Captain Antilles|3 4|republic rebel|dies
+Grand Moff Tarkin|3 4|empire|dies
+Admiral Piett|5 6|empire|dies
+Admiral Ozzel|5|empire|dies
+Captain Needa|5|empire|dies
+General Veers|5|empire|
+Moff Jerjerrod|6|empire|dies
+Owen Lars|2 3 4||dies skywalker tatooine
+Beru Lars|2 3 4||dies skywalker tatooine
+Shmi Skywalker|1 2||dies skywalker tatooine
+Cliegg Lars|2||skywalker tatooine
+Watto|1 2||alien tatooine
+Sebulba|1||pilot alien
+Jar Jar Binks|1 2 3|republic|alien
+Boss Nass|1||alien
+Captain Panaka|1||
+Ric Olié|1||pilot
+Sabé|1||
+Chancellor Valorum|1|republic|
+Mas Amedda|1 2 3|republic|alien
+Nute Gunray|1 2 3|separatist|dies alien
+Rune Haako|1|separatist|alien
+OOM-9|1|separatist|droid
+TC-14|1||droid
+Kit Fisto|2 3|jedi|saber dies alien
+Ki-Adi-Mundi|1 2 3|jedi|saber dies alien
+Plo Koon|1 2 3|jedi|saber dies pilot alien
+Aayla Secura|2 3|jedi|saber dies alien
+Shaak Ti|2 3|jedi|saber alien
+Luminara Unduli|2 3|jedi|saber alien
+Saesee Tiin|1 2 3|jedi|saber dies alien
+Agen Kolar|2 3|jedi|saber dies alien
+Poggle the Lesser|2 3|separatist|dies alien
+Commander Cody|3|republic|
+Captain Typho|2|republic|
+Zam Wesell|2|hunter|dies alien
+Dexter Jettster|2||alien
+Lama Su|2||alien
+Greedo|4|hunter|dies alien
+Ponda Baba|4||alien limb
+Dr. Evazan|4||
+R5-D4|4||droid tatooine
+Bossk|5 6|hunter|alien
+Dengar|5 6|hunter|
+IG-88|5|hunter|droid
+4-LOM|5|hunter|droid
+Zuckuss|5|hunter|alien
+Lobot|5||
+Bib Fortuna|6||alien tatooine
+Oola|6||dies alien
+Max Rebo|6||alien
+Salacious Crumb|6||alien
+EV-9D9|6||droid
