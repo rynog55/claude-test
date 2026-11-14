@@ -1,0 +1,731 @@
+[
+{
+"album": "i",
+"title": "Good Times Bad Times",
+"writers": "Jimmy Page John Paul Jones John Bonham Robert Plant",
+"secs": 165,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "i",
+"title": "Babe I'm Gonna Leave You",
+"writers": "Anne Bredon Page Plant",
+"secs": 400,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "i",
+"title": "You Shook Me",
+"writers": "Willie Dixon J. B. Lenoir",
+"secs": 390,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "i",
+"title": "Dazed and Confused",
+"writers": "Page (inspired by Jake Holmes )",
+"secs": 387,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "i",
+"title": "Your Time Is Gonna Come",
+"writers": "Page Jones Plant",
+"secs": 281,
+"side": 2,
+"sidepos": 1,
+"sidelen": 5
+},
+{
+"album": "i",
+"title": "Black Mountain Side",
+"writers": "Page",
+"secs": 126,
+"side": 2,
+"sidepos": 2,
+"sidelen": 5
+},
+{
+"album": "i",
+"title": "Communication Breakdown",
+"writers": "Page Jones Bonham Plant",
+"secs": 146,
+"side": 2,
+"sidepos": 3,
+"sidelen": 5
+},
+{
+"album": "i",
+"title": "I Can't Quit You Baby",
+"writers": "Dixon",
+"secs": 281,
+"side": 2,
+"sidepos": 4,
+"sidelen": 5
+},
+{
+"album": "i",
+"title": "How Many More Times",
+"writers": "Page Jones Bonham Plant",
+"secs": 508,
+"side": 2,
+"sidepos": 5,
+"sidelen": 5
+},
+{
+"album": "ii",
+"title": "Whole Lotta Love",
+"writers": "Jimmy Page Robert Plant John Paul Jones John Bonham Willie Dixon",
+"secs": 333,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "ii",
+"title": "What Is and What Should Never Be",
+"writers": "Page Plant",
+"secs": 287,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "ii",
+"title": "The Lemon Song",
+"writers": "Page Plant Jones Bonham Chester Burnett",
+"secs": 380,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "ii",
+"title": "Thank You",
+"writers": "Page Plant",
+"secs": 230,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "ii",
+"title": "Heartbreaker",
+"writers": "Page Plant Jones Bonham",
+"secs": 255,
+"side": 2,
+"sidepos": 1,
+"sidelen": 5
+},
+{
+"album": "ii",
+"title": "Living Loving Maid (She's Just a Woman)",
+"writers": "Page Plant",
+"secs": 160,
+"side": 2,
+"sidepos": 2,
+"sidelen": 5
+},
+{
+"album": "ii",
+"title": "Ramble On",
+"writers": "Page Plant",
+"secs": 275,
+"side": 2,
+"sidepos": 3,
+"sidelen": 5
+},
+{
+"album": "ii",
+"title": "Moby Dick",
+"writers": "Page Jones Bonham",
+"secs": 265,
+"side": 2,
+"sidepos": 4,
+"sidelen": 5
+},
+{
+"album": "ii",
+"title": "Bring It On Home",
+"writers": "Page Plant Jones Bonham Dixon",
+"secs": 259,
+"side": 2,
+"sidepos": 5,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Immigrant Song",
+"writers": "Jimmy Page Robert Plant",
+"secs": 146,
+"side": 1,
+"sidepos": 1,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Friends",
+"writers": "Page Plant",
+"secs": 235,
+"side": 1,
+"sidepos": 2,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Celebration Day",
+"writers": "Page Plant John Paul Jones",
+"secs": 209,
+"side": 1,
+"sidepos": 3,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Since I've Been Loving You",
+"writers": "Page Plant Jones",
+"secs": 445,
+"side": 1,
+"sidepos": 4,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Out on the Tiles",
+"writers": "Page Plant John Bonham",
+"secs": 244,
+"side": 1,
+"sidepos": 5,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Gallows Pole",
+"writers": "Traditional arr. Page and Plant",
+"secs": 298,
+"side": 2,
+"sidepos": 1,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Tangerine",
+"writers": "Page",
+"secs": 192,
+"side": 2,
+"sidepos": 2,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "That's the Way",
+"writers": "Page Plant",
+"secs": 338,
+"side": 2,
+"sidepos": 3,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Bron-Y-Aur Stomp",
+"writers": "Page Plant Jones",
+"secs": 260,
+"side": 2,
+"sidepos": 4,
+"sidelen": 5
+},
+{
+"album": "iii",
+"title": "Hats Off to (Roy) Harper",
+"writers": "Traditional arr. Charles Obscure",
+"secs": 221,
+"side": 2,
+"sidepos": 5,
+"sidelen": 5
+},
+{
+"album": "iv",
+"title": "Black Dog",
+"writers": "Page Plant John Paul Jones",
+"secs": 295,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "Rock and Roll",
+"writers": "Page Plant Jones John Bonham",
+"secs": 220,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "The Battle of Evermore",
+"writers": "Page Plant",
+"secs": 351,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "Stairway to Heaven",
+"writers": "Page Plant",
+"secs": 482,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "Misty Mountain Hop",
+"writers": "Page Plant Jones",
+"secs": 278,
+"side": 2,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "Four Sticks",
+"writers": "Page Plant",
+"secs": 285,
+"side": 2,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "Going to California",
+"writers": "Page Plant",
+"secs": 212,
+"side": 2,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "iv",
+"title": "When the Levee Breaks",
+"writers": "Page Plant Jones Bonham Memphis Minnie",
+"secs": 428,
+"side": 2,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "The Song Remains the Same",
+"writers": "Page Plant",
+"secs": 332,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "The Rain Song",
+"writers": "Page Plant",
+"secs": 459,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "Over the Hills and Far Away",
+"writers": "Page Plant",
+"secs": 290,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "The Crunge",
+"writers": "Page Plant John Paul Jones John Bonham",
+"secs": 197,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "Dancing Days",
+"writers": "Page Plant",
+"secs": 223,
+"side": 2,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "D'yer Mak'er",
+"writers": "Page Plant Jones Bonham",
+"secs": 263,
+"side": 2,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "No Quarter",
+"writers": "Jones Page Plant",
+"secs": 420,
+"side": 2,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "hoth",
+"title": "The Ocean",
+"writers": "Page Plant Jones Bonham",
+"secs": 271,
+"side": 2,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "pg",
+"title": "Custard Pie",
+"writers": "Page Plant",
+"secs": 253,
+"side": 1,
+"sidepos": 1,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "The Rover",
+"writers": "Page Plant",
+"secs": 336,
+"side": 1,
+"sidepos": 2,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "In My Time of Dying",
+"writers": "John Paul Jones Page Plant John Bonham Blind Willie Johnson",
+"secs": 664,
+"side": 1,
+"sidepos": 3,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "Houses of the Holy",
+"writers": "Page Plant",
+"secs": 241,
+"side": 2,
+"sidepos": 1,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "Trampled Under Foot",
+"writers": "Jones Page Plant",
+"secs": 335,
+"side": 2,
+"sidepos": 2,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "Kashmir",
+"writers": "Bonham Page Plant",
+"secs": 517,
+"side": 2,
+"sidepos": 3,
+"sidelen": 3
+},
+{
+"album": "pg",
+"title": "In the Light",
+"writers": "Jones Page Plant",
+"secs": 524,
+"side": 3,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "pg",
+"title": "Bron-Yr-Aur",
+"writers": "Page",
+"secs": 126,
+"side": 3,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "pg",
+"title": "Down by the Seaside",
+"writers": "Page Plant",
+"secs": 314,
+"side": 3,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "pg",
+"title": "Ten Years Gone",
+"writers": "Page Plant",
+"secs": 391,
+"side": 3,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "pg",
+"title": "Night Flight",
+"writers": "Jones Page Plant",
+"secs": 216,
+"side": 4,
+"sidepos": 1,
+"sidelen": 5
+},
+{
+"album": "pg",
+"title": "The Wanton Song",
+"writers": "Page Plant",
+"secs": 246,
+"side": 4,
+"sidepos": 2,
+"sidelen": 5
+},
+{
+"album": "pg",
+"title": "Boogie with Stu",
+"writers": "Bonham Jones Page Plant Ian Stewart Ritchie Valens",
+"secs": 231,
+"side": 4,
+"sidepos": 3,
+"sidelen": 5
+},
+{
+"album": "pg",
+"title": "Black Country Woman",
+"writers": "Page Plant",
+"secs": 264,
+"side": 4,
+"sidepos": 4,
+"sidelen": 5
+},
+{
+"album": "pg",
+"title": "Sick Again",
+"writers": "Page Plant",
+"secs": 283,
+"side": 4,
+"sidepos": 5,
+"sidelen": 5
+},
+{
+"album": "presence",
+"title": "Achilles Last Stand",
+"writers": "?",
+"secs": 626,
+"side": 1,
+"sidepos": 1,
+"sidelen": 3
+},
+{
+"album": "presence",
+"title": "For Your Life",
+"writers": "?",
+"secs": 381,
+"side": 1,
+"sidepos": 2,
+"sidelen": 3
+},
+{
+"album": "presence",
+"title": "Royal Orleans",
+"writers": "Page, Plant, John Paul Jones , John Bonham",
+"secs": 178,
+"side": 1,
+"sidepos": 3,
+"sidelen": 3
+},
+{
+"album": "presence",
+"title": "Nobody's Fault but Mine",
+"writers": "?",
+"secs": 387,
+"side": 2,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "presence",
+"title": "Candy Store Rock",
+"writers": "?",
+"secs": 250,
+"side": 2,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "presence",
+"title": "Hots on for Nowhere",
+"writers": "?",
+"secs": 282,
+"side": 2,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "presence",
+"title": "Tea for One",
+"writers": "?",
+"secs": 567,
+"side": 2,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "itod",
+"title": "In the Evening",
+"writers": "Jones Page Plant",
+"secs": 408,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "itod",
+"title": "South Bound Saurez",
+"writers": "Jones Plant",
+"secs": 251,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "itod",
+"title": "Fool in the Rain",
+"writers": "Jones Page Plant",
+"secs": 368,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "itod",
+"title": "Hot Dog",
+"writers": "Page Plant",
+"secs": 195,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "itod",
+"title": "Carouselambra",
+"writers": "Jones Page Plant",
+"secs": 628,
+"side": 2,
+"sidepos": 1,
+"sidelen": 3
+},
+{
+"album": "itod",
+"title": "All My Love",
+"writers": "Jones Plant",
+"secs": 351,
+"side": 2,
+"sidepos": 2,
+"sidelen": 3
+},
+{
+"album": "itod",
+"title": "I'm Gonna Crawl",
+"writers": "Jones Page Plant",
+"secs": 328,
+"side": 2,
+"sidepos": 3,
+"sidelen": 3
+},
+{
+"album": "coda",
+"title": "We're Gonna Groove",
+"writers": "Ben E. King James Bethea",
+"secs": 160,
+"side": 1,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Poor Tom",
+"writers": "Page Plant",
+"secs": 182,
+"side": 1,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "I Can't Quit You Baby",
+"writers": "Willie Dixon",
+"secs": 258,
+"side": 1,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Walter's Walk",
+"writers": "Page Plant",
+"secs": 271,
+"side": 1,
+"sidepos": 4,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Ozone Baby",
+"writers": "Page Plant",
+"secs": 216,
+"side": 2,
+"sidepos": 1,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Darlene",
+"writers": "Bonham Jones Page Plant",
+"secs": 306,
+"side": 2,
+"sidepos": 2,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Bonzo's Montreux",
+"writers": "Bonham",
+"secs": 262,
+"side": 2,
+"sidepos": 3,
+"sidelen": 4
+},
+{
+"album": "coda",
+"title": "Wearing and Tearing",
+"writers": "Page Plant",
+"secs": 330,
+"side": 2,
+"sidepos": 4,
+"sidelen": 4
+}
+]

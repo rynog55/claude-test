@@ -1,0 +1,20003 @@
+[
+{
+"title": "Tik Tok",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+1
+]
+],
+"grammy": []
+},
+{
+"title": "Need You Now",
+"credit": "Lady Antebellum",
+"lead": [
+"Lady Antebellum"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+2
+]
+],
+"grammy": [
+[
+2011,
+"Record",
+true
+],
+[
+2011,
+"Song",
+true
+]
+]
+},
+{
+"title": "Hey, Soul Sister",
+"credit": "Train",
+"lead": [
+"Train"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 3,
+"ye": [
+[
+2010,
+3
+]
+],
+"grammy": []
+},
+{
+"title": "California Gurls",
+"credit": "Katy Perry featuring Snoop Dogg",
+"lead": [
+"Katy Perry"
+],
+"feat": [
+"Snoop Dogg"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "OMG",
+"credit": "Usher featuring will.i.am",
+"lead": [
+"Usher"
+],
+"feat": [
+"will.i.am"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Airplanes",
+"credit": "B.o.B featuring Hayley Williams",
+"lead": [
+"B.o.B"
+],
+"feat": [
+"Hayley Williams"
+],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Love the Way You Lie",
+"credit": "Eminem featuring Rihanna",
+"lead": [
+"Eminem"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+7
+]
+],
+"grammy": [
+[
+2011,
+"Record",
+false
+],
+[
+2011,
+"Song",
+false
+]
+]
+},
+{
+"title": "Bad Romance",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Dynamite",
+"credit": "Taio Cruz",
+"lead": [
+"Taio Cruz"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 2,
+"ye": [
+[
+2010,
+9
+],
+[
+2011,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Break Your Heart",
+"credit": "Taio Cruz featuring Ludacris",
+"lead": [
+"Taio Cruz"
+],
+"feat": [
+"Ludacris"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+10
+]
+],
+"grammy": []
+},
+{
+"title": "Nothin' on You",
+"credit": "B.o.B featuring Bruno Mars",
+"lead": [
+"B.o.B"
+],
+"feat": [
+"Bruno Mars"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+11
+]
+],
+"grammy": [
+[
+2011,
+"Record",
+false
+]
+]
+},
+{
+"title": "I Like It",
+"credit": "Enrique Iglesias featuring Pitbull",
+"lead": [
+"Enrique Iglesias"
+],
+"feat": [
+"Pitbull"
+],
+"years": [
+2010
+],
+"peak": 4,
+"ye": [
+[
+2010,
+12
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+]
+]
+},
+{
+"title": "BedRock",
+"credit": "Young Money featuring Lloyd",
+"lead": [
+"Young Money"
+],
+"feat": [
+"Lloyd"
+],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "In My Head",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 5,
+"ye": [
+[
+2010,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Rude Boy",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "Telephone",
+"credit": "Lady Gaga featuring Beyoncé",
+"lead": [
+"Lady Gaga"
+],
+"feat": [
+"Beyoncé"
+],
+"years": [
+2010
+],
+"peak": 3,
+"ye": [
+[
+2010,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Teenage Dream",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2010,
+17
+],
+[
+2011,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Just the Way You Are",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2010,
+18
+],
+[
+2011,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "Cooler Than Me",
+"credit": "Mike Posner",
+"lead": [
+"Mike Posner"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 6,
+"ye": [
+[
+2010,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Imma Be",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Empire State of Mind",
+"credit": "Jay-Z featuring Alicia Keys",
+"lead": [
+"Jay-Z"
+],
+"feat": [
+"Alicia Keys"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+21
+]
+],
+"grammy": [
+[
+2011,
+"Record",
+false
+]
+]
+},
+{
+"title": "DJ Got Us Fallin' in Love",
+"credit": "Usher featuring Pitbull",
+"lead": [
+"Usher"
+],
+"feat": [
+"Pitbull"
+],
+"years": [
+2010,
+2011
+],
+"peak": 4,
+"ye": [
+[
+2010,
+22
+],
+[
+2011,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Billionaire",
+"credit": "Travie McCoy featuring Bruno Mars",
+"lead": [
+"Travie McCoy"
+],
+"feat": [
+"Bruno Mars"
+],
+"years": [
+2010
+],
+"peak": 4,
+"ye": [
+[
+2010,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Not Afraid",
+"credit": "Eminem",
+"lead": [
+"Eminem"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Replay",
+"credit": "Iyaz",
+"lead": [
+"Iyaz"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Sexy Bitch",
+"credit": "David Guetta featuring Akon",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Akon"
+],
+"years": [
+2010
+],
+"peak": 5,
+"ye": [
+[
+2010,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Breakeven",
+"credit": "The Script",
+"lead": [
+"The Script"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "Your Love Is My Drug",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 4,
+"ye": [
+[
+2010,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "I Gotta Feeling",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Fireflies",
+"credit": "Owl City",
+"lead": [
+"Owl City"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Say Aah",
+"credit": "Trey Songz featuring Fabolous",
+"lead": [
+"Trey Songz"
+],
+"feat": [
+"Fabolous"
+],
+"years": [
+2010
+],
+"peak": 9,
+"ye": [
+[
+2010,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Find Your Love",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 5,
+"ye": [
+[
+2010,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Alejandro",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 5,
+"ye": [
+[
+2010,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Ridin' Solo",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 9,
+"ye": [
+[
+2010,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Just a Dream",
+"credit": "Nelly",
+"lead": [
+"Nelly"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 3,
+"ye": [
+[
+2010,
+35
+],
+[
+2011,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "How Low",
+"credit": "Ludacris",
+"lead": [
+"Ludacris"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 6,
+"ye": [
+[
+2010,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Like a G6",
+"credit": "Far East Movement featuring The Cataracs and Dev",
+"lead": [
+"Far East Movement"
+],
+"feat": [
+"The Cataracs",
+"Dev"
+],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2010,
+37
+],
+[
+2011,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Carry Out",
+"credit": "Timbaland featuring Justin Timberlake",
+"lead": [
+"Timbaland"
+],
+"feat": [
+"Justin Timberlake"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Haven't Met You Yet",
+"credit": "Michael Bublé",
+"lead": [
+"Michael Bublé"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Club Can't Handle Me",
+"credit": "Flo Rida featuring David Guetta",
+"lead": [
+"Flo Rida"
+],
+"feat": [
+"David Guetta"
+],
+"years": [
+2010
+],
+"peak": 9,
+"ye": [
+[
+2010,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Down",
+"credit": "Jay Sean featuring Lil Wayne",
+"lead": [
+"Jay Sean"
+],
+"feat": [
+"Lil Wayne"
+],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Bulletproof",
+"credit": "La Roux",
+"lead": [
+"La Roux"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [
+[
+2010,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Whatcha Say",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Baby",
+"credit": "Justin Bieber featuring Ludacris",
+"lead": [
+"Justin Bieber"
+],
+"feat": [
+"Ludacris"
+],
+"years": [
+2010
+],
+"peak": 5,
+"ye": [
+[
+2010,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Whataya Want from Me",
+"credit": "Adam Lambert",
+"lead": [
+"Adam Lambert"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 10,
+"ye": [
+[
+2010,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Mine",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 3,
+"ye": [
+[
+2010,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Only Girl (In the World)",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2010,
+47
+],
+[
+2011,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Live Like We're Dying",
+"credit": "Kris Allen",
+"lead": [
+"Kris Allen"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Hard",
+"credit": "Rihanna featuring Jeezy",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Jeezy"
+],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [
+[
+2010,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Young Forever",
+"credit": "Jay-Z featuring Mr Hudson",
+"lead": [
+"Jay-Z"
+],
+"feat": [
+"Mr Hudson"
+],
+"years": [
+2010
+],
+"peak": 10,
+"ye": [
+[
+2010,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Blah Blah Blah",
+"credit": "Kesha featuring 3OH!3",
+"lead": [
+"Kesha"
+],
+"feat": [
+"3OH!3"
+],
+"years": [
+2010
+],
+"peak": 7,
+"ye": [
+[
+2010,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Bottoms Up",
+"credit": "Trey Songz featuring Nicki Minaj",
+"lead": [
+"Trey Songz"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2010,
+2011
+],
+"peak": 6,
+"ye": [
+[
+2010,
+52
+],
+[
+2011,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Do You Remember",
+"credit": "Jay Sean featuring Sean Paul and Lil Jon",
+"lead": [
+"Jay Sean"
+],
+"feat": [
+"Sean Paul",
+"Lil Jon"
+],
+"years": [
+2010
+],
+"peak": 10,
+"ye": [
+[
+2010,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "All the Right Moves",
+"credit": "OneRepublic",
+"lead": [
+"OneRepublic"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "According to You",
+"credit": "Orianthi",
+"lead": [
+"Orianthi"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "My Chick Bad",
+"credit": "Ludacris featuring Nicki Minaj",
+"lead": [
+"Ludacris"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "You Belong with Me",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Meet Me Halfway",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 7,
+"ye": [
+[
+2010,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Take It Off",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [
+[
+2010,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Over",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Animal",
+"credit": "Neon Trees",
+"lead": [
+"Neon Trees"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": null,
+"ye": [
+[
+2010,
+61
+],
+[
+2011,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "Misery",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Magic",
+"credit": "B.o.B featuring Rivers Cuomo",
+"lead": [
+"B.o.B"
+],
+"feat": [
+"Rivers Cuomo"
+],
+"years": [
+2010
+],
+"peak": 10,
+"ye": [
+[
+2010,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "Paparazzi",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Tie Me Down",
+"credit": "New Boyz featuring Ray J",
+"lead": [
+"New Boyz"
+],
+"feat": [
+"Ray J"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Your Love",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Party in the U.S.A.",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Deuces",
+"credit": "Chris Brown featuring Tyga and Kevin McCall",
+"lead": [
+"Chris Brown"
+],
+"feat": [
+"Tyga",
+"Kevin McCall"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "3",
+"credit": "Britney Spears",
+"lead": [
+"Britney Spears"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 1,
+"ye": [
+[
+2010,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Impossible",
+"credit": "Shontelle",
+"lead": [
+"Shontelle"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Forever",
+"credit": "Drake featuring Kanye West , Lil Wayne and Eminem",
+"lead": [
+"Drake"
+],
+"feat": [
+"Kanye West",
+"Lil Wayne",
+"Eminem"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Two Is Better Than One",
+"credit": "Boys Like Girls featuring Taylor Swift",
+"lead": [
+"Boys Like Girls"
+],
+"feat": [
+"Taylor Swift"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "My First Kiss",
+"credit": "3OH!3 featuring Kesha",
+"lead": [
+"3OH!3"
+],
+"feat": [
+"Kesha"
+],
+"years": [
+2010
+],
+"peak": 9,
+"ye": [
+[
+2010,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Already Gone",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Rock That Body",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 9,
+"ye": [
+[
+2010,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Secrets",
+"credit": "OneRepublic",
+"lead": [
+"OneRepublic"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Naturally",
+"credit": "Selena Gomez & the Scene",
+"lead": [
+"Selena Gomez & the Scene"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Un-Thinkable (I'm Ready)",
+"credit": "Alicia Keys",
+"lead": [
+"Alicia Keys"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "All I Do Is Win",
+"credit": "DJ Khaled featuring T-Pain , Ludacris , Snoop Dogg and Rick Ross",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"T-Pain",
+"Ludacris",
+"Snoop Dogg",
+"Rick Ross"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "I Made It (Cash Money Heroes)",
+"credit": "Kevin Rudolf featuring Birdman , Jay Sean and Lil Wayne",
+"lead": [
+"Kevin Rudolf"
+],
+"feat": [
+"Birdman",
+"Jay Sean",
+"Lil Wayne"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Stuck Like Glue",
+"credit": "Sugarland",
+"lead": [
+"Sugarland"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Hey Daddy (Daddy's Home)",
+"credit": "Usher featuring Plies",
+"lead": [
+"Usher"
+],
+"feat": [
+"Plies"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "There Goes My Baby",
+"credit": "Usher",
+"lead": [
+"Usher"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Today Was a Fairytale",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [
+[
+2010,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Say Something",
+"credit": "Timbaland featuring Drake",
+"lead": [
+"Timbaland"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Sweet Dreams",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Use Somebody",
+"credit": "Kings of Leon",
+"lead": [
+"Kings of Leon"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Undo It",
+"credit": "Carrie Underwood",
+"lead": [
+"Carrie Underwood"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Eenie Meenie",
+"credit": "Sean Kingston and Justin Bieber",
+"lead": [
+"Sean Kingston",
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Right Above It",
+"credit": "Lil Wayne featuring Drake",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2010
+],
+"peak": 6,
+"ye": [
+[
+2010,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "The House That Built Me",
+"credit": "Miranda Lambert",
+"lead": [
+"Miranda Lambert"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+91
+]
+],
+"grammy": [
+[
+2011,
+"Song",
+false
+]
+]
+},
+{
+"title": "If I Die Young",
+"credit": "The Band Perry",
+"lead": [
+"The Band Perry"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": null,
+"ye": [
+[
+2010,
+92
+],
+[
+2011,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "The Only Exception",
+"credit": "Paramore",
+"lead": [
+"Paramore"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "American Honey",
+"credit": "Lady Antebellum",
+"lead": [
+"Lady Antebellum"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "King of Anything",
+"credit": "Sara Bareilles",
+"lead": [
+"Sara Bareilles"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Life After You",
+"credit": "Daughtry",
+"lead": [
+"Daughtry"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "Smile",
+"credit": "Uncle Kracker",
+"lead": [
+"Uncle Kracker"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "Teach Me How to Dougie",
+"credit": "Cali Swag District",
+"lead": [
+"Cali Swag District"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Try Sleeping with a Broken Heart",
+"credit": "Alicia Keys",
+"lead": [
+"Alicia Keys"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Lover, Lover",
+"credit": "Jerrod Niemann",
+"lead": [
+"Jerrod Niemann"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": null,
+"ye": [
+[
+2010,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "We Are the World 25 for Haiti",
+"credit": "Artists for Haiti",
+"lead": [
+"Artists for Haiti"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 2,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Can't Be Tamed",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Speak Now",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Back to December",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 6,
+"ye": [
+[
+2011,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Raise Your Glass",
+"credit": "Pink",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "We R Who We R",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Firework",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+3
+]
+],
+"grammy": [
+[
+2012,
+"Record",
+false
+]
+]
+},
+{
+"title": "What's My Name?",
+"credit": "Rihanna featuring Drake",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Teenage Dream",
+"credit": "Glee Cast",
+"lead": [
+"Glee Cast"
+],
+"feat": [],
+"years": [
+2010
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "The Time (Dirty Bit)",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Fuck You (Forget You)",
+"credit": "CeeLo Green",
+"lead": [
+"CeeLo Green"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 2,
+"ye": [
+[
+2011,
+7
+]
+],
+"grammy": [
+[
+2011,
+"Record",
+false
+]
+]
+},
+{
+"title": "Grenade",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2010,
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+6
+]
+],
+"grammy": [
+[
+2012,
+"Record",
+false
+],
+[
+2012,
+"Song",
+false
+]
+]
+},
+{
+"title": "Rolling in the Deep",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+1
+],
+[
+2012,
+71
+]
+],
+"grammy": [
+[
+2012,
+"Record",
+true
+],
+[
+2012,
+"Song",
+true
+]
+]
+},
+{
+"title": "Party Rock Anthem",
+"credit": "LMFAO featuring Lauren Bennett and GoonRock",
+"lead": [
+"LMFAO"
+],
+"feat": [
+"Lauren Bennett",
+"GoonRock"
+],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+2
+],
+[
+2012,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "E.T.",
+"credit": "Katy Perry featuring Kanye West",
+"lead": [
+"Katy Perry"
+],
+"feat": [
+"Kanye West"
+],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "Give Me Everything",
+"credit": "Pitbull featuring Ne-Yo , Afrojack and Nayer",
+"lead": [
+"Pitbull"
+],
+"feat": [
+"Ne-Yo",
+"Afrojack",
+"Nayer"
+],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Super Bass",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Moves like Jagger",
+"credit": "Maroon 5 featuring Christina Aguilera",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"Christina Aguilera"
+],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+9
+],
+[
+2012,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Just Can't Get Enough",
+"credit": "The Black Eyed Peas",
+"lead": [
+"The Black Eyed Peas"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+10
+]
+],
+"grammy": []
+},
+{
+"title": "On the Floor",
+"credit": "Jennifer Lopez featuring Pitbull",
+"lead": [
+"Jennifer Lopez"
+],
+"feat": [
+"Pitbull"
+],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "S&M",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "Pumped Up Kicks",
+"credit": "Foster the People",
+"lead": [
+"Foster the People"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "Last Friday Night (T.G.I.F.)",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Tonight (I'm Lovin' You)",
+"credit": "Enrique Iglesias featuring Ludacris and DJ Frank E",
+"lead": [
+"Enrique Iglesias"
+],
+"feat": [
+"Ludacris",
+"DJ Frank E"
+],
+"years": [
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Born This Way",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Fuckin' Perfect",
+"credit": "Pink",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 2,
+"ye": [
+[
+2011,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Look at Me Now",
+"credit": "Chris Brown featuring Lil Wayne and Busta Rhymes",
+"lead": [
+"Chris Brown"
+],
+"feat": [
+"Lil Wayne",
+"Busta Rhymes"
+],
+"years": [
+2011
+],
+"peak": 6,
+"ye": [
+[
+2011,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Down on Me",
+"credit": "Jeremih featuring 50 Cent",
+"lead": [
+"Jeremih"
+],
+"feat": [
+"50 Cent"
+],
+"years": [
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "How to Love",
+"credit": "Lil Wayne",
+"lead": [
+"Lil Wayne"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 5,
+"ye": [
+[
+2011,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Someone Like You",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+24
+],
+[
+2012,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Good Life",
+"credit": "OneRepublic",
+"lead": [
+"OneRepublic"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 8,
+"ye": [
+[
+2011,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "The Lazy Song",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Till the World Ends",
+"credit": "Britney Spears",
+"lead": [
+"Britney Spears"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "The Show Goes On",
+"credit": "Lupe Fiasco",
+"lead": [
+"Lupe Fiasco"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 9,
+"ye": [
+[
+2011,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "The Edge of Glory",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Black and Yellow",
+"credit": "Wiz Khalifa",
+"lead": [
+"Wiz Khalifa"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Tonight Tonight",
+"credit": "Hot Chelle Rae",
+"lead": [
+"Hot Chelle Rae"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Blow",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Lighters",
+"credit": "Bad Meets Evil featuring Bruno Mars",
+"lead": [
+"Bad Meets Evil"
+],
+"feat": [
+"Bruno Mars"
+],
+"years": [
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Stereo Hearts",
+"credit": "Gym Class Heroes featuring Adam Levine",
+"lead": [
+"Gym Class Heroes"
+],
+"feat": [
+"Adam Levine"
+],
+"years": [
+2011,
+2012
+],
+"peak": 4,
+"ye": [
+[
+2011,
+36
+],
+[
+2012,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Coming Home",
+"credit": "Diddy – Dirty Money featuring Skylar Grey",
+"lead": [
+"Diddy – Dirty Money"
+],
+"feat": [
+"Skylar Grey"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Hey Baby (Drop It to the Floor)",
+"credit": "Pitbull featuring T-Pain",
+"lead": [
+"Pitbull"
+],
+"feat": [
+"T-Pain"
+],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "6 Foot 7 Foot",
+"credit": "Lil Wayne featuring Cory Gunz",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Cory Gunz"
+],
+"years": [
+2011
+],
+"peak": 9,
+"ye": [
+[
+2011,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Just a Kiss",
+"credit": "Lady Antebellum",
+"lead": [
+"Lady Antebellum"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Dirt Road Anthem",
+"credit": "Jason Aldean",
+"lead": [
+"Jason Aldean"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "No Hands",
+"credit": "Waka Flocka Flame featuring Wale and Roscoe Dash",
+"lead": [
+"Waka Flocka Flame"
+],
+"feat": [
+"Wale",
+"Roscoe Dash"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "I Wanna Go",
+"credit": "Britney Spears",
+"lead": [
+"Britney Spears"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "I'm on One",
+"credit": "DJ Khaled featuring Drake , Rick Ross and Lil Wayne",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"Drake",
+"Rick Ross",
+"Lil Wayne"
+],
+"years": [
+2011
+],
+"peak": 10,
+"ye": [
+[
+2011,
+47
+]
+],
+"grammy": []
+},
+{
+"title": "You Make Me Feel...",
+"credit": "Cobra Starship featuring Sabi",
+"lead": [
+"Cobra Starship"
+],
+"feat": [
+"Sabi"
+],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Yeah 3x",
+"credit": "Chris Brown",
+"lead": [
+"Chris Brown"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Moment 4 Life",
+"credit": "Nicki Minaj featuring Drake",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "I Need a Doctor",
+"credit": "Dr. Dre featuring Eminem and Skylar Grey",
+"lead": [
+"Dr. Dre"
+],
+"feat": [
+"Eminem",
+"Skylar Grey"
+],
+"years": [
+2011
+],
+"peak": 4,
+"ye": [
+[
+2011,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Motivation",
+"credit": "Kelly Rowland featuring Lil Wayne",
+"lead": [
+"Kelly Rowland"
+],
+"feat": [
+"Lil Wayne"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Stereo Love",
+"credit": "Edward Maya featuring Vika Jigulina",
+"lead": [
+"Edward Maya"
+],
+"feat": [
+"Vika Jigulina"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Jar of Hearts",
+"credit": "Christina Perri",
+"lead": [
+"Christina Perri"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Roll Up",
+"credit": "Wiz Khalifa",
+"lead": [
+"Wiz Khalifa"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Sexy and I Know It",
+"credit": "LMFAO",
+"lead": [
+"LMFAO"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+57
+],
+[
+2012,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "Rocketeer",
+"credit": "Far East Movement featuring Ryan Tedder",
+"lead": [
+"Far East Movement"
+],
+"feat": [
+"Ryan Tedder"
+],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "All of the Lights",
+"credit": "Kanye West",
+"lead": [
+"Kanye West"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+59
+]
+],
+"grammy": [
+[
+2012,
+"Song",
+false
+]
+]
+},
+{
+"title": "Hold It Against Me",
+"credit": "Britney Spears",
+"lead": [
+"Britney Spears"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 1,
+"ye": [
+[
+2011,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "More",
+"credit": "Usher",
+"lead": [
+"Usher"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "What the Hell",
+"credit": "Avril Lavigne",
+"lead": [
+"Avril Lavigne"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Written in the Stars",
+"credit": "Tinie Tempah featuring Eric Turner",
+"lead": [
+"Tinie Tempah"
+],
+"feat": [
+"Eric Turner"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "For the First Time",
+"credit": "The Script",
+"lead": [
+"The Script"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Honey Bee",
+"credit": "Blake Shelton",
+"lead": [
+"Blake Shelton"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Don't You Wanna Stay",
+"credit": "Jason Aldean featuring Kelly Clarkson",
+"lead": [
+"Jason Aldean"
+],
+"feat": [
+"Kelly Clarkson"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "We Found Love",
+"credit": "Rihanna featuring Calvin Harris",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Calvin Harris"
+],
+"years": [
+2011,
+2012
+],
+"peak": 1,
+"ye": [
+[
+2011,
+69
+],
+[
+2012,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Pretty Girl Rock",
+"credit": "Keri Hilson",
+"lead": [
+"Keri Hilson"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Yoü and I",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 6,
+"ye": [
+[
+2011,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Without You",
+"credit": "David Guetta featuring Usher",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Usher"
+],
+"years": [
+2011,
+2012
+],
+"peak": 4,
+"ye": [
+[
+2011,
+73
+],
+[
+2012,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Crazy Girl",
+"credit": "Eli Young Band",
+"lead": [
+"Eli Young Band"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Cheers (Drink to That)",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [
+[
+2011,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Who Says",
+"credit": "Selena Gomez & the Scene",
+"lead": [
+"Selena Gomez & the Scene"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Barefoot Blue Jean Night",
+"credit": "Jake Owen",
+"lead": [
+"Jake Owen"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Knee Deep",
+"credit": "Zac Brown Band featuring Jimmy Buffett",
+"lead": [
+"Zac Brown Band"
+],
+"feat": [
+"Jimmy Buffett"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Country Girl (Shake It for Me)",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Remind Me",
+"credit": "Brad Paisley and Carrie Underwood",
+"lead": [
+"Brad Paisley",
+"Carrie Underwood"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "In the Dark",
+"credit": "Dev",
+"lead": [
+"Dev"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Backseat",
+"credit": "New Boyz featuring The Cataracs and Dev",
+"lead": [
+"New Boyz"
+],
+"feat": [
+"The Cataracs",
+"Dev"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Headlines",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Best Thing I Never Had",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Don't Wanna Go Home",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Where Them Girls At",
+"credit": "David Guetta featuring Flo Rida and Nicki Minaj",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Flo Rida",
+"Nicki Minaj"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "She Ain't You",
+"credit": "Chris Brown",
+"lead": [
+"Chris Brown"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Take a Back Road",
+"credit": "Rodney Atkins",
+"lead": [
+"Rodney Atkins"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Please Don't Go",
+"credit": "Mike Posner",
+"lead": [
+"Mike Posner"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "Sure Thing",
+"credit": "Miguel",
+"lead": [
+"Miguel"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "Price Tag",
+"credit": "Jessie J featuring B.o.B",
+"lead": [
+"Jessie J"
+],
+"feat": [
+"B.o.B"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "God Gave Me You",
+"credit": "Blake Shelton",
+"lead": [
+"Blake Shelton"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "She Will",
+"credit": "Lil Wayne featuring Drake",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2011
+],
+"peak": 3,
+"ye": [
+[
+2011,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Are You Gonna Kiss Me or Not",
+"credit": "Thompson Square",
+"lead": [
+"Thompson Square"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "You and Tequila",
+"credit": "Kenny Chesney featuring Grace Potter",
+"lead": [
+"Kenny Chesney"
+],
+"feat": [
+"Grace Potter"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Colder Weather",
+"credit": "Zac Brown Band",
+"lead": [
+"Zac Brown Band"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "My Last",
+"credit": "Big Sean featuring Chris Brown",
+"lead": [
+"Big Sean"
+],
+"feat": [
+"Chris Brown"
+],
+"years": [
+2011
+],
+"peak": null,
+"ye": [
+[
+2011,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Never Say Never",
+"credit": "Justin Bieber featuring Jaden Smith",
+"lead": [
+"Justin Bieber"
+],
+"feat": [
+"Jaden Smith"
+],
+"years": [
+2011
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Loser like Me",
+"credit": "Glee cast",
+"lead": [
+"Glee cast"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "No Sleep",
+"credit": "Wiz Khalifa",
+"lead": [
+"Wiz Khalifa"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Judas",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Skyscraper",
+"credit": "Demi Lovato",
+"lead": [
+"Demi Lovato"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Strange Clouds",
+"credit": "B.o.B featuring Lil Wayne",
+"lead": [
+"B.o.B"
+],
+"feat": [
+"Lil Wayne"
+],
+"years": [
+2011
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Make Me Proud",
+"credit": "Drake featuring Nicki Minaj",
+"lead": [
+"Drake"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2011
+],
+"peak": 9,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Mr. Know It All",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "If This Was a Movie",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2011
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "It Will Rain",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 3,
+"ye": [
+[
+2012,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "5 O'Clock",
+"credit": "T-Pain featuring Wiz Khalifa and Lily Allen",
+"lead": [
+"T-Pain"
+],
+"feat": [
+"Wiz Khalifa",
+"Lily Allen"
+],
+"years": [
+2011,
+2012
+],
+"peak": 10,
+"ye": [
+[
+2012,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Young, Wild & Free",
+"credit": "Snoop Dogg and Wiz Khalifa featuring Bruno Mars",
+"lead": [
+"Snoop Dogg",
+"Wiz Khalifa"
+],
+"feat": [
+"Bruno Mars"
+],
+"years": [
+2011,
+2012
+],
+"peak": 7,
+"ye": [
+[
+2012,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Good Feeling",
+"credit": "Flo Rida",
+"lead": [
+"Flo Rida"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 3,
+"ye": [
+[
+2012,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Take Care",
+"credit": "Drake featuring Rihanna",
+"lead": [
+"Drake"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2011,
+2012
+],
+"peak": 7,
+"ye": [
+[
+2012,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "The One That Got Away",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 3,
+"ye": [
+[
+2012,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Niggas in Paris",
+"credit": "Jay-Z and Kanye West",
+"lead": [
+"Jay-Z",
+"Kanye West"
+],
+"feat": [],
+"years": [
+2011,
+2012
+],
+"peak": 5,
+"ye": [
+[
+2012,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Somebody That I Used to Know",
+"credit": "Gotye featuring Kimbra",
+"lead": [
+"Gotye"
+],
+"feat": [
+"Kimbra"
+],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+1
+]
+],
+"grammy": [
+[
+2013,
+"Record",
+true
+]
+]
+},
+{
+"title": "Call Me Maybe",
+"credit": "Carly Rae Jepsen",
+"lead": [
+"Carly Rae Jepsen"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+2
+]
+],
+"grammy": [
+[
+2013,
+"Song",
+false
+]
+]
+},
+{
+"title": "We Are Young",
+"credit": "Fun featuring Janelle Monáe",
+"lead": [
+"Fun"
+],
+"feat": [
+"Janelle Monáe"
+],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+3
+]
+],
+"grammy": [
+[
+2013,
+"Record",
+false
+],
+[
+2013,
+"Song",
+true
+]
+]
+},
+{
+"title": "Payphone",
+"credit": "Maroon 5 featuring Wiz Khalifa",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"Wiz Khalifa"
+],
+"years": [
+2012
+],
+"peak": 2,
+"ye": [
+[
+2012,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "Lights",
+"credit": "Ellie Goulding",
+"lead": [
+"Ellie Goulding"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 2,
+"ye": [
+[
+2012,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Glad You Came",
+"credit": "The Wanted",
+"lead": [
+"The Wanted"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 3,
+"ye": [
+[
+2012,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Stronger (What Doesn't Kill You)",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+7
+]
+],
+"grammy": [
+[
+2013,
+"Record",
+false
+],
+[
+2013,
+"Song",
+false
+]
+]
+},
+{
+"title": "Starships",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 5,
+"ye": [
+[
+2012,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "What Makes You Beautiful",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 4,
+"ye": [
+[
+2012,
+10
+]
+],
+"grammy": []
+},
+{
+"title": "Wild Ones",
+"credit": "Flo Rida featuring Sia",
+"lead": [
+"Flo Rida"
+],
+"feat": [
+"Sia"
+],
+"years": [
+2012
+],
+"peak": 5,
+"ye": [
+[
+2012,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "Set Fire to the Rain",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "Some Nights",
+"credit": "Fun",
+"lead": [
+"Fun"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 3,
+"ye": [
+[
+2012,
+14
+],
+[
+2013,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Wide Awake",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 2,
+"ye": [
+[
+2012,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "One More Night",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 1,
+"ye": [
+[
+2012,
+18
+],
+[
+2013,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Drive By",
+"credit": "Train",
+"lead": [
+"Train"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 10,
+"ye": [
+[
+2012,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "The Motto",
+"credit": "Drake featuring Lil Wayne",
+"lead": [
+"Drake"
+],
+"feat": [
+"Lil Wayne"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Where Have You Been",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 5,
+"ye": [
+[
+2012,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Everybody Talks",
+"credit": "Neon Trees",
+"lead": [
+"Neon Trees"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 6,
+"ye": [
+[
+2012,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Titanium",
+"credit": "David Guetta featuring Sia",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Sia"
+],
+"years": [
+2012
+],
+"peak": 7,
+"ye": [
+[
+2012,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "I Won't Give Up",
+"credit": "Jason Mraz",
+"lead": [
+"Jason Mraz"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 8,
+"ye": [
+[
+2012,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Mercy",
+"credit": "Kanye West , Big Sean , Pusha T and 2 Chainz",
+"lead": [
+"Kanye West",
+"Big Sean",
+"Pusha T",
+"2 Chainz"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "Boyfriend",
+"credit": "Justin Bieber",
+"lead": [
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 2,
+"ye": [
+[
+2012,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "Too Close",
+"credit": "Alex Clare",
+"lead": [
+"Alex Clare"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 7,
+"ye": [
+[
+2012,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Part of Me",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "We Are Never Ever Getting Back Together",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [
+[
+2012,
+33
+]
+],
+"grammy": [
+[
+2013,
+"Record",
+false
+]
+]
+},
+{
+"title": "As Long as You Love Me",
+"credit": "Justin Bieber featuring Big Sean",
+"lead": [
+"Justin Bieber"
+],
+"feat": [
+"Big Sean"
+],
+"years": [
+2012
+],
+"peak": 6,
+"ye": [
+[
+2012,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Turn Me On",
+"credit": "David Guetta featuring Nicki Minaj",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2012
+],
+"peak": 4,
+"ye": [
+[
+2012,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Blow Me (One Last Kiss)",
+"credit": "Pink",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 5,
+"ye": [
+[
+2012,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Good Time",
+"credit": "Owl City and Carly Rae Jepsen",
+"lead": [
+"Owl City",
+"Carly Rae Jepsen"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 8,
+"ye": [
+[
+2012,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Give Your Heart a Break",
+"credit": "Demi Lovato",
+"lead": [
+"Demi Lovato"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Feel So Close",
+"credit": "Calvin Harris",
+"lead": [
+"Calvin Harris"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Scream",
+"credit": "Usher",
+"lead": [
+"Usher"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 9,
+"ye": [
+[
+2012,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Rack City",
+"credit": "Tyga",
+"lead": [
+"Tyga"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 7,
+"ye": [
+[
+2012,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Domino",
+"credit": "Jessie J",
+"lead": [
+"Jessie J"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 6,
+"ye": [
+[
+2012,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Gangnam Style",
+"credit": "Psy",
+"lead": [
+"Psy"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 2,
+"ye": [
+[
+2012,
+47
+],
+[
+2013,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "International Love",
+"credit": "Pitbull featuring Chris Brown",
+"lead": [
+"Pitbull"
+],
+"feat": [
+"Chris Brown"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Home",
+"credit": "Phillip Phillips",
+"lead": [
+"Phillip Phillips"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 6,
+"ye": [
+[
+2012,
+49
+],
+[
+2013,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Ass Back Home",
+"credit": "Gym Class Heroes featuring Neon Hitch",
+"lead": [
+"Gym Class Heroes"
+],
+"feat": [
+"Neon Hitch"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Wanted",
+"credit": "Hunter Hayes",
+"lead": [
+"Hunter Hayes"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": null,
+"ye": [
+[
+2012,
+52
+],
+[
+2013,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "Drunk on You",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "No Lie",
+"credit": "2 Chainz featuring Drake",
+"lead": [
+"2 Chainz"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Want U Back",
+"credit": "Cher Lloyd",
+"lead": [
+"Cher Lloyd"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Don't Wake Me Up",
+"credit": "Chris Brown",
+"lead": [
+"Chris Brown"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 10,
+"ye": [
+[
+2012,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Dance (Ass)",
+"credit": "Big Sean featuring Nicki Minaj",
+"lead": [
+"Big Sean"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2012
+],
+"peak": 10,
+"ye": [
+[
+2012,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Springsteen",
+"credit": "Eric Church",
+"lead": [
+"Eric Church"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Brokenhearted",
+"credit": "Karmin",
+"lead": [
+"Karmin"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Not Over You",
+"credit": "Gavin DeGraw",
+"lead": [
+"Gavin DeGraw"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Back in Time",
+"credit": "Pitbull",
+"lead": [
+"Pitbull"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Work Out",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "Rumour Has It",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Let's Go",
+"credit": "Calvin Harris featuring Ne-Yo",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Ne-Yo"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Good Girl",
+"credit": "Carrie Underwood",
+"lead": [
+"Carrie Underwood"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Pontoon",
+"credit": "Little Big Town",
+"lead": [
+"Little Big Town"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Ho Hey",
+"credit": "The Lumineers",
+"lead": [
+"The Lumineers"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 3,
+"ye": [
+[
+2012,
+68
+],
+[
+2013,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "Paradise",
+"credit": "Coldplay",
+"lead": [
+"Coldplay"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Blown Away",
+"credit": "Carrie Underwood",
+"lead": [
+"Carrie Underwood"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Climax",
+"credit": "Usher",
+"lead": [
+"Usher"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Work Hard, Play Hard",
+"credit": "Wiz Khalifa",
+"lead": [
+"Wiz Khalifa"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Let Me Love You (Until You Learn to Love Yourself)",
+"credit": "Ne-Yo",
+"lead": [
+"Ne-Yo"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 6,
+"ye": [
+[
+2012,
+74
+],
+[
+2013,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Pound the Alarm",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Come Over",
+"credit": "Kenny Chesney",
+"lead": [
+"Kenny Chesney"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Heart Attack",
+"credit": "Trey Songz",
+"lead": [
+"Trey Songz"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Drank in My Cup",
+"credit": "Kirko Bangz",
+"lead": [
+"Kirko Bangz"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Birthday Cake",
+"credit": "Rihanna featuring Chris Brown",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Chris Brown"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "So Good",
+"credit": "B.o.B",
+"lead": [
+"B.o.B"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "50 Ways to Say Goodbye",
+"credit": "Train",
+"lead": [
+"Train"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Red Solo Cup",
+"credit": "Toby Keith",
+"lead": [
+"Toby Keith"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Love You Like a Love Song",
+"credit": "Selena Gomez & the Scene",
+"lead": [
+"Selena Gomez & the Scene"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Turn Up the Music",
+"credit": "Chris Brown",
+"lead": [
+"Chris Brown"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 10,
+"ye": [
+[
+2012,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Die Young",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 2,
+"ye": [
+[
+2012,
+85
+],
+[
+2013,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "A Thousand Years",
+"credit": "Christina Perri",
+"lead": [
+"Christina Perri"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Take a Little Ride",
+"credit": "Jason Aldean",
+"lead": [
+"Jason Aldean"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "You da One",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "We Run the Night",
+"credit": "Havana Brown featuring Pitbull",
+"lead": [
+"Havana Brown"
+],
+"feat": [
+"Pitbull"
+],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "It's Time",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": null,
+"ye": [
+[
+2012,
+91
+],
+[
+2013,
+47
+]
+],
+"grammy": []
+},
+{
+"title": "Cashin' Out",
+"credit": "Cash Out",
+"lead": [
+"Cash Out"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Want This Night to End",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Diamonds",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 1,
+"ye": [
+[
+2012,
+94
+],
+[
+2013,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "Hard to Love",
+"credit": "Lee Brice",
+"lead": [
+"Lee Brice"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Somethin' 'Bout a Truck",
+"credit": "Kip Moore",
+"lead": [
+"Kip Moore"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "Adorn",
+"credit": "Miguel",
+"lead": [
+"Miguel"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": null,
+"ye": [
+[
+2012,
+97
+],
+[
+2013,
+84
+]
+],
+"grammy": [
+[
+2013,
+"Song",
+false
+]
+]
+},
+{
+"title": "Fly Over States",
+"credit": "Jason Aldean",
+"lead": [
+"Jason Aldean"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Even If It Breaks Your Heart",
+"credit": "Eli Young Band",
+"lead": [
+"Eli Young Band"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Burn It Down",
+"credit": "Linkin Park",
+"lead": [
+"Linkin Park"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": null,
+"ye": [
+[
+2012,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Give Me All Your Luvin'",
+"credit": "Madonna featuring Nicki Minaj and M.I.A.",
+"lead": [
+"Madonna"
+],
+"feat": [
+"Nicki Minaj",
+"M.I.A."
+],
+"years": [
+2012
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "I Will Always Love You",
+"credit": "Whitney Houston",
+"lead": [
+"Whitney Houston"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 3,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Whistle",
+"credit": "Flo Rida",
+"lead": [
+"Flo Rida"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Begin Again",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Live While We're Young",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 3,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Red",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Skyfall",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2012
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Locked Out of Heaven",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+11
+]
+],
+"grammy": [
+[
+2014,
+"Record",
+false
+],
+[
+2014,
+"Song",
+false
+]
+]
+},
+{
+"title": "I Cry",
+"credit": "Flo Rida",
+"lead": [
+"Flo Rida"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "I Knew You Were Trouble",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2012,
+2013
+],
+"peak": 2,
+"ye": [
+[
+2013,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Beauty and a Beat",
+"credit": "Justin Bieber featuring Nicki Minaj",
+"lead": [
+"Justin Bieber"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2012,
+2013
+],
+"peak": 5,
+"ye": [
+[
+2013,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Thrift Shop",
+"credit": "Macklemore & Ryan Lewis featuring Wanz",
+"lead": [
+"Macklemore & Ryan Lewis"
+],
+"feat": [
+"Wanz"
+],
+"years": [
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+1
+]
+],
+"grammy": []
+},
+{
+"title": "Blurred Lines",
+"credit": "Robin Thicke featuring T.I. and Pharrell Williams",
+"lead": [
+"Robin Thicke"
+],
+"feat": [
+"T.I.",
+"Pharrell Williams"
+],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2013,
+2
+],
+[
+2014,
+83
+]
+],
+"grammy": [
+[
+2014,
+"Record",
+false
+]
+]
+},
+{
+"title": "Radioactive",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 3,
+"ye": [
+[
+2013,
+3
+],
+[
+2014,
+57
+]
+],
+"grammy": [
+[
+2014,
+"Record",
+false
+]
+]
+},
+{
+"title": "Harlem Shake",
+"credit": "Baauer",
+"lead": [
+"Baauer"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "Can't Hold Us",
+"credit": "Macklemore & Ryan Lewis featuring Ray Dalton",
+"lead": [
+"Macklemore & Ryan Lewis"
+],
+"feat": [
+"Ray Dalton"
+],
+"years": [
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Mirrors",
+"credit": "Justin Timberlake",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 2,
+"ye": [
+[
+2013,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Just Give Me a Reason",
+"credit": "Pink featuring Nate Ruess",
+"lead": [
+"Pink"
+],
+"feat": [
+"Nate Ruess"
+],
+"years": [
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+7
+]
+],
+"grammy": [
+[
+2014,
+"Song",
+false
+]
+]
+},
+{
+"title": "When I Was Your Man",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 1,
+"ye": [
+[
+2013,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Cruise",
+"credit": "Florida Georgia Line featuring Nelly",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [
+"Nelly"
+],
+"years": [
+2013
+],
+"peak": 4,
+"ye": [
+[
+2013,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "Roar",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2013,
+10
+],
+[
+2014,
+46
+]
+],
+"grammy": [
+[
+2014,
+"Song",
+false
+]
+]
+},
+{
+"title": "Stay",
+"credit": "Rihanna featuring Mikky Ekko",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Mikky Ekko"
+],
+"years": [
+2013
+],
+"peak": 3,
+"ye": [
+[
+2013,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "Get Lucky",
+"credit": "Daft Punk featuring Pharrell Williams",
+"lead": [
+"Daft Punk"
+],
+"feat": [
+"Pharrell Williams"
+],
+"years": [
+2013
+],
+"peak": 2,
+"ye": [
+[
+2013,
+14
+]
+],
+"grammy": [
+[
+2014,
+"Record",
+true
+]
+]
+},
+{
+"title": "Royals",
+"credit": "Lorde",
+"lead": [
+"Lorde"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2013,
+15
+],
+[
+2014,
+20
+]
+],
+"grammy": [
+[
+2014,
+"Record",
+false
+],
+[
+2014,
+"Song",
+true
+]
+]
+},
+{
+"title": "We Can't Stop",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 2,
+"ye": [
+[
+2013,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Wake Me Up",
+"credit": "Avicii",
+"lead": [
+"Avicii"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 4,
+"ye": [
+[
+2013,
+19
+],
+[
+2014,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Suit & Tie",
+"credit": "Justin Timberlake featuring Jay-Z",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [
+"Jay-Z"
+],
+"years": [
+2013
+],
+"peak": 3,
+"ye": [
+[
+2013,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Cups (Pitch Perfect's When I'm Gone )",
+"credit": "Anna Kendrick",
+"lead": [
+"Anna Kendrick"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Holy Grail",
+"credit": "Jay-Z featuring Justin Timberlake",
+"lead": [
+"Jay-Z"
+],
+"feat": [
+"Justin Timberlake"
+],
+"years": [
+2013
+],
+"peak": 4,
+"ye": [
+[
+2013,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Scream & Shout",
+"credit": "Will.i.am featuring Britney Spears",
+"lead": [
+"Will.i.am"
+],
+"feat": [
+"Britney Spears"
+],
+"years": [
+2013
+],
+"peak": 3,
+"ye": [
+[
+2013,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Clarity",
+"credit": "Zedd featuring Foxes",
+"lead": [
+"Zedd"
+],
+"feat": [
+"Foxes"
+],
+"years": [
+2013
+],
+"peak": 8,
+"ye": [
+[
+2013,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Sail",
+"credit": "Awolnation",
+"lead": [
+"Awolnation"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Don't You Worry Child",
+"credit": "Swedish House Mafia featuring John Martin",
+"lead": [
+"Swedish House Mafia"
+],
+"feat": [
+"John Martin"
+],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "I Love It",
+"credit": "Icona Pop featuring Charli XCX",
+"lead": [
+"Icona Pop"
+],
+"feat": [
+"Charli XCX"
+],
+"years": [
+2013
+],
+"peak": 7,
+"ye": [
+[
+2013,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "Safe and Sound",
+"credit": "Capital Cities",
+"lead": [
+"Capital Cities"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 8,
+"ye": [
+[
+2013,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Treasure",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 5,
+"ye": [
+[
+2013,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "The Way",
+"credit": "Ariana Grande featuring Mac Miller",
+"lead": [
+"Ariana Grande"
+],
+"feat": [
+"Mac Miller"
+],
+"years": [
+2013
+],
+"peak": 9,
+"ye": [
+[
+2013,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Started from the Bottom",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Come & Get It",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Hold On, We're Going Home",
+"credit": "Drake featuring Majid Jordan",
+"lead": [
+"Drake"
+],
+"feat": [
+"Majid Jordan"
+],
+"years": [
+2013,
+2014
+],
+"peak": 4,
+"ye": [
+[
+2013,
+34
+],
+[
+2014,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Daylight",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 7,
+"ye": [
+[
+2013,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Feel This Moment",
+"credit": "Pitbull featuring Christina Aguilera",
+"lead": [
+"Pitbull"
+],
+"feat": [
+"Christina Aguilera"
+],
+"years": [
+2013
+],
+"peak": 8,
+"ye": [
+[
+2013,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Applause",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 4,
+"ye": [
+[
+2013,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Love Me",
+"credit": "Lil Wayne featuring Drake and Future",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Drake",
+"Future"
+],
+"years": [
+2013
+],
+"peak": 9,
+"ye": [
+[
+2013,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "My Songs Know What You Did in the Dark (Light Em Up)",
+"credit": "Fall Out Boy",
+"lead": [
+"Fall Out Boy"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Fuckin' Problems",
+"credit": "ASAP Rocky featuring Drake , 2 Chainz and Kendrick Lamar",
+"lead": [
+"ASAP Rocky"
+],
+"feat": [
+"Drake",
+"2 Chainz",
+"Kendrick Lamar"
+],
+"years": [
+2013
+],
+"peak": 8,
+"ye": [
+[
+2013,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Same Love",
+"credit": "Macklemore & Ryan Lewis featuring Mary Lambert",
+"lead": [
+"Macklemore & Ryan Lewis"
+],
+"feat": [
+"Mary Lambert"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+43
+]
+],
+"grammy": [
+[
+2014,
+"Song",
+false
+]
+]
+},
+{
+"title": "Sweet Nothing",
+"credit": "Calvin Harris featuring Florence Welch",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Florence Welch"
+],
+"years": [
+2013
+],
+"peak": 10,
+"ye": [
+[
+2013,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Summertime Sadness",
+"credit": "Lana Del Rey and Cédric Gervais",
+"lead": [
+"Lana Del Rey",
+"Cédric Gervais"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Power Trip",
+"credit": "J. Cole featuring Miguel",
+"lead": [
+"J. Cole"
+],
+"feat": [
+"Miguel"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Girl on Fire",
+"credit": "Alicia Keys featuring Nicki Minaj",
+"lead": [
+"Alicia Keys"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Heart Attack",
+"credit": "Demi Lovato",
+"lead": [
+"Demi Lovato"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 10,
+"ye": [
+[
+2013,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Love Somebody",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 10,
+"ye": [
+[
+2013,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "I Will Wait",
+"credit": "Mumford & Sons",
+"lead": [
+"Mumford & Sons"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "Try",
+"credit": "Pink",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 9,
+"ye": [
+[
+2013,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Wagon Wheel",
+"credit": "Darius Rucker",
+"lead": [
+"Darius Rucker"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "I Need Your Love",
+"credit": "Calvin Harris featuring Ellie Goulding",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Ellie Goulding"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Bad",
+"credit": "Wale featuring Tiara Thomas or Rihanna",
+"lead": [
+"Wale"
+],
+"feat": [
+"Tiara Thomas or Rihanna"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Boys 'Round Here",
+"credit": "Blake Shelton featuring Pistol Annies and Friends",
+"lead": [
+"Blake Shelton"
+],
+"feat": [
+"Pistol Annies",
+"Friends"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Gone, Gone, Gone",
+"credit": "Phillip Phillips",
+"lead": [
+"Phillip Phillips"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Demons",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 6,
+"ye": [
+[
+2013,
+62
+],
+[
+2014,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Counting Stars",
+"credit": "OneRepublic",
+"lead": [
+"OneRepublic"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 2,
+"ye": [
+[
+2013,
+63
+],
+[
+2014,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Little Talks",
+"credit": "Of Monsters and Men",
+"lead": [
+"Of Monsters and Men"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "The Other Side",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Berzerk",
+"credit": "Eminem",
+"lead": [
+"Eminem"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 3,
+"ye": [
+[
+2013,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Catch My Breath",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Crash My Party",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Pour It Up",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "22",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "I Want Crazy",
+"credit": "Hunter Hayes",
+"lead": [
+"Hunter Hayes"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "The Fox (What Does the Fox Say?)",
+"credit": "Ylvis",
+"lead": [
+"Ylvis"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 6,
+"ye": [
+[
+2013,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Best Song Ever",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 2,
+"ye": [
+[
+2013,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "The A Team",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+75
+]
+],
+"grammy": [
+[
+2013,
+"Song",
+false
+]
+]
+},
+{
+"title": "Carry On",
+"credit": "Fun",
+"lead": [
+"Fun"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Highway Don't Care",
+"credit": "Tim McGraw featuring Taylor Swift and Keith Urban",
+"lead": [
+"Tim McGraw"
+],
+"feat": [
+"Taylor Swift",
+"Keith Urban"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "That's My Kind of Night",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Swimming Pools (Drank)",
+"credit": "Kendrick Lamar",
+"lead": [
+"Kendrick Lamar"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Sure Be Cool If You Did",
+"credit": "Blake Shelton",
+"lead": [
+"Blake Shelton"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "#Beautiful",
+"credit": "Mariah Carey featuring Miguel",
+"lead": [
+"Mariah Carey"
+],
+"feat": [
+"Miguel"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Troublemaker",
+"credit": "Olly Murs featuring Flo Rida",
+"lead": [
+"Olly Murs"
+],
+"feat": [
+"Flo Rida"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Body Party",
+"credit": "Ciara",
+"lead": [
+"Ciara"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Hall of Fame",
+"credit": "The Script featuring will.i.am",
+"lead": [
+"The Script"
+],
+"feat": [
+"will.i.am"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "U.O.E.N.O.",
+"credit": "Rocko featuring Future and Rick Ross",
+"lead": [
+"Rocko"
+],
+"feat": [
+"Future",
+"Rick Ross"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Next to Me",
+"credit": "Emeli Sandé",
+"lead": [
+"Emeli Sandé"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Mama's Broken Heart",
+"credit": "Miranda Lambert",
+"lead": [
+"Miranda Lambert"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "It Goes Like This",
+"credit": "Thomas Rhett",
+"lead": [
+"Thomas Rhett"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Bugatti",
+"credit": "Ace Hood featuring Future and Rick Ross",
+"lead": [
+"Ace Hood"
+],
+"feat": [
+"Future",
+"Rick Ross"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "Downtown",
+"credit": "Lady Antebellum",
+"lead": [
+"Lady Antebellum"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Get Your Shine On",
+"credit": "Florida Georgia Line",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "#thatPower",
+"credit": "will.i.am featuring Justin Bieber",
+"lead": [
+"will.i.am"
+],
+"feat": [
+"Justin Bieber"
+],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Brave",
+"credit": "Sara Bareilles",
+"lead": [
+"Sara Bareilles"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": null,
+"ye": [
+[
+2013,
+96
+],
+[
+2014,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Let Her Go",
+"credit": "Passenger",
+"lead": [
+"Passenger"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 5,
+"ye": [
+[
+2013,
+97
+],
+[
+2014,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Runnin' Outta Moonlight",
+"credit": "Randy Houser",
+"lead": [
+"Randy Houser"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "I'm Different",
+"credit": "2 Chainz",
+"lead": [
+"2 Chainz"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Still Into You",
+"credit": "Paramore",
+"lead": [
+"Paramore"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": null,
+"ye": [
+[
+2013,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Gentleman",
+"credit": "Psy",
+"lead": [
+"Psy"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 5,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Wrecking Ball",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Rap God",
+"credit": "Eminem",
+"lead": [
+"Eminem"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "The Monster",
+"credit": "Eminem featuring Rihanna",
+"lead": [
+"Eminem"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Story of My Life",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 6,
+"ye": [
+[
+2014,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Dope",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2013
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Say Something",
+"credit": "A Great Big World and Christina Aguilera",
+"lead": [
+"A Great Big World",
+"Christina Aguilera"
+],
+"feat": [],
+"years": [
+2013,
+2014
+],
+"peak": 4,
+"ye": [
+[
+2014,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Timber",
+"credit": "Pitbull featuring Kesha",
+"lead": [
+"Pitbull"
+],
+"feat": [
+"Kesha"
+],
+"years": [
+2013,
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "Happy",
+"credit": "Pharrell Williams",
+"lead": [
+"Pharrell Williams"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+1
+]
+],
+"grammy": []
+},
+{
+"title": "Dark Horse",
+"credit": "Katy Perry featuring Juicy J",
+"lead": [
+"Katy Perry"
+],
+"feat": [
+"Juicy J"
+],
+"years": [
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+2
+]
+],
+"grammy": []
+},
+{
+"title": "All of Me",
+"credit": "John Legend",
+"lead": [
+"John Legend"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+3
+]
+],
+"grammy": []
+},
+{
+"title": "Fancy",
+"credit": "Iggy Azalea featuring Charli XCX",
+"lead": [
+"Iggy Azalea"
+],
+"feat": [
+"Charli XCX"
+],
+"years": [
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+4
+]
+],
+"grammy": [
+[
+2015,
+"Record",
+false
+]
+]
+},
+{
+"title": "Talk Dirty",
+"credit": "Jason Derulo featuring 2 Chainz",
+"lead": [
+"Jason Derulo"
+],
+"feat": [
+"2 Chainz"
+],
+"years": [
+2014
+],
+"peak": 3,
+"ye": [
+[
+2014,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Rude",
+"credit": "Magic!",
+"lead": [
+"Magic!"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 1,
+"ye": [
+[
+2014,
+7
+]
+],
+"grammy": []
+},
+{
+"title": "All About That Bass",
+"credit": "Meghan Trainor",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 1,
+"ye": [
+[
+2014,
+8
+],
+[
+2015,
+28
+]
+],
+"grammy": [
+[
+2015,
+"Record",
+false
+],
+[
+2015,
+"Song",
+false
+]
+]
+},
+{
+"title": "Problem",
+"credit": "Ariana Grande featuring Iggy Azalea",
+"lead": [
+"Ariana Grande"
+],
+"feat": [
+"Iggy Azalea"
+],
+"years": [
+2014
+],
+"peak": 2,
+"ye": [
+[
+2014,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "Stay with Me",
+"credit": "Sam Smith",
+"lead": [
+"Sam Smith"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 2,
+"ye": [
+[
+2014,
+10
+],
+[
+2015,
+58
+]
+],
+"grammy": [
+[
+2015,
+"Record",
+true
+],
+[
+2015,
+"Song",
+true
+]
+]
+},
+{
+"title": "Pompeii",
+"credit": "Bastille",
+"lead": [
+"Bastille"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 5,
+"ye": [
+[
+2014,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "Shake It Off",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 1,
+"ye": [
+[
+2014,
+13
+],
+[
+2015,
+18
+]
+],
+"grammy": [
+[
+2015,
+"Record",
+false
+],
+[
+2015,
+"Song",
+false
+]
+]
+},
+{
+"title": "Am I Wrong",
+"credit": "Nico & Vinz",
+"lead": [
+"Nico & Vinz"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 4,
+"ye": [
+[
+2014,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Turn Down for What",
+"credit": "DJ Snake and Lil Jon",
+"lead": [
+"DJ Snake",
+"Lil Jon"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 4,
+"ye": [
+[
+2014,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "Team",
+"credit": "Lorde",
+"lead": [
+"Lorde"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 6,
+"ye": [
+[
+2014,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Let It Go",
+"credit": "Idina Menzel",
+"lead": [
+"Idina Menzel"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 5,
+"ye": [
+[
+2014,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Chandelier",
+"credit": "Sia",
+"lead": [
+"Sia"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 8,
+"ye": [
+[
+2014,
+25
+],
+[
+2015,
+90
+]
+],
+"grammy": [
+[
+2015,
+"Record",
+false
+],
+[
+2015,
+"Song",
+false
+]
+]
+},
+{
+"title": "Black Widow",
+"credit": "Iggy Azalea featuring Rita Ora",
+"lead": [
+"Iggy Azalea"
+],
+"feat": [
+"Rita Ora"
+],
+"years": [
+2014
+],
+"peak": 3,
+"ye": [
+[
+2014,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Bang Bang",
+"credit": "Jessie J , Ariana Grande and Nicki Minaj",
+"lead": [
+"Jessie J",
+"Ariana Grande",
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 3,
+"ye": [
+[
+2014,
+27
+],
+[
+2015,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Latch",
+"credit": "Disclosure featuring Sam Smith",
+"lead": [
+"Disclosure"
+],
+"feat": [
+"Sam Smith"
+],
+"years": [
+2014
+],
+"peak": 7,
+"ye": [
+[
+2014,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "Maps",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 6,
+"ye": [
+[
+2014,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Loyal",
+"credit": "Chris Brown featuring Lil Wayne and French Montana or Too Short or Tyga",
+"lead": [
+"Chris Brown"
+],
+"feat": [
+"Lil Wayne",
+"French Montana or Too Short or Tyga"
+],
+"years": [
+2014
+],
+"peak": 9,
+"ye": [
+[
+2014,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Best Day of My Life",
+"credit": "American Authors",
+"lead": [
+"American Authors"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Habits (Stay High)",
+"credit": "Tove Lo",
+"lead": [
+"Tove Lo"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 3,
+"ye": [
+[
+2014,
+32
+],
+[
+2015,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Summer",
+"credit": "Calvin Harris",
+"lead": [
+"Calvin Harris"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 7,
+"ye": [
+[
+2014,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Boom Clap",
+"credit": "Charli XCX",
+"lead": [
+"Charli XCX"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 8,
+"ye": [
+[
+2014,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Drunk in Love",
+"credit": "Beyoncé featuring Jay-Z",
+"lead": [
+"Beyoncé"
+],
+"feat": [
+"Jay-Z"
+],
+"years": [
+2014
+],
+"peak": 2,
+"ye": [
+[
+2014,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Anaconda",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 2,
+"ye": [
+[
+2014,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Break Free",
+"credit": "Ariana Grande featuring Zedd",
+"lead": [
+"Ariana Grande"
+],
+"feat": [
+"Zedd"
+],
+"years": [
+2014
+],
+"peak": 4,
+"ye": [
+[
+2014,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Bailando",
+"credit": "Enrique Iglesias featuring Descemer Bueno and Gente de Zona",
+"lead": [
+"Enrique Iglesias"
+],
+"feat": [
+"Descemer Bueno",
+"Gente de Zona"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Burn",
+"credit": "Ellie Goulding",
+"lead": [
+"Ellie Goulding"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Wiggle",
+"credit": "Jason Derulo featuring Snoop Dogg",
+"lead": [
+"Jason Derulo"
+],
+"feat": [
+"Snoop Dogg"
+],
+"years": [
+2014
+],
+"peak": 5,
+"ye": [
+[
+2014,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Rather Be",
+"credit": "Clean Bandit featuring Jess Glynne",
+"lead": [
+"Clean Bandit"
+],
+"feat": [
+"Jess Glynne"
+],
+"years": [
+2014
+],
+"peak": 10,
+"ye": [
+[
+2014,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Don't Tell 'Em",
+"credit": "Jeremih featuring YG",
+"lead": [
+"Jeremih"
+],
+"feat": [
+"YG"
+],
+"years": [
+2014
+],
+"peak": 6,
+"ye": [
+[
+2014,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Show Me",
+"credit": "Kid Ink featuring Chris Brown",
+"lead": [
+"Kid Ink"
+],
+"feat": [
+"Chris Brown"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Not a Bad Thing",
+"credit": "Justin Timberlake",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 8,
+"ye": [
+[
+2014,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Ain't It Fun",
+"credit": "Paramore",
+"lead": [
+"Paramore"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 10,
+"ye": [
+[
+2014,
+47
+]
+],
+"grammy": []
+},
+{
+"title": "The Man",
+"credit": "Aloe Blacc",
+"lead": [
+"Aloe Blacc"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 8,
+"ye": [
+[
+2014,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "This Is How We Roll",
+"credit": "Florida Georgia Line featuring Luke Bryan",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [
+"Luke Bryan"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Classic",
+"credit": "MKTO",
+"lead": [
+"MKTO"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "A Sky Full of Stars",
+"credit": "Coldplay",
+"lead": [
+"Coldplay"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 10,
+"ye": [
+[
+2014,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Don't",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 9,
+"ye": [
+[
+2014,
+52
+],
+[
+2015,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "Na Na",
+"credit": "Trey Songz",
+"lead": [
+"Trey Songz"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Hot Boy",
+"credit": "Bobby Shmurda",
+"lead": [
+"Bobby Shmurda"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 6,
+"ye": [
+[
+2014,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Sing",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "My Hitta",
+"credit": "YG featuring Jeezy and Rich Homie Quan",
+"lead": [
+"YG"
+],
+"feat": [
+"Jeezy",
+"Rich Homie Quan"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Cool Kids",
+"credit": "Echosmith",
+"lead": [
+"Echosmith"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Hey Brother",
+"credit": "Avicii",
+"lead": [
+"Avicii"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Trumpets",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Animals",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 3,
+"ye": [
+[
+2014,
+62
+],
+[
+2015,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Burnin' It Down",
+"credit": "Jason Aldean",
+"lead": [
+"Jason Aldean"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "Play It Again",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "2 On",
+"credit": "Tinashe featuring ScHoolboy Q",
+"lead": [
+"Tinashe"
+],
+"feat": [
+"ScHoolboy Q"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Dirt",
+"credit": "Florida Georgia Line",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Love Runs Out",
+"credit": "OneRepublic",
+"lead": [
+"OneRepublic"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Bottoms Up",
+"credit": "Brantley Gilbert",
+"lead": [
+"Brantley Gilbert"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Shower",
+"credit": "Becky G",
+"lead": [
+"Becky G"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Me and My Broken Heart",
+"credit": "Rixton",
+"lead": [
+"Rixton"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Animals",
+"credit": "Martin Garrix",
+"lead": [
+"Martin Garrix"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Lifestyle",
+"credit": "Rich Gang featuring Young Thug and Rich Homie Quan",
+"lead": [
+"Rich Gang"
+],
+"feat": [
+"Young Thug",
+"Rich Homie Quan"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "American Kids",
+"credit": "Kenny Chesney",
+"lead": [
+"Kenny Chesney"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Sweater Weather",
+"credit": "The Neighbourhood",
+"lead": [
+"The Neighbourhood"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Leave the Night On",
+"credit": "Sam Hunt",
+"lead": [
+"Sam Hunt"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "New Flame",
+"credit": "Chris Brown featuring Usher and Rick Ross",
+"lead": [
+"Chris Brown"
+],
+"feat": [
+"Usher",
+"Rick Ross"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Love Never Felt So Good",
+"credit": "Michael Jackson and Justin Timberlake",
+"lead": [
+"Michael Jackson",
+"Justin Timberlake"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 9,
+"ye": [
+[
+2014,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Drunk on a Plane",
+"credit": "Dierks Bentley",
+"lead": [
+"Dierks Bentley"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Birthday",
+"credit": "Katy Perry",
+"lead": [
+"Katy Perry"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Bartender",
+"credit": "Lady Antebellum",
+"lead": [
+"Lady Antebellum"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "La La La",
+"credit": "Naughty Boy featuring Sam Smith",
+"lead": [
+"Naughty Boy"
+],
+"feat": [
+"Sam Smith"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Do What U Want",
+"credit": "Lady Gaga featuring R. Kelly",
+"lead": [
+"Lady Gaga"
+],
+"feat": [
+"R. Kelly"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Can't Remember to Forget You",
+"credit": "Shakira featuring Rihanna",
+"lead": [
+"Shakira"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Amnesia",
+"credit": "5 Seconds of Summer",
+"lead": [
+"5 Seconds of Summer"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "No Mediocre",
+"credit": "T.I. featuring Iggy Azalea",
+"lead": [
+"T.I."
+],
+"feat": [
+"Iggy Azalea"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Come with Me Now",
+"credit": "KONGOS",
+"lead": [
+"KONGOS"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Believe Me",
+"credit": "Lil Wayne featuring Drake",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "23",
+"credit": "Mike WiLL Made-It featuring Miley Cyrus , Wiz Khalifa , and Juicy J",
+"lead": [
+"Mike WiLL Made-It"
+],
+"feat": [
+"Miley Cyrus",
+"Wiz Khalifa",
+"and Juicy J"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Beachin'",
+"credit": "Jake Owen",
+"lead": [
+"Jake Owen"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "White Walls",
+"credit": "Macklemore & Ryan Lewis featuring ScHoolboy Q and Hollis",
+"lead": [
+"Macklemore & Ryan Lewis"
+],
+"feat": [
+"ScHoolboy Q",
+"Hollis"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "She Looks So Perfect",
+"credit": "5 Seconds of Summer",
+"lead": [
+"5 Seconds of Summer"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Stay the Night",
+"credit": "Zedd featuring Hayley Williams",
+"lead": [
+"Zedd"
+],
+"feat": [
+"Hayley Williams"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "Partition",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Studio",
+"credit": "ScHoolboy Q featuring BJ the Chicago Kid",
+"lead": [
+"ScHoolboy Q"
+],
+"feat": [
+"BJ the Chicago Kid"
+],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "0 to 100 / The Catch Up",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Dance",
+"credit": "Lee Brice",
+"lead": [
+"Lee Brice"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Somethin' Bad",
+"credit": "Miranda Lambert and Carrie Underwood",
+"lead": [
+"Miranda Lambert",
+"Carrie Underwood"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Adore You",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": null,
+"ye": [
+[
+2014,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "We Might Be Dead by Tomorrow",
+"credit": "Soko",
+"lead": [
+"Soko"
+],
+"feat": [],
+"years": [
+2014
+],
+"peak": 9,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Take Me to Church",
+"credit": "Hozier",
+"lead": [
+"Hozier"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 2,
+"ye": [
+[
+2015,
+14
+]
+],
+"grammy": [
+[
+2015,
+"Song",
+false
+]
+]
+},
+{
+"title": "Love Me Harder",
+"credit": "Ariana Grande and The Weeknd",
+"lead": [
+"Ariana Grande",
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 7,
+"ye": [
+[
+2015,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Blank Space",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 1,
+"ye": [
+[
+2015,
+7
+]
+],
+"grammy": [
+[
+2016,
+"Record",
+false
+],
+[
+2016,
+"Song",
+false
+]
+]
+},
+{
+"title": "I'm Not the Only One",
+"credit": "Sam Smith",
+"lead": [
+"Sam Smith"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 5,
+"ye": [
+[
+2015,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "The Heart Wants What It Wants",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 6,
+"ye": [
+[
+2015,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Lips Are Movin",
+"credit": "Meghan Trainor",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 4,
+"ye": [
+[
+2015,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Jealous",
+"credit": "Nick Jonas",
+"lead": [
+"Nick Jonas"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 7,
+"ye": [
+[
+2015,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Uptown Funk",
+"credit": "Mark Ronson featuring Bruno Mars",
+"lead": [
+"Mark Ronson"
+],
+"feat": [
+"Bruno Mars"
+],
+"years": [
+2014,
+2015
+],
+"peak": 1,
+"ye": [
+[
+2015,
+1
+]
+],
+"grammy": [
+[
+2016,
+"Record",
+true
+]
+]
+},
+{
+"title": "Thinking Out Loud",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2014,
+2015
+],
+"peak": 2,
+"ye": [
+[
+2015,
+2
+]
+],
+"grammy": [
+[
+2016,
+"Record",
+false
+],
+[
+2016,
+"Song",
+true
+]
+]
+},
+{
+"title": "See You Again",
+"credit": "Wiz Khalifa featuring Charlie Puth",
+"lead": [
+"Wiz Khalifa"
+],
+"feat": [
+"Charlie Puth"
+],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2015,
+3
+],
+[
+2016,
+99
+]
+],
+"grammy": [
+[
+2016,
+"Song",
+false
+]
+]
+},
+{
+"title": "Trap Queen",
+"credit": "Fetty Wap",
+"lead": [
+"Fetty Wap"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 2,
+"ye": [
+[
+2015,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "Sugar",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 2,
+"ye": [
+[
+2015,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Shut Up and Dance",
+"credit": "Walk the Moon",
+"lead": [
+"Walk the Moon"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 4,
+"ye": [
+[
+2015,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Watch Me",
+"credit": "Silentó",
+"lead": [
+"Silentó"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 3,
+"ye": [
+[
+2015,
+8
+],
+[
+2016,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Earned It",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 3,
+"ye": [
+[
+2015,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "Cheerleader ( Felix Jaehn Remix)",
+"credit": "OMI",
+"lead": [
+"OMI"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 1,
+"ye": [
+[
+2015,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "Can't Feel My Face",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2015,
+12
+],
+[
+2016,
+72
+]
+],
+"grammy": [
+[
+2016,
+"Record",
+false
+]
+]
+},
+{
+"title": "Love Me Like You Do",
+"credit": "Ellie Goulding",
+"lead": [
+"Ellie Goulding"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 3,
+"ye": [
+[
+2015,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "Bad Blood",
+"credit": "Taylor Swift featuring Kendrick Lamar",
+"lead": [
+"Taylor Swift"
+],
+"feat": [
+"Kendrick Lamar"
+],
+"years": [
+2015
+],
+"peak": 1,
+"ye": [
+[
+2015,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "Lean On",
+"credit": "Major Lazer and DJ Snake featuring MØ",
+"lead": [
+"Major Lazer",
+"DJ Snake"
+],
+"feat": [
+"MØ"
+],
+"years": [
+2015,
+2016
+],
+"peak": 4,
+"ye": [
+[
+2015,
+16
+],
+[
+2016,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Want to Want Me",
+"credit": "Jason Derulo",
+"lead": [
+"Jason Derulo"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 5,
+"ye": [
+[
+2015,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Where Are Ü Now",
+"credit": "Jack Ü featuring Justin Bieber",
+"lead": [
+"Jack Ü"
+],
+"feat": [
+"Justin Bieber"
+],
+"years": [
+2015
+],
+"peak": 8,
+"ye": [
+[
+2015,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Fight Song",
+"credit": "Rachel Platten",
+"lead": [
+"Rachel Platten"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 6,
+"ye": [
+[
+2015,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "679",
+"credit": "Fetty Wap featuring Remy Boyz",
+"lead": [
+"Fetty Wap"
+],
+"feat": [
+"Remy Boyz"
+],
+"years": [
+2015,
+2016
+],
+"peak": 4,
+"ye": [
+[
+2015,
+21
+],
+[
+2016,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Worth It",
+"credit": "Fifth Harmony featuring Kid Ink",
+"lead": [
+"Fifth Harmony"
+],
+"feat": [
+"Kid Ink"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Post to Be",
+"credit": "Omarion featuring Chris Brown and Jhené Aiko",
+"lead": [
+"Omarion"
+],
+"feat": [
+"Chris Brown",
+"Jhené Aiko"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Honey, I'm Good",
+"credit": "Andy Grammer",
+"lead": [
+"Andy Grammer"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 9,
+"ye": [
+[
+2015,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Good for You",
+"credit": "Selena Gomez featuring ASAP Rocky",
+"lead": [
+"Selena Gomez"
+],
+"feat": [
+"ASAP Rocky"
+],
+"years": [
+2015
+],
+"peak": 5,
+"ye": [
+[
+2015,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "Style",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 6,
+"ye": [
+[
+2015,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Hotline Bling",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 2,
+"ye": [
+[
+2015,
+30
+],
+[
+2016,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Hey Mama",
+"credit": "David Guetta featuring Nicki Minaj , Bebe Rexha and Afrojack",
+"lead": [
+"David Guetta"
+],
+"feat": [
+"Nicki Minaj",
+"Bebe Rexha",
+"Afrojack"
+],
+"years": [
+2015
+],
+"peak": 8,
+"ye": [
+[
+2015,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "G.D.F.R.",
+"credit": "Flo Rida featuring Sage the Gemini and Lookas",
+"lead": [
+"Flo Rida"
+],
+"feat": [
+"Sage the Gemini",
+"Lookas"
+],
+"years": [
+2015
+],
+"peak": 8,
+"ye": [
+[
+2015,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "What Do You Mean?",
+"credit": "Justin Bieber",
+"lead": [
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2015,
+33
+],
+[
+2016,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Photograph",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 10,
+"ye": [
+[
+2015,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Hello",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2015,
+35
+],
+[
+2016,
+7
+]
+],
+"grammy": [
+[
+2017,
+"Record",
+true
+],
+[
+2017,
+"Song",
+true
+]
+]
+},
+{
+"title": "Stitches",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 4,
+"ye": [
+[
+2015,
+36
+],
+[
+2016,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Talking Body",
+"credit": "Tove Lo",
+"lead": [
+"Tove Lo"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Time of Our Lives",
+"credit": "Pitbull and Ne-Yo",
+"lead": [
+"Pitbull",
+"Ne-Yo"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 9,
+"ye": [
+[
+2015,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Locked Away",
+"credit": "R. City featuring Adam Levine",
+"lead": [
+"R. City"
+],
+"feat": [
+"Adam Levine"
+],
+"years": [
+2015
+],
+"peak": 6,
+"ye": [
+[
+2015,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Somebody",
+"credit": "Natalie La Rose featuring Jeremih",
+"lead": [
+"Natalie La Rose"
+],
+"feat": [
+"Jeremih"
+],
+"years": [
+2015
+],
+"peak": 10,
+"ye": [
+[
+2015,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "FourFiveSeconds",
+"credit": "Rihanna , Kanye West and Paul McCartney",
+"lead": [
+"Rihanna",
+"Kanye West",
+"Paul McCartney"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 4,
+"ye": [
+[
+2015,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Centuries",
+"credit": "Fall Out Boy",
+"lead": [
+"Fall Out Boy"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 10,
+"ye": [
+[
+2015,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "My Way",
+"credit": "Fetty Wap featuring Monty",
+"lead": [
+"Fetty Wap"
+],
+"feat": [
+"Monty"
+],
+"years": [
+2015
+],
+"peak": 7,
+"ye": [
+[
+2015,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Take Your Time",
+"credit": "Sam Hunt",
+"lead": [
+"Sam Hunt"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Fuck with You",
+"credit": "Big Sean featuring E-40",
+"lead": [
+"Big Sean"
+],
+"feat": [
+"E-40"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+47
+]
+],
+"grammy": []
+},
+{
+"title": "Bitch Better Have My Money",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Flex (Ooh, Ooh, Ooh)",
+"credit": "Rich Homie Quan",
+"lead": [
+"Rich Homie Quan"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Nasty Freestyle",
+"credit": "T-Wayne",
+"lead": [
+"T-Wayne"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 9,
+"ye": [
+[
+2015,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Only",
+"credit": "Nicki Minaj featuring Drake , Lil Wayne and Chris Brown",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [
+"Drake",
+"Lil Wayne",
+"Chris Brown"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Elastic Heart",
+"credit": "Sia",
+"lead": [
+"Sia"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "Cool for the Summer",
+"credit": "Demi Lovato",
+"lead": [
+"Demi Lovato"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Renegades",
+"credit": "X Ambassadors",
+"lead": [
+"X Ambassadors"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Mind",
+"credit": "Usher featuring Juicy J",
+"lead": [
+"Usher"
+],
+"feat": [
+"Juicy J"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Wildest Dreams",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 5,
+"ye": [
+[
+2015,
+57
+],
+[
+2016,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "You Know You Like It",
+"credit": "DJ Snake and AlunaGeorge",
+"lead": [
+"DJ Snake",
+"AlunaGeorge"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Uma Thurman",
+"credit": "Fall Out Boy",
+"lead": [
+"Fall Out Boy"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "7/11",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Girl Crush",
+"credit": "Little Big Town",
+"lead": [
+"Little Big Town"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+63
+]
+],
+"grammy": [
+[
+2016,
+"Song",
+false
+]
+]
+},
+{
+"title": "Slow Motion",
+"credit": "Trey Songz",
+"lead": [
+"Trey Songz"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Drag Me Down",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 3,
+"ye": [
+[
+2015,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Truffle Butter",
+"credit": "Nicki Minaj featuring Drake and Lil Wayne",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [
+"Drake",
+"Lil Wayne"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "One Last Time",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Chains",
+"credit": "Nick Jonas",
+"lead": [
+"Nick Jonas"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "All Eyes on You",
+"credit": "Meek Mill featuring Chris Brown and Nicki Minaj",
+"lead": [
+"Meek Mill"
+],
+"feat": [
+"Chris Brown",
+"Nicki Minaj"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "No Type",
+"credit": "Rae Sremmurd",
+"lead": [
+"Rae Sremmurd"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Riptide",
+"credit": "Vance Joy",
+"lead": [
+"Vance Joy"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Classic Man",
+"credit": "Jidenna featuring Roman GianArthur",
+"lead": [
+"Jidenna"
+],
+"feat": [
+"Roman GianArthur"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Ex's & Oh's",
+"credit": "Elle King",
+"lead": [
+"Elle King"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 10,
+"ye": [
+[
+2015,
+73
+],
+[
+2016,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "Dear Future Husband",
+"credit": "Meghan Trainor",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Marvin Gaye",
+"credit": "Charlie Puth featuring Meghan Trainor",
+"lead": [
+"Charlie Puth"
+],
+"feat": [
+"Meghan Trainor"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Like I'm Gonna Lose You",
+"credit": "Meghan Trainor featuring John Legend",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [
+"John Legend"
+],
+"years": [
+2015,
+2016
+],
+"peak": 8,
+"ye": [
+[
+2015,
+76
+],
+[
+2016,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "The Hanging Tree",
+"credit": "James Newton Howard featuring Jennifer Lawrence",
+"lead": [
+"James Newton Howard"
+],
+"feat": [
+"Jennifer Lawrence"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "CoCo",
+"credit": "O.T. Genasis",
+"lead": [
+"O.T. Genasis"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Lay Me Down",
+"credit": "Sam Smith",
+"lead": [
+"Sam Smith"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 8,
+"ye": [
+[
+2015,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Tuesday",
+"credit": "ILoveMakonnen featuring Drake",
+"lead": [
+"ILoveMakonnen"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Hit the Quan",
+"credit": "iLoveMemphis",
+"lead": [
+"iLoveMemphis"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Downtown",
+"credit": "Macklemore & Ryan Lewis featuring Eric Nally , Melle Mel , Kool Moe Dee and Grandmaster Caz",
+"lead": [
+"Macklemore & Ryan Lewis"
+],
+"feat": [
+"Eric Nally",
+"Melle Mel",
+"Kool Moe Dee",
+"Grandmaster Caz"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "House Party",
+"credit": "Sam Hunt",
+"lead": [
+"Sam Hunt"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Ayo",
+"credit": "Chris Brown and Tyga",
+"lead": [
+"Chris Brown",
+"Tyga"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Kick the Dust Up",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Blessings",
+"credit": "Big Sean featuring Drake and Kanye West",
+"lead": [
+"Big Sean"
+],
+"feat": [
+"Drake",
+"Kanye West"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Budapest",
+"credit": "George Ezra",
+"lead": [
+"George Ezra"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Heartbeat Song",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "Ghost",
+"credit": "Ella Henderson",
+"lead": [
+"Ella Henderson"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Here",
+"credit": "Alessia Cara",
+"lead": [
+"Alessia Cara"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 5,
+"ye": [
+[
+2015,
+94
+],
+[
+2016,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Waves ( Robin Schulz Remix)",
+"credit": "Mr Probz",
+"lead": [
+"Mr Probz"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "El Perdón",
+"credit": "Nicky Jam and Enrique Iglesias",
+"lead": [
+"Nicky Jam",
+"Enrique Iglesias"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "She Knows",
+"credit": "Ne-Yo featuring Juicy J",
+"lead": [
+"Ne-Yo"
+],
+"feat": [
+"Juicy J"
+],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "Night Changes",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Back to Back",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "How Deep Is Your Love",
+"credit": "Calvin Harris and Disciples",
+"lead": [
+"Calvin Harris",
+"Disciples"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": null,
+"ye": [
+[
+2015,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "The Hills",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Perfect",
+"credit": "One Direction",
+"lead": [
+"One Direction"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 10,
+"ye": [
+[
+2016,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Focus",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2015
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Sorry",
+"credit": "Justin Bieber",
+"lead": [
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Love Yourself",
+"credit": "Justin Bieber",
+"lead": [
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+1
+]
+],
+"grammy": [
+[
+2017,
+"Song",
+false
+]
+]
+},
+{
+"title": "Same Old Love",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2015,
+2016
+],
+"peak": 5,
+"ye": [
+[
+2016,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "One Dance",
+"credit": "Drake featuring Wizkid and Kyla",
+"lead": [
+"Drake"
+],
+"feat": [
+"Wizkid",
+"Kyla"
+],
+"years": [
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+3
+]
+],
+"grammy": []
+},
+{
+"title": "Work",
+"credit": "Rihanna featuring Drake",
+"lead": [
+"Rihanna"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+4
+]
+],
+"grammy": [
+[
+2017,
+"Record",
+false
+]
+]
+},
+{
+"title": "Stressed Out",
+"credit": "Twenty One Pilots",
+"lead": [
+"Twenty One Pilots"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 2,
+"ye": [
+[
+2016,
+5
+]
+],
+"grammy": [
+[
+2017,
+"Record",
+false
+]
+]
+},
+{
+"title": "Panda",
+"credit": "Desiigner",
+"lead": [
+"Desiigner"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Don't Let Me Down",
+"credit": "The Chainsmokers featuring Daya",
+"lead": [
+"The Chainsmokers"
+],
+"feat": [
+"Daya"
+],
+"years": [
+2016
+],
+"peak": 3,
+"ye": [
+[
+2016,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Can't Stop the Feeling!",
+"credit": "Justin Timberlake",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 1,
+"ye": [
+[
+2016,
+9
+],
+[
+2017,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Closer",
+"credit": "The Chainsmokers featuring Halsey",
+"lead": [
+"The Chainsmokers"
+],
+"feat": [
+"Halsey"
+],
+"years": [
+2016,
+2017
+],
+"peak": 1,
+"ye": [
+[
+2016,
+10
+],
+[
+2017,
+7
+]
+],
+"grammy": []
+},
+{
+"title": "Cheap Thrills",
+"credit": "Sia featuring Sean Paul",
+"lead": [
+"Sia"
+],
+"feat": [
+"Sean Paul"
+],
+"years": [
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "7 Years",
+"credit": "Lukas Graham",
+"lead": [
+"Lukas Graham"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 2,
+"ye": [
+[
+2016,
+12
+]
+],
+"grammy": [
+[
+2017,
+"Record",
+false
+],
+[
+2017,
+"Song",
+false
+]
+]
+},
+{
+"title": "Needed Me",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 7,
+"ye": [
+[
+2016,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "My House",
+"credit": "Flo Rida",
+"lead": [
+"Flo Rida"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 4,
+"ye": [
+[
+2016,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "I Took a Pill in Ibiza",
+"credit": "Mike Posner",
+"lead": [
+"Mike Posner"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 4,
+"ye": [
+[
+2016,
+15
+]
+],
+"grammy": [
+[
+2017,
+"Song",
+false
+]
+]
+},
+{
+"title": "Work from Home",
+"credit": "Fifth Harmony featuring Ty Dolla Sign",
+"lead": [
+"Fifth Harmony"
+],
+"feat": [
+"Ty Dolla Sign"
+],
+"years": [
+2016
+],
+"peak": 4,
+"ye": [
+[
+2016,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "This Is What You Came For",
+"credit": "Calvin Harris featuring Rihanna",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2016
+],
+"peak": 3,
+"ye": [
+[
+2016,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Cake by the Ocean",
+"credit": "DNCE",
+"lead": [
+"DNCE"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 9,
+"ye": [
+[
+2016,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Me, Myself & I",
+"credit": "G-Eazy and Bebe Rexha",
+"lead": [
+"G-Eazy",
+"Bebe Rexha"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 7,
+"ye": [
+[
+2016,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Ride",
+"credit": "Twenty One Pilots",
+"lead": [
+"Twenty One Pilots"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 5,
+"ye": [
+[
+2016,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Pillowtalk",
+"credit": "Zayn",
+"lead": [
+"Zayn"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 1,
+"ye": [
+[
+2016,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Cold Water",
+"credit": "Major Lazer featuring Justin Bieber and MØ",
+"lead": [
+"Major Lazer"
+],
+"feat": [
+"Justin Bieber",
+"MØ"
+],
+"years": [
+2016
+],
+"peak": 2,
+"ye": [
+[
+2016,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Send My Love (To Your New Lover)",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 8,
+"ye": [
+[
+2016,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Roses",
+"credit": "The Chainsmokers featuring Rozes",
+"lead": [
+"The Chainsmokers"
+],
+"feat": [
+"Rozes"
+],
+"years": [
+2016
+],
+"peak": 6,
+"ye": [
+[
+2016,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "Treat You Better",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 6,
+"ye": [
+[
+2016,
+28
+],
+[
+2017,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "Too Good",
+"credit": "Drake featuring Rihanna",
+"lead": [
+"Drake"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Low Life",
+"credit": "Future featuring The Weeknd",
+"lead": [
+"Future"
+],
+"feat": [
+"The Weeknd"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Just Like Fire",
+"credit": "P!nk",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 10,
+"ye": [
+[
+2016,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Broccoli",
+"credit": "DRAM featuring Lil Yachty",
+"lead": [
+"DRAM"
+],
+"feat": [
+"Lil Yachty"
+],
+"years": [
+2016,
+2017
+],
+"peak": 5,
+"ye": [
+[
+2016,
+34
+],
+[
+2017,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Don't",
+"credit": "Bryson Tiller",
+"lead": [
+"Bryson Tiller"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Dangerous Woman",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 8,
+"ye": [
+[
+2016,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Jumpman",
+"credit": "Drake and Future",
+"lead": [
+"Drake",
+"Future"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "I Hate U, I Love U",
+"credit": "Gnash featuring Olivia O'Brien",
+"lead": [
+"Gnash"
+],
+"feat": [
+"Olivia O'Brien"
+],
+"years": [
+2016
+],
+"peak": 10,
+"ye": [
+[
+2016,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Controlla",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "One Call Away",
+"credit": "Charlie Puth",
+"lead": [
+"Charlie Puth"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Let It Go",
+"credit": "James Bay",
+"lead": [
+"James Bay"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "No",
+"credit": "Meghan Trainor",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 3,
+"ye": [
+[
+2016,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Never Forget You",
+"credit": "Zara Larsson and MNEK",
+"lead": [
+"Zara Larsson",
+"MNEK"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Let Me Love You",
+"credit": "DJ Snake featuring Justin Bieber",
+"lead": [
+"DJ Snake"
+],
+"feat": [
+"Justin Bieber"
+],
+"years": [
+2016,
+2017
+],
+"peak": 4,
+"ye": [
+[
+2016,
+47
+],
+[
+2017,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Don't Mind",
+"credit": "Kent Jones",
+"lead": [
+"Kent Jones"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 8,
+"ye": [
+[
+2016,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "H.O.L.Y.",
+"credit": "Florida Georgia Line",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "We Don't Talk Anymore",
+"credit": "Charlie Puth featuring Selena Gomez",
+"lead": [
+"Charlie Puth"
+],
+"feat": [
+"Selena Gomez"
+],
+"years": [
+2016
+],
+"peak": 9,
+"ye": [
+[
+2016,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Into You",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Gold",
+"credit": "Kiiara",
+"lead": [
+"Kiiara"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "Exchange",
+"credit": "Bryson Tiller",
+"lead": [
+"Bryson Tiller"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Oui",
+"credit": "Jeremih",
+"lead": [
+"Jeremih"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Hands to Myself",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 7,
+"ye": [
+[
+2016,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "2 Phones",
+"credit": "Kevin Gates",
+"lead": [
+"Kevin Gates"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Starboy",
+"credit": "The Weeknd featuring Daft Punk",
+"lead": [
+"The Weeknd"
+],
+"feat": [
+"Daft Punk"
+],
+"years": [
+2016,
+2017
+],
+"peak": 1,
+"ye": [
+[
+2016,
+58
+],
+[
+2017,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "For Free",
+"credit": "DJ Khaled featuring Drake",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Never Be Like You",
+"credit": "Flume featuring Kai",
+"lead": [
+"Flume"
+],
+"feat": [
+"Kai"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "In the Night",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Me Too",
+"credit": "Meghan Trainor",
+"lead": [
+"Meghan Trainor"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Die a Happy Man",
+"credit": "Thomas Rhett",
+"lead": [
+"Thomas Rhett"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "White Iverson",
+"credit": "Post Malone",
+"lead": [
+"Post Malone"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Close",
+"credit": "Nick Jonas featuring Tove Lo",
+"lead": [
+"Nick Jonas"
+],
+"feat": [
+"Tove Lo"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Unsteady",
+"credit": "X Ambassadors",
+"lead": [
+"X Ambassadors"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Sucker for Pain",
+"credit": "Lil Wayne , Wiz Khalifa and Imagine Dragons with Logic and Ty Dolla Sign featuring X Ambassadors",
+"lead": [
+"Lil Wayne",
+"Wiz Khalifa",
+"Imagine Dragons",
+"Logic",
+"Ty Dolla Sign"
+],
+"feat": [
+"X Ambassadors"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Down in the DM",
+"credit": "Yo Gotti featuring Nicki Minaj",
+"lead": [
+"Yo Gotti"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Luv",
+"credit": "Tory Lanez",
+"lead": [
+"Tory Lanez"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Sorry",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Hymn for the Weekend",
+"credit": "Coldplay",
+"lead": [
+"Coldplay"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Say It",
+"credit": "Tory Lanez",
+"lead": [
+"Tory Lanez"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Antidote",
+"credit": "Travis Scott",
+"lead": [
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Lost Boy",
+"credit": "Ruth B",
+"lead": [
+"Ruth B"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Side to Side",
+"credit": "Ariana Grande featuring Nicki Minaj",
+"lead": [
+"Ariana Grande"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2016,
+2017
+],
+"peak": 4,
+"ye": [
+[
+2016,
+77
+],
+[
+2017,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Sit Still, Look Pretty",
+"credit": "Daya",
+"lead": [
+"Daya"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Middle",
+"credit": "DJ Snake featuring Bipolar Sunshine",
+"lead": [
+"DJ Snake"
+],
+"feat": [
+"Bipolar Sunshine"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "On My Mind",
+"credit": "Ellie Goulding",
+"lead": [
+"Ellie Goulding"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Pop Style",
+"credit": "Drake featuring Jay-Z and Kanye West",
+"lead": [
+"Drake"
+],
+"feat": [
+"Jay-Z",
+"Kanye West"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "When We Were Young",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Hide Away",
+"credit": "Daya",
+"lead": [
+"Daya"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "I Know What You Did Last Summer",
+"credit": "Shawn Mendes and Camila Cabello",
+"lead": [
+"Shawn Mendes",
+"Camila Cabello"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "All the Way Up",
+"credit": "Fat Joe and Remy Ma featuring French Montana and Infared",
+"lead": [
+"Fat Joe",
+"Remy Ma"
+],
+"feat": [
+"French Montana",
+"Infared"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Back to Sleep",
+"credit": "Chris Brown",
+"lead": [
+"Chris Brown"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "No Limit",
+"credit": "Usher featuring Young Thug",
+"lead": [
+"Usher"
+],
+"feat": [
+"Young Thug"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Cut It",
+"credit": "O.T. Genasis featuring Young Dolph",
+"lead": [
+"O.T. Genasis"
+],
+"feat": [
+"Young Dolph"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "Really Really",
+"credit": "Kevin Gates",
+"lead": [
+"Kevin Gates"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "All In My Head (Flex)",
+"credit": "Fifth Harmony featuring Fetty Wap",
+"lead": [
+"Fifth Harmony"
+],
+"feat": [
+"Fetty Wap"
+],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Starving",
+"credit": "Hailee Steinfeld and Grey featuring Zedd",
+"lead": [
+"Hailee Steinfeld",
+"Grey"
+],
+"feat": [
+"Zedd"
+],
+"years": [
+2016,
+2017
+],
+"peak": null,
+"ye": [
+[
+2016,
+94
+],
+[
+2017,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Adventure of a Lifetime",
+"credit": "Coldplay",
+"lead": [
+"Coldplay"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Humble and Kind",
+"credit": "Tim McGraw",
+"lead": [
+"Tim McGraw"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "Wicked",
+"credit": "Future",
+"lead": [
+"Future"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "Tiimmy Turner",
+"credit": "Desiigner",
+"lead": [
+"Desiigner"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": null,
+"ye": [
+[
+2016,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Summer Sixteen",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Piece by Piece",
+"credit": "Kelly Clarkson",
+"lead": [
+"Kelly Clarkson"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Purple Rain",
+"credit": "Prince and The Revolution",
+"lead": [
+"Prince",
+"The Revolution"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "When Doves Cry",
+"credit": "Prince",
+"lead": [
+"Prince"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Formation",
+"credit": "Beyoncé",
+"lead": [
+"Beyoncé"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 10,
+"ye": [],
+"grammy": [
+[
+2017,
+"Record",
+false
+],
+[
+2017,
+"Song",
+false
+]
+]
+},
+{
+"title": "Heathens",
+"credit": "Twenty One Pilots",
+"lead": [
+"Twenty One Pilots"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 2,
+"ye": [
+[
+2017,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "24K Magic",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+16
+]
+],
+"grammy": [
+[
+2018,
+"Record",
+true
+]
+]
+},
+{
+"title": "Juju on that Beat (TZ Anthem)",
+"credit": "Zay Hilfigerrr & Zayion McCall",
+"lead": [
+"Zay Hilfigerrr & Zayion McCall"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 5,
+"ye": [
+[
+2017,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "Black Beatles",
+"credit": "Rae Sremmurd featuring Gucci Mane",
+"lead": [
+"Rae Sremmurd"
+],
+"feat": [
+"Gucci Mane"
+],
+"years": [
+2016,
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+19
+]
+],
+"grammy": []
+},
+{
+"title": "Deja Vu",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2016
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Don't Wanna Know",
+"credit": "Maroon 5 featuring Kendrick Lamar",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"Kendrick Lamar"
+],
+"years": [
+2016,
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "Fake Love",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 8,
+"ye": [
+[
+2017,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Bad Things",
+"credit": "Machine Gun Kelly and Camila Cabello",
+"lead": [
+"Machine Gun Kelly",
+"Camila Cabello"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Wanna Live Forever",
+"credit": "Zayn and Taylor Swift",
+"lead": [
+"Zayn",
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2016,
+2017
+],
+"peak": 2,
+"ye": [
+[
+2017,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Shape of You",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 1,
+"ye": [
+[
+2017,
+1
+],
+[
+2018,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Despacito (Remix)",
+"credit": "Luis Fonsi and Daddy Yankee featuring Justin Bieber",
+"lead": [
+"Luis Fonsi",
+"Daddy Yankee"
+],
+"feat": [
+"Justin Bieber"
+],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+2
+]
+],
+"grammy": [
+[
+2018,
+"Record",
+false
+],
+[
+2018,
+"Song",
+false
+]
+]
+},
+{
+"title": "That's What I Like",
+"credit": "Bruno Mars",
+"lead": [
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+3
+]
+],
+"grammy": [
+[
+2018,
+"Song",
+true
+]
+]
+},
+{
+"title": "Humble",
+"credit": "Kendrick Lamar",
+"lead": [
+"Kendrick Lamar"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+4
+]
+],
+"grammy": [
+[
+2018,
+"Record",
+false
+]
+]
+},
+{
+"title": "Something Just Like This",
+"credit": "The Chainsmokers and Coldplay",
+"lead": [
+"The Chainsmokers",
+"Coldplay"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 3,
+"ye": [
+[
+2017,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "Bad and Boujee",
+"credit": "Migos featuring Lil Uzi Vert",
+"lead": [
+"Migos"
+],
+"feat": [
+"Lil Uzi Vert"
+],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Body Like a Back Road",
+"credit": "Sam Hunt",
+"lead": [
+"Sam Hunt"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+8
+]
+],
+"grammy": []
+},
+{
+"title": "Believer",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 4,
+"ye": [
+[
+2017,
+9
+],
+[
+2018,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Congratulations",
+"credit": "Post Malone featuring Quavo",
+"lead": [
+"Post Malone"
+],
+"feat": [
+"Quavo"
+],
+"years": [
+2017
+],
+"peak": 8,
+"ye": [
+[
+2017,
+10
+]
+],
+"grammy": []
+},
+{
+"title": "Say You Won't Let Go",
+"credit": "James Arthur",
+"lead": [
+"James Arthur"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "I'm the One",
+"credit": "DJ Khaled featuring Justin Bieber , Quavo , Chance the Rapper and Lil Wayne",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"Justin Bieber",
+"Quavo",
+"Chance the Rapper",
+"Lil Wayne"
+],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "XO Tour Llif3",
+"credit": "Lil Uzi Vert",
+"lead": [
+"Lil Uzi Vert"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 7,
+"ye": [
+[
+2017,
+13
+]
+],
+"grammy": []
+},
+{
+"title": "Mask Off",
+"credit": "Future",
+"lead": [
+"Future"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 5,
+"ye": [
+[
+2017,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Unforgettable",
+"credit": "French Montana featuring Swae Lee",
+"lead": [
+"French Montana"
+],
+"feat": [
+"Swae Lee"
+],
+"years": [
+2017
+],
+"peak": 3,
+"ye": [
+[
+2017,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "Stay",
+"credit": "Zedd and Alessia Cara",
+"lead": [
+"Zedd",
+"Alessia Cara"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 7,
+"ye": [
+[
+2017,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Wild Thoughts",
+"credit": "DJ Khaled featuring Rihanna and Bryson Tiller",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"Rihanna",
+"Bryson Tiller"
+],
+"years": [
+2017
+],
+"peak": 2,
+"ye": [
+[
+2017,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Location",
+"credit": "Khalid",
+"lead": [
+"Khalid"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Attention",
+"credit": "Charlie Puth",
+"lead": [
+"Charlie Puth"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 5,
+"ye": [
+[
+2017,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "There's Nothing Holdin' Me Back",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Bodak Yellow",
+"credit": "Cardi B",
+"lead": [
+"Cardi B"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 1,
+"ye": [
+[
+2017,
+24
+],
+[
+2018,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Redbone",
+"credit": "Childish Gambino",
+"lead": [
+"Childish Gambino"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+25
+]
+],
+"grammy": [
+[
+2018,
+"Record",
+false
+]
+]
+},
+{
+"title": "It Ain't Me",
+"credit": "Kygo and Selena Gomez",
+"lead": [
+"Kygo",
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 10,
+"ye": [
+[
+2017,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "iSpy",
+"credit": "Kyle featuring Lil Yachty",
+"lead": [
+"Kyle"
+],
+"feat": [
+"Lil Yachty"
+],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "Issues",
+"credit": "Julia Michaels",
+"lead": [
+"Julia Michaels"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+29
+]
+],
+"grammy": [
+[
+2018,
+"Song",
+false
+]
+]
+},
+{
+"title": "Scars to Your Beautiful",
+"credit": "Alessia Cara",
+"lead": [
+"Alessia Cara"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 8,
+"ye": [
+[
+2017,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "1-800-273-8255",
+"credit": "Logic featuring Alessia Cara and Khalid",
+"lead": [
+"Logic"
+],
+"feat": [
+"Alessia Cara",
+"Khalid"
+],
+"years": [
+2017,
+2018
+],
+"peak": 3,
+"ye": [
+[
+2017,
+31
+],
+[
+2018,
+84
+]
+],
+"grammy": [
+[
+2018,
+"Song",
+false
+]
+]
+},
+{
+"title": "Slow Hands",
+"credit": "Niall Horan",
+"lead": [
+"Niall Horan"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Love on the Brain",
+"credit": "Rihanna",
+"lead": [
+"Rihanna"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 5,
+"ye": [
+[
+2017,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "I Feel It Coming",
+"credit": "The Weeknd featuring Daft Punk",
+"lead": [
+"The Weeknd"
+],
+"feat": [
+"Daft Punk"
+],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Bounce Back",
+"credit": "Big Sean",
+"lead": [
+"Big Sean"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Strip That Down",
+"credit": "Liam Payne featuring Quavo",
+"lead": [
+"Liam Payne"
+],
+"feat": [
+"Quavo"
+],
+"years": [
+2017
+],
+"peak": 10,
+"ye": [
+[
+2017,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Look What You Made Me Do",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 1,
+"ye": [
+[
+2017,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Castle on the Hill",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Paris",
+"credit": "The Chainsmokers",
+"lead": [
+"The Chainsmokers"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Rockabye",
+"credit": "Clean Bandit featuring Sean Paul and Anne-Marie",
+"lead": [
+"Clean Bandit"
+],
+"feat": [
+"Sean Paul",
+"Anne-Marie"
+],
+"years": [
+2017
+],
+"peak": 9,
+"ye": [
+[
+2017,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Feel It Still",
+"credit": "Portugal. The Man",
+"lead": [
+"Portugal. The Man"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 4,
+"ye": [
+[
+2017,
+45
+],
+[
+2018,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Sorry Not Sorry",
+"credit": "Demi Lovato",
+"lead": [
+"Demi Lovato"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 6,
+"ye": [
+[
+2017,
+47
+],
+[
+2018,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Bank Account",
+"credit": "21 Savage",
+"lead": [
+"21 Savage"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Mi Gente",
+"credit": "J Balvin and Willy William featuring Beyoncé",
+"lead": [
+"J Balvin",
+"Willy William"
+],
+"feat": [
+"Beyoncé"
+],
+"years": [
+2017,
+2018
+],
+"peak": 3,
+"ye": [
+[
+2017,
+50
+],
+[
+2018,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Thunder",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 4,
+"ye": [
+[
+2017,
+51
+],
+[
+2018,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "T-shirt",
+"credit": "Migos",
+"lead": [
+"Migos"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "Rake It Up",
+"credit": "Yo Gotti featuring Nicki Minaj",
+"lead": [
+"Yo Gotti"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2017
+],
+"peak": 8,
+"ye": [
+[
+2017,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Mercy",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Tunnel Vision",
+"credit": "Kodak Black",
+"lead": [
+"Kodak Black"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 6,
+"ye": [
+[
+2017,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Rockstar",
+"credit": "Post Malone featuring 21 Savage",
+"lead": [
+"Post Malone"
+],
+"feat": [
+"21 Savage"
+],
+"years": [
+2017,
+2018
+],
+"peak": 1,
+"ye": [
+[
+2017,
+56
+],
+[
+2018,
+5
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+]
+]
+},
+{
+"title": "In Case You Didn't Know",
+"credit": "Brett Young",
+"lead": [
+"Brett Young"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Now or Never",
+"credit": "Halsey",
+"lead": [
+"Halsey"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Caroline",
+"credit": "Aminé",
+"lead": [
+"Aminé"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Rolex",
+"credit": "Ayo & Teo",
+"lead": [
+"Ayo & Teo"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "DNA",
+"credit": "Kendrick Lamar",
+"lead": [
+"Kendrick Lamar"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Swang",
+"credit": "Rae Sremmurd",
+"lead": [
+"Rae Sremmurd"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Passionfruit",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 8,
+"ye": [
+[
+2017,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Loyalty",
+"credit": "Kendrick Lamar featuring Rihanna",
+"lead": [
+"Kendrick Lamar"
+],
+"feat": [
+"Rihanna"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "Praying",
+"credit": "Kesha",
+"lead": [
+"Kesha"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Goosebumps",
+"credit": "Travis Scott",
+"lead": [
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Cold",
+"credit": "Maroon 5 featuring Future",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"Future"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "Slide",
+"credit": "Calvin Harris featuring Frank Ocean and Migos",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Frank Ocean",
+"Migos"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "What Ifs",
+"credit": "Kane Brown featuring Lauren Alaina",
+"lead": [
+"Kane Brown"
+],
+"feat": [
+"Lauren Alaina"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Chained to the Rhythm",
+"credit": "Katy Perry featuring Skip Marley",
+"lead": [
+"Katy Perry"
+],
+"feat": [
+"Skip Marley"
+],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Feels",
+"credit": "Calvin Harris featuring Pharrell Williams , Katy Perry and Big Sean",
+"lead": [
+"Calvin Harris"
+],
+"feat": [
+"Pharrell Williams",
+"Katy Perry",
+"Big Sean"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "All Time Low",
+"credit": "Jon Bellion",
+"lead": [
+"Jon Bellion"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Hurricane",
+"credit": "Luke Combs",
+"lead": [
+"Luke Combs"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Too Good at Goodbyes",
+"credit": "Sam Smith",
+"lead": [
+"Sam Smith"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 4,
+"ye": [
+[
+2017,
+77
+],
+[
+2018,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Young Dumb & Broke",
+"credit": "Khalid",
+"lead": [
+"Khalid"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": null,
+"ye": [
+[
+2017,
+78
+],
+[
+2018,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Magnolia",
+"credit": "Playboi Carti",
+"lead": [
+"Playboi Carti"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Love Galore",
+"credit": "SZA featuring Travis Scott",
+"lead": [
+"SZA"
+],
+"feat": [
+"Travis Scott"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Drowning",
+"credit": "A Boogie wit da Hoodie featuring Kodak Black",
+"lead": [
+"A Boogie wit da Hoodie"
+],
+"feat": [
+"Kodak Black"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Both",
+"credit": "Gucci Mane featuring Drake",
+"lead": [
+"Gucci Mane"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "What About Us",
+"credit": "P!nk",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Swalla",
+"credit": "Jason Derulo featuring Nicki Minaj and Ty Dolla Sign",
+"lead": [
+"Jason Derulo"
+],
+"feat": [
+"Nicki Minaj",
+"Ty Dolla Sign"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Slippery",
+"credit": "Migos featuring Gucci Mane",
+"lead": [
+"Migos"
+],
+"feat": [
+"Gucci Mane"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Sign of the Times",
+"credit": "Harry Styles",
+"lead": [
+"Harry Styles"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [
+[
+2017,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Water Under the Bridge",
+"credit": "Adele",
+"lead": [
+"Adele"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "Malibu",
+"credit": "Miley Cyrus",
+"lead": [
+"Miley Cyrus"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 10,
+"ye": [
+[
+2017,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Down",
+"credit": "Marian Hill",
+"lead": [
+"Marian Hill"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "No Promises",
+"credit": "Cheat Codes featuring Demi Lovato",
+"lead": [
+"Cheat Codes"
+],
+"feat": [
+"Demi Lovato"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "I Get the Bag",
+"credit": "Gucci Mane featuring Migos",
+"lead": [
+"Gucci Mane"
+],
+"feat": [
+"Migos"
+],
+"years": [
+2017,
+2018
+],
+"peak": null,
+"ye": [
+[
+2017,
+93
+],
+[
+2018,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Small Town Boy",
+"credit": "Dustin Lynch",
+"lead": [
+"Dustin Lynch"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "Everyday We Lit",
+"credit": "YFN Lucci featuring PnB Rock",
+"lead": [
+"YFN Lucci"
+],
+"feat": [
+"PnB Rock"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Havana",
+"credit": "Camila Cabello featuring Young Thug",
+"lead": [
+"Camila Cabello"
+],
+"feat": [
+"Young Thug"
+],
+"years": [
+2017,
+2018
+],
+"peak": 1,
+"ye": [
+[
+2017,
+96
+],
+[
+2018,
+4
+]
+],
+"grammy": []
+},
+{
+"title": "What Lovers Do",
+"credit": "Maroon 5 featuring SZA",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"SZA"
+],
+"years": [
+2017,
+2018
+],
+"peak": 9,
+"ye": [
+[
+2017,
+97
+],
+[
+2018,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Do Re Mi",
+"credit": "Blackbear",
+"lead": [
+"Blackbear"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Look at Me!",
+"credit": "XXXTentacion",
+"lead": [
+"XXXTentacion"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "The Fighter",
+"credit": "Keith Urban featuring Carrie Underwood",
+"lead": [
+"Keith Urban"
+],
+"feat": [
+"Carrie Underwood"
+],
+"years": [
+2017
+],
+"peak": null,
+"ye": [
+[
+2017,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Million Reasons",
+"credit": "Lady Gaga",
+"lead": [
+"Lady Gaga"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Portland",
+"credit": "Drake featuring Quavo and Travis Scott",
+"lead": [
+"Drake"
+],
+"feat": [
+"Quavo",
+"Travis Scott"
+],
+"years": [
+2017
+],
+"peak": 9,
+"ye": [],
+"grammy": []
+},
+{
+"title": "...Ready for It?",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2017
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Perfect",
+"credit": "Ed Sheeran",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+2
+]
+],
+"grammy": []
+},
+{
+"title": "Gucci Gang",
+"credit": "Lil Pump",
+"lead": [
+"Lil Pump"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 3,
+"ye": [
+[
+2018,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "MotorSport",
+"credit": "Migos, Nicki Minaj, and Cardi B",
+"lead": [
+"Migos",
+"Nicki Minaj",
+"and Cardi B"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 6,
+"ye": [
+[
+2018,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "No Limit",
+"credit": "G-Eazy featuring ASAP Rocky and Cardi B",
+"lead": [
+"G-Eazy"
+],
+"feat": [
+"ASAP Rocky",
+"Cardi B"
+],
+"years": [
+2017,
+2018
+],
+"peak": 4,
+"ye": [
+[
+2018,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Bad at Love",
+"credit": "Halsey",
+"lead": [
+"Halsey"
+],
+"feat": [],
+"years": [
+2017,
+2018
+],
+"peak": 5,
+"ye": [
+[
+2018,
+27
+]
+],
+"grammy": []
+},
+{
+"title": "All I Want for Christmas Is You",
+"credit": "Mariah Carey",
+"lead": [
+"Mariah Carey"
+],
+"feat": [],
+"years": [
+2017,
+2018,
+2019
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "God's Plan",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+1
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+],
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "Meant to Be",
+"credit": "Bebe Rexha featuring Florida Georgia Line",
+"lead": [
+"Bebe Rexha"
+],
+"feat": [
+"Florida Georgia Line"
+],
+"years": [
+2018
+],
+"peak": 2,
+"ye": [
+[
+2018,
+3
+]
+],
+"grammy": []
+},
+{
+"title": "Psycho",
+"credit": "Post Malone featuring Ty Dolla Sign",
+"lead": [
+"Post Malone"
+],
+"feat": [
+"Ty Dolla Sign"
+],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "I Like It",
+"credit": "Cardi B , Bad Bunny and J Balvin",
+"lead": [
+"Cardi B",
+"Bad Bunny",
+"J Balvin"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2018,
+7
+],
+[
+2019,
+69
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+]
+]
+},
+{
+"title": "The Middle",
+"credit": "Zedd , Maren Morris and Grey",
+"lead": [
+"Zedd",
+"Maren Morris",
+"Grey"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [
+[
+2018,
+8
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+],
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "In My Feelings",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "Girls Like You",
+"credit": "Maroon 5 featuring Cardi B",
+"lead": [
+"Maroon 5"
+],
+"feat": [
+"Cardi B"
+],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2018,
+10
+],
+[
+2019,
+22
+]
+],
+"grammy": []
+},
+{
+"title": "Nice for What",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "Lucid Dreams",
+"credit": "Juice Wrld",
+"lead": [
+"Juice Wrld"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 2,
+"ye": [
+[
+2018,
+12
+],
+[
+2019,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Better Now",
+"credit": "Post Malone",
+"lead": [
+"Post Malone"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 3,
+"ye": [
+[
+2018,
+13
+],
+[
+2019,
+32
+]
+],
+"grammy": []
+},
+{
+"title": "Finesse",
+"credit": "Bruno Mars featuring Cardi B",
+"lead": [
+"Bruno Mars"
+],
+"feat": [
+"Cardi B"
+],
+"years": [
+2018
+],
+"peak": 3,
+"ye": [
+[
+2018,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Boo'd Up",
+"credit": "Ella Mai",
+"lead": [
+"Ella Mai"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [
+[
+2018,
+15
+]
+],
+"grammy": [
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "New Rules",
+"credit": "Dua Lipa",
+"lead": [
+"Dua Lipa"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [
+[
+2018,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Sad!",
+"credit": "XXXTentacion",
+"lead": [
+"XXXTentacion"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Never Be the Same",
+"credit": "Camila Cabello",
+"lead": [
+"Camila Cabello"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [
+[
+2018,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Love Lies",
+"credit": "Khalid and Normani",
+"lead": [
+"Khalid",
+"Normani"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 9,
+"ye": [
+[
+2018,
+19
+],
+[
+2019,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "No Tears Left to Cry",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 3,
+"ye": [
+[
+2018,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "Mine",
+"credit": "Bazzi",
+"lead": [
+"Bazzi"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Look Alive",
+"credit": "BlocBoy JB featuring Drake",
+"lead": [
+"BlocBoy JB"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [
+[
+2018,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Delicate",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Yes Indeed",
+"credit": "Lil Baby and Drake",
+"lead": [
+"Lil Baby",
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [
+[
+2018,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Friends",
+"credit": "Marshmello and Anne-Marie",
+"lead": [
+"Marshmello",
+"Anne-Marie"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Taste",
+"credit": "Tyga featuring Offset",
+"lead": [
+"Tyga"
+],
+"feat": [
+"Offset"
+],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [
+[
+2018,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "Let You Down",
+"credit": "NF",
+"lead": [
+"NF"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Fefe",
+"credit": "6ix9ine featuring Nicki Minaj and Murda Beatz",
+"lead": [
+"6ix9ine"
+],
+"feat": [
+"Nicki Minaj",
+"Murda Beatz"
+],
+"years": [
+2018
+],
+"peak": 3,
+"ye": [
+[
+2018,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Tequila",
+"credit": "Dan + Shay",
+"lead": [
+"Dan + Shay"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": null,
+"ye": [
+[
+2018,
+32
+],
+[
+2019,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "I Like Me Better",
+"credit": "Lauv",
+"lead": [
+"Lauv"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Youngblood",
+"credit": "5 Seconds of Summer",
+"lead": [
+"5 Seconds of Summer"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 7,
+"ye": [
+[
+2018,
+36
+],
+[
+2019,
+33
+]
+],
+"grammy": []
+},
+{
+"title": "Whatever It Takes",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Ric Flair Drip",
+"credit": "Offset and Metro Boomin",
+"lead": [
+"Offset",
+"Metro Boomin"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "I Fall Apart",
+"credit": "Post Malone",
+"lead": [
+"Post Malone"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Pray for Me",
+"credit": "The Weeknd and Kendrick Lamar",
+"lead": [
+"The Weeknd",
+"Kendrick Lamar"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 7,
+"ye": [
+[
+2018,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Back to You",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "Sicko Mode",
+"credit": "Travis Scott",
+"lead": [
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2018,
+42
+],
+[
+2019,
+9
+]
+],
+"grammy": []
+},
+{
+"title": "Walk It Talk It",
+"credit": "Migos featuring Drake",
+"lead": [
+"Migos"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2018
+],
+"peak": 10,
+"ye": [
+[
+2018,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Him & I",
+"credit": "G-Eazy and Halsey",
+"lead": [
+"G-Eazy",
+"Halsey"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "In My Blood",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+46
+]
+],
+"grammy": [
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "All the Stars",
+"credit": "Kendrick Lamar and SZA",
+"lead": [
+"Kendrick Lamar",
+"SZA"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 7,
+"ye": [
+[
+2018,
+47
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+],
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "Stir Fry",
+"credit": "Migos",
+"lead": [
+"Migos"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [
+[
+2018,
+48
+]
+],
+"grammy": []
+},
+{
+"title": "Love",
+"credit": "Kendrick Lamar featuring Zacari",
+"lead": [
+"Kendrick Lamar"
+],
+"feat": [
+"Zacari"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "This Is America",
+"credit": "Childish Gambino",
+"lead": [
+"Childish Gambino"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 1,
+"ye": [
+[
+2018,
+51
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+true
+],
+[
+2019,
+"Song",
+true
+]
+]
+},
+{
+"title": "Nonstop",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 2,
+"ye": [
+[
+2018,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "Heaven",
+"credit": "Kane Brown",
+"lead": [
+"Kane Brown"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Freaky Friday",
+"credit": "Lil Dicky featuring Chris Brown",
+"lead": [
+"Lil Dicky"
+],
+"feat": [
+"Chris Brown"
+],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [
+[
+2018,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "Gummo",
+"credit": "6ix9ine",
+"lead": [
+"6ix9ine"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Plug Walk",
+"credit": "Rich the Kid",
+"lead": [
+"Rich the Kid"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Wait",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Be Careful",
+"credit": "Cardi B",
+"lead": [
+"Cardi B"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "Wolves",
+"credit": "Selena Gomez and Marshmello",
+"lead": [
+"Selena Gomez",
+"Marshmello"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Bartier Cardi",
+"credit": "Cardi B featuring 21 Savage",
+"lead": [
+"Cardi B"
+],
+"feat": [
+"21 Savage"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "God Is a Woman",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [
+[
+2018,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Big Bank",
+"credit": "YG featuring 2 Chainz , Nicki Minaj and Big Sean",
+"lead": [
+"YG"
+],
+"feat": [
+"2 Chainz",
+"Nicki Minaj",
+"Big Sean"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "How Long",
+"credit": "Charlie Puth",
+"lead": [
+"Charlie Puth"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Lights Down Low",
+"credit": "Max featuring Gnash",
+"lead": [
+"Max"
+],
+"feat": [
+"Gnash"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "One Kiss",
+"credit": "Calvin Harris and Dua Lipa",
+"lead": [
+"Calvin Harris",
+"Dua Lipa"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Natural",
+"credit": "Imagine Dragons",
+"lead": [
+"Imagine Dragons"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+69
+]
+],
+"grammy": []
+},
+{
+"title": "You Make It Easy",
+"credit": "Jason Aldean",
+"lead": [
+"Jason Aldean"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "No Brainer",
+"credit": "DJ Khaled featuring Justin Bieber , Chance the Rapper and Quavo",
+"lead": [
+"DJ Khaled"
+],
+"feat": [
+"Justin Bieber",
+"Chance the Rapper",
+"Quavo"
+],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [
+[
+2018,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Plain Jane",
+"credit": "ASAP Ferg featuring Nicki Minaj",
+"lead": [
+"ASAP Ferg"
+],
+"feat": [
+"Nicki Minaj"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Sky Walker",
+"credit": "Miguel featuring Travis Scott",
+"lead": [
+"Miguel"
+],
+"feat": [
+"Travis Scott"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "Marry Me",
+"credit": "Thomas Rhett",
+"lead": [
+"Thomas Rhett"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Eastside",
+"credit": "Benny Blanco , Halsey and Khalid",
+"lead": [
+"Benny Blanco",
+"Halsey",
+"Khalid"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 9,
+"ye": [
+[
+2018,
+77
+],
+[
+2019,
+17
+]
+],
+"grammy": []
+},
+{
+"title": "Call Out My Name",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 4,
+"ye": [
+[
+2018,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "King's Dead",
+"credit": "Jay Rock , Kendrick Lamar , Future and James Blake",
+"lead": [
+"Jay Rock",
+"Kendrick Lamar",
+"Future",
+"James Blake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Happier",
+"credit": "Marshmello and Bastille",
+"lead": [
+"Marshmello",
+"Bastille"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 2,
+"ye": [
+[
+2018,
+80
+],
+[
+2019,
+6
+]
+],
+"grammy": []
+},
+{
+"title": "Te Boté",
+"credit": "Nio García, Darell and Casper Mágico featuring Bad Bunny , Nicky Jam and Ozuna",
+"lead": [
+"Nio García",
+"Darell",
+"Casper Mágico"
+],
+"feat": [
+"Bad Bunny",
+"Nicky Jam",
+"Ozuna"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Simple",
+"credit": "Florida Georgia Line",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "Lemon",
+"credit": "N.E.R.D and Rihanna",
+"lead": [
+"N.E.R.D",
+"Rihanna"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Say Something",
+"credit": "Justin Timberlake featuring Chris Stapleton",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [
+"Chris Stapleton"
+],
+"years": [
+2018
+],
+"peak": 9,
+"ye": [
+[
+2018,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "I'm Upset",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 7,
+"ye": [
+[
+2018,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Get Along",
+"credit": "Kenny Chesney",
+"lead": [
+"Kenny Chesney"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "Moonlight",
+"credit": "XXXTentacion",
+"lead": [
+"XXXTentacion"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+88
+]
+],
+"grammy": []
+},
+{
+"title": "X",
+"credit": "Nicky Jam and J Balvin",
+"lead": [
+"Nicky Jam",
+"J Balvin"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Outside Today",
+"credit": "YoungBoy Never Broke Again",
+"lead": [
+"YoungBoy Never Broke Again"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+91
+]
+],
+"grammy": []
+},
+{
+"title": "Trip",
+"credit": "Ella Mai",
+"lead": [
+"Ella Mai"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": null,
+"ye": [
+[
+2018,
+92
+],
+[
+2019,
+80
+]
+],
+"grammy": []
+},
+{
+"title": "Dura",
+"credit": "Daddy Yankee",
+"lead": [
+"Daddy Yankee"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Changes",
+"credit": "XXXTentacion",
+"lead": [
+"XXXTentacion"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "Mercy",
+"credit": "Brett Young",
+"lead": [
+"Brett Young"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "One Number Away",
+"credit": "Luke Combs",
+"lead": [
+"Luke Combs"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "Powerglide",
+"credit": "Rae Sremmurd featuring Juicy J",
+"lead": [
+"Rae Sremmurd"
+],
+"feat": [
+"Juicy J"
+],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "IDGAF",
+"credit": "Dua Lipa",
+"lead": [
+"Dua Lipa"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": null,
+"ye": [
+[
+2018,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Filthy",
+"credit": "Justin Timberlake",
+"lead": [
+"Justin Timberlake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 9,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Diplomatic Immunity",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Chun-Li",
+"credit": "Nicki Minaj",
+"lead": [
+"Nicki Minaj"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "ATM",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Kevin's Heart",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "KOD",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Fake Love",
+"credit": "BTS",
+"lead": [
+"BTS"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Yikes",
+"credit": "Kanye West",
+"lead": [
+"Kanye West"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Emotionless",
+"credit": "Drake",
+"lead": [
+"Drake"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Don't Matter to Me",
+"credit": "Drake featuring Michael Jackson",
+"lead": [
+"Drake"
+],
+"feat": [
+"Michael Jackson"
+],
+"years": [
+2018
+],
+"peak": 9,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Stargazing",
+"credit": "Travis Scott",
+"lead": [
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Lucky You",
+"credit": "Eminem featuring Joyner Lucas",
+"lead": [
+"Eminem"
+],
+"feat": [
+"Joyner Lucas"
+],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "The Ringer",
+"credit": "Eminem",
+"lead": [
+"Eminem"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "I Love It",
+"credit": "Kanye West and Lil Pump",
+"lead": [
+"Kanye West",
+"Lil Pump"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 6,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Killshot",
+"credit": "Eminem",
+"lead": [
+"Eminem"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 3,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Mona Lisa",
+"credit": "Lil Wayne featuring Kendrick Lamar",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Kendrick Lamar"
+],
+"years": [
+2018
+],
+"peak": 2,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Don't Cry",
+"credit": "Lil Wayne featuring XXXTentacion",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"XXXTentacion"
+],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Uproar",
+"credit": "Lil Wayne",
+"lead": [
+"Lil Wayne"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Let It Fly",
+"credit": "Lil Wayne featuring Travis Scott",
+"lead": [
+"Lil Wayne"
+],
+"feat": [
+"Travis Scott"
+],
+"years": [
+2018
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Drip Too Hard",
+"credit": "Lil Baby and Gunna",
+"lead": [
+"Lil Baby",
+"Gunna"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 4,
+"ye": [
+[
+2019,
+26
+]
+],
+"grammy": []
+},
+{
+"title": "Zeze",
+"credit": "Kodak Black featuring Travis Scott and Offset",
+"lead": [
+"Kodak Black"
+],
+"feat": [
+"Travis Scott",
+"Offset"
+],
+"years": [
+2018,
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+31
+]
+],
+"grammy": []
+},
+{
+"title": "Mia",
+"credit": "Bad Bunny featuring Drake",
+"lead": [
+"Bad Bunny"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2018,
+2019
+],
+"peak": 5,
+"ye": [
+[
+2019,
+44
+]
+],
+"grammy": []
+},
+{
+"title": "Mo Bamba",
+"credit": "Sheck Wes",
+"lead": [
+"Sheck Wes"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 6,
+"ye": [
+[
+2019,
+49
+]
+],
+"grammy": []
+},
+{
+"title": "Thank U, Next",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+12
+]
+],
+"grammy": []
+},
+{
+"title": "Going Bad",
+"credit": "Meek Mill featuring Drake",
+"lead": [
+"Meek Mill"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2018,
+2019
+],
+"peak": 6,
+"ye": [
+[
+2019,
+18
+]
+],
+"grammy": []
+},
+{
+"title": "Shallow",
+"credit": "Lady Gaga and Bradley Cooper",
+"lead": [
+"Lady Gaga",
+"Bradley Cooper"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+19
+]
+],
+"grammy": [
+[
+2019,
+"Record",
+false
+],
+[
+2019,
+"Song",
+false
+]
+]
+},
+{
+"title": "Sunflower",
+"credit": "Post Malone and Swae Lee",
+"lead": [
+"Post Malone",
+"Swae Lee"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+2
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+false
+]
+]
+},
+{
+"title": "Without Me",
+"credit": "Halsey",
+"lead": [
+"Halsey"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+3
+]
+],
+"grammy": []
+},
+{
+"title": "High Hopes",
+"credit": "Panic! at the Disco",
+"lead": [
+"Panic! at the Disco"
+],
+"feat": [],
+"years": [
+2018,
+2019
+],
+"peak": 4,
+"ye": [
+[
+2019,
+11
+]
+],
+"grammy": []
+},
+{
+"title": "It's the Most Wonderful Time of the Year",
+"credit": "Andy Williams",
+"lead": [
+"Andy Williams"
+],
+"feat": [],
+"years": [
+2018
+],
+"peak": 5,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Old Town Road",
+"credit": "Lil Nas X featuring Billy Ray Cyrus",
+"lead": [
+"Lil Nas X"
+],
+"feat": [
+"Billy Ray Cyrus"
+],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+1
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+false
+]
+]
+},
+{
+"title": "Bad Guy",
+"credit": "Billie Eilish",
+"lead": [
+"Billie Eilish"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+4
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+true
+],
+[
+2020,
+"Song",
+true
+]
+]
+},
+{
+"title": "Wow",
+"credit": "Post Malone",
+"lead": [
+"Post Malone"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+5
+]
+],
+"grammy": []
+},
+{
+"title": "7 Rings",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+7
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+false
+]
+]
+},
+{
+"title": "Talk",
+"credit": "Khalid",
+"lead": [
+"Khalid"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 3,
+"ye": [
+[
+2019,
+8
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+false
+]
+]
+},
+{
+"title": "Sucker",
+"credit": "Jonas Brothers",
+"lead": [
+"Jonas Brothers"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+10
+]
+],
+"grammy": []
+},
+{
+"title": "Truth Hurts",
+"credit": "Lizzo",
+"lead": [
+"Lizzo"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+13
+]
+],
+"grammy": [
+[
+2020,
+"Record",
+false
+],
+[
+2020,
+"Song",
+false
+]
+]
+},
+{
+"title": "Dancing with a Stranger",
+"credit": "Sam Smith and Normani",
+"lead": [
+"Sam Smith",
+"Normani"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 7,
+"ye": [
+[
+2019,
+14
+]
+],
+"grammy": []
+},
+{
+"title": "Señorita",
+"credit": "Shawn Mendes and Camila Cabello",
+"lead": [
+"Shawn Mendes",
+"Camila Cabello"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+15
+]
+],
+"grammy": []
+},
+{
+"title": "I Don't Care",
+"credit": "Ed Sheeran and Justin Bieber",
+"lead": [
+"Ed Sheeran",
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+16
+]
+],
+"grammy": []
+},
+{
+"title": "Better",
+"credit": "Khalid",
+"lead": [
+"Khalid"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [
+[
+2019,
+20
+]
+],
+"grammy": []
+},
+{
+"title": "No Guidance",
+"credit": "Chris Brown featuring Drake",
+"lead": [
+"Chris Brown"
+],
+"feat": [
+"Drake"
+],
+"years": [
+2019
+],
+"peak": 5,
+"ye": [
+[
+2019,
+21
+]
+],
+"grammy": []
+},
+{
+"title": "Sweet but Psycho",
+"credit": "Ava Max",
+"lead": [
+"Ava Max"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 10,
+"ye": [
+[
+2019,
+23
+]
+],
+"grammy": []
+},
+{
+"title": "Suge",
+"credit": "DaBaby",
+"lead": [
+"DaBaby"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 7,
+"ye": [
+[
+2019,
+24
+]
+],
+"grammy": []
+},
+{
+"title": "Middle Child",
+"credit": "J. Cole",
+"lead": [
+"J. Cole"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [
+[
+2019,
+25
+]
+],
+"grammy": []
+},
+{
+"title": "Someone You Loved",
+"credit": "Lewis Capaldi",
+"lead": [
+"Lewis Capaldi"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+27
+]
+],
+"grammy": [
+[
+2020,
+"Song",
+false
+]
+]
+},
+{
+"title": "Ransom",
+"credit": "Lil Tecca",
+"lead": [
+"Lil Tecca"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [
+[
+2019,
+28
+]
+],
+"grammy": []
+},
+{
+"title": "If I Can't Have You",
+"credit": "Shawn Mendes",
+"lead": [
+"Shawn Mendes"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+29
+]
+],
+"grammy": []
+},
+{
+"title": "Goodbyes",
+"credit": "Post Malone featuring Young Thug",
+"lead": [
+"Post Malone"
+],
+"feat": [
+"Young Thug"
+],
+"years": [
+2019
+],
+"peak": 3,
+"ye": [
+[
+2019,
+30
+]
+],
+"grammy": []
+},
+{
+"title": "Money in the Grave",
+"credit": "Drake featuring Rick Ross",
+"lead": [
+"Drake"
+],
+"feat": [
+"Rick Ross"
+],
+"years": [
+2019
+],
+"peak": 7,
+"ye": [
+[
+2019,
+34
+]
+],
+"grammy": []
+},
+{
+"title": "Speechless",
+"credit": "Dan + Shay",
+"lead": [
+"Dan + Shay"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+35
+]
+],
+"grammy": []
+},
+{
+"title": "Break Up with Your Girlfriend, I'm Bored",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+36
+]
+],
+"grammy": []
+},
+{
+"title": "Please Me",
+"credit": "Cardi B and Bruno Mars",
+"lead": [
+"Cardi B",
+"Bruno Mars"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 3,
+"ye": [
+[
+2019,
+37
+]
+],
+"grammy": []
+},
+{
+"title": "Money",
+"credit": "Cardi B",
+"lead": [
+"Cardi B"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+38
+]
+],
+"grammy": []
+},
+{
+"title": "You Need to Calm Down",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+39
+]
+],
+"grammy": []
+},
+{
+"title": "Panini",
+"credit": "Lil Nas X",
+"lead": [
+"Lil Nas X"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 5,
+"ye": [
+[
+2019,
+40
+]
+],
+"grammy": []
+},
+{
+"title": "Look Back at It",
+"credit": "A Boogie wit da Hoodie",
+"lead": [
+"A Boogie wit da Hoodie"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+41
+]
+],
+"grammy": []
+},
+{
+"title": "A Lot",
+"credit": "21 Savage",
+"lead": [
+"21 Savage"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+42
+]
+],
+"grammy": []
+},
+{
+"title": "Me!",
+"credit": "Taylor Swift featuring Brendon Urie",
+"lead": [
+"Taylor Swift"
+],
+"feat": [
+"Brendon Urie"
+],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [
+[
+2019,
+43
+]
+],
+"grammy": []
+},
+{
+"title": "Pop Out",
+"credit": "Polo G featuring Lil Tjay",
+"lead": [
+"Polo G"
+],
+"feat": [
+"Lil Tjay"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+45
+]
+],
+"grammy": []
+},
+{
+"title": "Beautiful Crazy",
+"credit": "Luke Combs",
+"lead": [
+"Luke Combs"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+46
+]
+],
+"grammy": []
+},
+{
+"title": "Thotiana",
+"credit": "Blueface",
+"lead": [
+"Blueface"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [
+[
+2019,
+47
+]
+],
+"grammy": []
+},
+{
+"title": "Beautiful People",
+"credit": "Ed Sheeran featuring Khalid",
+"lead": [
+"Ed Sheeran"
+],
+"feat": [
+"Khalid"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+50
+]
+],
+"grammy": []
+},
+{
+"title": "Wake Up in the Sky",
+"credit": "Gucci Mane , Bruno Mars and Kodak Black",
+"lead": [
+"Gucci Mane",
+"Bruno Mars",
+"Kodak Black"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+51
+]
+],
+"grammy": []
+},
+{
+"title": "Whiskey Glasses",
+"credit": "Morgan Wallen",
+"lead": [
+"Morgan Wallen"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+52
+]
+],
+"grammy": []
+},
+{
+"title": "God's Country",
+"credit": "Blake Shelton",
+"lead": [
+"Blake Shelton"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+53
+]
+],
+"grammy": []
+},
+{
+"title": "Be Alright",
+"credit": "Dean Lewis",
+"lead": [
+"Dean Lewis"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+54
+]
+],
+"grammy": []
+},
+{
+"title": "Pure Water",
+"credit": "Mustard and Migos",
+"lead": [
+"Mustard",
+"Migos"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+55
+]
+],
+"grammy": []
+},
+{
+"title": "The Git Up",
+"credit": "Blanco Brown",
+"lead": [
+"Blanco Brown"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+56
+]
+],
+"grammy": []
+},
+{
+"title": "Taki Taki",
+"credit": "DJ Snake featuring Selena Gomez , Ozuna and Cardi B",
+"lead": [
+"DJ Snake"
+],
+"feat": [
+"Selena Gomez",
+"Ozuna",
+"Cardi B"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+57
+]
+],
+"grammy": []
+},
+{
+"title": "Close to Me",
+"credit": "Ellie Goulding and Diplo featuring Swae Lee",
+"lead": [
+"Ellie Goulding",
+"Diplo"
+],
+"feat": [
+"Swae Lee"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+58
+]
+],
+"grammy": []
+},
+{
+"title": "Envy Me",
+"credit": "Calboy",
+"lead": [
+"Calboy"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+59
+]
+],
+"grammy": []
+},
+{
+"title": "You Say",
+"credit": "Lauren Daigle",
+"lead": [
+"Lauren Daigle"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+60
+]
+],
+"grammy": []
+},
+{
+"title": "Hey Look Ma, I Made It",
+"credit": "Panic! at the Disco",
+"lead": [
+"Panic! at the Disco"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+61
+]
+],
+"grammy": []
+},
+{
+"title": "Circles",
+"credit": "Post Malone",
+"lead": [
+"Post Malone"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [
+[
+2019,
+62
+]
+],
+"grammy": []
+},
+{
+"title": "Beer Never Broke My Heart",
+"credit": "Luke Combs",
+"lead": [
+"Luke Combs"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+63
+]
+],
+"grammy": []
+},
+{
+"title": "The London",
+"credit": "Young Thug , J. Cole and Travis Scott",
+"lead": [
+"Young Thug",
+"J. Cole",
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+64
+]
+],
+"grammy": []
+},
+{
+"title": "Con Calma",
+"credit": "Daddy Yankee and Katy Perry featuring Snow",
+"lead": [
+"Daddy Yankee",
+"Katy Perry"
+],
+"feat": [
+"Snow"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+65
+]
+],
+"grammy": []
+},
+{
+"title": "Murder on My Mind",
+"credit": "YNW Melly",
+"lead": [
+"YNW Melly"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+66
+]
+],
+"grammy": []
+},
+{
+"title": "When the Party's Over",
+"credit": "Billie Eilish",
+"lead": [
+"Billie Eilish"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+67
+]
+],
+"grammy": []
+},
+{
+"title": "Act Up",
+"credit": "City Girls",
+"lead": [
+"City Girls"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+68
+]
+],
+"grammy": []
+},
+{
+"title": "Trampoline",
+"credit": "Shaed",
+"lead": [
+"Shaed"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+70
+]
+],
+"grammy": []
+},
+{
+"title": "Leave Me Alone",
+"credit": "Flipp Dinero",
+"lead": [
+"Flipp Dinero"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+71
+]
+],
+"grammy": []
+},
+{
+"title": "Breathin",
+"credit": "Ariana Grande",
+"lead": [
+"Ariana Grande"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+72
+]
+],
+"grammy": []
+},
+{
+"title": "Bury a Friend",
+"credit": "Billie Eilish",
+"lead": [
+"Billie Eilish"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+73
+]
+],
+"grammy": []
+},
+{
+"title": "Close Friends",
+"credit": "Lil Baby",
+"lead": [
+"Lil Baby"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+74
+]
+],
+"grammy": []
+},
+{
+"title": "Baby Shark",
+"credit": "Pinkfong",
+"lead": [
+"Pinkfong"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+75
+]
+],
+"grammy": []
+},
+{
+"title": "My Type",
+"credit": "Saweetie",
+"lead": [
+"Saweetie"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+76
+]
+],
+"grammy": []
+},
+{
+"title": "Worth It",
+"credit": "YK Osiris",
+"lead": [
+"YK Osiris"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+77
+]
+],
+"grammy": []
+},
+{
+"title": "Only Human",
+"credit": "Jonas Brothers",
+"lead": [
+"Jonas Brothers"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+78
+]
+],
+"grammy": []
+},
+{
+"title": "Knockin' Boots",
+"credit": "Luke Bryan",
+"lead": [
+"Luke Bryan"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+79
+]
+],
+"grammy": []
+},
+{
+"title": "Rumor",
+"credit": "Lee Brice",
+"lead": [
+"Lee Brice"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+81
+]
+],
+"grammy": []
+},
+{
+"title": "Swervin",
+"credit": "A Boogie wit da Hoodie featuring 6ix9ine",
+"lead": [
+"A Boogie wit da Hoodie"
+],
+"feat": [
+"6ix9ine"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+82
+]
+],
+"grammy": []
+},
+{
+"title": "How Do You Sleep?",
+"credit": "Sam Smith",
+"lead": [
+"Sam Smith"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+83
+]
+],
+"grammy": []
+},
+{
+"title": "Baby",
+"credit": "Lil Baby and DaBaby",
+"lead": [
+"Lil Baby",
+"DaBaby"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+84
+]
+],
+"grammy": []
+},
+{
+"title": "Look What God Gave Her",
+"credit": "Thomas Rhett",
+"lead": [
+"Thomas Rhett"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+85
+]
+],
+"grammy": []
+},
+{
+"title": "Good as You",
+"credit": "Kane Brown",
+"lead": [
+"Kane Brown"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+86
+]
+],
+"grammy": []
+},
+{
+"title": "Clout",
+"credit": "Offset featuring Cardi B",
+"lead": [
+"Offset"
+],
+"feat": [
+"Cardi B"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+87
+]
+],
+"grammy": []
+},
+{
+"title": "One Thing Right",
+"credit": "Marshmello and Kane Brown",
+"lead": [
+"Marshmello",
+"Kane Brown"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+89
+]
+],
+"grammy": []
+},
+{
+"title": "Cash Shit",
+"credit": "Megan Thee Stallion featuring DaBaby",
+"lead": [
+"Megan Thee Stallion"
+],
+"feat": [
+"DaBaby"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+90
+]
+],
+"grammy": []
+},
+{
+"title": "Shotta Flow",
+"credit": "NLE Choppa",
+"lead": [
+"NLE Choppa"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+92
+]
+],
+"grammy": []
+},
+{
+"title": "Hot Girl Summer",
+"credit": "Megan Thee Stallion featuring Nicki Minaj and Ty Dolla Sign",
+"lead": [
+"Megan Thee Stallion"
+],
+"feat": [
+"Nicki Minaj",
+"Ty Dolla Sign"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+93
+]
+],
+"grammy": []
+},
+{
+"title": "Talk You Out of It",
+"credit": "Florida Georgia Line",
+"lead": [
+"Florida Georgia Line"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+94
+]
+],
+"grammy": []
+},
+{
+"title": "Beautiful",
+"credit": "Bazzi featuring Camila Cabello",
+"lead": [
+"Bazzi"
+],
+"feat": [
+"Camila Cabello"
+],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+95
+]
+],
+"grammy": []
+},
+{
+"title": "Eyes on You",
+"credit": "Chase Rice",
+"lead": [
+"Chase Rice"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+96
+]
+],
+"grammy": []
+},
+{
+"title": "All to Myself",
+"credit": "Dan + Shay",
+"lead": [
+"Dan + Shay"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+97
+]
+],
+"grammy": []
+},
+{
+"title": "Boyfriend",
+"credit": "Ariana Grande and Social House",
+"lead": [
+"Ariana Grande",
+"Social House"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [
+[
+2019,
+98
+]
+],
+"grammy": []
+},
+{
+"title": "Walk Me Home",
+"credit": "Pink",
+"lead": [
+"Pink"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+99
+]
+],
+"grammy": []
+},
+{
+"title": "Robbery",
+"credit": "Juice Wrld",
+"lead": [
+"Juice Wrld"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": null,
+"ye": [
+[
+2019,
+100
+]
+],
+"grammy": []
+},
+{
+"title": "Boy with Luv",
+"credit": "BTS featuring Halsey",
+"lead": [
+"BTS"
+],
+"feat": [
+"Halsey"
+],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Homicide",
+"credit": "Logic featuring Eminem",
+"lead": [
+"Logic"
+],
+"feat": [
+"Eminem"
+],
+"years": [
+2019
+],
+"peak": 5,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Lover",
+"credit": "Taylor Swift",
+"lead": [
+"Taylor Swift"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 10,
+"ye": [],
+"grammy": [
+[
+2020,
+"Song",
+false
+]
+]
+},
+{
+"title": "Take What You Want",
+"credit": "Post Malone featuring Ozzy Osbourne and Travis Scott",
+"lead": [
+"Post Malone"
+],
+"feat": [
+"Ozzy Osbourne",
+"Travis Scott"
+],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Highest in the Room",
+"credit": "Travis Scott",
+"lead": [
+"Travis Scott"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "10,000 Hours",
+"credit": "Dan + Shay and Justin Bieber",
+"lead": [
+"Dan + Shay",
+"Justin Bieber"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Bandit",
+"credit": "Juice Wrld and YoungBoy Never Broke Again",
+"lead": [
+"Juice Wrld",
+"YoungBoy Never Broke Again"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 10,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Lose You to Love Me",
+"credit": "Selena Gomez",
+"lead": [
+"Selena Gomez"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Good as Hell",
+"credit": "Lizzo",
+"lead": [
+"Lizzo"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 3,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Follow God",
+"credit": "Kanye West",
+"lead": [
+"Kanye West"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 7,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Everything I Wanted",
+"credit": "Billie Eilish",
+"lead": [
+"Billie Eilish"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 8,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Roxanne",
+"credit": "Arizona Zervas",
+"lead": [
+"Arizona Zervas"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Heartless",
+"credit": "The Weeknd",
+"lead": [
+"The Weeknd"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Futsal Shuffle 2020",
+"credit": "Lil Uzi Vert",
+"lead": [
+"Lil Uzi Vert"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 5,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Memories",
+"credit": "Maroon 5",
+"lead": [
+"Maroon 5"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Dance Monkey",
+"credit": "Tones and I",
+"lead": [
+"Tones and I"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Rockin' Around the Christmas Tree",
+"credit": "Brenda Lee",
+"lead": [
+"Brenda Lee"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 1,
+"ye": [],
+"grammy": []
+},
+{
+"title": "Jingle Bell Rock",
+"credit": "Bobby Helms",
+"lead": [
+"Bobby Helms"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 2,
+"ye": [],
+"grammy": []
+},
+{
+"title": "A Holly Jolly Christmas",
+"credit": "Burl Ives",
+"lead": [
+"Burl Ives"
+],
+"feat": [],
+"years": [
+2019
+],
+"peak": 4,
+"ye": [],
+"grammy": []
+}
+]
