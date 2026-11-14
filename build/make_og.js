@@ -6,7 +6,7 @@ const games = [
   ['og-hook-grid.png', 'Hook Grid', '2010s pop hits', '#130e20', '#f2edfb', '#ff4f96', '#6aa0ff'],
   ['og-swiftie-grid.png', 'Swiftie Grid', 'Taylor Swift, album by album', '#0e1024', '#eef0ff', '#b49bff', '#f08fc6'],
   ['og-zeppelin-grid.png', 'Zeppelin Grid', 'Led Zeppelin deep cuts', '#141210', '#f1ebe3', '#e0654f', '#d8b25a'],
-  ['og-ride-grid.png', 'Ride Grid', 'Disney parks trivia', '#0c1820', '#eef5f8', '#ff7a5c', '#5cc9e0'],
+  ['og-ride-grid.png', 'Ride Grid', 'Por favor, manténganse alejados de las puertas.', '#0c1820', '#eef5f8', '#ff7a5c', '#5cc9e0'],
   ['og-index.png', 'Grid Games', 'Daily music trivia', '#141312', '#f1eee9', '#ef6a5c', '#6fc39a'],
 ];
 (async () => {

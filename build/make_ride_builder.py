@@ -24,7 +24,7 @@ sub('"--bg: #131310; --panel: #1e1d19; --ink: #efece4; --muted: #a39e92; --line:
 sub('"--accent: #e8604f; --accent-2: #6fc39a; --accent-ink: #1c0805;"', '"--accent: #ff7a5c; --accent-2: #5cc9e0; --accent-ink: #1d0802;"')
 sub("font-size: clamp(30px, 9vw, 42px); line-height: 1; margin: 0; letter-spacing: -.01em;", "font-size: clamp(36px, 11vw, 50px); line-height: .95; margin: 0; letter-spacing: -.01em;")
 sub("font-size: clamp(11px, 3.2vw, 15px); letter-spacing: -.035em; overflow-wrap: normal; }'", "font-size: clamp(13px, 3.8vw, 17px); letter-spacing: 0; overflow-wrap: normal; }'")
-sub("'<h1>Flannel <span>Grid</span></h1>'", "'<h1>Ride <span>Grid</span></h1>'")
+sub("'<h1>Flannel <span>Grid</span></h1>'", "'<h1>Ride <span>Grid</span></h1>\\n      <p class=\"tagline\" lang=\"es\" style=\"margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)\">Por favor, manténganse alejados de las puertas.</p>'")
 sub("""rep('<p class="sub" id="label">Daily grid</p>""", """rep('<p class="sub" id="label">Daily grid</p>""") if False else None
 a = p.index('t = t[:a] + """  <p class="rules">'); b = p.index('""" + t[b:]', a)
 p = p[:a] + '''t = t[:a] + """  <p class="rules">Disney parks trivia. Tap a square and name an <b>attraction</b> at the <b>park on the left</b> that fits the <b>fact on top</b>. Rides that exist at several parks count as one answer, so Space Mountain works for any park that has a version of it. You get 9 guesses, and each ride can be used once.</p>
