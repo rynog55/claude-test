@@ -18,6 +18,14 @@ The trivia grids share one engine: 9 guesses, a seeded daily grid, random grids,
 
 The game pages are written as artifact bodies (no `<html>`/`<head>` wrapper). They still open in any browser, because browsers add the missing tags.
 
+## Public site with shared stats (`site/`)
+
+`site/` holds standalone copies of the five music grids plus a home page (`site/index.html`), meant for GitHub Pages so anyone with the link can play. These copies add shared daily stats through Supabase: a player count, the percent of players who picked each correct answer, the most-picked answer per square, and a tap-to-see list of every answer that worked.
+
+- `supabase/schema.sql` sets up the database (run once in the Supabase SQL Editor). Tables are locked; visitors can only add guesses and read totals.
+- `build/add_stats.py <publishable key>` rebuilds `site/` from the artifact versions of the games.
+- Players are identified by a random ID stored in their browser, with no names or sign-in. Random grids record nothing.
+
 ## Data and build scripts (`build/`)
 
 Facts come from Wikipedia (text available under CC BY-SA 4.0): NBA draft pages, Billboard year-end and top-10 lists, Grammy pages, album track listings, and singles discographies. Some categories were tagged by hand, and the scripts say which. These include lyric themes (stored as tags only, with no lyrics), artist types, and pre-2000 basketball awards.

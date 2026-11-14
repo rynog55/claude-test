@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Grid Games</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: one column of game cards, each a full-width link. */
+:root {
+  --bg: #f1f0ee; --panel: #ffffff; --ink: #1b1a18; --muted: #66625c; --line: #dcd8d1; --accent: #b0322a;
+  --font: "DM Sans", system-ui, -apple-system, sans-serif;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #141312; --panel: #1f1d1b; --ink: #f1eee9; --muted: #a39d94; --line: #36332f; --accent: #ef6a5c; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px;
+}
+main { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+h1 { margin: 0; font-size: 34px; line-height: 1.05; letter-spacing: -.02em; }
+p { margin: 0; color: var(--muted); }
+ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+a.game {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; text-decoration: none; color: inherit;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+}
+a.game:hover, a.game:focus-visible { border-color: var(--accent); outline: none; }
+a.game b { display: block; font-size: 17px; }
+a.game span { color: var(--muted); font-size: 13.5px; }
+a.game i { font-style: normal; color: var(--accent); font-size: 22px; flex: none; }
+footer { font-size: 12.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Grid Games</h1>
+  <p>Daily 3×3 music trivia. Fill every square with a song that fits both the row and the column. Everyone gets the same daily grid, so you can see how your picks compare.</p>
+  <ul>
+    <li><a class="game" href="flannel-grid.html"><div><b>Flannel Grid</b><span>'90s alternative and grunge</span></div><i aria-hidden="true">›</i></a></li>
+    <li><a class="game" href="first-wave-grid.html"><div><b>First Wave Grid</b><span>New wave, synth-pop and post-punk</span></div><i aria-hidden="true">›</i></a></li>
+    <li><a class="game" href="hook-grid.html"><div><b>Hook Grid</b><span>2010s pop hits</span></div><i aria-hidden="true">›</i></a></li>
+    <li><a class="game" href="swiftie-grid.html"><div><b>Swiftie Grid</b><span>Taylor Swift, album by album</span></div><i aria-hidden="true">›</i></a></li>
+    <li><a class="game" href="zeppelin-grid.html"><div><b>Zeppelin Grid</b><span>Led Zeppelin deep cuts</span></div><i aria-hidden="true">›</i></a></li>
+  </ul>
+  <footer>Daily stats are anonymous: the game counts guesses, not names. Chart facts come from Wikipedia and Spotify data. Not affiliated with any artist, label or radio station.</footer>
+</main>
+</body>
+</html>

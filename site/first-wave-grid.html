@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>First Wave Grid</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a neon club flyer: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #f0eef6;
+  --panel: #ffffff;
+  --ink: #1a1630;
+  --muted: #625c80;
+  --line: #d9d4ea;
+  --accent: #c8136a;
+  --accent-2: #087f90;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #110d22; --panel: #1b1633; --ink: #f3efff; --muted: #a59fc4; --line: #2f2a4f;
+    --accent: #ff4fa3; --accent-2: #33d6e6; --accent-ink: #1e0414; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #110d22; --panel: #1b1633; --ink: #f3efff; --muted: #a59fc4; --line: #2f2a4f;
+  --accent: #ff4fa3; --accent-2: #33d6e6; --accent-ink: #1e0414; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 10vw, 52px); line-height: .9; margin: 0; letter-spacing: .02em; white-space: nowrap; }
+h1 span { color: var(--accent); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(15px, 4.4vw, 20px); letter-spacing: .02em; overflow-wrap: normal; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.modes { display: flex; gap: 0; align-self: flex-start; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.mode { font: 600 13px var(--font-body); border: 0; border-radius: 999px; padding: 7px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+.mode[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.mode:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -.02em; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+
+.statline { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.statline b { color: var(--ink); }
+.cell.over-tap { cursor: pointer; }
+.cell.over-tap:hover { border-color: var(--accent); }
+.cell .top { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.25; }
+.cell .top b { color: var(--ink); font-weight: 700; }
+.ans { list-style: none; border-bottom: 1px solid var(--line); padding: 10px 4px; display: flex; flex-direction: column; gap: 4px; }
+.ans-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.ans-top .t { font: 600 15px var(--font-body); min-width: 0; overflow-wrap: anywhere; }
+.ans-top .p { font: 700 14px var(--font-body); font-variant-numeric: tabular-nums; color: var(--accent); flex: none; }
+.ans small { color: var(--muted); font-size: 12px; }
+.ans .bar { height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.ans .bar i { display: block; height: 100%; background: var(--accent); }
+.ans.mine { background: var(--hit-soft); border-radius: 8px; }
+.ans .mine-tag { font-size: 11px; font-weight: 700; color: var(--hit); text-transform: uppercase; letter-spacing: .06em; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>First Wave <span>Grid</span></h1>
+      <p class="sub" id="label">Daily grid</p>
+      <p class="statline" id="statline" aria-live="polite"></p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="modes" role="group" aria-label="Difficulty">
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Tap a square and name a song from <b>your new wave playlist</b> that fits the <b>band on the left</b> and the <b>fact on top</b>. You get 9 guesses, and each song can be used once.</p>
+  <p class="rules">The answer list is the songs on your Spotify playlist of classic new wave, synth-pop and post-punk heard on satellite radio. This game isn't affiliated with SiriusXM. Length, popularity, danceability, mood, key and genre come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. US top 10 and UK No. 1 hits come from Wikipedia's chart pages. Years use the song's original release, and band facts were tagged by hand. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search songs or artists…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = {"songs":[["There Is a Light That Never Goes Out","The Smiths","a:The Smiths|uk","upbeat smash y3",1986],["Bigmouth Strikes Again","The Smiths","a:The Smiths|uk","minor upbeat short smash y3",1986],["This Charming Man","The Smiths","a:The Smiths|uk","upbeat short smash y2",1984],["How Soon Is Now?","The Smiths","a:The Smiths|uk","long smash y2",1984],["The Killing Moon","Echo & the Bunnymen","a:Echo & the Bunnymen|uk","dark_genre upbeat long smash y2",1984],["Lips Like Sugar","Echo & the Bunnymen","a:Echo & the Bunnymen|uk","dark_genre upbeat y3",1987],["Bring on the Dancing Horses","Echo & the Bunnymen","a:Echo & the Bunnymen|uk","dark_genre upbeat y3",1985],["Suedehead","Morrissey","uk|solo","y3 oneword",1988],["Everyday Is Like Sunday","Morrissey","uk|solo","y3",1988],["Love Will Tear Us Apart","Joy Division","uk|died|onesong","dark_genre upbeat y1",1980],["Blue Monday","New Order","a:New Order|uk","synth dark_genre upbeat dance long smash y2",1983],["Bizarre Love Triangle","New Order","a:New Order|uk","synth dark_genre upbeat smash y3",1986],["Friday I'm in Love","The Cure","a:The Cure|uk","dark_genre minor smash y3",1992],["Boys Don't Cry","The Cure","a:The Cure|uk","dark_genre minor short smash y1",1979],["Just like Heaven","The Cure","a:The Cure|uk","dark_genre upbeat smash y3",1987],["In Between Days","The Cure","a:The Cure|uk","dark_genre short y3",1985],["Close to Me","The Cure","a:The Cure|uk","dark_genre upbeat y3",1985],["Why Can't I Be You?","The Cure","a:The Cure|uk","dark_genre minor short y3",1987],["This Is the Day","The The","uk|onesong","y2",1983],["Pretty in Pink","The Psychedelic Furs","a:The Psychedelic Furs|uk","dark_genre y3",1988],["Love My Way","The Psychedelic Furs","a:The Psychedelic Furs|uk","dark_genre y3",1988],["The Ghost in You","The Psychedelic Furs","a:The Psychedelic Furs|uk","dark_genre y3",1988],["The Passenger","Siouxsie and the Banshees","a:Siouxsie and the Banshees|uk|female","dark_genre minor dark long smash y3",1987],["Rise","Public Image Ltd.","uk","dark_genre long y3 oneword",1987],["Antmusic","Adam Ant","a:Adam Ant|uk|solo|liveaid","dark_genre deep y1 oneword",1980],["Don't Let's Start","They Might Be Giants","us|onesong","upbeat short y3",1986],["Enjoy the Silence","Depeche Mode","a:Depeche Mode|uk","us10 synth dark_genre minor upbeat y3",1990],["Personal Jesus","Depeche Mode","a:Depeche Mode|uk","synth dark_genre deep y3",1989],["Just Can't Get Enough","Depeche Mode","a:Depeche Mode|uk","synth dark_genre upbeat dance deep y1",1981],["Hungry Like the Wolf","Duran Duran","a:Duran Duran|uk|liveaid","us10 synth smash y2",1982],["Girls on Film","Duran Duran","a:Duran Duran|uk|liveaid","synth smash y1",1981],["Rio","Duran Duran","a:Duran Duran|uk|liveaid","synth long smash y2 oneword",1982],["Steppin' Out","Joe Jackson","a:Joe Jackson|uk|solo","us10 y2",1982],["Is She Really Going Out With Him?","Joe Jackson","a:Joe Jackson|uk|solo","upbeat dance y1",1979],["Look Sharp!","Joe Jackson","a:Joe Jackson|uk|solo","upbeat y1",1979],["Under the Milky Way","The Church","world","dark_genre minor smash y3",1988],["Lovesong","The Cure","a:The Cure|uk","us10 dark_genre minor upbeat smash y3 oneword",1989],["Don't You (Forget About Me)","Simple Minds","a:Simple Minds|uk|liveaid","us10 deep y3",1985],["I Ran (So Far Away)","A Flock Of Seagulls","a:A Flock Of Seagulls|uk","us10 synth long y2",1982],["I Melt with You","Modern English","uk|onesong","synth deep y2",1982],["Head Over Heels","Tears For Fears","a:Tears For Fears|uk|duo","us10 synth smash y3",1985],["Don't You Want Me","The Human League","a:The Human League|uk","us10 uk1 synth minor upbeat smash y1",1981],["West End Girls","Pet Shop Boys","uk|duo","us10 uk1 synth minor deep y3",1986],["Cars","Gary Numan","uk|solo|onesong","us10 uk1 synth dark_genre upbeat deep y1 oneword",1979],["Heartbreak Beat","The Psychedelic Furs","a:The Psychedelic Furs|uk","dark_genre long y3",1988],["Wishing (If I Had a Photograph of You)","A Flock Of Seagulls","a:A Flock Of Seagulls|uk","synth long deep y1 oneword",1981],["Tenderness","General Public","uk","upbeat deep y2 oneword",1984],["So Alive","Love and Rockets","uk","us10 dark_genre upbeat deep y3",1989],["Always Something There to Remind Me","Naked Eyes","uk|duo","us10 synth deep y2",1983],["Cuts You Up","Peter Murphy","uk|solo|onesong","synth dark_genre minor upbeat long deep y3",1989],["More Than This","Roxy Music","a:Roxy Music|uk","upbeat smash y2",1982],["Hold Me Now","Thompson Twins","a:Thompson Twins|uk|liveaid","us10 synth dance long deep y2",1983],["One Thing Leads To Another","The Fixx","a:The Fixx|uk","us10 synth minor upbeat dance short y2",1983],["What Is Love?","Howard Jones","uk|solo|liveaid","synth minor upbeat deep y2",1983],["Don't Go","YAZ","a:YAZ|uk|female|duo","synth dance short y2",1982],["Only You","YAZ","a:YAZ|uk|female|duo","synth upbeat short y2",1982],["Situation","YAZ","a:YAZ|uk|female|duo","synth dance long y2 oneword",1982],["Need You Tonight","INXS","a:INXS|world|liveaid|died","us10 minor upbeat dance short y3",1987],["If You Leave","Orchestral Manoeuvres In The Dark","a:Orchestral Manoeuvres In The Dark|uk","us10 synth upbeat smash y3",1986],["It's My Life","Talk Talk","uk|died","synth upbeat smash y2",1984],["The Promise","When In Rome","uk|onesong","synth smash y3",1988],["Space Age Love Song","A Flock Of Seagulls","a:A Flock Of Seagulls|uk","synth deep y1",1981],["Things Can Only Get Better","Howard Jones","uk|solo|liveaid","us10 synth upbeat dance deep y3",1985],["Kiss Them For Me","Siouxsie and the Banshees","a:Siouxsie and the Banshees|uk|female","dark_genre minor upbeat deep y3",1991],["Dance Hall Days","Wang Chung","uk","synth deep y2",1983],["Don't Change","INXS","a:INXS|world|liveaid|died","dark y2",1982],["Saved By Zero","The Fixx","a:The Fixx|uk","synth minor upbeat y2",1983],["So In Love","Orchestral Manoeuvres In The Dark","a:Orchestral Manoeuvres In The Dark|uk","synth upbeat y3",1985],["Promises, Promises","Naked Eyes","uk|duo","synth upbeat deep y3",1991],["Alive And Kicking","Simple Minds","a:Simple Minds|uk|liveaid","us10 long deep y3",1985],["Red Skies","The Fixx","a:The Fixx|uk","synth minor deep y2",1982],["(Keep Feeling) Fascination","The Human League","a:The Human League|uk","us10 synth y3 oneword",1988],["Enola Gay","Orchestral Manoeuvres In The Dark","a:Orchestral Manoeuvres In The Dark|uk","synth minor upbeat smash y1",1980],["Reptile","The Church","world","dark_genre minor y3 oneword",1988],["Obsession","Animotion","us|female|onesong","us10 synth long y2 oneword",1984],["In A Big Country","Big Country","uk|died|onesong","upbeat y2",1983],["Be Near Me","ABC","uk|onesong","us10 synth upbeat y3",1985],["Destination Unknown","Missing Persons","a:Missing Persons|us|female","synth dark y2",1982],["Love Plus One","Haircut 100","uk","upbeat dance y2",1982],["Smalltown Boy","Bronski Beat","uk","synth upbeat long deep y2",1984],["Goody Two Shoes","Adam Ant","a:Adam Ant|uk|solo|liveaid","uk1 minor deep y2",1982],["Stand Or Fall","The Fixx","a:The Fixx|uk","synth deep y2",1982],["Here Comes the Rain Again","Eurythmics","a:Eurythmics|uk|female|duo","us10 synth smash y2",1983],["Mexican Radio","Wall Of Voodoo","us|onesong","synth dark_genre y2",1982],["Let Me Go","Heaven 17","uk|onesong","synth minor y2",1982],["Talk Talk","Talk Talk","uk|died","synth minor upbeat y2",1982],["The Metro","Berlin","a:Berlin|us|female","y2",1982],["True","Spandau Ballet","uk|liveaid|onesong","us10 uk1 synth long smash y2 oneword",1983],["Turning Japanese","The Vapors","uk|onesong","upbeat y1",1980],["Doctor! Doctor!","Thompson Twins","a:Thompson Twins|uk|liveaid","synth upbeat long deep y2",1984],["Walking In L.A.","Missing Persons","a:Missing Persons|us|female","synth upbeat y2",1982],["Send Me An Angel","Real Life","world|onesong","synth minor smash y2",1983],["Senses Working Overtime","XTC","a:XTC|uk","dark_genre upbeat y2",1982],["Talking In Your Sleep","The Romantics","us","us10 minor upbeat smash y2",1983],["A Million Miles Away","The Plimsouls","us|onesong","minor y2",1983],["Once in a Lifetime","Talking Heads","a:Talking Heads|us","dark_genre upbeat smash y1",1980],["Only The Lonely","The Motels","us|female|onesong","us10 short y2",1982],["Pulling Mussels (From The Shell)","Squeeze","a:Squeeze|uk","upbeat y1",1980],["Rock the Casbah","The Clash","a:The Clash|uk|died","us10 minor upbeat dance smash y2",1982],["I Know What Boys Like","The Waitresses","us|female|died|onesong","short deep y3",1990],["Whip It","DEVO","a:DEVO|us","synth dark_genre upbeat dance short smash y1",1980],["The Safety Dance","Men Without Hats","world|onesong","us10 synth dark dance y2",1982],["Just Another Day","Oingo Boingo","us","upbeat long y3",1985],["Dancing with Tears in My Eyes","Ultravox","uk|liveaid|onesong","synth upbeat deep y2",1984],["Take on Me","a-ha","world","us10 synth minor upbeat smash y3",1985],["Kids In America","Kim Wilde","uk|female|solo|onesong","dark deep y1",1981],["Desperate But Not Serious","Adam Ant","a:Adam Ant|uk|solo|liveaid","deep y2",1982],["We Got The Beat","The Go-Go's","us|female","us10 short y1",1981],["Save a Prayer","Duran Duran","a:Duran Duran|uk|liveaid","synth minor long smash y2",1982],["Human","The Human League","a:The Human League|uk","us10 synth y3 oneword",1986],["No More Words","Berlin","a:Berlin|us|female","upbeat dance deep y2",1984],["Genius of Love","Tom Tom Club","us|female|onesong","dance long y1",1981],["Time (Clock Of The Heart)","Culture Club","a:Culture Club|uk","us10 minor upbeat deep y3 oneword",1987],["Everybody Have Fun Tonight","Wang Chung","uk","us10 synth smash y3",1986],["Are We Ourselves?","The Fixx","a:The Fixx|uk","synth upbeat short y2",1984],["Do You Really Want To Hurt Me","Culture Club","a:Culture Club|uk","us10 uk1 minor smash y2",1982],["Rebel Yell","Billy Idol","a:Billy Idol|uk|solo","minor smash y2",1983],["Head Over Heels","The Go-Go's","us|female","upbeat y3",1990],["White Wedding","Billy Idol","a:Billy Idol|uk|solo","smash y2",1982],["Forever Young","Alphaville","world","synth minor dark smash y2",1984],["I Want Candy","Bow Wow Wow","uk|female","upbeat short smash y1",1980],["Planet Earth","Duran Duran","a:Duran Duran|uk|liveaid","synth y1",1981],["Burning Down the House","Talking Heads","a:Talking Heads|us","us10 dark_genre minor dance smash y2",1983],["Lay Your Hands On Me","Thompson Twins","a:Thompson Twins|uk|liveaid","us10 synth upbeat dance long deep y3",1985],["Blister in the Sun","Violent Femmes","a:Violent Femmes|us","upbeat short deep y2",1983],["Making Plans For Nigel","XTC","a:XTC|uk","dark_genre upbeat y1",1979],["True Faith","New Order","a:New Order|uk","synth dark_genre upbeat y3",1987],["Is There Something I Should Know?","Duran Duran","a:Duran Duran|uk|liveaid","us10 uk1 synth upbeat y1",1981],["Sweet Dreams (Are Made of This)","Eurythmics","a:Eurythmics|uk|female|duo","us10 synth minor upbeat smash y2",1983],["Come On Eileen","Dexys Midnight Runners","uk|onesong","us10 uk1 upbeat deep y2",1982],["Original Sin","INXS","a:INXS|world|liveaid|died","upbeat y2",1984],["Radio Free Europe","R.E.M.","a:R.E.M.|us","upbeat y2",1983],["Modern Love","David Bowie","a:David Bowie|uk|solo|liveaid|died","upbeat y2",1983],["Girl U Want","DEVO","a:DEVO|us","synth dark_genre upbeat short y1",1980],["Some Like It Hot","The Power Station","liveaid|died","us10 long y3",1985],["All The Things She Said","Simple Minds","a:Simple Minds|uk|liveaid","deep y3",1985],["Your Love","The Outfield","uk|died|onesong","us10 minor y3",1985],["No New Tale to Tell","Love and Rockets","uk","dark_genre deep y3",1987],["Private Idaho","The B-52's","a:The B-52's|us|female","dark_genre upbeat y1",1980],["New Sensation","INXS","a:INXS|world|liveaid|died","us10 upbeat smash y3",1987],["Let's Dance","David Bowie","a:David Bowie|uk|solo|liveaid|died","us10 uk1 minor long deep y2",1983],["Weird Science","Oingo Boingo","us","long smash y3",1985],["Strangelove","Depeche Mode","a:Depeche Mode|uk","synth dark_genre minor upbeat deep y3 oneword",1987],["It's a Sin","Pet Shop Boys","uk|duo","us10 uk1 synth minor dark long deep y3",1987],["Nowhere Girl","B-Movie","uk|onesong","synth dark_genre minor deep y1",1980],["Blood And Roses","The Smithereens","a:The Smithereens|us|died","upbeat y3",1986],["Brand New Lover","Dead Or Alive","uk|died|onesong","synth minor y3",1986],["Never Let Me Down Again","Depeche Mode","a:Depeche Mode|uk","synth dark_genre deep y3",1987],["Devil Inside","INXS","a:INXS|world|liveaid|died","us10 long y3",1987],["Tainted Love / Where Did Our Love Go?","Soft Cell","uk|duo|onesong","synth long y1",1981],["Train in Vain (Stand by Me)","The Clash","a:The Clash|uk|died","upbeat dance short smash y1",1979],["The Sun Always Shines on T.V.","a-ha","world","uk1 synth minor dark long smash y3",1985],["A Girl Like You","The Smithereens","a:The Smithereens|us|died","upbeat y3",1989],["What I Like About You","The Romantics","us","upbeat short smash y1",1980],["Do You Wanna Hold Me?","Bow Wow Wow","uk|female","short y1",1980],["Just What I Needed","The Cars","a:The Cars|us|liveaid|died","smash y1",1978],["Sunglasses At Night","Corey Hart","world|solo|onesong","us10 synth minor long smash y2",1983],["Add It Up","Violent Femmes","a:Violent Femmes|us","deep y2",1983],["Kiss Off","Violent Femmes","a:Violent Femmes|us","minor upbeat short deep y2",1983],["Driver 8","R.E.M.","a:R.E.M.|us","upbeat y3",1985],["Here Comes Your Man","Pixies","us|onesong","upbeat deep y3",1989],["Only A Memory","The Smithereens","a:The Smithereens|us|died","minor y3",1988],["Let's Go","The Cars","a:The Cars|us|liveaid|died","upbeat y1",1979],["Can't Get There From Here","R.E.M.","a:R.E.M.|us","upbeat y3",1985],["She Drives Me Crazy","Fine Young Cannibals","a:Fine Young Cannibals|uk","us10 upbeat dance deep y3",1988],["Orange Crush","R.E.M.","a:R.E.M.|us","smash y3",1988],["Gone Daddy Gone","Violent Femmes","a:Violent Femmes|us","upbeat short deep y2",1983],["Mayor Of Simpleton","XTC","a:XTC|uk","dark_genre upbeat y3",1989],["Fire Woman","The Cult","uk","dark_genre long deep y3",1989],["Johnny Come Home","Fine Young Cannibals","a:Fine Young Cannibals|uk","upbeat dance deep y3",1985],["Should I Stay or Should I Go","The Clash","a:The Clash|uk|died","upbeat short smash y2",1982],["Pump It Up","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","upbeat short deep y1",1978],["Someday, Someway","Marshall Crenshaw","us|solo|onesong","upbeat short y2",1982],["Punk Rock Girl","The Dead Milkmen","us|onesong","minor upbeat short y3",1988],["Veronica","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","short y3 oneword",1989],["Joey","Concrete Blonde","us|female|onesong","dark smash y3 oneword",1990],["Girlfriend in a Coma","The Smiths","a:The Smiths|uk","upbeat short y3",1987],["Black Coffee In Bed","Squeeze","a:Squeeze|uk","minor long y2",1982],["Back on the Chain Gang","Pretenders","a:Pretenders|uk|female|liveaid","us10 upbeat smash y2",1984],["Love Removal Machine","The Cult","uk","dark_genre deep y3",1987],["Alex Chilton","The Replacements","us","upbeat short y3",1987],["I'll Be You","The Replacements","us","y3",1989],["Ship of Fools","World Party","uk|onesong","upbeat y3",1987],["867-5309 / Jenny","Tommy Tutone","us|onesong","us10 smash y1",1981],["Spirits In The Material World","The Police","a:The Police|uk","minor upbeat dance short deep y1",1981],["Girlfriend","Matthew Sweet","us|solo|onesong","upbeat y3 oneword",1991],["Panic","The Smiths","a:The Smiths|uk","upbeat short smash y3 oneword",1987],["Two Hearts Beat As One","U2","world|liveaid|onesong","minor upbeat y2",1983],["China Girl","David Bowie","a:David Bowie|uk|solo|liveaid|died","us10 minor upbeat long deep y2",1983],["Love Is The Drug","Roxy Music","a:Roxy Music|uk","dance y1",1975],["Why ?","Bronski Beat","uk","synth minor deep y2",1984],["Something So Strong","Crowded House","world|onesong","us10 short y3",1986],["Avalon","Roxy Music","a:Roxy Music|uk","upbeat dance smash y2 oneword",1982],["Everyday I Write The Book","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","minor y2",1983],["Moving in Stereo","The Cars","a:The Cars|us|liveaid|died","y1",1978],["Flesh For Fantasy","Billy Idol","a:Billy Idol|uk|solo","smash y2",1983],["Everywhere That I'm Not","Translator","us|onesong","dark_genre minor y2",1982],["Synchronicity II","The Police","a:The Police|uk","long deep y2",1983],["London Calling","The Clash","a:The Clash|uk|died","upbeat short smash y1",1979],["This Must Be the Place (Naive Melody)","Talking Heads","a:Talking Heads|us","dark_genre upbeat dance smash y2",1983],["Ask","The Smiths","a:The Smiths|uk","short smash y3 oneword",1987],["Shake It Up","The Cars","a:The Cars|us|liveaid|died","us10 upbeat y1",1981],["Rock Me Amadeus","Falco","world|solo|died","us10 uk1 minor upbeat y3",1985],["Sixty Eight Guns","The Alarm","uk","dark long y2",1984],["It Must Be Love","Madness","uk|onesong","y2",1983],["(I Just) Died In Your Arms","Cutting Crew","uk|onesong","us10 minor smash y3",1986],["Never You Done That","General Public","uk","upbeat deep y2",1984],["Dear Prudence","Siouxsie and the Banshees","a:Siouxsie and the Banshees|uk|female","dark_genre y2",1984],["King Of Pain","The Police","a:The Police|uk","us10 deep y2",1983],["Big in Japan","Alphaville","world","synth minor dark smash y2",1984],["Come Back and Stay","Paul Young","uk|solo|liveaid|onesong","minor upbeat y2",1983],["King for a Day","Thompson Twins","a:Thompson Twins|uk|liveaid","us10 synth long deep y3",1985],["Slave To Love","Bryan Ferry","uk|solo|liveaid","upbeat smash y3",1985],["Alison","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","minor y1 oneword",1977],["Love Is a Stranger","Eurythmics","a:Eurythmics|uk|female|duo","synth dance y2",1983],["Sanctify Yourself","Simple Minds","a:Simple Minds|uk|liveaid","deep y3",1985],["Watching The Detectives","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","minor upbeat dance y1",1977],["Suspicious Minds","Fine Young Cannibals","a:Fine Young Cannibals|uk","deep y3",1985],["Wrapped Around Your Finger","The Police","a:The Police|uk","us10 minor long deep y2",1983],["Mirror In the Bathroom","The English Beat","uk|onesong","upbeat short deep y1",1980],["Words","Missing Persons","a:Missing Persons|us|female","synth dance y2 oneword",1982],["Life in a Northern Town","The Dream Academy","uk|onesong","us10 y3",1985],["Blasphemous Rumours","Depeche Mode","a:Depeche Mode|uk","synth dark_genre minor long deep y3",1985],["Superman","R.E.M.","a:R.E.M.|us","upbeat short y3 oneword",1986],["Fall On Me","R.E.M.","a:R.E.M.|us","short y3",1986],["Miss Me Blind","Culture Club","a:Culture Club|uk","us10 minor upbeat dance y2",1983],["My Best Friend's Girl","The Cars","a:The Cars|us|liveaid|died","upbeat dance smash y1",1978],["Good Thing","Fine Young Cannibals","a:Fine Young Cannibals|uk","us10 minor upbeat deep y3",1988],["Psycho Killer","Talking Heads","a:Talking Heads|us","dark_genre upbeat y1",1977],["Masquerade","Berlin","a:Berlin|us|female","upbeat y2 oneword",1982],["Middle of the Road","Pretenders","a:Pretenders|uk|female|liveaid","y2",1984],["The One I Love","R.E.M.","a:R.E.M.|us","us10 short smash y3",1987],["Jukebox (Don't Put Another Dime)","The Flirts","us|female|onesong","minor upbeat deep y2 oneword",1982],["The Walls Came Down","The Call","us|onesong","upbeat deep y2",1983],["This Is Not a Love Song","Public Image Ltd.","uk","dark_genre y2",1984],["Another Nail In My Heart","Squeeze","a:Squeeze|uk","upbeat short y1",1980],["(What's So Funny 'Bout) Peace, Love And Understanding","Elvis Costello","a:Elvis Costello|uk|solo|liveaid","deep y1",1979],["Rush","Big Audio Dynamite","uk|onesong","dance y3 oneword",1991],["Is That Love?","Squeeze","a:Squeeze|uk","minor short y1",1981],["Rock Lobster","The B-52's","a:The B-52's|us|female","dark_genre y1",1979],["Don't Stop The Dance","Bryan Ferry","uk|solo|liveaid","minor upbeat smash y3",1985],["On Your Radio","Joe Jackson","a:Joe Jackson|uk|solo","minor y1",1979],["Generals And Majors","XTC","a:XTC|uk","dark_genre upbeat y1",1980],["I'm The Man","Joe Jackson","a:Joe Jackson|uk|solo","y1",1979],["Touch and Go","The Cars","a:The Cars|us|liveaid|died","upbeat y1",1980],["Teacher Teacher","Rockpile","uk|onesong","upbeat short y1",1980],["People Who Died","The Jim Carroll Band","us|died|onesong","minor upbeat deep y1",1980],["The Magnificent Seven","The Clash","a:The Clash|uk|died","upbeat dance long y1",1980],["Driven To Tears","The Police","a:The Police|uk","minor deep y1",1980],["Ashes to Ashes","David Bowie","a:David Bowie|uk|solo|liveaid|died","uk1 upbeat smash y1",1980],["Get It On (Bang a Gong)","The Power Station","liveaid|died","us10 long y3",1985],["The Stand","The Alarm","uk","minor y3",1990],["Since You're Gone","The Cars","a:The Cars|us|liveaid|died","y1",1981],["Girls Talk","Dave Edmunds","uk|solo|onesong","upbeat deep y1",1979],["Freedom of Choice","DEVO","a:DEVO|us","synth dark_genre upbeat dance y1",1980],["My City Was Gone","Pretenders","a:Pretenders|uk|female|liveaid","upbeat dance long y2",1984],["Canary In A Coalmine","The Police","a:The Police|uk","minor upbeat dance short deep y1",1980],["Friday","Joe Jackson","a:Joe Jackson|uk|solo","y1 oneword",1979],["Scary Monsters (And Super Creeps)","David Bowie","a:David Bowie|uk|solo|liveaid|died","dark long y1",1980],["Get That Girl","Joe Jackson","a:Joe Jackson|uk|solo","upbeat short y1",1979],["Manic Monday","The Bangles","us|female|onesong","us10 upbeat short smash y3",1986],["Heaven","The Psychedelic Furs","a:The Psychedelic Furs|uk","dark_genre y3 oneword",1988],["Johnny, Are You Queer?","Josie Cotton","us|female|solo|onesong","upbeat short deep y1",1981],["Mad World","Tears For Fears","a:Tears For Fears|uk|duo","synth upbeat smash y2",1983],["Favourite Shirts (Boy Meets Girl)","Haircut 100","uk","minor upbeat short y2",1982],["Town Called Malice","The Jam","uk|onesong","uk1 upbeat short smash y2",1982],["Der Kommissar","Falco","world|solo|died","upbeat dance smash y2",1982],["Roam","The B-52's","a:The B-52's|us|female","us10 dark_genre y3 oneword",1989],["Planet Claire","The B-52's","a:The B-52's|us|female","dark_genre minor y1",1979],["Up The Junction","Squeeze","a:Squeeze|uk","upbeat short y1",1979],["Pop Muzik","M","uk|onesong","us10 synth upbeat dance y1",1979],["Christine","Siouxsie and the Banshees","a:Siouxsie and the Banshees|uk|female","dark_genre minor short y1 oneword",1980],["Policy of Truth","Depeche Mode","a:Depeche Mode|uk","synth dark_genre smash y3",1990],["Chains of Love","Erasure","uk|duo|onesong","synth upbeat y3",1988],["And She Was","Talking Heads","a:Talking Heads|us","dark_genre upbeat dance smash y3",1985],["Voices Carry","'Til Tuesday","us|female|onesong","us10 smash y3",1985],["Brass in Pocket","Pretenders","a:Pretenders|uk|female|liveaid","uk1 upbeat dance short y1",1979],["Shout","Tears For Fears","a:Tears For Fears|uk|duo","us10 synth long smash y3 oneword",1985],["Wild Wild Life","Talking Heads","a:Talking Heads|us","dark_genre upbeat y3",1986],["Tempted","Squeeze","a:Squeeze|uk","minor smash y1 oneword",1981],["Sowing The Seeds Of Love","Tears For Fears","a:Tears For Fears|uk|duo","us10 synth minor long smash y3",1989]],"artists":["Depeche Mode","Joe Jackson","R.E.M.","The Cars","The Cure","The Smiths","Duran Duran","Elvis Costello","Squeeze","Talking Heads","The Police","David Bowie","INXS","The Clash","The Fixx","The Psychedelic Furs","Fine Young Cannibals","Pretenders","Simple Minds","Siouxsie and the Banshees","Tears For Fears","The B-52's","Thompson Twins","Violent Femmes","XTC","A Flock Of Seagulls","Adam Ant","Berlin","Billy Idol","Culture Club","DEVO","Echo & the Bunnymen","Eurythmics","Missing Persons","New Order","Orchestral Manoeuvres In The Dark","Roxy Music","The Human League","The Smithereens","YAZ"]};
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split('|').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const TYPE_ROWS = {
+  uk: ['British act', 'England, Scotland, Wales'],
+  us: ['American act', 'Formed in the US'],
+  world: ['Not UK or US', 'Ireland, Australia, Europe, Canada'],
+  female: ['Female lead singer', 'Or a female co-lead'],
+  duo: ['A duo', 'Two-person act'],
+  solo: ['Solo artist', 'Not a band'],
+  liveaid: ['Played Live Aid', 'July 13, 1985'],
+  died: ['Lead singer has died', 'Frontman or frontwoman'],
+  onesong: ['Only one song here', 'Just one on the playlist']
+};
+const COLS = {
+  us10: ['US top 10 hit', 'Billboard Hot 100'],
+  uk1: ['UK No. 1', 'UK singles chart'],
+  synth: ['Synth-pop act', 'Spotify genre tag'],
+  dark_genre: ['Post-punk or goth act', 'Spotify genre tag'],
+  minor: ['In a minor key', 'Spotify key analysis'],
+  dark: ['Dark mood', 'Spotify mood rating'],
+  upbeat: ['Upbeat mood', 'Spotify mood rating'],
+  dance: ['Dance-floor ready', 'Top danceability'],
+  long: ['5 minutes or longer', 'Track length'],
+  short: ['Under 3:20', 'Track length'],
+  deep: ['Deep cut', 'Least-played quarter on Spotify'],
+  smash: ['Spotify smash', 'Most-played quarter'],
+  y1: ['Released by 1981', 'Original release'],
+  y2: ['Released 1982–84', 'Original release'],
+  y3: ['Released 1985 or later', 'Original release'],
+  oneword: ['One-word title', 'Ignoring parentheses']
+};
+const MEDIUM_COLS = ['us10', 'smash', 'synth', 'long', 'y1', 'y2', 'y3', 'oneword'];
+const MEDIUM_ROWS = DATA.artists.filter(a => SONGS.filter(s => s.rows.has('a:' + a)).length >= 5).map(a => 'a:' + a).concat(['uk', 'us', 'world', 'female', 'solo', 'duo', 'liveaid']);
+let MODE = 'medium';
+try { const m = localStorage.getItem('nw:mode'); if (m === 'hard' || m === 'medium') MODE = m; } catch (e) {}
+const CLASH = [['y1','y2'],['y1','y3'],['y2','y3'],['dark','upbeat'],['long','short'],['deep','smash'],['us10','deep']];
+const ROWS = DATA.artists.map(a => 'a:' + a).concat(Object.keys(TYPE_ROWS));
+const rowLabel = r => r.startsWith('a:') ? [r.slice(2), ''] : TYPE_ROWS[r];
+
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function makeGrid(seed) {
+  const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(COLPOOL, r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    const rows = shuffle(ROWPOOL, r).slice(0, 3);
+    if (rows.filter(x => !x.startsWith('a:')).length > (MODE === 'medium' ? 3 : 1)) continue;
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (n < MIN) ok = false; if (n === 1) thin++; }
+    if (ok && thin <= 2) return { rows, cols };
+  }
+  return { rows: ['uk', 'us', 'female'], cols: ['us10', 'smash', 'y2'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('nw:' + MODE + ':' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('nw:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('nw:' + MODE + ':' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Band × song fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row.startsWith('a:') ? '' : ' type'); rh.append(lab);
+    if (!row.startsWith('a:')) { const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm); }
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.credit;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title + ' by ' + s.credit);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show songs that would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.credit) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a song or band.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; if (a.split(' ').some(w => w.startsWith(q)) || a.startsWith(q)) return 3; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">That song isn’t on the playlist.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.credit + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
+
+const SB_URL = 'https://bfohdusslfiilrmhrnlp.supabase.co', SB_KEY = 'sb_publishable_Q9FDNyxo-kTX2XEdO3KGOA_WIUwPxJ9', GAME = 'firstwave';
+let PLAYER = null;
+try { PLAYER = localStorage.getItem('gg:player'); if (!PLAYER) { PLAYER = crypto.randomUUID(); localStorage.setItem('gg:player', PLAYER); } } catch (e) { PLAYER = (crypto.randomUUID ? crypto.randomUUID() : null); }
+let STATS = null, STATS_STATE = 'idle';
+const gridKey = () => ((typeof MODE !== 'undefined') ? MODE : 'std') + ':' + seed;
+const isDaily = () => typeof seed === 'string' && seed.startsWith('daily-');
+const songKey = s => s.title + ' | ' + (s.credit || s.album || '');
+async function rpc(fn, body) {
+  const r = await fetch(SB_URL + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
+}
+async function loadStats() {
+  if (!isDaily() || !PLAYER) { STATS = null; STATS_STATE = 'off'; render(); return; }
+  const k = gridKey(); STATS_STATE = STATS ? STATS_STATE : 'loading'; renderStats();
+  try { const s = await rpc('grid_stats', { p_game: GAME, p_grid: k }); if (k === gridKey()) { STATS = s; STATS_STATE = 'ok'; render(); } }
+  catch (e) { if (k === gridKey()) { STATS_STATE = 'error'; renderStats(); } }
+}
+function record(cell, answer) {
+  if (!isDaily() || !PLAYER) return Promise.resolve();
+  return rpc('record_answer', { p_game: GAME, p_grid: gridKey(), p_player: PLAYER, p_cell: cell, p_answer: answer }).catch(() => {});
+}
+function pickCount(cell, s) { if (!STATS) return 0; const a = STATS.answers.find(x => x.cell === cell && x.answer === songKey(s)); return a ? a.n : 0; }
+function pct(n) { return STATS && STATS.players ? Math.round(100 * n / STATS.players) : 0; }
+function renderStats() {
+  const el = $('statline'); if (!el) return;
+  if (!isDaily()) { el.textContent = 'Player stats are kept for the daily grid only.'; return; }
+  if (STATS_STATE === 'loading') { el.textContent = 'Loading today’s players…'; return; }
+  if (STATS_STATE === 'error') { el.textContent = 'Player stats aren’t reachable right now.'; return; }
+  if (!STATS) { el.textContent = ''; return; }
+  const n = STATS.players; el.innerHTML = '';
+  const b = document.createElement('b'); b.textContent = n; el.append(b, n === 1 ? ' player today' : ' players today');
+}
+function decorate() {
+  const over = done();
+  for (let idx = 0; idx < 9; idx++) {
+    const btn = $('cell-' + idx); if (!btn) continue;
+    const val = S.cells[idx];
+    if (val !== null && STATS && STATS.players) {
+      const r = btn.querySelector('.rare'); if (r) r.textContent = pct(pickCount(idx, SONGS[val])) + '% picked this';
+    }
+    if (!over) continue;
+    btn.disabled = false; btn.classList.add('over-tap');
+    btn.onclick = () => openAnswers(idx);
+    if (val === null && STATS && STATS.answers.some(a => a.cell === idx)) {
+      const best = STATS.answers.filter(a => a.cell === idx).sort((a, b) => b.n - a.n)[0];
+      const name = btn.querySelector('.name'); if (name) name.remove();
+      const top = document.createElement('span'); top.className = 'top';
+      top.append('Most picked', document.createElement('br'));
+      const bb = document.createElement('b'); bb.textContent = best.answer.split(' | ')[0]; top.append(bb, ' · ' + pct(best.n) + '%');
+      btn.appendChild(top);
+    }
+  }
+  if (over) { const p = $('sumText'); if (p && !p.dataset.tapHint) { p.dataset.tapHint = '1'; p.textContent += ' Tap any square to see every answer that worked and how often players picked it.'; } }
+}
+function openAnswers(idx) {
+  active = null;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  $('prompt').textContent = rowLabel(row)[0] + ' + ' + COLS[c][0];
+  $('q').hidden = true;
+  const ul = $('results'); ul.innerHTML = '';
+  const list = answers(row, c).map(s => ({ s, n: pickCount(idx, s) })).sort((a, b) => b.n - a.n || a.s.title.localeCompare(b.s.title));
+  const hint = document.createElement('li'); hint.className = 'hint';
+  hint.textContent = list.length + (list.length === 1 ? ' answer worked' : ' answers worked') + (isDaily() && STATS ? ' · ' + STATS.players + (STATS.players === 1 ? ' player today' : ' players today') : '');
+  ul.appendChild(hint);
+  for (const { s, n } of list) {
+    const li = document.createElement('li'); li.className = 'ans' + (S.cells[idx] === s.i ? ' mine' : '');
+    const top = document.createElement('div'); top.className = 'ans-top';
+    const t = document.createElement('span'); t.className = 't'; t.textContent = s.title;
+    const p = document.createElement('span'); p.className = 'p'; p.textContent = isDaily() && STATS ? pct(n) + '%' : '';
+    top.append(t, p); li.appendChild(top);
+    const sm = document.createElement('small'); sm.textContent = s.credit || s.album || ''; li.appendChild(sm);
+    if (isDaily() && STATS) { const bar = document.createElement('div'); bar.className = 'bar'; const i = document.createElement('i'); i.style.width = pct(n) + '%'; bar.appendChild(i); li.appendChild(bar); }
+    if (S.cells[idx] === s.i) { const m = document.createElement('span'); m.className = 'mine-tag'; m.textContent = 'Your pick'; li.appendChild(m); }
+    ul.appendChild(li);
+  }
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  if (typeof fitSheet === 'function') fitSheet();
+}
+window.__gridTest = { firstAnswer: () => answers(G.rows[0], G.cols[0])[0].title };
+const _render = render; render = function () { _render(); renderStats(); decorate(); };
+const _openSheet = openSheet; openSheet = function (idx) { $('q').hidden = false; _openSheet(idx); };
+const _load = load; load = function (sd) { STATS = null; STATS_STATE = 'idle'; _load(sd); loadStats(); };
+const _guess = guess; guess = function (s) {
+  const idx = active; if (idx === null) return;
+  const before = S.cells[idx]; _guess(s);
+  const ok = before === null && S.cells[idx] === s.i;
+  record(ok ? idx : 0, ok ? songKey(s) : '').then(loadStats);
+};
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+function setMode(m) {
+  MODE = m;
+  try { localStorage.setItem('nw:mode', m); } catch (e) {}
+  document.querySelectorAll('.mode').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
+setMode(MODE);
+const last = store.get('nw:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>
+
+</body>
+</html>

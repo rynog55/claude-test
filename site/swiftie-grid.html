@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Swiftie Grid</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a liner-notes sheet: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #eef0f8;
+  --panel: #ffffff;
+  --ink: #181b33;
+  --muted: #5e6488;
+  --line: #d6daec;
+  --accent: #7b4fd6;
+  --accent-2: #b0428a;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1024; --panel: #191c38; --ink: #eef0ff; --muted: #9ea3c8; --line: #2c3058;
+    --accent: #b49bff; --accent-2: #f08fc6; --accent-ink: #160b33; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1024; --panel: #191c38; --ink: #eef0ff; --muted: #9ea3c8; --line: #2c3058;
+  --accent: #b49bff; --accent-2: #f08fc6; --accent-ink: #160b33; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 11vw, 50px); line-height: .9; margin: 0; letter-spacing: -.01em; white-space: nowrap; }
+h1 span { color: var(--accent); font-style: italic; }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(17px, 5vw, 22px); letter-spacing: 0; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 30px; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 21px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+
+.statline { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.statline b { color: var(--ink); }
+.cell.over-tap { cursor: pointer; }
+.cell.over-tap:hover { border-color: var(--accent); }
+.cell .top { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.25; }
+.cell .top b { color: var(--ink); font-weight: 700; }
+.ans { list-style: none; border-bottom: 1px solid var(--line); padding: 10px 4px; display: flex; flex-direction: column; gap: 4px; }
+.ans-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.ans-top .t { font: 600 15px var(--font-body); min-width: 0; overflow-wrap: anywhere; }
+.ans-top .p { font: 700 14px var(--font-body); font-variant-numeric: tabular-nums; color: var(--accent); flex: none; }
+.ans small { color: var(--muted); font-size: 12px; }
+.ans .bar { height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.ans .bar i { display: block; height: 100%; background: var(--accent); }
+.ans.mine { background: var(--hit-soft); border-radius: 8px; }
+.ans .mine-tag { font-size: 11px; font-weight: 700; color: var(--hit); text-transform: uppercase; letter-spacing: .06em; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Swiftie <span>Grid</span></h1>
+      <p class="sub" id="label">Daily grid</p>
+      <p class="statline" id="statline" aria-live="polite"></p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Tap a square and name a <b>Taylor Swift song</b> from the <b>album on the left</b> that fits the <b>fact on top</b>. Every grid has at least one lyric square. You get 9 guesses, and each song can be used once.</p>
+  <p class="rules">The song list covers all 12 studio albums, including deluxe tracks, From the Vault songs and the Showgirl Encore edition, from Wikipedia. Re-recorded songs count under their original album. Track numbers, writers, singles and chart peaks come from Wikipedia. The lyric squares were tagged by hand, so a song that fits might be missing, and Encore-edition songs have no lyric tags. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search song titles…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = [["Tim McGraw","debut","color time name single opener"],["Picture to Burn","debut","car single"],["Teardrops on My Guitar","debut","single"],["A Place in This World","debut",""],["Cold as You","debut","rain track5"],["The Outside","debut","solo"],["Tied Together with a Smile","debut",""],["Stay Beautiful","debut","name"],["Should've Said No","debut","single solo"],["Mary's Song (Oh My My My)","debut","number"],["Our Song","debut","car single closer solo"],["I'm Only Me When I'm with You","debut",""],["Invisible","debut","oneword"],["A Perfectly Good Heart","debut",""],["Fearless","fearless","rain single t10 opener oneword"],["Fifteen","fearless","name number single oneword solo"],["Love Story","fearless","color single t10 solo"],["Hey Stephen","fearless","name solo"],["White Horse","fearless","color single track5"],["You Belong with Me","fearless","single t10"],["Breathe","fearless","feat oneword"],["Tell Me Why","fearless",""],["You're Not Sorry","fearless","solo"],["The Way I Loved You","fearless","rain"],["Forever & Always","fearless","rain solo"],["The Best Day","fearless","solo"],["Change","fearless","closer oneword solo"],["Jump Then Fall","fearless","solo"],["Untouchable","fearless","oneword"],["Come In with the Rain","fearless","rain"],["Superstar","fearless","oneword"],["The Other Side of the Door","fearless","solo"],["Today Was a Fairytale","fearless","single t10 solo"],["You All Over Me","fearless vault","feat"],["Mr. Perfectly Fine","fearless vault","solo"],["We Were Happy","fearless vault",""],["That's When","fearless vault","feat"],["Don't You","fearless vault",""],["Bye Bye Baby","fearless vault",""],["Mine","speaknow","single t10 opener oneword solo"],["Sparks Fly","speaknow","rain single solo"],["Back to December","speaknow","time single t10 solo"],["Speak Now","speaknow","solo"],["Dear John","speaknow","name number track5 solo"],["Mean","speaknow","single oneword solo"],["The Story of Us","speaknow","single solo"],["Never Grow Up","speaknow","solo"],["Enchanted","speaknow","oneword solo"],["Better than Revenge","speaknow","solo"],["Innocent","speaknow","oneword solo"],["Haunted","speaknow","oneword solo"],["Last Kiss","speaknow","time solo"],["Long Live","speaknow","closer solo"],["Ours","speaknow","single oneword solo"],["Superman","speaknow","oneword solo"],["Electric Touch","speaknow vault","feat"],["When Emma Falls in Love","speaknow vault","name solo"],["I Can See You","speaknow vault","solo"],["Castles Crumbling","speaknow vault","feat solo"],["Foolish One","speaknow vault","solo"],["Timeless","speaknow vault","oneword solo"],["State of Grace","red","color opener solo"],["Red","red","color single t10 oneword solo"],["Treacherous","red","oneword"],["I Knew You Were Trouble","red","single t10 martin"],["All Too Well","red","car track5"],["22","red","number single oneword martin"],["I Almost Do","red","solo"],["We Are Never Ever Getting Back Together","red","single n1 t10 martin"],["Stay Stay Stay","red","solo"],["The Last Time","red","single feat"],["Holy Ground","red","faith solo"],["Sad Beautiful Tragic","red","solo"],["The Lucky One","red","solo"],["Everything Has Changed","red","color single feat"],["Starlight","red","oneword solo"],["Begin Again","red","single t10 closer solo"],["The Moment I Knew","red","solo"],["Come Back... Be Here","red",""],["Girl at Home","red","solo"],["Ronan","red","name single oneword"],["Better Man","red vault","solo"],["Nothing New","red vault","number feat solo"],["Babe","red vault","oneword"],["Message in a Bottle","red vault","single martin"],["I Bet You Think About Me","red vault","single feat"],["Forever Winter","red vault","time"],["Run","red vault","feat oneword"],["The Very First Night","red vault",""],["Welcome to New York","1989","place opener"],["Blank Space","1989","single n1 t10 martin"],["Style","1989","color car single t10 oneword martin"],["Out of the Woods","1989","car number single antonoff"],["All You Had to Do Was Stay","1989","track5 martin"],["Shake It Off","1989","single n1 t10 martin"],["I Wish You Would","1989","antonoff"],["Bad Blood","1989","single n1 t10 martin"],["Wildest Dreams","1989","color single t10 martin"],["How You Get the Girl","1989","martin"],["This Love","1989","solo"],["I Know Places","1989",""],["Clean","1989","rain closer oneword"],["Wonderland","1989","oneword martin"],["You Are in Love","1989","antonoff"],["New Romantics","1989","single martin"],["\"Slut!\"","1989 vault","color single t10 oneword antonoff"],["Say Don't Go","1989 vault",""],["Now That We Don't Talk","1989 vault","antonoff"],["Suburban Legends","1989 vault","antonoff"],["Is It Over Now?","1989 vault","color single n1 t10 antonoff"],["Sweeter than Fiction","1989","antonoff"],["…Ready for It?","reputation","name single t10 opener martin"],["End Game","reputation","single feat martin"],["I Did Something Bad","reputation","martin"],["Don't Blame Me","reputation","faith martin"],["Delicate","reputation","single track5 oneword martin"],["Look What You Made Me Do","reputation","single n1 t10 antonoff"],["So It Goes...","reputation","martin"],["Gorgeous","reputation","color oneword martin"],["Getaway Car","reputation","car single antonoff"],["King of My Heart","reputation","martin"],["Dancing with Our Hands Tied","reputation","martin"],["Dress","reputation","oneword antonoff"],["This Is Why We Can't Have Nice Things","reputation","antonoff"],["Call It What You Want","reputation","antonoff"],["New Year's Day","reputation","time single closer antonoff"],["I Forgot That You Existed","lover","opener"],["Cruel Summer","lover","time faith single n1 t10 antonoff"],["Lover","lover","time single t10 oneword solo"],["The Man","lover","place single"],["The Archer","lover","track5 antonoff"],["I Think He Knows","lover","place antonoff"],["Miss Americana & the Heartbreak Prince","lover",""],["Paper Rings","lover","antonoff"],["Cornelia Street","lover","place solo"],["Death by a Thousand Cuts","lover","number antonoff"],["London Boy","lover","place antonoff"],["Soon You'll Get Better","lover","feat antonoff"],["False God","lover","faith antonoff"],["You Need to Calm Down","lover","single t10"],["Afterglow","lover","oneword"],["ME!","lover","single t10 feat oneword"],["It's Nice to Have a Friend","lover",""],["Daylight","lover","color number closer oneword solo"],["the 1","folklore","opener dessner"],["cardigan","folklore","color single n1 t10 oneword dessner"],["the last great american dynasty","folklore","place name dessner"],["exile","folklore","single t10 feat oneword"],["my tears ricochet","folklore","track5 solo"],["mirrorball","folklore","oneword antonoff"],["seven","folklore","place oneword dessner"],["august","folklore","time oneword antonoff"],["this is me trying","folklore","antonoff"],["illicit affairs","folklore","antonoff"],["invisible string","folklore","color faith dessner"],["mad woman","folklore","dessner"],["epiphany","folklore","oneword dessner"],["betty","folklore","name number single oneword"],["peace","folklore","oneword dessner"],["hoax","folklore","closer oneword dessner"],["the lakes","folklore","place antonoff"],["willow","evermore","single n1 t10 opener oneword dessner"],["champagne problems","evermore","time car"],["gold rush","evermore","color antonoff"],["tis the damn season","evermore","time dessner"],["tolerate it","evermore","track5 dessner"],["no body, no crime","evermore","single feat solo"],["happiness","evermore","oneword dessner"],["dorothea","evermore","name oneword dessner"],["coney island","evermore","place single feat dessner"],["ivy","evermore","oneword antonoff dessner"],["cowboy like me","evermore","dessner"],["long story short","evermore","dessner"],["marjorie","evermore","name oneword dessner"],["closure","evermore","oneword dessner"],["evermore","evermore","time closer feat oneword"],["right where you left me","evermore","dessner"],["it's time to go","evermore","dessner"],["Lavender Haze","midnights","color single t10 opener antonoff"],["Maroon","midnights","color oneword antonoff"],["Anti-Hero","midnights","single n1 t10 oneword antonoff"],["Snow on the Beach","midnights","single t10 feat antonoff"],["You're on Your Own, Kid","midnights","track5 antonoff"],["Midnight Rain","midnights","rain antonoff"],["Question...?","midnights","oneword antonoff"],["Vigilante Shit","midnights","solo"],["Bejeweled","midnights","oneword antonoff"],["Labyrinth","midnights","oneword antonoff"],["Karma","midnights","faith single t10 oneword antonoff"],["Sweet Nothing","midnights",""],["Mastermind","midnights","closer oneword antonoff"],["Hits Different","midnights","antonoff dessner"],["The Great War","midnights","dessner"],["Bigger Than the Whole Sky","midnights","solo"],["Paris","midnights","place oneword antonoff"],["High Infidelity","midnights","time number dessner"],["Glitch","midnights","oneword antonoff"],["Would've, Could've, Should've","midnights","dessner"],["Dear Reader","midnights","antonoff"],["You're Losing Me","midnights vault","antonoff"],["Fortnight","ttpd","single n1 t10 opener feat oneword antonoff"],["The Tortured Poets Department","ttpd","antonoff"],["My Boy Only Breaks His Favorite Toys","ttpd","solo"],["Down Bad","ttpd","antonoff"],["So Long, London","ttpd","place track5 dessner"],["But Daddy I Love Him","ttpd","faith dessner"],["Fresh Out the Slammer","ttpd","antonoff"],["Florida!!!","ttpd","place feat oneword"],["Guilty as Sin?","ttpd","faith antonoff"],["Who's Afraid of Little Old Me?","ttpd","solo"],["I Can Fix Him (No Really I Can)","ttpd","antonoff"],["loml","ttpd","oneword dessner"],["I Can Do It with a Broken Heart","ttpd","single t10 antonoff"],["The Smallest Man Who Ever Lived","ttpd","dessner"],["The Alchemy","ttpd","antonoff"],["Clara Bow","ttpd","name closer dessner"],["The Black Dog","ttpd","color solo"],["imgonnagetyouback","ttpd","oneword antonoff"],["The Albatross","ttpd","dessner"],["Chloe or Sam or Sophia or Marcus","ttpd","name dessner"],["How Did It End?","ttpd","dessner"],["So High School","ttpd","name dessner"],["I Hate It Here","ttpd","dessner"],["thanK you aIMee","ttpd","dessner"],["I Look in People's Windows","ttpd","antonoff"],["The Prophecy","ttpd","dessner"],["Cassandra","ttpd","name oneword dessner"],["Peter","ttpd","name oneword solo"],["The Bolter","ttpd","dessner"],["Robin","ttpd","oneword dessner"],["The Manuscript","ttpd","solo"],["The Fate of Ophelia","showgirl","name single n1 t10 opener martin"],["Elizabeth Taylor","showgirl","name single t10 martin"],["Opalite","showgirl","single n1 t10 oneword martin"],["Father Figure","showgirl","martin"],["Eldest Daughter","showgirl","track5 martin"],["Ruin the Friendship","showgirl","martin"],["Actually Romantic","showgirl","martin"],["Wish List","showgirl","martin"],["Wood","showgirl","oneword martin"],["Cancelled!","showgirl","oneword martin"],["Honey","showgirl","oneword martin"],["The Life of a Showgirl","showgirl","closer feat martin"],["Patient Zero","showgirl","single n1 t10"],["Cleveland!","showgirl","oneword"],["Pink Clouding","showgirl",""],["Babylon","showgirl","oneword"]];
+const ALBUMS = { debut: ['Taylor Swift', '2006'], fearless: ['Fearless', '2008'], speaknow: ['Speak Now', '2010'], red: ['Red', '2012'], '1989': ['1989', '2014'], reputation: ['reputation', '2017'], lover: ['Lover', '2019'], folklore: ['folklore', '2020'], evermore: ['evermore', '2020'], midnights: ['Midnights', '2022'], ttpd: ['The Tortured Poets Department', '2024'], showgirl: ['The Life of a Showgirl', '2025'], vault: ['From the Vault', "Taylor's Version extras"] };
+const SONGS = DATA.map(([title, rows, cols], i) => ({ i, title, rows: new Set(rows.split(' ')), cols: new Set(cols.split(' ').filter(Boolean)), album: ALBUMS[rows.split(' ')[0]][0] }));
+const LYRIC = new Set(['color', 'rain', 'time', 'place', 'name', 'car', 'number', 'faith']);
+const COLS = {
+  color: ['Mentions a color', 'In the lyrics'],
+  rain: ['Rain in the lyrics', 'Rain or a downpour'],
+  time: ['Names a month or season', 'Or a holiday, in the lyrics'],
+  place: ['Names a real place', 'City, street or state'],
+  name: ["Sings someone's name", 'Not counting Taylor'],
+  car: ['Cars or driving', 'In the lyrics'],
+  number: ['Sings a number or age', 'In the lyrics'],
+  faith: ['God, heaven or holy', 'Religious imagery'],
+  single: ['Released as a single', 'Lead-artist single'],
+  n1: ['Hot 100 No. 1', 'US chart peak'],
+  t10: ['Hot 100 top 10', 'US chart peak'],
+  opener: ['Album opener', 'Track 1, standard edition'],
+  closer: ['Album closer', 'Last standard track'],
+  track5: ['Track 5', 'Standard edition'],
+  feat: ['Has a featured artist', 'Credited "featuring"'],
+  oneword: ['One-word title', 'Ignoring parentheses'],
+  antonoff: ['Co-written with Jack Antonoff', 'Songwriting credit'],
+  dessner: ['Co-written with Aaron Dessner', 'Songwriting credit'],
+  martin: ['Co-written with Max Martin', 'Songwriting credit'],
+  solo: ['Written by Taylor alone', 'No co-writers']
+};
+const CLASH = [['n1','t10'],['opener','closer'],['opener','track5'],['closer','track5'],['solo','antonoff'],['solo','dessner'],['solo','martin'],['antonoff','martin'],['dessner','martin']];
+const ROWS = Object.keys(ALBUMS);
+const rowLabel = r => ALBUMS[r];
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function makeGrid(seed) {
+  const r = rng(seed);
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(Object.keys(COLS), r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    if (!cols.some(c => LYRIC.has(c))) continue;
+    const rows = shuffle(ROWS, r).slice(0, 3);
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (!n) ok = false; if (n === 1) thin++; }
+    if (ok && thin <= 3) return { rows, cols };
+  }
+  return { rows: ['red', '1989', 'folklore'], cols: ['color', 'single', 'oneword'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('sg:' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('sg:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('sg:' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Album × song fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row === 'vault' ? ' type' : ''); rh.append(row === 'ttpd' ? 'TTPD' : row === 'showgirl' ? 'Showgirl' : lab);
+    const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm);
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.album;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show songs that would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.album) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a song title.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">No Taylor Swift song by that name in the list.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.album + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
+
+const SB_URL = 'https://bfohdusslfiilrmhrnlp.supabase.co', SB_KEY = 'sb_publishable_Q9FDNyxo-kTX2XEdO3KGOA_WIUwPxJ9', GAME = 'swiftie';
+let PLAYER = null;
+try { PLAYER = localStorage.getItem('gg:player'); if (!PLAYER) { PLAYER = crypto.randomUUID(); localStorage.setItem('gg:player', PLAYER); } } catch (e) { PLAYER = (crypto.randomUUID ? crypto.randomUUID() : null); }
+let STATS = null, STATS_STATE = 'idle';
+const gridKey = () => ((typeof MODE !== 'undefined') ? MODE : 'std') + ':' + seed;
+const isDaily = () => typeof seed === 'string' && seed.startsWith('daily-');
+const songKey = s => s.title + ' | ' + (s.credit || s.album || '');
+async function rpc(fn, body) {
+  const r = await fetch(SB_URL + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
+}
+async function loadStats() {
+  if (!isDaily() || !PLAYER) { STATS = null; STATS_STATE = 'off'; render(); return; }
+  const k = gridKey(); STATS_STATE = STATS ? STATS_STATE : 'loading'; renderStats();
+  try { const s = await rpc('grid_stats', { p_game: GAME, p_grid: k }); if (k === gridKey()) { STATS = s; STATS_STATE = 'ok'; render(); } }
+  catch (e) { if (k === gridKey()) { STATS_STATE = 'error'; renderStats(); } }
+}
+function record(cell, answer) {
+  if (!isDaily() || !PLAYER) return Promise.resolve();
+  return rpc('record_answer', { p_game: GAME, p_grid: gridKey(), p_player: PLAYER, p_cell: cell, p_answer: answer }).catch(() => {});
+}
+function pickCount(cell, s) { if (!STATS) return 0; const a = STATS.answers.find(x => x.cell === cell && x.answer === songKey(s)); return a ? a.n : 0; }
+function pct(n) { return STATS && STATS.players ? Math.round(100 * n / STATS.players) : 0; }
+function renderStats() {
+  const el = $('statline'); if (!el) return;
+  if (!isDaily()) { el.textContent = 'Player stats are kept for the daily grid only.'; return; }
+  if (STATS_STATE === 'loading') { el.textContent = 'Loading today’s players…'; return; }
+  if (STATS_STATE === 'error') { el.textContent = 'Player stats aren’t reachable right now.'; return; }
+  if (!STATS) { el.textContent = ''; return; }
+  const n = STATS.players; el.innerHTML = '';
+  const b = document.createElement('b'); b.textContent = n; el.append(b, n === 1 ? ' player today' : ' players today');
+}
+function decorate() {
+  const over = done();
+  for (let idx = 0; idx < 9; idx++) {
+    const btn = $('cell-' + idx); if (!btn) continue;
+    const val = S.cells[idx];
+    if (val !== null && STATS && STATS.players) {
+      const r = btn.querySelector('.rare'); if (r) r.textContent = pct(pickCount(idx, SONGS[val])) + '% picked this';
+    }
+    if (!over) continue;
+    btn.disabled = false; btn.classList.add('over-tap');
+    btn.onclick = () => openAnswers(idx);
+    if (val === null && STATS && STATS.answers.some(a => a.cell === idx)) {
+      const best = STATS.answers.filter(a => a.cell === idx).sort((a, b) => b.n - a.n)[0];
+      const name = btn.querySelector('.name'); if (name) name.remove();
+      const top = document.createElement('span'); top.className = 'top';
+      top.append('Most picked', document.createElement('br'));
+      const bb = document.createElement('b'); bb.textContent = best.answer.split(' | ')[0]; top.append(bb, ' · ' + pct(best.n) + '%');
+      btn.appendChild(top);
+    }
+  }
+  if (over) { const p = $('sumText'); if (p && !p.dataset.tapHint) { p.dataset.tapHint = '1'; p.textContent += ' Tap any square to see every answer that worked and how often players picked it.'; } }
+}
+function openAnswers(idx) {
+  active = null;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  $('prompt').textContent = rowLabel(row)[0] + ' + ' + COLS[c][0];
+  $('q').hidden = true;
+  const ul = $('results'); ul.innerHTML = '';
+  const list = answers(row, c).map(s => ({ s, n: pickCount(idx, s) })).sort((a, b) => b.n - a.n || a.s.title.localeCompare(b.s.title));
+  const hint = document.createElement('li'); hint.className = 'hint';
+  hint.textContent = list.length + (list.length === 1 ? ' answer worked' : ' answers worked') + (isDaily() && STATS ? ' · ' + STATS.players + (STATS.players === 1 ? ' player today' : ' players today') : '');
+  ul.appendChild(hint);
+  for (const { s, n } of list) {
+    const li = document.createElement('li'); li.className = 'ans' + (S.cells[idx] === s.i ? ' mine' : '');
+    const top = document.createElement('div'); top.className = 'ans-top';
+    const t = document.createElement('span'); t.className = 't'; t.textContent = s.title;
+    const p = document.createElement('span'); p.className = 'p'; p.textContent = isDaily() && STATS ? pct(n) + '%' : '';
+    top.append(t, p); li.appendChild(top);
+    const sm = document.createElement('small'); sm.textContent = s.credit || s.album || ''; li.appendChild(sm);
+    if (isDaily() && STATS) { const bar = document.createElement('div'); bar.className = 'bar'; const i = document.createElement('i'); i.style.width = pct(n) + '%'; bar.appendChild(i); li.appendChild(bar); }
+    if (S.cells[idx] === s.i) { const m = document.createElement('span'); m.className = 'mine-tag'; m.textContent = 'Your pick'; li.appendChild(m); }
+    ul.appendChild(li);
+  }
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  if (typeof fitSheet === 'function') fitSheet();
+}
+window.__gridTest = { firstAnswer: () => answers(G.rows[0], G.cols[0])[0].title };
+const _render = render; render = function () { _render(); renderStats(); decorate(); };
+const _openSheet = openSheet; openSheet = function (idx) { $('q').hidden = false; _openSheet(idx); };
+const _load = load; load = function (sd) { STATS = null; STATS_STATE = 'idle'; _load(sd); loadStats(); };
+const _guess = guess; guess = function (s) {
+  const idx = active; if (idx === null) return;
+  const before = S.cells[idx]; _guess(s);
+  const ok = before === null && S.cells[idx] === s.i;
+  record(ok ? idx : 0, ok ? songKey(s) : '').then(loadStats);
+};
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+const last = store.get('sg:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>
+
+</body>
+</html>
