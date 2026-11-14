@@ -1,0 +1,113 @@
+# name | parks | tags | year the original version opened
+# Parks: MK Magic Kingdom, EP EPCOT, HS Hollywood Studios, AK Animal Kingdom, DL Disneyland, DCA California Adventure,
+#        DLP Disneyland Park (Paris), DAW Disney Adventure World (Paris), TDL Tokyo Disneyland, TDS Tokyo DisneySea,
+#        HK Hong Kong Disneyland, SH Shanghai Disneyland
+# Tags: coaster dark sim boat wet spinner aerial drop shooter launch indoor trackless omni hr pixar starwars marvel film animals
+Space Mountain (Hyperspace Mountain)|MK DL DLP HK|coaster indoor hr|1975
+Big Thunder Mountain|MK DL DLP TDL|coaster hr|1979
+Pirates of the Caribbean|MK DL DLP TDL SH|dark boat|1967
+Haunted Mansion|MK DL TDL|dark omni|1969
+Phantom Manor|DLP|dark omni|1992
+Mystic Manor|HK|dark trackless|2013
+"it's a small world"|MK DL DLP TDL HK|dark boat|1964
+Peter Pan's Flight|MK DL DLP TDL SH|dark film|1955
+Snow White ride (Snow White's Enchanted Wish / Adventures)|DL DLP TDL|dark film|1955
+Pinocchio's Daring Journey|DL DLP TDL|dark film|1983
+Mr. Toad's Wild Ride|DL|dark film|1955
+Alice in Wonderland (dark ride)|DL|dark film|1958
+Dumbo the Flying Elephant|MK DL DLP TDL HK SH|aerial film|1955
+Mad Tea Party (teacups)|MK DL DLP TDL HK|spinner film|1955
+Winnie the Pooh ride (Many Adventures / Pooh's Hunny Hunt)|MK DL HK SH TDL|dark film|1999
+Jungle Cruise (Jungle River Cruise)|MK DL TDL HK|boat|1955
+Castle carousel (King Arthur Carrousel and others)|MK DL DLP TDL HK SH|film|1955
+Park railroad (Disneyland Railroad and others)|MK DL DLP TDL HK|none|1955
+Riverboat (Mark Twain / Liberty Square / Thunder Mesa)|MK DL DLP TDL|boat|1955
+Autopia (Tomorrowland Speedway)|MK DL DLP|hr|1955
+Astro Orbiter (Orbitron)|MK DL DLP HK|aerial|1956
+Casey Jr. Circus Train|DL DLP|film|1955
+Storybook Land Canal Boats|DL DLP|boat film|1955
+Explorer Canoes|DL TDL SH|boat wet|1956
+Matterhorn Bobsleds|DL|coaster hr|1959
+Indiana Jones Adventure|DL TDS|dark hr|1995
+Indiana Jones et le Temple du Péril|DLP|coaster hr|1993
+Star Tours|HS DL DLP TDL|sim hr starwars|1987
+Star Wars: Rise of the Resistance|HS DL|dark trackless hr starwars|2019
+Millennium Falcon: Smugglers Run|HS DL|sim shooter hr starwars|2019
+Mickey & Minnie's Runaway Railway|HS DL|dark trackless|2020
+Toy Story Mania!|HS DCA TDS|dark shooter pixar|2008
+Buzz Lightyear ride (Space Ranger Spin / Astro Blasters / Laser Blast / Planet Rescue)|MK DL DLP TDL SH|dark shooter pixar|1998
+Tower of Terror|HS DAW TDS|drop hr|1994
+Slinky Dog Dash|HS|coaster launch hr pixar|2018
+Alien Swirling Saucers|HS|spinner hr pixar|2018
+Soarin' (Soaring)|EP DCA TDS SH|sim hr|2001
+Spaceship Earth|EP|dark omni|1982
+Test Track|EP|hr|1999
+Mission: SPACE|EP|sim hr|2003
+Guardians of the Galaxy: Cosmic Rewind|EP|coaster indoor launch hr marvel|2022
+Living with the Land|EP|boat|1982
+Journey Into Imagination with Figment|EP|dark|1983
+The Seas with Nemo & Friends|EP|dark omni pixar animals|2007
+Gran Fiesta Tour Starring the Three Caballeros|EP|dark boat film|1982
+Frozen Ever After|EP HK DAW|dark boat film|2016
+Remy's Ratatouille Adventure (Ratatouille: The Adventure)|EP DAW|dark trackless pixar|2014
+Seven Dwarfs Mine Train|MK SH|coaster hr film|2014
+TRON Lightcycle Run|MK SH|coaster launch hr|2016
+Tiana's Bayou Adventure|MK DL|boat wet drop hr film|2024
+Splash Mountain|TDL|boat wet drop hr|1989
+The Little Mermaid ride (Journey of the Little Mermaid / Ariel's Undersea Adventure)|MK DCA|dark omni film|2011
+The Barnstormer|MK|coaster hr|1996
+Tomorrowland Transit Authority PeopleMover|MK|none|1975
+Magic Carpets (Magic Carpets of Aladdin / Jasmine's Flying Carpets)|MK DAW TDS|aerial film|2001
+Kilimanjaro Safaris|AK|animals|1998
+Expedition Everest|AK|coaster hr|2006
+Avatar Flight of Passage|AK|sim hr|2017
+Na'vi River Journey|AK|dark boat|2017
+Kali River Rapids|AK|boat wet hr|1999
+Radiator Springs Racers|DCA|dark hr pixar|2012
+Incredicoaster|DCA|coaster launch hr pixar|2001
+Guardians of the Galaxy – Mission: BREAKOUT!|DCA|drop hr marvel|2017
+WEB SLINGERS: A Spider-Man Adventure (Spider-Man W.E.B. Adventure)|DCA DAW|dark shooter marvel|2021
+Grizzly River Run|DCA|boat wet hr|2001
+Monsters, Inc. ride (Mike & Sulley to the Rescue! / Ride & Go Seek!)|DCA TDL|dark pixar|2006
+Mater's Junkyard Jamboree|DCA|spinner pixar|2012
+Luigi's Rollickin' Roadsters|DCA|spinner trackless pixar|2016
+Inside Out Emotional Whirlwind|DCA|spinner pixar|2019
+Pixar Pal-A-Round|DCA|pixar|2001
+Goofy's Sky School|DCA|coaster hr|2011
+Silly Symphony Swings|DCA|aerial hr|2010
+Golden Zephyr|DCA|aerial|2001
+Jumpin' Jellyfish|DCA TDS|drop|2001
+Finding Nemo Submarine Voyage|DL|pixar|1959
+Roger Rabbit's Car Toon Spin|DL TDL|dark spinner|1994
+Gadget's Go Coaster (Chip 'n' Dale's GADGETcoaster)|DL TDL|coaster hr|1993
+Avengers Assemble: Flight Force|DAW|coaster indoor launch hr marvel|2022
+Crush's Coaster|DAW|coaster spinner hr pixar|2007
+RC Racer|DAW HK|coaster launch hr pixar|2010
+Toy Soldiers Parachute Drop|DAW HK|drop hr pixar|2010
+Slinky Dog Spin (Slinky Dog Zigzag Spin)|DAW HK SH|spinner pixar|2010
+Cars Quatre Roues Rallye|DAW|spinner pixar|2007
+Big Grizzly Mountain Runaway Mine Cars|HK|coaster launch hr|2012
+Iron Man Experience|HK|sim hr marvel|2017
+Ant-Man and The Wasp: Nano Battle!|HK|dark shooter marvel|2019
+Wandering Oaken's Sliding Sleighs|HK|coaster hr film|2023
+Journey to the Center of the Earth|TDS|dark hr|2001
+20,000 Leagues Under the Sea|TDS|dark|2001
+Raging Spirits|TDS|coaster hr|2005
+Sinbad's Storybook Voyage|TDS|dark boat|2001
+Aquatopia|TDS|boat trackless|2001
+Nemo & Friends SeaRider|TDS|sim hr pixar|2017
+Flounder's Flying Fish Coaster|TDS|coaster hr film|2001
+Anna and Elsa's Frozen Journey|TDS|dark boat film|2024
+Rapunzel's Lantern Festival|TDS|dark boat film|2024
+Peter Pan's Never Land Adventure|TDS|dark hr film|2024
+Venetian Gondolas|TDS|boat|2001
+DisneySea Electric Railway|TDS|none|2001
+Enchanted Tale of Beauty and the Beast|TDL|dark trackless film|2020
+The Happy Ride with Baymax|TDL|spinner film|2020
+Roaring Rapids|SH|boat wet hr|2016
+Zootopia: Hot Pursuit|SH|dark trackless film|2023
+Voyage to the Crystal Grotto|SH|boat film|2016
+Rex's Racer|SH|coaster hr pixar|2018
+Woody's Round-Up|SH|spinner pixar|2018
+Jet Packs|SH|aerial hr|2016
+Hunny Pot Spin|SH|spinner film|2016

@@ -1,0 +1,345 @@
+<title>Ride Grid</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a park guide map: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #ecf2f4;
+  --panel: #ffffff;
+  --ink: #132630;
+  --muted: #566b75;
+  --line: #d3dee3;
+  --accent: #d2452f;
+  --accent-2: #1f7489;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1820; --panel: #15242e; --ink: #eef5f8; --muted: #9db2bc; --line: #29404c;
+    --accent: #ff7a5c; --accent-2: #5cc9e0; --accent-ink: #1d0802; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1820; --panel: #15242e; --ink: #eef5f8; --muted: #9db2bc; --line: #29404c;
+  --accent: #ff7a5c; --accent-2: #5cc9e0; --accent-ink: #1d0802; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 11vw, 50px); line-height: .95; margin: 0; letter-spacing: -.01em; white-space: nowrap; }
+h1 span { color: var(--accent); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(13px, 3.8vw, 17px); letter-spacing: 0; overflow-wrap: normal; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.modes { display: flex; gap: 0; align-self: flex-start; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.mode { font: 600 13px var(--font-body); border: 0; border-radius: 999px; padding: 7px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+.mode[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.mode:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -.02em; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Ride <span>Grid</span></h1>
+      <p class="sub" id="label">Daily grid</p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="modes" role="group" aria-label="Difficulty">
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Disney parks trivia. Tap a square and name an <b>attraction</b> at the <b>park on the left</b> that fits the <b>fact on top</b>. Rides that exist at several parks count as one answer, so Space Mountain works for any park that has a version of it. You get 9 guesses, and each ride can be used once.</p>
+  <p class="rules"><b>Medium</b> uses the six US parks plus Disneyland Paris and Tokyo Disneyland, with the most familiar ride types. <b>Hard</b> adds Disney Adventure World, Tokyo DisneySea, Hong Kong and Shanghai, plus crossovers with every park and finer categories like Omnimover and trackless rides. The list covers about 110 rides operating in 2026; shows, walk-throughs and rides closed for long rebuilds are left out. Ride facts were compiled by hand, so a ride that fits might be missing. This is a fan-made game and isn't affiliated with Disney. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search songs or artists…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = {"songs":[["Space Mountain","Hyperspace Mountain","MK|DL|DLP|HK","coaster indoor hr multi at_MK at_DL at_DLP at_HK",1975],["Big Thunder Mountain","","MK|DL|DLP|TDL","coaster hr multi at_MK at_DL at_DLP at_TDL",1979],["Pirates of the Caribbean","","MK|DL|DLP|TDL|SH","dark boat multi classic at_MK at_DL at_DLP at_TDL at_SH",1967],["Haunted Mansion","","MK|DL|TDL","dark omni multi classic at_MK at_DL at_TDL",1969],["Phantom Manor","","DLP","dark omni unique at_DLP",1992],["Mystic Manor","","HK","dark trackless unique at_HK",2013],["\"it's a small world\"","","MK|DL|DLP|TDL|HK","dark boat multi classic at_MK at_DL at_DLP at_TDL at_HK",1964],["Peter Pan's Flight","","MK|DL|DLP|TDL|SH","dark film multi classic at_MK at_DL at_DLP at_TDL at_SH",1955],["Snow White ride","Snow White's Enchanted Wish / Adventures","DL|DLP|TDL","dark film multi classic at_DL at_DLP at_TDL",1955],["Pinocchio's Daring Journey","","DL|DLP|TDL","dark film multi at_DL at_DLP at_TDL",1983],["Mr. Toad's Wild Ride","","DL","dark film unique classic at_DL",1955],["Alice in Wonderland","dark ride","DL","dark film unique classic at_DL",1958],["Dumbo the Flying Elephant","","MK|DL|DLP|TDL|HK|SH","aerial film multi classic at_MK at_DL at_DLP at_TDL at_HK at_SH",1955],["Mad Tea Party","teacups","MK|DL|DLP|TDL|HK","spinner film multi classic at_MK at_DL at_DLP at_TDL at_HK",1955],["Winnie the Pooh ride","Many Adventures / Pooh's Hunny Hunt","MK|DL|HK|SH|TDL","dark film multi at_MK at_DL at_HK at_SH at_TDL",1999],["Jungle Cruise","Jungle River Cruise","MK|DL|TDL|HK","boat multi classic at_MK at_DL at_TDL at_HK",1955],["Castle carousel","King Arthur Carrousel and others","MK|DL|DLP|TDL|HK|SH","film multi classic at_MK at_DL at_DLP at_TDL at_HK at_SH",1955],["Park railroad","Disneyland Railroad and others","MK|DL|DLP|TDL|HK","multi classic at_MK at_DL at_DLP at_TDL at_HK",1955],["Riverboat","Mark Twain / Liberty Square / Thunder Mesa","MK|DL|DLP|TDL","boat multi classic at_MK at_DL at_DLP at_TDL",1955],["Autopia","Tomorrowland Speedway","MK|DL|DLP","hr multi classic at_MK at_DL at_DLP",1955],["Astro Orbiter","Orbitron","MK|DL|DLP|HK","aerial multi classic at_MK at_DL at_DLP at_HK",1956],["Casey Jr. Circus Train","","DL|DLP","film classic at_DL at_DLP",1955],["Storybook Land Canal Boats","","DL|DLP","boat film classic at_DL at_DLP",1955],["Explorer Canoes","","DL|TDL|SH","boat wet multi classic at_DL at_TDL at_SH",1956],["Matterhorn Bobsleds","","DL","coaster hr unique classic at_DL",1959],["Indiana Jones Adventure","","DL|TDS","dark hr at_DL at_TDS",1995],["Indiana Jones et le Temple du Péril","","DLP","coaster hr unique at_DLP",1993],["Star Tours","","HS|DL|DLP|TDL","sim hr starwars multi at_HS at_DL at_DLP at_TDL",1987],["Star Wars: Rise of the Resistance","","HS|DL","dark trackless hr starwars new at_HS at_DL",2019],["Millennium Falcon: Smugglers Run","","HS|DL","sim shooter hr starwars new at_HS at_DL",2019],["Mickey & Minnie's Runaway Railway","","HS|DL","dark trackless new at_HS at_DL",2020],["Toy Story Mania!","","HS|DCA|TDS","dark shooter pixar multi at_HS at_DCA at_TDS",2008],["Buzz Lightyear ride","Space Ranger Spin / Astro Blasters / Laser Blast / Planet Rescue","MK|DL|DLP|TDL|SH","dark shooter pixar multi at_MK at_DL at_DLP at_TDL at_SH",1998],["Tower of Terror","","HS|DAW|TDS","drop hr multi at_HS at_DAW at_TDS",1994],["Slinky Dog Dash","","HS","coaster launch hr pixar unique new at_HS",2018],["Alien Swirling Saucers","","HS","spinner hr pixar unique new at_HS",2018],["Soarin'","Soaring","EP|DCA|TDS|SH","sim hr multi at_EP at_DCA at_TDS at_SH",2001],["Spaceship Earth","","EP","dark omni unique at_EP",1982],["Test Track","","EP","hr unique at_EP",1999],["Mission: SPACE","","EP","sim hr unique at_EP",2003],["Guardians of the Galaxy: Cosmic Rewind","","EP","coaster indoor launch hr marvel unique new at_EP",2022],["Living with the Land","","EP","boat unique at_EP",1982],["Journey Into Imagination with Figment","","EP","dark unique at_EP",1983],["The Seas with Nemo & Friends","","EP","dark omni pixar animals unique at_EP",2007],["Gran Fiesta Tour Starring the Three Caballeros","","EP","dark boat film unique at_EP",1982],["Frozen Ever After","","EP|HK|DAW","dark boat film multi new at_EP at_HK at_DAW",2016],["Remy's Ratatouille Adventure","Ratatouille: The Adventure","EP|DAW","dark trackless pixar at_EP at_DAW",2014],["Seven Dwarfs Mine Train","","MK|SH","coaster hr film at_MK at_SH",2014],["TRON Lightcycle Run","","MK|SH","coaster launch hr new at_MK at_SH",2016],["Tiana's Bayou Adventure","","MK|DL","boat wet drop hr film new at_MK at_DL",2024],["Splash Mountain","","TDL","boat wet drop hr unique at_TDL",1989],["The Little Mermaid ride","Journey of the Little Mermaid / Ariel's Undersea Adventure","MK|DCA","dark omni film at_MK at_DCA",2011],["The Barnstormer","","MK","coaster hr unique at_MK",1996],["Tomorrowland Transit Authority PeopleMover","","MK","unique at_MK",1975],["Magic Carpets","Magic Carpets of Aladdin / Jasmine's Flying Carpets","MK|DAW|TDS","aerial film multi at_MK at_DAW at_TDS",2001],["Kilimanjaro Safaris","","AK","animals unique at_AK",1998],["Expedition Everest","","AK","coaster hr unique at_AK",2006],["Avatar Flight of Passage","","AK","sim hr unique new at_AK",2017],["Na'vi River Journey","","AK","dark boat unique new at_AK",2017],["Kali River Rapids","","AK","boat wet hr unique at_AK",1999],["Radiator Springs Racers","","DCA","dark hr pixar unique at_DCA",2012],["Incredicoaster","","DCA","coaster launch hr pixar unique at_DCA",2001],["Guardians of the Galaxy – Mission: BREAKOUT!","","DCA","drop hr marvel unique new at_DCA",2017],["WEB SLINGERS: A Spider-Man Adventure","Spider-Man W.E.B. Adventure","DCA|DAW","dark shooter marvel new at_DCA at_DAW",2021],["Grizzly River Run","","DCA","boat wet hr unique at_DCA",2001],["Monsters, Inc. ride","Mike & Sulley to the Rescue! / Ride & Go Seek!","DCA|TDL","dark pixar at_DCA at_TDL",2006],["Mater's Junkyard Jamboree","","DCA","spinner pixar unique at_DCA",2012],["Luigi's Rollickin' Roadsters","","DCA","spinner trackless pixar unique new at_DCA",2016],["Inside Out Emotional Whirlwind","","DCA","spinner pixar unique new at_DCA",2019],["Pixar Pal-A-Round","","DCA","pixar unique at_DCA",2001],["Goofy's Sky School","","DCA","coaster hr unique at_DCA",2011],["Silly Symphony Swings","","DCA","aerial hr unique at_DCA",2010],["Golden Zephyr","","DCA","aerial unique at_DCA",2001],["Jumpin' Jellyfish","","DCA|TDS","drop at_DCA at_TDS",2001],["Finding Nemo Submarine Voyage","","DL","pixar unique classic at_DL",1959],["Roger Rabbit's Car Toon Spin","","DL|TDL","dark spinner at_DL at_TDL",1994],["Gadget's Go Coaster","Chip 'n' Dale's GADGETcoaster","DL|TDL","coaster hr at_DL at_TDL",1993],["Avengers Assemble: Flight Force","","DAW","coaster indoor launch hr marvel unique new at_DAW",2022],["Crush's Coaster","","DAW","coaster spinner hr pixar unique at_DAW",2007],["RC Racer","","DAW|HK","coaster launch hr pixar at_DAW at_HK",2010],["Toy Soldiers Parachute Drop","","DAW|HK","drop hr pixar at_DAW at_HK",2010],["Slinky Dog Spin","Slinky Dog Zigzag Spin","DAW|HK|SH","spinner pixar multi at_DAW at_HK at_SH",2010],["Cars Quatre Roues Rallye","","DAW","spinner pixar unique at_DAW",2007],["Big Grizzly Mountain Runaway Mine Cars","","HK","coaster launch hr unique at_HK",2012],["Iron Man Experience","","HK","sim hr marvel unique new at_HK",2017],["Ant-Man and The Wasp: Nano Battle!","","HK","dark shooter marvel unique new at_HK",2019],["Wandering Oaken's Sliding Sleighs","","HK","coaster hr film unique new at_HK",2023],["Journey to the Center of the Earth","","TDS","dark hr unique at_TDS",2001],["20,000 Leagues Under the Sea","","TDS","dark unique at_TDS",2001],["Raging Spirits","","TDS","coaster hr unique at_TDS",2005],["Sinbad's Storybook Voyage","","TDS","dark boat unique at_TDS",2001],["Aquatopia","","TDS","boat trackless unique at_TDS",2001],["Nemo & Friends SeaRider","","TDS","sim hr pixar unique new at_TDS",2017],["Flounder's Flying Fish Coaster","","TDS","coaster hr film unique at_TDS",2001],["Anna and Elsa's Frozen Journey","","TDS","dark boat film unique new at_TDS",2024],["Rapunzel's Lantern Festival","","TDS","dark boat film unique new at_TDS",2024],["Peter Pan's Never Land Adventure","","TDS","dark hr film unique new at_TDS",2024],["Venetian Gondolas","","TDS","boat unique at_TDS",2001],["DisneySea Electric Railway","","TDS","unique at_TDS",2001],["Enchanted Tale of Beauty and the Beast","","TDL","dark trackless film unique new at_TDL",2020],["The Happy Ride with Baymax","","TDL","spinner film unique new at_TDL",2020],["Roaring Rapids","","SH","boat wet hr unique new at_SH",2016],["Zootopia: Hot Pursuit","","SH","dark trackless film unique new at_SH",2023],["Voyage to the Crystal Grotto","","SH","boat film unique new at_SH",2016],["Rex's Racer","","SH","coaster hr pixar unique new at_SH",2018],["Woody's Round-Up","","SH","spinner pixar unique new at_SH",2018],["Jet Packs","","SH","aerial hr unique new at_SH",2016],["Hunny Pot Spin","","SH","spinner film unique new at_SH",2016]],"artists":[]};
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split('|').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const PARK_NAMES = { MK: ['Magic Kingdom', 'Walt Disney World'], EP: ['EPCOT', 'Walt Disney World'], HS: ['Hollywood Studios', 'Walt Disney World'], AK: ['Animal Kingdom', 'Walt Disney World'], DL: ['Disneyland', 'California'], DCA: ['California Adventure', 'California'], DLP: ['Disneyland Paris', 'Disneyland Park'], DAW: ['Adventure World', 'Paris, formerly Studios'], TDL: ['Tokyo Disneyland', 'Tokyo'], TDS: ['Tokyo DisneySea', 'Tokyo'], HK: ['Hong Kong Disneyland', 'Hong Kong'], SH: ['Shanghai Disneyland', 'Shanghai'] };
+const TYPE_ROWS = PARK_NAMES;
+const COLS = {
+  coaster: ['Roller coaster', 'Any size'],
+  dark: ['Dark ride', 'Indoor scenes'],
+  sim: ['Simulator', 'Motion theater or flight'],
+  boat: ['Boat ride', 'You ride on water'],
+  wet: ['You might get wet', 'Splashes or drops'],
+  spinner: ['Spinning ride', 'Teacups and friends'],
+  aerial: ['Spins up in the air', 'Dumbo-style'],
+  drop: ['Big drop', 'Tower or flume plunge'],
+  shooter: ['Shoot-and-score', 'Interactive points'],
+  launch: ['Launched coaster', 'Zero to fast'],
+  indoor: ['Indoor coaster', 'Coaster in the dark'],
+  trackless: ['Trackless vehicles', 'Ride system'],
+  omni: ['Omnimover', 'Continuous-loading cars'],
+  hr: ['Height requirement', 'Any minimum'],
+  pixar: ['Pixar', 'Based on a Pixar film'],
+  starwars: ['Star Wars', 'Galaxy far, far away'],
+  marvel: ['Marvel', 'Superheroes'],
+  film: ['Disney animated film', 'Walt Disney Animation'],
+  multi: ['At 3+ parks', 'Any version counts'],
+  unique: ['Only at one park', 'One of a kind'],
+  classic: ['Original opened by 1971', 'Disneyland or Magic Kingdom era'],
+  new: ['Opened 2016 or later', 'Original version'],
+  at_MK: ['Also at Magic Kingdom', 'Any version'], at_EP: ['Also at EPCOT', 'Any version'], at_HS: ['Also at Hollywood Studios', 'Any version'],
+  at_DL: ['Also at Disneyland', 'Any version'], at_DCA: ['Also at California Adventure', 'Any version'],
+  at_DLP: ['Also at Disneyland Paris', 'Any version'], at_DAW: ['Also at Adventure World', 'Paris'],
+  at_TDL: ['Also at Tokyo Disneyland', 'Any version'], at_TDS: ['Also at Tokyo DisneySea', 'Any version'],
+  at_HK: ['Also at Hong Kong', 'Any version'], at_SH: ['Also at Shanghai', 'Any version']
+};
+const MEDIUM_COLS = ['coaster', 'dark', 'boat', 'sim', 'wet', 'spinner', 'hr', 'pixar', 'starwars', 'marvel', 'film', 'multi', 'unique', 'classic', 'new', 'at_MK', 'at_DL', 'at_HS', 'at_DCA', 'at_DLP', 'at_TDL'];
+const MEDIUM_ROWS = DATA.artists.filter(a => SONGS.filter(s => s.rows.has('a:' + a)).length >= 8).map(a => 'a:' + a).concat(['MK', 'EP', 'HS', 'AK', 'DL', 'DCA', 'DLP', 'TDL']);
+let MODE = 'medium';
+try { const m = localStorage.getItem('rg:mode'); if (m === 'hard' || m === 'medium') MODE = m; } catch (e) {}
+const CLASH = [['y1','y2'],['multi','unique'],['classic','new'],['unique','at_MK'],['unique','at_EP'],['unique','at_HS'],['unique','at_DL'],['unique','at_DCA'],['unique','at_DLP'],['unique','at_DAW'],['unique','at_TDL'],['unique','at_TDS'],['unique','at_HK'],['unique','at_SH'],['coaster','launch'],['coaster','indoor']];
+const ROWS = DATA.artists.map(a => 'a:' + a).concat(Object.keys(TYPE_ROWS));
+const rowLabel = r => r.startsWith('a:') ? [r.slice(2), ''] : TYPE_ROWS[r];
+
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function makeGrid(seed) {
+  const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(COLPOOL, r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    const rows = shuffle(ROWPOOL, r).slice(0, 3);
+    if (cols.some(c => c.startsWith('at_') && rows.includes(c.slice(3)))) continue;
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (n < (c.startsWith('at_') ? 1 : MIN)) ok = false; if (n === 1) thin++; }
+    if (ok && thin <= 2) return { rows, cols };
+  }
+  return { rows: ['MK', 'DL', 'HS'], cols: ['dark', 'hr', 'multi'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('rg:' + MODE + ':' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('rg:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('rg:' + MODE + ':' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Park × ride fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row.startsWith('a:') ? '' : ' type'); rh.append(lab);
+    if (!row.startsWith('a:')) { const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm); }
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.credit;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title + ' by ' + s.credit);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show rides that would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.credit) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a ride name.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; if (a.split(' ').some(w => w.startsWith(q)) || a.startsWith(q)) return 3; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">That ride isn’t in the list.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.credit + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+function setMode(m) {
+  MODE = m;
+  try { localStorage.setItem('rg:mode', m); } catch (e) {}
+  document.querySelectorAll('.mode').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
+setMode(MODE);
+const last = store.get('rg:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>
