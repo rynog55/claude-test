@@ -59,7 +59,7 @@ for (nk, a0), s in songs.items():
     if norm(s['album']) == norm(a0): cols.append('selftitled')
     if len(shortt.split()) == 1: cols.append('oneword')
     if r['Record Label'].startswith(('Geffen', 'DGC')): cols.append('geffen')
-    out.append([t, ', '.join(s['artists']), ' '.join(rws), ' '.join(cols), year])
+    out.append([t, ', '.join(s['artists']), '|'.join(rws), ' '.join(cols), year])
 print(len(out), 'songs;', len(ARTISTS), 'band rows:', ARTISTS)
 print('popularity cutoffs', lo, hi)
 print(collections.Counter(c for o in out for c in o[3].split()))

@@ -144,7 +144,7 @@ h1 span { color: var(--accent); }
 <script>
 (() => {
 const DATA = __DATA__;
-const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split(' ').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split('|').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
 const TYPE_ROWS = {
   uk: ['British artist', 'Lead or featured'],
   canada: ['Canadian artist', 'Lead or featured'],

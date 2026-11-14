@@ -72,6 +72,43 @@ rep("return { rows: ['a:Taylor Swift', 'a:Rihanna', 'a:Drake'], cols: ['t10', 'f
 rep("corner.textContent = 'Artist × song fact';", "corner.textContent = 'Band × song fact';")
 rep("Type at least 2 letters of a song title or artist.", "Type at least 2 letters of a song or band.")
 rep("No song by that name in the list.", "That song isn’t on the playlist.")
+
+rep("const CLASH = [['y1','y2']", """const MEDIUM_COLS = ['altno1', 'smash', 'long', 'short', 'y1', 'y2', 'y3', 'oneword'];
+const MEDIUM_ROWS = DATA.artists.filter(a => SONGS.filter(s => s.rows.has('a:' + a)).length >= 8).map(a => 'a:' + a).concat(['seattle', 'female', 'california', 'abroad', 'lostsinger']);
+let MODE = 'medium';
+try { const m = localStorage.getItem('fl:mode'); if (m === 'hard' || m === 'medium') MODE = m; } catch (e) {}
+const CLASH = [['y1','y2']""")
+rep("  const r = rng(seed);", "  const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;")
+rep("const cols = shuffle(Object.keys(COLS), r).slice(0, 3);", "const cols = shuffle(COLPOOL, r).slice(0, 3);")
+rep("const rows = shuffle(ROWS, r).slice(0, 3);", "const rows = shuffle(ROWPOOL, r).slice(0, 3);")
+rep("if (!n) ok = false;", "if (n < MIN) ok = false;")
+rep("    if (rows.filter(x => !x.startsWith('a:')).length > 1) continue;", "    if (rows.filter(x => !x.startsWith('a:')).length > (MODE === 'medium' ? 2 : 1)) continue;")
+rep("cols: ['altno1', 'minor', 'y1'] };", "cols: ['altno1', 'long', 'y1'] };")
+rep("""      <p class="sub" id="label">Daily grid</p>
+    </div>""", """      <p class="sub" id="label">Daily grid</p>
+    </div>""")
+rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>""")
+rep(".controls { display: flex;", """.modes { display: flex; gap: 0; align-self: flex-start; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.mode { font: 600 13px var(--font-body); border: 0; border-radius: 999px; padding: 7px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+.mode[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.mode:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls { display: flex;""")
+rep("const last = store.get(", """function setMode(m) {
+  MODE = m;
+  try { localStorage.setItem('fl:mode', m); } catch (e) {}
+  document.querySelectorAll('.mode').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
+setMode(MODE);
+const last = store.get(""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+
 t = t.replace("'hk:", "'fl:")
+t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")
 d = open('lith/data.json').read().replace('</', '<\\/')
 open('flannel-grid.html', 'w').write(t.replace('__DATA__', d)); print('ok')

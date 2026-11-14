@@ -26,7 +26,7 @@ for s in songs:
     if re.search(r'\d', base) or re.search(NUMW, base, re.I): cols.append('number')
     cols.append('early' if min(yrs) <= 2014 else 'late')
     if s['grammy']: cols.append('grammy')
-    out.append([disp, s['credit'], ' '.join(rows), ' '.join(cols), min(yrs)])
+    out.append([disp, s['credit'], '|'.join(rows), ' '.join(cols), min(yrs)])
 print(len(out), 'songs;', len(ARTISTS), 'artist rows:', ARTISTS)
 cc = collections.Counter(c for o in out for c in o[3].split()); print(cc)
 rc = collections.Counter(r for o in out for r in o[2].split() if ':' not in r); print(rc)
