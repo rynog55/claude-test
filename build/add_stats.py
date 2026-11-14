@@ -202,5 +202,5 @@ if __name__ == '__main__':
     key = sys.argv[1]
     for src, dst, game in [('hook-grid.html', 'site/hook-grid.html', 'hook'), ('swiftie-grid.html', 'site/swiftie-grid.html', 'swiftie'),
                            ('zeppelin-grid.html', 'site/zeppelin-grid.html', 'zeppelin'), ('flannel-grid.html', 'site/flannel-grid.html', 'flannel'),
-                           ('wave-grid.html', 'site/first-wave-grid.html', 'firstwave'), ('ride-grid.html', 'site/ride-grid.html', 'rides')]:
+                           ('wave-grid.html', 'site/first-wave-grid.html', 'firstwave'), ('ride-grid.html', 'site/ride-grid.html', 'rides'), ('wizard-grid.html', 'site/wizard-grid.html', 'wizards')]:
         build(src, dst, game, key); print('built', dst)

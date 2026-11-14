@@ -1,0 +1,333 @@
+<title>Wizard Grid</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a page of a spellbook: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #ecebef;
+  --panel: #ffffff;
+  --ink: #1b1622;
+  --muted: #625a6c;
+  --line: #d8d3de;
+  --accent: #8c1d2b;
+  --accent-2: #8a6416;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "IM Fell English", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15121a; --panel: #201b27; --ink: #f2ecf6; --muted: #a89eb3; --line: #3a3244;
+    --accent: #e0687a; --accent-2: #e2b75a; --accent-ink: #1e0408; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15121a; --panel: #201b27; --ink: #f2ecf6; --muted: #a89eb3; --line: #3a3244;
+  --accent: #e0687a; --accent-2: #e2b75a; --accent-ink: #1e0408; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 11.5vw, 54px); line-height: .95; margin: 0; letter-spacing: 0; white-space: nowrap; }
+h1 span { color: var(--accent); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(14px, 4.1vw, 19px); letter-spacing: 0; overflow-wrap: normal; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.modes { display: flex; gap: 0; align-self: flex-start; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.mode { font: 600 13px var(--font-body); border: 0; border-radius: 999px; padding: 7px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+.mode[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.mode:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -.02em; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Wizard <span>Grid</span></h1>
+      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Harry Potter trivia from the seven books</p>
+      <p class="sub" id="label">Daily grid</p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="modes" role="group" aria-label="Difficulty">
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker. You get 9 guesses, and each character can be used once.</p>
+  <p class="rules"><b>Medium</b> uses the four houses, the Order, Dumbledore's Army, the Weasleys and Hogwarts staff. <b>Hard</b> adds Death Eaters and the Ministry, plus more traits. Facts come from the seven books, not the films or later stories, and a fact only counts when the books state it, so a character whose house or blood status is never given doesn't count for those squares. "Dies in the books" means during the story, so James and Lily Potter don't count. The list covers about 130 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with J.K. Rowling or Warner Bros. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search songs or artists…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = {"songs":[["Harry Potter","","G|da","quidditch seeker captain parselmouth half in_G in_da",0],["Ron Weasley","","G|da|weasley","quidditch prefect pure in_G in_da in_weasley",0],["Hermione Granger","","G|da","prefect muggleborn in_G in_da",0],["Ginny Weasley","","G|da|weasley","quidditch seeker pure in_G in_da in_weasley",0],["Fred Weasley","","G|da|weasley|order","quidditch died pure in_G in_da in_weasley in_order",0],["George Weasley","","G|da|weasley|order","quidditch pure in_G in_da in_weasley in_order",0],["Percy Weasley","","G|weasley|ministry","prefect pure in_G in_weasley in_ministry",0],["Bill Weasley","","G|weasley|order","prefect pure in_G in_weasley in_order",0],["Charlie Weasley","","G|weasley|order","quidditch seeker captain pure in_G in_weasley in_order",0],["Arthur Weasley","","G|weasley|order|ministry","pure in_G in_weasley in_order in_ministry",0],["Molly Weasley","","G|weasley|order","pure in_G in_weasley in_order",0],["Fleur Delacour","","weasley|order","triwizard in_weasley in_order",0],["Neville Longbottom","","G|da","pure in_G in_da",0],["Seamus Finnigan","","G|da","half in_G in_da",0],["Dean Thomas","","G|da","quidditch in_G in_da",0],["Lavender Brown","","G|da","in_G in_da",0],["Parvati Patil","","G|da","in_G in_da",0],["Oliver Wood","","G","quidditch captain in_G",0],["Angelina Johnson","","G|da","quidditch captain in_G in_da",0],["Katie Bell","","G|da","quidditch in_G in_da",0],["Alicia Spinnet","","G|da","quidditch in_G in_da",0],["Lee Jordan","","G|da","in_G in_da",0],["Colin Creevey","","G|da","died muggleborn in_G in_da",0],["Dennis Creevey","","G|da","muggleborn in_G in_da",0],["Cormac McLaggen","","G","quidditch in_G",0],["Romilda Vane","","G","in_G",0],["Albus Dumbledore","","G|order|staff","died half in_G in_order in_staff",0],["Minerva McGonagall","","G|order|staff","animagus half in_G in_order in_staff",0],["Rubeus Hagrid","","G|order|staff","in_G in_order in_staff",0],["Sirius Black","","G|order","animagus died pure in_G in_order",0],["Remus Lupin","","G|order|staff","prefect died half in_G in_order in_staff",0],["Peter Pettigrew","","G|de","animagus died in_G in_de",0],["James Potter","","G|order","quidditch animagus pure in_G in_order",0],["Lily Potter","","G|order","prefect muggleborn in_G in_order",0],["Godric Gryffindor","","G|staff","in_G in_staff",0],["Nearly Headless Nick","","G","ghost in_G",0],["Nymphadora Tonks","","H|order|ministry","died half in_H in_order in_ministry",0],["Kingsley Shacklebolt","","order|ministry","in_order in_ministry",0],["Alastor \"Mad-Eye\" Moody","","order|ministry","died in_order in_ministry",0],["Mundungus Fletcher","","order","in_order",0],["Aberforth Dumbledore","","order","in_order",0],["Elphias Doge","","order","in_order",0],["Dedalus Diggle","","order","in_order",0],["Hestia Jones","","order","in_order",0],["Emmeline Vance","","order","died in_order",0],["Arabella Figg","","order","in_order",0],["Frank Longbottom","","order|ministry","pure in_order in_ministry",0],["Alice Longbottom","","order","pure in_order",0],["Severus Snape","","S|order|de|staff","died half in_S in_order in_de in_staff",0],["Draco Malfoy","","S|de","quidditch seeker prefect pure in_S in_de",0],["Lucius Malfoy","","S|de","pure in_S in_de",0],["Narcissa Malfoy","","S","pure in_S",0],["Bellatrix Lestrange","","S|de","died pure in_S in_de",0],["Andromeda Tonks","","S","pure in_S",0],["Regulus Black","","S|de","quidditch seeker died pure in_S in_de",0],["Vincent Crabbe","","S","died in_S",0],["Gregory Goyle","","S","in_S",0],["Pansy Parkinson","","S","prefect in_S",0],["Marcus Flint","","S","quidditch captain in_S",0],["Terence Higgs","","S","quidditch seeker in_S",0],["Blaise Zabini","","S","in_S",0],["Theodore Nott","","S","in_S",0],["Horace Slughorn","","S|staff","in_S in_staff",0],["Lord Voldemort (Tom Riddle)","","S","prefect parselmouth died half in_S",0],["Dolores Umbridge","","S|staff|ministry","half in_S in_staff in_ministry",0],["Phineas Nigellus Black","","S|staff","pure in_S in_staff",0],["Salazar Slytherin","","S|staff","parselmouth in_S in_staff",0],["The Bloody Baron","","S","ghost in_S",0],["Barty Crouch Jr.","","de|staff","in_de in_staff",0],["Igor Karkaroff","","de","died in_de",0],["Antonin Dolohov","","de","in_de",0],["Augustus Rookwood","","de|ministry","in_de in_ministry",0],["Walden Macnair","","de|ministry","in_de in_ministry",0],["Corban Yaxley","","de|ministry","in_de in_ministry",0],["Alecto Carrow","","de|staff","in_de in_staff",0],["Amycus Carrow","","de|staff","in_de in_staff",0],["Thorfinn Rowle","","de","in_de",0],["Rodolphus Lestrange","","de","pure in_de",0],["Luna Lovegood","","R|da","pure in_R in_da",0],["Cho Chang","","R|da","quidditch seeker in_R in_da",0],["Padma Patil","","R|da","prefect in_R in_da",0],["Terry Boot","","R|da","in_R in_da",0],["Michael Corner","","R|da","in_R in_da",0],["Anthony Goldstein","","R|da","prefect in_R in_da",0],["Marietta Edgecombe","","R|da","in_R in_da",0],["Roger Davies","","R","quidditch captain in_R",0],["Filius Flitwick","","R|staff","in_R in_staff",0],["Gilderoy Lockhart","","R|staff","in_R in_staff",0],["Quirinus Quirrell","","R|staff","died in_R in_staff",0],["Sybill Trelawney","","R|staff","in_R in_staff",0],["Moaning Myrtle","","R","ghost muggleborn in_R",0],["The Grey Lady","","R","ghost in_R",0],["Garrick Ollivander","","R","in_R",0],["Rowena Ravenclaw","","R|staff","in_R in_staff",0],["Cedric Diggory","","H","quidditch seeker captain prefect triwizard died in_H",0],["Hannah Abbott","","H|da","prefect in_H in_da",0],["Ernie Macmillan","","H|da","prefect pure in_H in_da",0],["Justin Finch-Fletchley","","H|da","muggleborn in_H in_da",0],["Susan Bones","","H|da","in_H in_da",0],["Zacharias Smith","","H|da","quidditch in_H in_da",0],["Pomona Sprout","","H|staff","in_H in_staff",0],["The Fat Friar","","H","ghost in_H",0],["Helga Hufflepuff","","H|staff","in_H in_staff",0],["Cornelius Fudge","","ministry","in_ministry",0],["Rufus Scrimgeour","","ministry","died in_ministry",0],["Pius Thicknesse","","ministry","in_ministry",0],["Barty Crouch Sr.","","ministry","died in_ministry",0],["Ludo Bagman","","ministry","in_ministry",0],["Bertha Jorkins","","ministry","died in_ministry",0],["Amos Diggory","","ministry","in_ministry",0],["Viktor Krum","","","quidditch seeker triwizard",0],["Dobby","","","died",0],["Kreacher","","","",0],["Winky","","","",0],["Griphook","","","",0],["Argus Filch","","staff","in_staff",0],["Poppy Pomfrey","","staff","in_staff",0],["Rolanda Hooch","","staff","in_staff",0],["Professor Binns","","staff","ghost in_staff",0],["Firenze","","staff","in_staff",0],["Charity Burbage","","staff","died in_staff",0],["Wilhelmina Grubbly-Plank","","staff","in_staff",0],["Irma Pince","","staff","in_staff",0],["Bathilda Bagshot","","","died",0],["Gellert Grindelwald","","","died",0],["Fenrir Greyback","","","",0],["Xenophilius Lovegood","","","",0],["Rita Skeeter","","","animagus",0]],"artists":[]};
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split('|').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const TYPE_ROWS = { G: ['Gryffindor', 'House'], S: ['Slytherin', 'House'], R: ['Ravenclaw', 'House'], H: ['Hufflepuff', 'House'], order: ['Order of the Phoenix', 'Members'], da: ["Dumbledore's Army", 'Members'], de: ['Death Eaters', 'Followers of Voldemort'], weasley: ['Weasley family', 'By birth or marriage'], staff: ['Hogwarts staff', 'Teachers and more'], ministry: ['Ministry of Magic', 'Employees'] };
+const COLS = {
+  died: ['Dies in the books', 'During the story'],
+  quidditch: ['Played Quidditch', 'School or pro'],
+  seeker: ['Played Seeker', 'Chased the Snitch'],
+  captain: ['Quidditch captain', 'School team'],
+  prefect: ['Prefect', 'Or Head Boy or Girl'],
+  animagus: ['Animagus', 'Registered or not'],
+  ghost: ['Ghost', 'Haunts Hogwarts'],
+  triwizard: ['Triwizard champion', '1994 tournament'],
+  parselmouth: ['Parselmouth', 'Speaks to snakes'],
+  pure: ['Pure-blood', 'As the books state'],
+  half: ['Half-blood', 'As the books state'],
+  muggleborn: ['Muggle-born', 'As the books state'],
+  in_G: ['Gryffindor', 'House'], in_S: ['Slytherin', 'House'], in_R: ['Ravenclaw', 'House'], in_H: ['Hufflepuff', 'House'],
+  in_order: ['Order of the Phoenix', 'Member'], in_da: ["Dumbledore's Army", 'Member'], in_de: ['Death Eater', 'Follower of Voldemort'],
+  in_weasley: ['Weasley', 'By birth or marriage'], in_staff: ['Hogwarts staff', 'Any time in the books'], in_ministry: ['Ministry of Magic', 'Worked there']
+};
+const MEDIUM_COLS = ['died', 'quidditch', 'seeker', 'prefect', 'animagus', 'pure', 'muggleborn', 'in_order', 'in_da', 'in_de', 'in_staff', 'in_ministry', 'in_weasley', 'in_G', 'in_S'];
+const MEDIUM_ROWS = DATA.artists.filter(a => SONGS.filter(s => s.rows.has('a:' + a)).length >= 8).map(a => 'a:' + a).concat(['G', 'S', 'R', 'H', 'order', 'da', 'weasley', 'staff']);
+let MODE = 'medium';
+try { const m = localStorage.getItem('wz:mode'); if (m === 'hard' || m === 'medium') MODE = m; } catch (e) {}
+const CLASH = [['y1','y2'],['pure','half'],['pure','muggleborn'],['half','muggleborn'],['in_G','in_S'],['in_G','in_R'],['in_G','in_H'],['in_S','in_R'],['in_S','in_H'],['in_R','in_H']];
+const ROWS = DATA.artists.map(a => 'a:' + a).concat(Object.keys(TYPE_ROWS));
+const rowLabel = r => r.startsWith('a:') ? [r.slice(2), ''] : TYPE_ROWS[r];
+
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function makeGrid(seed) {
+  const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(COLPOOL, r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    const rows = shuffle(ROWPOOL, r).slice(0, 3);
+    if (cols.some(c => c.startsWith('in_') && rows.includes(c.slice(3)))) continue;
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (n < (c.startsWith('in_') ? 1 : MIN)) ok = false; if (n === 1) thin++; }
+    if (ok && thin <= 2) return { rows, cols };
+  }
+  return { rows: ['G', 'S', 'order'], cols: ['died', 'pure', 'in_staff'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('wz:' + MODE + ':' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('wz:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('wz:' + MODE + ':' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Group × fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row.startsWith('a:') ? '' : ' type'); rh.append(lab);
+    if (!row.startsWith('a:')) { const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm); }
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.credit;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title + ' by ' + s.credit);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show characters who would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.credit) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a name.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; if (a.split(' ').some(w => w.startsWith(q)) || a.startsWith(q)) return 3; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">That character isn’t in the list.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.credit + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+function setMode(m) {
+  MODE = m;
+  try { localStorage.setItem('wz:mode', m); } catch (e) {}
+  document.querySelectorAll('.mode').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
+setMode(MODE);
+const last = store.get('wz:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>

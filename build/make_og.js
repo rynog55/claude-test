@@ -7,6 +7,7 @@ const games = [
   ['og-swiftie-grid.png', 'Swiftie Grid', 'Taylor Swift, album by album', '#0e1024', '#eef0ff', '#b49bff', '#f08fc6'],
   ['og-zeppelin-grid.png', 'Zeppelin Grid', 'Led Zeppelin deep cuts', '#141210', '#f1ebe3', '#e0654f', '#d8b25a'],
   ['og-ride-grid.png', 'Ride Grid', 'Por favor, manténganse alejados de las puertas.', '#0c1820', '#eef5f8', '#ff7a5c', '#5cc9e0'],
+  ['og-wizard-grid.png', 'Wizard Grid', 'Harry Potter trivia from the seven books', '#15121a', '#f2ecf6', '#e0687a', '#e2b75a'],
   ['og-index.png', 'Grid Games', 'Daily music trivia', '#141312', '#f1eee9', '#ef6a5c', '#6fc39a'],
 ];
 (async () => {

@@ -1,0 +1,132 @@
+# name | groups | tags        (facts from the seven books; houses/blood status only where the books state them)
+# groups: G Gryffindor, S Slytherin, R Ravenclaw, H Hufflepuff, order Order of the Phoenix, da Dumbledore's Army,
+#         de Death Eater, weasley Weasley family, staff Hogwarts staff (any time in the books), ministry Ministry of Magic employee
+# tags: died (dies during the books' story), quidditch, seeker, captain, prefect, animagus, ghost, triwizard, parselmouth, pure, half, muggleborn
+Harry Potter|G da|quidditch seeker captain parselmouth half
+Ron Weasley|G da weasley|quidditch prefect pure
+Hermione Granger|G da|prefect muggleborn
+Ginny Weasley|G da weasley|quidditch seeker pure
+Fred Weasley|G da weasley order|quidditch died pure
+George Weasley|G da weasley order|quidditch pure
+Percy Weasley|G weasley ministry|prefect pure
+Bill Weasley|G weasley order|prefect pure
+Charlie Weasley|G weasley order|quidditch seeker captain pure
+Arthur Weasley|G weasley order ministry|pure
+Molly Weasley|G weasley order|pure
+Fleur Delacour|weasley order|triwizard
+Neville Longbottom|G da|pure
+Seamus Finnigan|G da|half
+Dean Thomas|G da|quidditch
+Lavender Brown|G da|
+Parvati Patil|G da|
+Oliver Wood|G|quidditch captain
+Angelina Johnson|G da|quidditch captain
+Katie Bell|G da|quidditch
+Alicia Spinnet|G da|quidditch
+Lee Jordan|G da|
+Colin Creevey|G da|died muggleborn
+Dennis Creevey|G da|muggleborn
+Cormac McLaggen|G|quidditch
+Romilda Vane|G|
+Albus Dumbledore|G order staff|died half
+Minerva McGonagall|G order staff|animagus half
+Rubeus Hagrid|G order staff|
+Sirius Black|G order|animagus died pure
+Remus Lupin|G order staff|prefect died half
+Peter Pettigrew|G de|animagus died
+James Potter|G order|quidditch animagus pure
+Lily Potter|G order|prefect muggleborn
+Godric Gryffindor|G staff|
+Nearly Headless Nick|G|ghost
+Nymphadora Tonks|H order ministry|died half
+Kingsley Shacklebolt|order ministry|
+Alastor "Mad-Eye" Moody|order ministry|died
+Mundungus Fletcher|order|
+Aberforth Dumbledore|order|
+Elphias Doge|order|
+Dedalus Diggle|order|
+Hestia Jones|order|
+Emmeline Vance|order|died
+Arabella Figg|order|
+Frank Longbottom|order ministry|pure
+Alice Longbottom|order|pure
+Severus Snape|S order de staff|died half
+Draco Malfoy|S de|quidditch seeker prefect pure
+Lucius Malfoy|S de|pure
+Narcissa Malfoy|S|pure
+Bellatrix Lestrange|S de|died pure
+Andromeda Tonks|S|pure
+Regulus Black|S de|quidditch seeker died pure
+Vincent Crabbe|S|died
+Gregory Goyle|S|
+Pansy Parkinson|S|prefect
+Marcus Flint|S|quidditch captain
+Terence Higgs|S|quidditch seeker
+Blaise Zabini|S|
+Theodore Nott|S|
+Horace Slughorn|S staff|
+Lord Voldemort (Tom Riddle)|S|prefect parselmouth died half
+Dolores Umbridge|S staff ministry|half
+Phineas Nigellus Black|S staff|pure
+Salazar Slytherin|S staff|parselmouth
+The Bloody Baron|S|ghost
+Barty Crouch Jr.|de staff|
+Igor Karkaroff|de|died
+Antonin Dolohov|de|
+Augustus Rookwood|de ministry|
+Walden Macnair|de ministry|
+Corban Yaxley|de ministry|
+Alecto Carrow|de staff|
+Amycus Carrow|de staff|
+Thorfinn Rowle|de|
+Rodolphus Lestrange|de|pure
+Luna Lovegood|R da|pure
+Cho Chang|R da|quidditch seeker
+Padma Patil|R da|prefect
+Terry Boot|R da|
+Michael Corner|R da|
+Anthony Goldstein|R da|prefect
+Marietta Edgecombe|R da|
+Roger Davies|R|quidditch captain
+Filius Flitwick|R staff|
+Gilderoy Lockhart|R staff|
+Quirinus Quirrell|R staff|died
+Sybill Trelawney|R staff|
+Moaning Myrtle|R|ghost muggleborn
+The Grey Lady|R|ghost
+Garrick Ollivander|R|
+Rowena Ravenclaw|R staff|
+Cedric Diggory|H|quidditch seeker captain prefect triwizard died
+Hannah Abbott|H da|prefect
+Ernie Macmillan|H da|prefect pure
+Justin Finch-Fletchley|H da|muggleborn
+Susan Bones|H da|
+Zacharias Smith|H da|quidditch
+Pomona Sprout|H staff|
+The Fat Friar|H|ghost
+Helga Hufflepuff|H staff|
+Cornelius Fudge|ministry|
+Rufus Scrimgeour|ministry|died
+Pius Thicknesse|ministry|
+Barty Crouch Sr.|ministry|died
+Ludo Bagman|ministry|
+Bertha Jorkins|ministry|died
+Amos Diggory|ministry|
+Viktor Krum||quidditch seeker triwizard
+Dobby||died
+Kreacher||
+Winky||
+Griphook||
+Argus Filch|staff|
+Poppy Pomfrey|staff|
+Rolanda Hooch|staff|
+Professor Binns|staff|ghost
+Firenze|staff|
+Charity Burbage|staff|died
+Wilhelmina Grubbly-Plank|staff|
+Irma Pince|staff|
+Bathilda Bagshot||died
+Gellert Grindelwald||died
+Fenrir Greyback||
+Xenophilius Lovegood||
+Rita Skeeter||animagus
