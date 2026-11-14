@@ -390,7 +390,7 @@ function decorate() {
     }
   }
   if (over) addShareRow();
-  if (over) { const p = $('sumText'); if (p && !p.dataset.tapHint) { p.dataset.tapHint = '1'; p.textContent += ' Tap any square to see every answer that worked and how often players picked it.'; } }
+  if (over) { const p = $('sumText'); const hint = ' Tap any square to see every answer that worked and how often players picked it.'; if (p && !p.textContent.includes(hint.trim())) p.textContent += hint; }
 }
 function openAnswers(idx) {
   active = null;
