@@ -11,6 +11,7 @@ const games = [
   ['og-galaxy-grid.png', 'Galaxy Grid', 'Episodes I–VI. Nothing after.', '#07080d', '#eef0f6', '#ffe81f', '#5aa9ff'],
   ['og-throne-grid.png', 'Throne Grid', 'The show only. Yes, season 8 counts.', '#121316', '#ecebe8', '#e05a4a', '#c9a557'],
   ['og-scranton-grid.png', 'Scranton Grid', 'That’s what she said.', '#f2f2f2', '#111111', '#111111', '#1f4e9c'],
+  ['og-bigblue-grid.png', 'Big Blue Grid', 'Kentucky Wildcats only. Go Cats.', '#071226', '#f1f5ff', '#5b8cff', '#ffffff'],
   ['og-index.png', 'Grid Games', 'Daily music trivia', '#141312', '#f1eee9', '#ef6a5c', '#6fc39a'],
 ];
 (async () => {

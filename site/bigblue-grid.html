@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Big Blue Grid</title>
+<meta name="description" content="Today’s 3×3 music trivia grid. Can you fill every square?">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Big Blue Grid">
+<meta property="og:description" content="Today’s 3×3 music trivia grid. Can you fill every square?">
+<meta property="og:image" content="https://rynog55.github.io/grid-games/site/og-bigblue-grid.png">
+<meta property="og:url" content="https://rynog55.github.io/grid-games/site/bigblue-grid.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one centered column like a Rupp Arena scoreboard: header, 4x4 board, controls, rules. A bottom sheet handles song search. */
+:root {
+  --bg: #eef2f8;
+  --panel: #ffffff;
+  --ink: #0b1a33;
+  --muted: #55627a;
+  --line: #d3dbe8;
+  --accent: #0033a0;
+  --accent-2: #0033a0;
+  --accent-ink: #ffffff;
+  --hit: #13795b;
+  --hit-soft: #ddf3ea;
+  --miss: #c62f4a;
+  --shadow: 0 1px 2px rgba(29,21,48,.06), 0 6px 16px rgba(29,21,48,.06);
+  --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #071226; --panel: #0e1d3a; --ink: #f1f5ff; --muted: #9fb0d0; --line: #22355e;
+    --accent: #5b8cff; --accent-2: #8fb0ff; --accent-ink: #04112a; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+    --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #071226; --panel: #0e1d3a; --ink: #f1f5ff; --muted: #9fb0d0; --line: #22355e;
+  --accent: #5b8cff; --accent-2: #8fb0ff; --accent-ink: #04112a; --hit: #4fd3a0; --hit-soft: #133528; --miss: #ff7d93;
+  --shadow: 0 1px 2px rgba(0,0,0,.4); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 11.5vw, 54px); line-height: .95; margin: 0; letter-spacing: 0; white-space: nowrap; }
+h1 span { color: var(--accent); }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.left { text-align: right; }
+.left b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.left small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+.board { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)); gap: 6px; }
+.head, .rowhead { display: flex; flex-direction: column; justify-content: center; min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+.head { align-items: center; text-align: center; padding: 6px 3px; min-height: 66px; gap: 3px; font-family: var(--font-body); font-weight: 700; font-size: 12.5px; letter-spacing: -.005em; }
+.rowhead { align-items: flex-end; text-align: right; padding: 4px 6px 4px 2px; gap: 3px; font-family: var(--font-display); font-weight: 400; font-size: clamp(14px, 4.1vw, 19px); letter-spacing: 0; overflow-wrap: normal; }
+.head small, .rowhead small { font-family: var(--font-body); font-weight: 500; font-size: 10px; letter-spacing: 0; color: var(--muted); }
+.rowhead.type { color: var(--accent-2); }
+.corner { display: flex; align-items: flex-end; font-size: 10px; color: var(--muted); padding: 6px 2px; line-height: 1.3; }
+.cell {
+  aspect-ratio: 1; max-width: 100%; border: 1px solid var(--line); background: var(--panel); border-radius: 12px;
+  box-shadow: var(--shadow); color: var(--ink); cursor: pointer; padding: 6px; font: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.cell:hover:not(:disabled) { border-color: var(--accent); }
+.cell:active:not(:disabled) { transform: scale(.97); }
+.cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.cell .plus { font-size: 26px; color: var(--line); font-weight: 300; line-height: 1; }
+.cell.hit { background: var(--hit-soft); border-color: var(--hit); cursor: default; }
+.cell .name { font-weight: 700; font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+.cell .by { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cell .rare { font-size: 10px; color: var(--hit); font-weight: 700; font-variant-numeric: tabular-nums; }
+.cell.reveal { cursor: default; background: transparent; box-shadow: none; border-style: dashed; }
+.cell.reveal .name { font-size: 10.5px; color: var(--muted); font-weight: 500; line-height: 1.25; }
+.cell.shake { animation: shake .35s; border-color: var(--miss); }
+@keyframes shake { 25% { transform: translateX(-4px) } 75% { transform: translateX(4px) } }
+
+.modes { display: flex; gap: 0; align-self: flex-start; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--panel); }
+.mode { font: 600 13px var(--font-body); border: 0; border-radius: 999px; padding: 7px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+.mode[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.mode:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font: 600 14px var(--font-body); border-radius: 999px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+.summary h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -.02em; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+.rules { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; }
+.rules b { color: var(--ink); }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
+.sheet {
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
+}
+.sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.prompt button { background: none; border: 0; color: var(--muted); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px 8px; }
+#q { width: 100%; font: 500 17px var(--font-body); padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+#q:focus { outline: none; border-color: var(--accent); }
+.results { list-style: none; margin: 0; padding: 0; overflow-y: auto; min-height: 0; }
+.results button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 500 16px var(--font-body); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.results button small { color: var(--muted); font-size: 12.5px; }
+.results button:disabled { opacity: .4; cursor: default; }
+.results button:focus-visible { outline: 2px solid var(--accent); }
+.hint { color: var(--muted); font-size: 13px; padding: 6px 4px; }
+@media (prefers-reduced-motion: reduce) { .cell, .cell.shake { animation: none; transition: none; } }
+
+.statline { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.statline b { color: var(--ink); }
+.cell.over-tap { cursor: pointer; }
+.cell.over-tap:hover { border-color: var(--accent); }
+.cell .top { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.25; }
+.cell .top b { color: var(--ink); font-weight: 700; }
+.ans { list-style: none; border-bottom: 1px solid var(--line); padding: 10px 4px; display: flex; flex-direction: column; gap: 4px; }
+.ans-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.ans-top .t { font: 600 15px var(--font-body); min-width: 0; overflow-wrap: anywhere; }
+.ans-top .p { font: 700 14px var(--font-body); font-variant-numeric: tabular-nums; color: var(--accent); flex: none; }
+.ans small { color: var(--muted); font-size: 12px; }
+.ans .bar { height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.ans .bar i { display: block; height: 100%; background: var(--accent); }
+.ans.mine { background: var(--hit-soft); border-radius: 8px; }
+.topnav { margin: 0 0 -6px; }
+.topnav a { display: inline-flex; align-items: center; gap: 6px; font: 600 13px var(--font-body); color: var(--muted); text-decoration: none; padding: 6px 12px 6px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); }
+.topnav a:hover, .topnav a:focus-visible { color: var(--ink); border-color: var(--accent); outline: none; }
+.topnav svg { width: 16px; height: 16px; flex: none; }
+.share-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
+.ans .mine-tag { font-size: 11px; font-weight: 700; color: var(--hit); text-transform: uppercase; letter-spacing: .06em; }
+</style>
+
+<div class="wrap">
+  <nav class="topnav" aria-label="Site"><a href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>All games</a></nav>
+  <header>
+    <div>
+      <h1>Big Blue <span>Grid</span></h1>
+      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Kentucky Wildcats only. Go Cats.</p>
+      <p class="sub" id="label">Daily grid</p>
+      <p class="statline" id="statline" aria-live="polite"></p>
+    </div>
+    <div class="left"><b id="left">9</b><small>Guesses left</small></div>
+  </header>
+
+  <div class="modes" role="group" aria-label="Difficulty">
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="board" id="board" aria-label="Puzzle grid"></div>
+
+  <div class="summary" id="summary" hidden>
+    <h2 id="sumTitle"></h2>
+    <p id="sumText"></p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="giveup" type="button">Give up</button>
+    <button class="btn" id="today" type="button">Today's grid</button>
+    <button class="btn primary" id="random" type="button">New random grid</button>
+  </div>
+
+  <p class="rules">Tap a square and name a <b>player</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows are Kentucky head coaches; a player counts for every coach he played for. Columns are titles, NBA draft results, honors and more. You get 9 guesses, and each player can be used once.</p>
+  <p class="rules">Players are everyone on a Kentucky roster from 1930–31 (Adolph Rupp's first season) to 2025–26, from wildcatworld.com's season rosters. Draft results and NBA All-Star selections come from Wikipedia's NBA draft pages, and honored jerseys, all-time top 10s, Hall of Famers and Olympians from Wikipedia's Kentucky page. "One-and-done" means one season on the roster, then drafted that year. "Top 10 all-time" means a top-10 spot in points, rebounds, assists, steals or blocks. <b>Medium</b> uses Rupp, Hall, Pitino, Tubby Smith and Calipari; <b>Hard</b> adds Sutton, Gillispie and Pope plus deeper columns. This is a fan-made game and isn't affiliated with the University of Kentucky. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="prompt">
+  <div class="sheet-inner">
+    <div class="prompt"><span id="prompt"></span><button type="button" id="close" aria-label="Close search">×</button></div>
+    <input id="q" type="search" placeholder="Search songs or artists…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(() => {
+const DATA = {"songs":[["Dick Richards","","rupp","in_rupp","1930–31"],["Bill Congleton","","rupp","kentuckian in_rupp","1930–31"],["Allan Lavin","","rupp","kentuckian in_rupp","1930–31"],["Milton Cavana","","rupp","in_rupp","1930–31"],["Darrell Darby","","rupp","kentuckian in_rupp","1930–33"],["Ercel Little","","rupp","kentuckian in_rupp","1930–32"],["Louis McGinnis","","rupp","kentuckian in_rupp","1930–34"],["Charles Worthington","","rupp","in_rupp","1930–32"],["Lawrence Crump","","rupp","kentuckian in_rupp","1930–31"],["Cecil Bell","","rupp","kentuckian in_rupp","1930–32"],["William Kleiser","","rupp","kentuckian in_rupp","1930–34"],["George Yates","","rupp","kentuckian in_rupp","1930–33"],["Ellis Johnson","","rupp","fouryear kentuckian in_rupp","1930–41"],["George Skinner","","rupp","kentuckian in_rupp","1930–33"],["Carey Spicer","","rupp","kentuckian honored in_rupp","1930–35"],["Bill Trott","","rupp","in_rupp","1930–34"],["Forest Sale","","rupp","fouryear kentuckian honored in_rupp","1930–41"],["Jake Bronston","","rupp","kentuckian in_rupp","1930–34"],["Charles Maguire","","rupp","kentuckian in_rupp","1931–32"],["Howard Kreuter","","rupp","kentuckian in_rupp","1931–34"],["White","","rupp","in_rupp","1931–32"],["Charles McGuire","","rupp","kentuckian in_rupp","1931–32"],["James Hughes","","rupp","kentuckian in_rupp","1931–32"],["John DeMoisey","","rupp","fouryear kentuckian honored in_rupp","1931–41"],["Harvey Mattingly","","rupp","kentuckian in_rupp","1931–32"],["Gordon George","","rupp","kentuckian in_rupp","1931–32"],["Evan Settle","","rupp","fouryear kentuckian in_rupp","1931–41"],["Crittenden Blair","","rupp","kentuckian in_rupp","1931–41"],["Berkley Davis","","rupp","kentuckian in_rupp","1931–34"],["Joe Rupert","","rupp","kentuckian in_rupp","1932–33"],["Maurice Jackson","","rupp","kentuckian in_rupp","1932–41"],["Ralph Kercheval","","rupp","kentuckian in_rupp","1932–33"],["John Morris","","rupp","kentuckian in_rupp","1932–33"],["Bill Davis","","rupp","kentuckian in_rupp","1932–34"],["Jack Tucker","","rupp","kentuckian in_rupp","1932–35"],["Dave Lawrence","","rupp","fouryear kentuckian in_rupp","1932–41"],["Stanley Milward","","rupp","kentuckian in_rupp","1933–35"],["Len Miller","","rupp","kentuckian in_rupp","1933–34"],["Elmer Gilb","","rupp","kentuckian in_rupp","1933–34"],["Herbert Jerome","","rupp","in_rupp","1933–34"],["Paul McBrayer","","rupp","kentuckian in_rupp","1933–35"],["Edward Tierney","","rupp","kentuckian in_rupp","1933–35"],["Sam Potter","","rupp","kentuckian in_rupp","1933–35"],["Milerd Anderson","","rupp","kentuckian in_rupp","1933–36"],["Bob Taylor","","rupp","kentuckian in_rupp","1933–36"],["Garland Lewis","","rupp","in_rupp","1933–36"],["Charles Gates","","rupp","kentuckian in_rupp","1934–36"],["John McIntosh","","rupp","kentuckian in_rupp","1934–37"],["Warfield Donohue","","rupp","fouryear kentuckian in_rupp","1934–41"],["Charles Heinrich","","rupp","kentuckian in_rupp","1934–35"],["Bert Johnson","","rupp","kentuckian in_rupp","1934–35"],["Ralph Carlisle","","rupp","fouryear kentuckian in_rupp","1934–41"],["Harry Bliss","","rupp","in_rupp","1934–36"],["Russell Ellington","","rupp","kentuckian in_rupp","1934–36"],["Bruce Davis","","rupp","kentuckian in_rupp","1934–36"],["James Goforth","","rupp","kentuckian in_rupp","1934–37"],["Leroy Edwards","","rupp","in_rupp","1934–35"],["Nick Lutz","","rupp","in_rupp","1935–36"],["William Davis","","rupp","in_rupp","1935–36"],["Bill Spicer","","rupp","kentuckian in_rupp","1935–36"],["Charles Combs","","rupp","kentuckian in_rupp","1935–38"],["Robert Davis","","rupp","kentuckian in_rupp","1935–38"],["Joseph Hagan","","rupp","kentuckian in_rupp","1935–38"],["J. Rice Walker","","rupp","kentuckian in_rupp","1935–38"],["John Craig","","rupp","kentuckian in_rupp","1935–36"],["Bob Tice","","rupp","kentuckian in_rupp","1936–37"],["Walter Hatcher","","rupp","kentuckian in_rupp","1936–37"],["Robert Strohm","","rupp","in_rupp","1936–37"],["Bernard Opper","","rupp","in_rupp","1936–39"],["Elmo Head","","rupp","kentuckian in_rupp","1936–39"],["Homer Thompson","","rupp","in_rupp","1936–39"],["Walter Hodge","","rupp","kentuckian in_rupp","1936–39"],["Fred Curtis","","rupp","in_rupp","1936–39"],["John Trivette","","rupp","kentuckian in_rupp","1937–38"],["Harris Walker","","rupp","kentuckian in_rupp","1937–38"],["Larry Spears","","rupp","in_rupp","1937–38"],["James Goodman","","rupp","kentuckian in_rupp","1937–39"],["Ed Gough","","rupp","kentuckian in_rupp","1937–38"],["Layton Rouse","","rupp","fouryear kentuckian honored in_rupp","1937–41"],["Ralph Jackowski","","rupp","in_rupp","1937–38"],["Marion Cluggish","","rupp","kentuckian in_rupp","1937–40"],["Harry Denham","","rupp","kentuckian in_rupp","1937–40"],["Billie Jackson","","rupp","in_rupp","1938–39"],["Lee Huber","","rupp","kentuckian in_rupp","1938–41"],["Keith Farnsley","","rupp","in_rupp","1938–41"],["Ernie Jefferson","","rupp","kentuckian in_rupp","1938–39"],["James King","","rupp","kentuckian in_rupp","1939–42"],["Carl Combs","","rupp","kentuckian in_rupp","1939–41"],["Donald Orme","","rupp","in_rupp","1939–41"],["Stan Cluggish","","rupp","kentuckian in_rupp","1939–40"],["Carl Staker","","rupp","kentuckian in_rupp","1939–42"],["Ermal Allen","","rupp","in_rupp","1939–42"],["Waller White","","rupp","kentuckian in_rupp","1939–42"],["Lloyd Ramsey","","rupp","kentuckian in_rupp","1940–42"],["Milt Ticco","","rupp","kentuckian in_rupp","1940–43"],["Marvin Akers","","rupp","in_rupp","1940–43"],["Kenneth England","","rupp","kentuckian in_rupp","1940–42"],["Louis Robertson","","rupp","in_rupp","1940–42"],["Jess Robertson","","rupp","kentuckian in_rupp","1940–41"],["Melvin Brewer","","rupp","in_rupp","1940–43"],["Frank Etscorn","","rupp","kentuckian in_rupp","1940–42"],["Carl Althaus","","rupp","kentuckian in_rupp","1941–43"],["James Mathewson","","rupp","kentuckian in_rupp","1941–42"],["Adrian Back","","rupp","kentuckian in_rupp","1941–42"],["Bruce Boehler","","rupp","in_rupp","1941–42"],["Vincent Splane","","rupp","kentuckian in_rupp","1941–42"],["Bill Barlow","","rupp","in_rupp","1941–43"],["Ed Lander","","rupp","kentuckian in_rupp","1941–43"],["Wilbur Schu","","rupp","fouryear kentuckian in_rupp","1942–46"],["Clyde Parker","","rupp","in_rupp","1942–43"],["Bill Hamm","","rupp","in_rupp","1942–43"],["Paul Noel","","rupp","kentuckian in_rupp","1942–43"],["Jim Weber","","rupp","in_rupp","1942–46"],["Tom Moseley","","rupp","kentuckian in_rupp","1942–44"],["Ken Rollins","","rupp","champ kentuckian honored olympian in_rupp","1942–48"],["Mulford Davis","","rupp","in_rupp","1942–47"],["Maurice Bell","","rupp","in_rupp","1943–44"],["Bill Cravens","","rupp","in_rupp","1943–44"],["Wes Cravens","","rupp","in_rupp","1943–44"],["Truett DeMoisey","","rupp","kentuckian in_rupp","1943–44"],["Harry Gorham","","rupp","kentuckian in_rupp","1943–44"],["Glen Parker","","rupp","in_rupp","1943–44"],["Don Whitehead","","rupp","in_rupp","1943–44"],["Nathaniel Buis","","rupp","kentuckian in_rupp","1943–44"],["Rudy Yessin","","rupp","kentuckian in_rupp","1943–44"],["J. Ed Parker","","rupp","fouryear kentuckian in_rupp","1943–47"],["Walter Johnson","","rupp","kentuckian in_rupp","1943–44"],["George Vulich","","rupp","in_rupp","1943–45"],["Jack Tingle","","rupp","fouryear kentuckian in_rupp","1943–47"],["Jack Parkinson","","rupp","champ fouryear in_rupp","1943–48"],["Ed Allin","","rupp","kentuckian in_rupp","1943–46"],["Bob Brannum","","rupp","in_rupp","1943–47"],["Jack Schiffli","","rupp","in_rupp","1944–45"],["Singleton Yeary","","rupp","kentuckian in_rupp","1944–45"],["James Durham","","rupp","kentuckian in_rupp","1944–45"],["Bill Chambers","","rupp","in_rupp","1944–45"],["Alonzo Nelson","","rupp","kentuckian in_rupp","1944–45"],["John Stough","","rupp","champ in_rupp","1944–49"],["Dickie Derrickson","","rupp","kentuckian in_rupp","1944–45"],["Clyde Cooper","","rupp","kentuckian in_rupp","1944–45"],["Ernest Sparkman","","rupp","kentuckian in_rupp","1944–45"],["Alex Groza","","rupp","champ mop fouryear honored top10 olympian in_rupp","1944–49"],["Al Reynolds","","rupp","in_rupp","1944–45"],["Jim Howe","","rupp","kentuckian in_rupp","1944–45"],["Deward Compton","","rupp","in_rupp","1944–46"],["Kenton Campbell","","rupp","champ fouryear in_rupp","1944–48"],["Chester Duff","","rupp","kentuckian in_rupp","1944–45"],["William Sturgill","","rupp","kentuckian in_rupp","1944–46"],["Johnny Crockett","","rupp","kentuckian in_rupp","1945–46"],["Ralph Beard","","rupp","champ fouryear kentuckian honored olympian in_rupp","1945–49"],["Joe Holland","","rupp","champ kentuckian in_rupp","1945–48"],["Malcolm McMullen","","rupp","in_rupp","1945–47"],["Wallace Jones","","rupp","champ fouryear kentuckian honored olympian in_rupp","1945–49"],["Sam Zeaman","","rupp","in_rupp","1945–46"],["Bob Hehl","","rupp","kentuckian in_rupp","1945–46"],["Zeb Blankenship","","rupp","kentuckian in_rupp","1945–46"],["Darrell Lorance","","rupp","in_rupp","1945–46"],["Barkley Sturgill","","rupp","kentuckian in_rupp","1945–46"],["Albert Cummins","","rupp","champ kentuckian in_rupp","1946–48"],["Dale Barnstable","","rupp","champ fouryear in_rupp","1946–50"],["Cliff Barker","","rupp","champ honored olympian in_rupp","1946–49"],["Jim Line","","rupp","champ fouryear in_rupp","1946–50"],["James Jordan","","rupp","champ in_rupp","1946–48"],["Will Smethers","","rupp","champ in_rupp","1947–48"],["Mike Homa","","rupp","champ in_rupp","1947–48"],["Roger Day","","rupp","champ in_rupp","1947–50"],["Garland Townes","","rupp","champ kentuckian in_rupp","1947–50"],["Walter Hirsch","","rupp","champ fouryear in_rupp","1947–51"],["Robert Henne","","rupp","champ in_rupp","1947–49"],["Al Bruno","","rupp","champ in_rupp","1948–49"],["Joe Hall","","rupp","champ kentuckian in_rupp","1948–49"],["Guy Strong","","rupp","champ kentuckian in_rupp","1949–51"],["Shelby Linville","","rupp","champ in_rupp","1949–52"],["Walter Whittaker","","rupp","in_rupp","1949–50"],["Leonard Pearson","","rupp","in_rupp","1949–50"],["Lucian Whitaker","","rupp","champ in_rupp","1949–52"],["Arlan King","","rupp","in_rupp","1949–50"],["C. M. Newton","","rupp","champ hof in_rupp","1949–51"],["Read Morgan","","rupp","champ in_rupp","1949–51"],["Bobby Watson","","rupp","champ kentuckian in_rupp","1949–52"],["Roger Layne","","rupp","champ in_rupp","1949–51"],["Bill Spivey","","rupp","champ tall honored in_rupp","1949–52"],["Cliff Hagan","","rupp","champ kentuckian honored top10 hof in_rupp","1950–54"],["Paul Lansaw","","rupp","champ in_rupp","1950–51"],["Lou Tsioropoulos","","rupp","champ honored in_rupp","1950–54"],["Dwight Price","","rupp","champ kentuckian in_rupp","1950–51"],["Lindle Castle","","rupp","champ kentuckian in_rupp","1950–51"],["Roy Roberts","","rupp","champ fouryear in_rupp","1950–63"],["Frank Ramsey","","rupp","champ drafted r1 top14 allstar kentuckian honored top10 hof in_rupp","1950–54"],["James Flynn","","rupp","kentuckian in_rupp","1951–52"],["Houston Nutt","","rupp","in_rupp","1951–52"],["George Cooke","","rupp","kentuckian in_rupp","1951–52"],["Willie Rouse","","rupp","kentuckian in_rupp","1951–54"],["Gayle Rose","","rupp","kentuckian honored in_rupp","1951–55"],["Ronald Clark","","rupp","in_rupp","1951–52"],["Dan Swartz","","rupp","kentuckian in_rupp","1951–52"],["Charles Keller","","rupp","in_rupp","1951–52"],["Woodrow Preston","","rupp","kentuckian in_rupp","1951–52"],["Gene Neff","","rupp","in_rupp","1951–52"],["Billy Evans","","rupp","kentuckian honored olympian in_rupp","1951–55"],["Brown Sharp","","rupp","kentuckian in_rupp","1951–52"],["Cliff Dwyer","","rupp","in_rupp","1951–52"],["Jerry Bird","","rupp","kentuckian honored in_rupp","1953–56"],["Pete Grigsby","","rupp","kentuckian in_rupp","1953–54"],["Clay Evans","","rupp","kentuckian in_rupp","1953–54"],["Linville Puckett","","rupp","kentuckian in_rupp","1953–55"],["Hugh Coy","","rupp","kentuckian in_rupp","1953–54"],["Jess Curry","","rupp","in_rupp","1953–54"],["Phil Grawemeyer","","rupp","kentuckian honored in_rupp","1953–56"],["Bill Bibb","","rupp","kentuckian in_rupp","1953–55"],["Dan Chandler","","rupp","kentuckian in_rupp","1953–55"],["Harold Hurst","","rupp","kentuckian in_rupp","1953–55"],["Gerry Calvert","","rupp","kentuckian in_rupp","1954–57"],["Earl Adkins","","rupp","champ kentuckian in_rupp","1954–58"],["Bob Burrow","","rupp","drafted r2 honored top10 in_rupp","1954–56"],["Ray Mills","","rupp","kentuckian in_rupp","1954–57"],["John Brewer","","rupp","kentuckian in_rupp","1954–57"],["Paul Corum","","rupp","kentuckian in_rupp","1954–55"],["Lincoln Collinsworth","","rupp","champ kentuckian in_rupp","1955–58"],["Billy Ray Cassady","","rupp","champ kentuckian in_rupp","1955–58"],["Phil Johnson","","rupp","champ fouryear kentuckian in_rupp","1955–59"],["John Crigler","","rupp","champ kentuckian in_rupp","1955–58"],["Harold Ross","","rupp","champ kentuckian in_rupp","1955–58"],["Ed Beck","","rupp","champ in_rupp","1955–58"],["Vernon Hatton","","rupp","champ drafted r2 kentuckian honored in_rupp","1955–58"],["Bill Smith","","rupp","champ kentuckian in_rupp","1955–58"],["Dick Howe","","rupp","champ in_rupp","1956–58"],["Johnny Cox","","rupp","champ drafted kentuckian honored top10 in_rupp","1956–59"],["Adrian Smith","","rupp","champ kentuckian olympian in_rupp","1956–58"],["Jay Bayless","","rupp","in_rupp","1956–57"],["John Hardwick","","rupp","kentuckian in_rupp","1956–57"],["Lowell Hughes","","rupp","champ kentuckian in_rupp","1957–59"],["Don Mills","","rupp","champ kentuckian in_rupp","1957–60"],["Al Robinson","","rupp","kentuckian in_rupp","1958–60"],["Ned Jennings","","rupp","kentuckian in_rupp","1958–61"],["Sid Cohen","","rupp","in_rupp","1958–60"],["Bennie Coffman","","rupp","in_rupp","1958–60"],["Bobby Slusher","","rupp","kentuckian in_rupp","1958–59"],["Bill Lickert","","rupp","kentuckian in_rupp","1958–61"],["Dick Parsons","","rupp","kentuckian in_rupp","1958–61"],["Howard Dardeen","","rupp","in_rupp","1958–59"],["Edward Mason","","rupp","kentuckian in_rupp","1959–60"],["Herky Rupp","","rupp","kentuckian in_rupp","1959–62"],["Jim McDonald","","rupp","kentuckian in_rupp","1959–62"],["Harry Hurd","","rupp","kentuckian in_rupp","1959–62"],["Larry Pursiful","","rupp","drafted kentuckian in_rupp","1959–62"],["Allen Feldhaus","","rupp","kentuckian in_rupp","1959–62"],["Carroll Burchett","","rupp","kentuckian in_rupp","1959–62"],["Scotty Baesler","","rupp","kentuckian in_rupp","1960–63"],["Doug Pendygraft","","rupp","kentuckian in_rupp","1960–62"],["George Atkins","","rupp","kentuckian in_rupp","1960–63"],["Pat Doyle","","rupp","kentuckian in_rupp","1960–63"],["Bernard Butts","","rupp","in_rupp","1960–61"],["Roger Newman","","rupp","kentuckian in_rupp","1960–61"],["Vincent Del Negro","","rupp","in_rupp","1960–61"],["Ted Deeken","","rupp","kentuckian in_rupp","1961–64"],["Charles Ishmael","","rupp","kentuckian in_rupp","1961–64"],["Tom Harper","","rupp","kentuckian in_rupp","1961–64"],["George Critz","","rupp","in_rupp","1961–64"],["Cotton Nash","","rupp","drafted r2 honored top10 in_rupp","1961–64"],["Randy Embry","","rupp","kentuckian in_rupp","1962–65"],["Ray Freudenberger","","rupp","in_rupp","1962–63"],["Terry Mobley","","rupp","kentuckian in_rupp","1962–65"],["Sam Harper","","rupp","kentuckian in_rupp","1962–64"],["Don Rolfes","","rupp","in_rupp","1962–63"],["John Adams","","rupp","in_rupp","1962–65"],["Ron Kennett","","rupp","in_rupp","1962–65"],["Denny Radabaugh","","rupp","in_rupp","1962–63"],["Tommy Kron","","rupp","drafted in_rupp","1963–66"],["Larry Conley","","rupp","kentuckian in_rupp","1963–66"],["Mickey Gibson","","rupp","kentuckian in_rupp","1963–64"],["Larry Lentz","","rupp","in_rupp","1963–66"],["Louie Dampier","","rupp","drafted allstar honored hof in_rupp","1964–67"],["Frank Tully","","rupp","in_rupp","1964–65"],["Gene Stewart","","rupp","in_rupp","1964–67"],["Pat Riley","","rupp","drafted r1 top14 allstar honored hof in_rupp","1964–67"],["Brad Bounds","","rupp","in_rupp","1964–67"],["Bob Windsor","","rupp","in_rupp","1965–66"],["Jim LeMaster","","rupp","kentuckian in_rupp","1965–68"],["Bob Tallent","","rupp","kentuckian in_rupp","1965–67"],["Tommy Porter","","rupp","kentuckian in_rupp","1965–68"],["Steve Clevenger","","rupp","in_rupp","1965–68"],["Cliff Berger","","rupp","in_rupp","1965–68"],["Gary Gamble","","rupp","kentuckian in_rupp","1965–68"],["Tom Payne","","rupp","fouryear kentuckian tall in_rupp","1965–71"],["Thad Jaracz","","rupp","kentuckian in_rupp","1965–68"],["Phil Argento","","rupp","in_rupp","1966–69"],["Benny Spears","","rupp","kentuckian in_rupp","1967–68"],["Bill Busey","","rupp","kentuckian in_rupp","1967–70"],["Mike Pratt","","rupp","honored in_rupp","1967–70"],["Mike Casey","","rupp","kentuckian in_rupp","1967–71"],["Randy Pool","","rupp","in_rupp","1967–70"],["Dan Issel","","rupp","honored top10 hof in_rupp","1967–70"],["Art Laib","","rupp","tall in_rupp","1967–70"],["Jim Dinwiddie","","rupp","kentuckian in_rupp","1968–71"],["Bob McCowan","","rupp","in_rupp","1968–72"],["Terry Mills","","rupp","kentuckian in_rupp","1968–71"],["Jim Harris","","rupp","kentuckian in_rupp","1968–69"],["Greg Starrick","","rupp","in_rupp","1968–69"],["Larry Steele","","rupp","in_rupp","1968–71"],["Clint Wheeler","","rupp","kentuckian in_rupp","1968–71"],["Tom Parker","","rupp","in_rupp","1969–72"],["Stan Key","","rupp","kentuckian in_rupp","1969–72"],["Kent Hollenbeck","","rupp","in_rupp","1969–72"],["Mark Soderberg","","rupp","tall in_rupp","1969–71"],["Randy Noll","","rupp","kentuckian in_rupp","1969–70"],["Gary Arbelbide","","rupp","in_rupp","1970–71"],["Steve Penhorwood","","rupp","in_rupp","1970–71"],["Larry Stamper","","rupp|hall","kentuckian twocoaches in_rupp in_hall","1970–73"],["Jim Andrews","","rupp|hall","tall twocoaches in_rupp in_hall","1970–73"],["Ray Edelman","","rupp|hall","twocoaches in_rupp in_hall","1971–74"],["Ronnie Lyons","","rupp|hall","kentuckian twocoaches in_rupp in_hall","1971–74"],["Elmore Stephens","","rupp","kentuckian in_rupp","1971–72"],["Larry Miller","","rupp","kentuckian in_rupp","1971–72"],["Wendell Lyons","","rupp","kentuckian in_rupp","1971–72"],["Kirk Chiles","","rupp","kentuckian in_rupp","1971–72"],["Rick Drewitz","","rupp|hall","twocoaches in_rupp in_hall","1971–74"],["Dan Perry","","rupp","in_rupp","1971–72"],["Darryl Bishop","","rupp","kentuckian in_rupp","1971–72"],["Greg Smith","","rupp","kentuckian in_rupp","1971–72"],["Reggie Warford","","hall","fouryear kentuckian in_hall","1972–76"],["Jimmy Dan Conner","","hall","kentuckian in_hall","1972–75"],["Jerry Hale","","hall","in_hall","1972–75"],["Mike Flynn","","hall","in_hall","1972–75"],["David Miller","","hall","kentuckian in_hall","1972–74"],["G. J. Smith","","hall","kentuckian in_hall","1972–75"],["Kevin Grevey","","hall","honored top10 in_hall","1972–75"],["Steve Lochmueller","","hall","in_hall","1972–74"],["Bob Guyette","","hall","in_hall","1972–75"],["Roger Wood","","hall","tall in_hall","1972–74"],["Larry Johnson","","hall","fouryear kentuckian in_hall","1973–77"],["Steve Green","","hall","kentuckian in_hall","1973–74"],["Merion Haskins","","hall","fouryear kentuckian in_hall","1973–77"],["Joey Holland","","hall","in_hall","1974–76"],["Jack Givens","","hall","champ mop fouryear kentuckian honored top10 in_hall","1974–78"],["James Lee","","hall","champ fouryear kentuckian in_hall","1974–78"],["Rick Robey","","hall","champ fouryear tall honored top10 in_hall","1974–78"],["Dan Hall","","hall","kentuckian tall in_hall","1974–76"],["Mike Phillips","","hall","champ fouryear tall in_hall","1974–78"],["Dwane Casey","","hall","champ fouryear kentuckian in_hall","1975–79"],["Truman Claytor","","hall","champ fouryear in_hall","1975–79"],["Bob Fowler","","hall","in_hall","1975–76"],["Derrick Ramsey","","hall","in_hall","1975–76"],["Kyle Macy","","hall","champ fouryear honored top10 in_hall","1976–80"],["Brad Lawless","","hall","kentuckian in_hall","1976–77"],["Jay Shidler","","hall","champ fouryear in_hall","1976–80"],["Tim Stephens","","hall","champ kentuckian in_hall","1976–79"],["Lavon Williams","","hall","champ fouryear in_hall","1976–80"],["Chris Gettelfinger","","hall","champ fouryear in_hall","1977–81"],["Fred Cowan","","hall","champ fouryear kentuckian in_hall","1977–81"],["Scott Courts","","hall","champ tall in_hall","1977–78"],["Chuck Aleksinas","","hall","champ tall in_hall","1977–79"],["Dwight Anderson","","hall","in_hall","1978–80"],["Chuck Verderber","","hall","fouryear in_hall","1978–82"],["Clarence Tillman","","hall","in_hall","1978–79"],["Dirk Minniefield","","hall","fouryear kentuckian top10 in_hall","1979–83"],["Bo Lanter","","hall","kentuckian in_hall","1979–82"],["Sam Bowie","","hall","fouryear tall honored top10 in_hall","1979–84"],["Derrick Hord","","hall","fouryear in_hall","1979–83"],["Tom Heitz","","hall","fouryear in_hall","1979–84"],["Charles Hurt","","hall","fouryear kentuckian in_hall","1979–83"],["Dicky Beal","","hall","fouryear kentuckian in_hall","1980–84"],["Jim Master","","hall","fouryear in_hall","1980–84"],["Bret Bearup","","hall","fouryear in_hall","1980–85"],["Melvin Turpin","","hall","fouryear kentuckian tall top10 in_hall","1980–84"],["Mike Ballenger","","hall","in_hall","1981–82"],["Troy McKinley","","hall","fouryear kentuckian in_hall","1981–85"],["Roger Harden","","hall|sutton","fouryear top10 twocoaches in_hall in_sutton","1982–86"],["Kenny Walker","","hall|sutton","fouryear honored top10 twocoaches in_hall in_sutton","1982–86"],["Todd May","","hall","kentuckian in_hall","1982–83"],["Leroy Byrd","","hall|sutton","kentuckian twocoaches in_hall in_sutton","1983–86"],["James Blackmon","","hall|sutton","fouryear twocoaches in_hall in_sutton","1983–87"],["Paul Andrews","","hall|sutton","fouryear kentuckian twocoaches in_hall in_sutton","1983–87"],["Winston Bennett","","hall|sutton","fouryear kentuckian twocoaches in_hall in_sutton","1983–88"],["Ed Davender","","hall|sutton","fouryear top10 twocoaches in_hall in_sutton","1984–88"],["Todd Ziegler","","hall|sutton","kentuckian twocoaches in_hall in_sutton","1984–86"],["Richard Madison","","hall|sutton","fouryear twocoaches in_hall in_sutton","1984–88"],["Robert Lock","","hall|sutton","fouryear tall twocoaches in_hall in_sutton","1984–88"],["Cedric Jenkins","","hall|sutton","fouryear tall twocoaches in_hall in_sutton","1984–88"],["Irving Thomas","","sutton","in_sutton","1985–87"],["Rex Chapman","","sutton","kentuckian in_sutton","1986–88"],["Derrick Miller","","sutton|pitino","fouryear twocoaches in_sutton in_pitino","1986–90"],["Steve Bruce","","sutton","kentuckian in_sutton","1986–87"],["Terry Shigg","","sutton","in_sutton","1986–87"],["Mike Scott","","sutton","kentuckian tall in_sutton","1986–89"],["Deron Feldhaus","","sutton|pitino","fouryear kentuckian honored twocoaches in_sutton in_pitino","1987–92"],["Sean Sutton","","sutton","kentuckian in_sutton","1987–89"],["Eric Manuel","","sutton","in_sutton","1987–89"],["LeRon Ellis","","sutton","tall in_sutton","1987–89"],["Johnathon Davis","","sutton|pitino","fouryear twocoaches in_sutton in_pitino","1987–91"],["John Pelphrey","","sutton|pitino","fouryear kentuckian honored top10 twocoaches in_sutton in_pitino","1987–92"],["Reggie Hanson","","sutton|pitino","fouryear kentuckian twocoaches in_sutton in_pitino","1987–91"],["Anthony Mathis","","sutton","kentuckian in_sutton","1988–89"],["Sean Woods","","sutton|pitino","fouryear honored top10 twocoaches in_sutton in_pitino","1988–92"],["Chris Jones","","sutton","kentuckian in_sutton","1988–89"],["Richie Farmer","","sutton|pitino","fouryear kentuckian honored twocoaches in_sutton in_pitino","1988–92"],["Chris Mills","","sutton","in_sutton","1988–89"],["Jeff Ginnan","","sutton","kentuckian in_sutton","1988–89"],["Jeff Brassow","","pitino","fouryear in_pitino","1989–94"],["Tony Cooper","","pitino","in_pitino","1989–90"],["Henry Thomas","","pitino","in_pitino","1989–91"],["Nehemiah Braddy","","pitino","fouryear in_pitino","1989–93"],["Skip McGaw","","pitino","kentuckian in_pitino","1989–90"],["Michael Parks","","pitino","kentuckian in_pitino","1989–90"],["Travis Ford","","pitino","fouryear kentuckian top10 in_pitino","1990–94"],["Todd Bearup","","pitino","kentuckian in_pitino","1990–91"],["Jamal Mashburn","","pitino","honored top10 in_pitino","1990–93"],["Jody Thompson","","pitino","kentuckian in_pitino","1990–91"],["Carlos Toomer","","pitino","in_pitino","1990–92"],["Gimel Martinez","","pitino","fouryear in_pitino","1990–94"],["Chris Harrison","","pitino","fouryear kentuckian in_pitino","1991–95"],["Andre Riddick","","pitino","fouryear top10 in_pitino","1991–95"],["Aminu Timberlake","","pitino","in_pitino","1991–93"],["Dale Brown","","pitino","in_pitino","1991–93"],["Tony Delk","","pitino","champ mop fouryear honored top10 in_pitino","1992–96"],["Rodney Dent","","pitino","tall in_pitino","1992–94"],["Rodrick Rhodes","","pitino","top10 in_pitino","1992–95"],["Jared Prickett","","pitino","champ fouryear top10 in_pitino","1992–97"],["Walter McCarty","","pitino","champ fouryear tall in_pitino","1992–96"],["Todd Svoboda","","pitino","in_pitino","1992–93"],["Jeff Sheppard","","pitino|smith","champ mop fouryear twocoaches in_pitino in_smith","1993–98"],["Anthony Epps","","pitino","champ fouryear kentuckian top10 in_pitino","1993–97"],["Mark Pope","","pitino","champ tall in_pitino","1993–96"],["Allen Edwards","","pitino|smith","champ fouryear twocoaches in_pitino in_smith","1994–98"],["Cameron Mills","","pitino|smith","champ fouryear kentuckian twocoaches in_pitino in_smith","1994–98"],["Antoine Walker","","pitino","champ in_pitino","1994–96"],["Scott Padgett","","pitino|smith","champ fouryear kentuckian twocoaches in_pitino in_smith","1994–99"],["Wayne Turner","","pitino|smith","champ fouryear top10 twocoaches in_pitino in_smith","1995–99"],["Nazr Mohammed","","pitino|smith","champ tall twocoaches in_pitino in_smith","1995–98"],["Derek Anderson","","pitino","champ kentuckian in_pitino","1995–97"],["Ron Mercer","","pitino","champ in_pitino","1995–97"],["Jason Lathrem","","pitino","champ kentuckian in_pitino","1995–96"],["Oliver Simmons","","pitino","champ in_pitino","1995–97"],["Steve Masiello","","pitino|smith","champ fouryear twocoaches in_pitino in_smith","1996–00"],["Heshimu Evans","","pitino|smith","champ twocoaches in_pitino in_smith","1996–99"],["Jamaal Magloire","","pitino|smith","champ drafted r1 allstar fouryear tall top10 twocoaches in_pitino in_smith","1996–00"],["Saul Smith","","smith","champ fouryear in_smith","1997–01"],["Ryan Hogan","","smith","champ in_smith","1997–99"],["Myron Anthony","","smith","champ in_smith","1997–99"],["Michael Bradley","","smith","champ tall in_smith","1997–99"],["J. P. Blevins","","smith","fouryear kentuckian in_smith","1998–02"],["Todd Tackett","","smith","kentuckian in_smith","1998–01"],["Tayshaun Prince","","smith","drafted r1 fouryear top10 olympian in_smith","1998–02"],["Desmond Allison","","smith","in_smith","1998–00"],["Souleymane Camara","","smith","fouryear tall top10 in_smith","1998–03"],["Nate Knight","","smith","in_smith","1999–00"],["Keith Bogans","","smith","drafted r2 fouryear top10 in_smith","1999–03"],["Marvin Stone","","smith","tall in_smith","1999–02"],["Marquis Estill","","smith","fouryear kentuckian in_smith","1999–03"],["John Stewart","","smith","tall in_smith","1999–00"],["Cliff Hawkins","","smith","fouryear top10 in_smith","2000–04"],["Gerald Fitch","","smith","fouryear in_smith","2000–04"],["Erik Daniels","","smith","fouryear in_smith","2000–04"],["Matt Heissenbuttel","","smith","fouryear kentuckian in_smith","2000–04"],["Cory Sears","","smith","kentuckian in_smith","2000–02"],["Jason Parker","","smith","in_smith","2000–01"],["Adam Chiles","","smith","kentuckian in_smith","2001–02"],["Rashaad Carruth","","smith","in_smith","2001–02"],["Josh Carrier","","smith","fouryear kentuckian in_smith","2001–05"],["Chuck Hayes","","smith","fouryear top10 in_smith","2001–05"],["Brandon Stockton","","smith","fouryear kentuckian in_smith","2002–06"],["Ravi Moss","","smith","fouryear kentuckian in_smith","2002–06"],["Bernard Cote","","smith","in_smith","2002–04"],["Preston LeMaster","","smith","fouryear kentuckian in_smith","2002–06"],["Kelenna Azubuike","","smith","in_smith","2002–05"],["Antwain Barbour","","smith","kentuckian in_smith","2002–04"],["Lukasz Obrzut","","smith","fouryear tall in_smith","2003–07"],["Bobby Perry","","smith","fouryear in_smith","2003–07"],["Shagari Alleyne","","smith","tall in_smith","2003–06"],["Patrick Sparks","","smith","kentuckian in_smith","2003–06"],["Sheray Thomas","","smith","fouryear in_smith","2003–07"],["Ramel Bradley","","smith|gillispie","fouryear twocoaches in_smith in_gillispie","2004–08"],["Rajon Rondo","","smith","drafted r1 allstar kentuckian top10 in_smith","2004–06"],["Joe Crawford","","smith|gillispie","drafted r2 fouryear twocoaches in_smith in_gillispie","2004–08"],["Randolph Morris","","smith","tall in_smith","2004–07"],["Adam Williams","","smith","in_smith","2005–06"],["Rekalin Sims","","smith","in_smith","2005–06"],["Jared Carter","","smith|gillispie","fouryear kentuckian tall twocoaches in_smith in_gillispie","2005–09"],["Derrick Jasper","","smith|gillispie","twocoaches in_smith in_gillispie","2006–08"],["Ramon Harris","","smith|gillispie|calipari","fouryear twocoaches in_smith in_gillispie in_calipari","2006–10"],["Michael Porter","","smith|gillispie","twocoaches in_smith in_gillispie","2006–09"],["Perry Stevenson","","smith|gillispie|calipari","fouryear top10 twocoaches in_smith in_gillispie in_calipari","2006–10"],["Jodie Meeks","","smith|gillispie","drafted r2 twocoaches in_smith in_gillispie","2006–09"],["Dwight Perry","","smith|gillispie","twocoaches in_smith in_gillispie","2006–09"],["Mark Coury","","smith|gillispie","twocoaches in_smith in_gillispie","2006–08"],["Alex Legion","","gillispie","in_gillispie","2007–08"],["Matt Scherbenske","","gillispie","kentuckian in_gillispie","2007–09"],["Dusty Mills","","gillispie","in_gillispie","2007–08"],["Mark Krebs","","gillispie|calipari","kentuckian twocoaches in_gillispie in_calipari","2007–10"],["A. J. Stewart","","gillispie","in_gillispie","2007–09"],["Kerry Benson","","gillispie","kentuckian in_gillispie","2007–08"],["Morakinyo Williams","","gillispie","tall in_gillispie","2007–08"],["Patrick Patterson","","gillispie|calipari","drafted r1 top14 top10 twocoaches in_gillispie in_calipari","2007–10"],["Darius Miller","","gillispie|calipari","champ drafted r2 fouryear kentuckian twocoaches in_gillispie in_calipari","2008–12"],["Kevin Galloway","","gillispie","in_gillispie","2008–09"],["Landon Slone","","gillispie","kentuckian in_gillispie","2008–09"],["Adam Delph","","gillispie","kentuckian in_gillispie","2008–09"],["Mark Halsell","","gillispie","in_gillispie","2008–09"],["Donald Williams","","gillispie","in_gillispie","2008–09"],["Matthew Pilgrim","","gillispie","in_gillispie","2008–09"],["Deandre Liggins","","gillispie|calipari","drafted r2 twocoaches in_gillispie in_calipari","2008–11"],["Josh Harrellson","","gillispie|calipari","drafted r2 tall twocoaches in_gillispie in_calipari","2008–11"],["Darnell Dodson","","calipari","in_calipari","2009–10"],["Jon Hood","","calipari","champ fouryear kentuckian in_calipari","2009–14"],["John Wall","","calipari","drafted r1 top14 no1 allstar oneanddone in_calipari","2009–10"],["DeMarcus Cousins","","calipari","drafted r1 top14 allstar oneanddone tall olympian in_calipari","2009–10"],["Eric Bledsoe","","calipari","drafted r1 oneanddone in_calipari","2009–10"],["Daniel Orton","","calipari","drafted r1 oneanddone tall in_calipari","2009–10"],["Enes Kanter","","calipari","tall in_calipari","2010–11"],["Terrence Jones","","calipari","champ drafted r1 in_calipari","2010–12"],["Jarrod Polson","","calipari","champ fouryear kentuckian in_calipari","2010–14"],["Brandon Knight","","calipari","drafted r1 top14 oneanddone in_calipari","2010–11"],["Doron Lamb","","calipari","champ drafted r2 in_calipari","2010–12"],["Stacey Poole","","calipari","champ in_calipari","2010–12"],["Eloy Vargas","","calipari","champ tall in_calipari","2010–12"],["Twany Beckham","","calipari","champ kentuckian in_calipari","2011–13"],["Ryan Harrow","","calipari","champ in_calipari","2011–13"],["Sam Malone","","calipari","champ fouryear in_calipari","2011–15"],["Michael Kidd-Gilchrist","","calipari","champ drafted r1 top14 oneanddone in_calipari","2011–12"],["Anthony Davis","","calipari","champ mop drafted r1 top14 no1 allstar oneanddone tall top10 olympian in_calipari","2011–12"],["Marquis Teague","","calipari","champ drafted r1 oneanddone in_calipari","2011–12"],["Brian Long","","calipari","champ fouryear in_calipari","2011–15"],["Kyle Wiltjer","","calipari","champ in_calipari","2011–13"],["Nerlens Noel","","calipari","drafted r1 top14 oneanddone tall in_calipari","2012–13"],["Archie Goodwin","","calipari","drafted r1 oneanddone in_calipari","2012–13"],["Willie Cauley-Stein","","calipari","drafted r1 top14 tall top10 in_calipari","2012–15"],["Tod Lanter","","calipari","kentuckian in_calipari","2012–15"],["Alex Poythress","","calipari","fouryear in_calipari","2012–16"],["Julius Mays","","calipari","in_calipari","2012–13"],["Marcus Lee","","calipari","in_calipari","2013–16"],["James Young","","calipari","drafted r1 oneanddone in_calipari","2013–14"],["Aaron Harrison","","calipari","in_calipari","2013–15"],["Andrew Harrison","","calipari","drafted r2 in_calipari","2013–15"],["E.J. Floreal","","calipari","in_calipari","2013–16"],["Dominique Hawkins","","calipari","fouryear kentuckian in_calipari","2013–17"],["Julius Randle","","calipari","drafted r1 top14 allstar oneanddone in_calipari","2013–14"],["Derek Willis","","calipari","fouryear kentuckian in_calipari","2013–17"],["Dakari Johnson","","calipari","drafted r2 tall in_calipari","2013–15"],["Devin Booker","","calipari","drafted r1 top14 allstar oneanddone olympian in_calipari","2014–15"],["Tyler Ulis","","calipari","drafted r2 top10 in_calipari","2014–16"],["Karl-Anthony Towns","","calipari","drafted r1 top14 no1 allstar oneanddone tall in_calipari","2014–15"],["Trey Lyles","","calipari","drafted r1 top14 oneanddone tall olympian in_calipari","2014–15"],["Skal Labissiere","","calipari","drafted r1 oneanddone tall in_calipari","2015–16"],["Charles Matthews","","calipari","in_calipari","2015–16"],["Jonny David","","calipari","fouryear in_calipari","2015–19"],["Mychal Mulder","","calipari","in_calipari","2015–17"],["Isaiah Briscoe","","calipari","in_calipari","2015–17"],["Tai Wynyard","","calipari","tall in_calipari","2015–18"],["Isaac Humphries","","calipari","tall in_calipari","2015–17"],["Jamal Murray","","calipari","drafted r1 top14 allstar oneanddone olympian in_calipari","2015–16"],["Dillon Pulliam","","calipari","kentuckian in_calipari","2015–18"],["De’Aaron Fox","","calipari","drafted r1 top14 allstar oneanddone in_calipari","2016–17"],["Sacha Killeya-Jones","","calipari","tall in_calipari","2016–18"],["Bam Adebayo","","calipari","drafted r1 top14 allstar oneanddone tall olympian in_calipari","2016–17"],["Hamidou Diallo","","calipari","drafted r2 in_calipari","2016–18"],["Malik Monk","","calipari","drafted r1 top14 oneanddone in_calipari","2016–17"],["Brad Calipari","","calipari","in_calipari","2016–19"],["Wenyen Gabriel","","calipari","olympian in_calipari","2016–18"],["Quade Green","","calipari","in_calipari","2017–19"],["Jarred Vanderbilt","","calipari","drafted r2 oneanddone in_calipari","2017–18"],["Nick Richards","","calipari","drafted r2 tall in_calipari","2017–20"],["Kevin Knox","","calipari","drafted r1 top14 oneanddone in_calipari","2017–18"],["Jemarl Baker","","calipari","in_calipari","2017–19"],["Shai Gilgeous-Alexander","","calipari","drafted r1 top14 allstar oneanddone olympian in_calipari","2017–18"],["P.J. Washington","","calipari","drafted r1 top14 in_calipari","2017–19"],["Ashton Hagans","","calipari","in_calipari","2018–20"],["Keldon Johnson","","calipari","drafted r1 oneanddone olympian in_calipari","2018–19"],["Immanuel Quickley","","calipari","drafted r1 in_calipari","2018–20"],["Tyler Herro","","calipari","drafted r1 top14 allstar oneanddone in_calipari","2018–19"],["Zan Payne","","calipari","fouryear kentuckian in_calipari","2018–22"],["Reid Travis","","calipari","in_calipari","2018–19"],["E.J. Montgomery","","calipari","tall in_calipari","2018–20"],["Nate Sestina","","calipari","in_calipari","2019–20"],["Kahlil Whitney","","calipari","in_calipari","2019–20"],["Tyrese Maxey","","calipari","drafted r1 allstar oneanddone in_calipari","2019–20"],["Johnny Juzang","","calipari","in_calipari","2019–20"],["Dontaie Allen","","calipari","kentuckian in_calipari","2019–22"],["Keion Brooks","","calipari","in_calipari","2019–22"],["Riley Welch","","calipari","in_calipari","2019–21"],["Brennan Canada","","calipari","fouryear kentuckian in_calipari","2019–24"],["Ben Jordan","","calipari","kentuckian in_calipari","2019–20"],["Jacob Toppin","","calipari","in_calipari","2020–23"],["Devin Askew","","calipari","in_calipari","2020–21"],["Brandon Boston","","calipari","drafted r2 oneanddone in_calipari","2020–21"],["Terrence Clarke","","calipari","in_calipari","2020–21"],["Davion Mintz","","calipari","in_calipari","2020–22"],["Cam’Ron Fletcher","","calipari","in_calipari","2020–21"],["Isaiah Jackson","","calipari","drafted r1 oneanddone tall in_calipari","2020–21"],["Kareem Watkins","","calipari","fouryear in_calipari","2020–24"],["Olivier Sarr","","calipari","tall in_calipari","2020–21"],["Lance Ware","","calipari","in_calipari","2020–23"],["CJ Fredrick","","calipari","in_calipari","2021–23"],["Sahvir Wheeler","","calipari","in_calipari","2021–23"],["TyTy Washington","","calipari","drafted r1 oneanddone in_calipari","2021–22"],["Daimion Collins","","calipari","in_calipari","2021–23"],["Bryce Hopkins","","calipari","in_calipari","2021–22"],["Kellan Grady","","calipari","in_calipari","2021–22"],["Oscar Tshiebwe","","calipari","in_calipari","2021–23"],["Adou Thiero","","calipari","in_calipari","2022–24"],["Antonio Reeves","","calipari","drafted r2 in_calipari","2022–24"],["Grant Darbyshire","","calipari|pope","twocoaches in_calipari in_pope","2022–25"],["Walker Horn","","calipari|pope","fouryear twocoaches in_calipari in_pope","2022–26"],["Cason Wallace","","calipari","drafted r1 top14 oneanddone in_calipari","2022–23"],["Chris Livingston","","calipari","drafted r2 oneanddone in_calipari","2022–23"],["Ugonna Onyenso","","calipari","tall in_calipari","2022–24"],["Rob Dillingham","","calipari","drafted r1 top14 oneanddone in_calipari","2023–24"],["Justin Edwards","","calipari","in_calipari","2023–24"],["Aaron Bradshaw","","calipari","tall in_calipari","2023–24"],["Tre Mitchell","","calipari","in_calipari","2023–24"],["Reed Sheppard","","calipari","drafted r1 top14 oneanddone kentuckian in_calipari","2023–24"],["Joey Hart","","calipari","in_calipari","2023–24"],["D.J. Wagner","","calipari","in_calipari","2023–24"],["Jordan Burks","","calipari","in_calipari","2023–24"],["Zvonimir Ivisic","","calipari","tall in_calipari","2023–24"],["Otega Oweh","","pope","in_pope","2024–26"],["Lamont Butler","","pope","in_pope","2024–25"],["Jaxson Robinson","","pope","in_pope","2024–25"],["Koby Brea","","pope","drafted r2 oneanddone in_pope","2024–25"],["Collin Chandler","","pope","in_pope","2024–26"],["Andrew Carr","","pope","tall in_pope","2024–25"],["Trent Noah","","pope","kentuckian in_pope","2024–26"],["Brandon Garrison","","pope","tall in_pope","2024–26"],["Travis Perry","","pope","kentuckian in_pope","2024–25"],["Ansley Almonor","","pope","in_pope","2024–25"],["Zach Tow","","pope","kentuckian in_pope","2024–26"],["Amari Williams","","pope","drafted r2 oneanddone tall in_pope","2024–25"],["Kerr Kriisa","","pope","in_pope","2024–25"],["Denzel Aberdeen","","pope","in_pope","2025–26"],["Jasper Johnson","","pope","in_pope","2025–26"],["Kam Williams","","pope","in_pope","2025–26"],["Andrija Jelavic","","pope","in_pope","2025–26"],["Jaland Lowe","","pope","in_pope","2025–26"],["Jayden Quaintance","","pope","in_pope","2025–26"],["Braydon Hawthorne","","pope","in_pope","2025–26"],["Mouhamed Dioubate","","pope","in_pope","2025–26"],["Malachi Moreno","","pope","in_pope","2025–26"],["Reece Potter","","pope","in_pope","2025–26"]],"artists":[]};
+const SONGS = DATA.songs.map(([title, credit, rows, cols, year], i) => ({ i, title, credit, year, rows: new Set(rows.split('|').filter(Boolean)), cols: new Set(cols.split(' ').filter(Boolean)) }));
+const TYPE_ROWS = { rupp: ['Adolph Rupp', '1930–1972'], hall: ['Joe B. Hall', '1972–1985'], sutton: ['Eddie Sutton', '1985–1989'], pitino: ['Rick Pitino', '1989–1997'], smith: ['Tubby Smith', '1997–2007'], gillispie: ['Billy Gillispie', '2007–2009'], calipari: ['John Calipari', '2009–2024'], pope: ['Mark Pope', '2024–'] };
+const COLS = {
+  champ: ['National champion', 'On a title team'],
+  mop: ['Final Four MOP', 'Most Outstanding Player'],
+  drafted: ['Drafted into the NBA', 'Any round'],
+  r1: ['First-round pick', 'NBA draft'],
+  top14: ['Top-14 pick', 'NBA draft'],
+  no1: ['No. 1 overall pick', 'NBA draft'],
+  r2: ['Second-round pick', 'NBA draft'],
+  allstar: ['NBA All-Star', 'At least once'],
+  oneanddone: ['One-and-done', 'One season, then drafted'],
+  fouryear: ['Four-year Wildcat', 'Four or more seasons'],
+  kentuckian: ['From Kentucky', 'Hometown in the state'],
+  tall: ['6′10″ or taller', 'Listed height'],
+  honored: ['Jersey honored', 'In Rupp Arena'],
+  top10: ['Top 10 all-time', 'Points, boards, assists, steals or blocks'],
+  hof: ['Hall of Famer', 'Naismith Hall'],
+  olympian: ['Olympian', 'Played in the Games'],
+  twocoaches: ['Played for 2 coaches', 'At Kentucky'],
+  in_rupp: ['Also played for Rupp', 'Two-coach careers'], in_hall: ['Also played for Hall', 'Two-coach careers'], in_sutton: ['Also played for Sutton', 'Two-coach careers'],
+  in_pitino: ['Also played for Pitino', 'Two-coach careers'], in_smith: ['Also played for Tubby', 'Two-coach careers'], in_gillispie: ['Also played for Gillispie', 'Two-coach careers'],
+  in_calipari: ['Also played for Calipari', 'Two-coach careers'], in_pope: ['Also played for Pope', 'Two-coach careers']
+};
+const MEDIUM_COLS = ['champ', 'drafted', 'r1', 'top14', 'allstar', 'oneanddone', 'fouryear', 'kentuckian', 'tall', 'honored', 'top10'];
+const MEDIUM_ROWS = DATA.artists.filter(a => SONGS.filter(s => s.rows.has('a:' + a)).length >= 8).map(a => 'a:' + a).concat(['rupp', 'hall', 'pitino', 'smith', 'calipari']);
+let MODE = 'medium';
+try { const m = localStorage.getItem('bb:mode'); if (m === 'hard' || m === 'medium') MODE = m; } catch (e) {}
+const CLASH = [['y1','y2'],['r1','r2'],['top14','r2'],['no1','r2'],['oneanddone','fouryear'],['oneanddone','twocoaches'],['drafted','r1'],['drafted','top14'],['drafted','no1'],['drafted','r2'],['r1','top14'],['r1','no1'],['top14','no1']];
+const ROWS = DATA.artists.map(a => 'a:' + a).concat(Object.keys(TYPE_ROWS));
+const rowLabel = r => r.startsWith('a:') ? [r.slice(2), ''] : TYPE_ROWS[r];
+
+function rng(seedStr) {
+  let h = 1779033703 ^ seedStr.length;
+  for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+  let a = h >>> 0;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+const shuffle = (arr, r) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const answers = (row, col) => SONGS.filter(s => s.rows.has(row) && s.cols.has(col));
+
+function solvable(rs, cs) {
+  // Bipartite matching: can every square get its own distinct answer?
+  const lists = [];
+  for (const r of rs) for (const c of cs) lists.push(answers(r, c).map(x => x.i));
+  const owner = new Map();
+  const tryCell = (k, seen) => {
+    for (const a of lists[k]) {
+      if (seen.has(a)) continue; seen.add(a);
+      if (!owner.has(a) || tryCell(owner.get(a), seen)) { owner.set(a, k); return true; }
+    }
+    return false;
+  };
+  for (let k = 0; k < lists.length; k++) if (!tryCell(k, new Set())) return false;
+  return true;
+}
+window.__solvable = () => (G.schools ? solvable(G.schools, G.cats) : solvable(G.rows, G.cols));
+function makeGrid(seed) {
+  const r = rng(MODE + ':' + seed); const COLPOOL = MODE === 'medium' ? MEDIUM_COLS : Object.keys(COLS); const ROWPOOL = MODE === 'medium' ? MEDIUM_ROWS : ROWS; const MIN = MODE === 'medium' ? 2 : 1;
+  for (let tries = 0; tries < 6000; tries++) {
+    const cols = shuffle(COLPOOL, r).slice(0, 3);
+    if (CLASH.some(([a, b]) => cols.includes(a) && cols.includes(b))) continue;
+    const rows = shuffle(ROWPOOL, r).slice(0, 3);
+    if (cols.some(c => c.startsWith('in_') && rows.includes(c.slice(3)))) continue;
+    let ok = true, thin = 0;
+    for (const x of rows) for (const c of cols) { const n = answers(x, c).length; if (n < (c.startsWith('in_') ? 1 : MIN)) ok = false; if (n === 1) thin++; }
+    if (ok && solvable(rows, cols) && thin <= 2) return { rows, cols };
+  }
+  return { rows: ['rupp', 'pitino', 'calipari'], cols: ['champ', 'kentuckian', 'drafted'] };
+}
+
+const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const $ = id => document.getElementById(id);
+let G, S, seed, active = null;
+
+function load(newSeed) {
+  seed = newSeed; G = makeGrid(seed);
+  S = store.get('bb:' + MODE + ':' + seed) || { cells: Array(9).fill(null), left: 9, gaveUp: false };
+  store.set('bb:last', seed);
+  $('label').textContent = seed.startsWith('daily-') ? 'Daily grid · ' + new Date(seed.slice(6) + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Random grid #' + seed.slice(5).toUpperCase();
+  render();
+}
+const save = () => store.set('bb:' + MODE + ':' + seed, S);
+const done = () => S.gaveUp || S.left <= 0 || S.cells.every(c => c !== null);
+
+function render() {
+  const b = $('board'); b.innerHTML = '';
+  const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'Coach × fact'; b.appendChild(corner);
+  G.cols.forEach(c => { const h = document.createElement('div'); h.className = 'head'; h.append(COLS[c][0]); const sm = document.createElement('small'); sm.textContent = COLS[c][1]; h.appendChild(sm); b.appendChild(h); });
+  const over = done();
+  G.rows.forEach((row, ri) => {
+    const [lab, sub] = rowLabel(row);
+    const rh = document.createElement('div'); rh.className = 'rowhead' + (row.startsWith('a:') ? '' : ' type'); rh.append(lab);
+    if (!row.startsWith('a:')) { const sm = document.createElement('small'); sm.textContent = sub; rh.appendChild(sm); }
+    b.appendChild(rh);
+    G.cols.forEach((c, k) => {
+      const idx = ri * 3 + k, val = S.cells[idx], all = answers(row, c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cell'; btn.id = 'cell-' + idx;
+      if (val !== null) {
+        const s = SONGS[val];
+        btn.classList.add('hit'); btn.disabled = true;
+        btn.innerHTML = '<span class="name"></span><span class="by"></span><span class="rare"></span>';
+        btn.querySelector('.name').textContent = s.title; btn.querySelector('.by').textContent = s.credit;
+        btn.querySelector('.rare').textContent = '1 of ' + all.length;
+        btn.setAttribute('aria-label', lab + ', ' + COLS[c][0] + ': ' + s.title + ' by ' + s.credit);
+      } else if (over) {
+        btn.classList.add('reveal'); btn.disabled = true;
+        const span = document.createElement('span'); span.className = 'name';
+        span.textContent = all.slice(0, 3).map(s => s.title).join(', ') + (all.length > 3 ? ' +' + (all.length - 3) : '');
+        btn.appendChild(span);
+      } else {
+        btn.innerHTML = '<span class="plus" aria-hidden="true">+</span>';
+        btn.setAttribute('aria-label', 'Guess for ' + lab + ', ' + COLS[c][0]);
+        btn.addEventListener('click', () => openSheet(idx));
+      }
+      b.appendChild(btn);
+    });
+  });
+  $('left').textContent = S.left; $('giveup').hidden = over;
+  $('summary').hidden = !over;
+  if (over) {
+    const n = S.cells.filter(c => c !== null).length;
+    $('sumTitle').textContent = n === 9 ? 'Perfect grid' : n + ' of 9';
+    $('sumText').textContent = n === 9 ? 'Every square filled with ' + S.left + ' guesses to spare.' : 'Empty squares now show players who would have worked.';
+  }
+}
+
+function openSheet(idx) {
+  active = idx;
+  $('prompt').textContent = rowLabel(G.rows[Math.floor(idx / 3)])[0] + ' + ' + COLS[G.cols[idx % 3]][0];
+  $('q').value = ''; renderResults();
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  setTimeout(() => $('q').focus(), 30);
+}
+function closeSheet() { $('scrim').hidden = true; $('sheet').hidden = true; active = null; }
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+const IDX = SONGS.map(s => ({ t: norm(s.title), a: norm(s.credit) }));
+function renderResults() {
+  const q = norm($('q').value), ul = $('results'); ul.innerHTML = '';
+  if (q.length < 2) { ul.innerHTML = '<li class="hint">Type at least 2 letters of a player’s name.</li>'; return; }
+  const used = new Set(S.cells.filter(c => c !== null));
+  const score = i => { const { t, a } = IDX[i]; if (t.startsWith(q)) return 0; if (t.split(' ').some(w => w.startsWith(q))) return 1; if (t.includes(q)) return 2; if (a.split(' ').some(w => w.startsWith(q)) || a.startsWith(q)) return 3; return 9; };
+  const hits = SONGS.map(s => [score(s.i), s]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].title.localeCompare(b[1].title)).slice(0, 25).map(x => x[1]);
+  if (!hits.length) { ul.innerHTML = '<li class="hint">That player isn’t on a Kentucky roster in this list.</li>'; return; }
+  for (const s of hits) {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    const t = document.createElement('span'); t.textContent = s.title;
+    const sm = document.createElement('small'); sm.textContent = s.credit + (used.has(s.i) ? ' · already used' : '');
+    b.append(t, sm); b.disabled = used.has(s.i);
+    b.addEventListener('click', () => guess(s));
+    li.appendChild(b); ul.appendChild(li);
+  }
+}
+
+function guess(s) {
+  const idx = active; if (idx === null) return;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  S.left--;
+  const right = s.rows.has(row) && s.cols.has(c);
+  if (right) S.cells[idx] = s.i;
+  save(); closeSheet(); render();
+  if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
+}
+
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
+
+const SB_URL = 'https://bfohdusslfiilrmhrnlp.supabase.co', SB_KEY = 'sb_publishable_Q9FDNyxo-kTX2XEdO3KGOA_WIUwPxJ9', GAME = 'bigblue';
+let PLAYER = null;
+try { PLAYER = localStorage.getItem('gg:player'); if (!PLAYER) { PLAYER = crypto.randomUUID(); localStorage.setItem('gg:player', PLAYER); } } catch (e) { PLAYER = (crypto.randomUUID ? crypto.randomUUID() : null); }
+let STATS = null, STATS_STATE = 'idle';
+const gridKey = () => ((typeof MODE !== 'undefined') ? MODE : 'std') + ':' + seed;
+const isDaily = () => typeof seed === 'string' && seed.startsWith('daily-');
+const songKey = s => s.title + ' | ' + (s.credit || s.album || '');
+async function rpc(fn, body) {
+  const r = await fetch(SB_URL + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
+}
+async function loadStats() {
+  if (!isDaily() || !PLAYER) { STATS = null; STATS_STATE = 'off'; render(); return; }
+  const k = gridKey(); STATS_STATE = STATS ? STATS_STATE : 'loading'; renderStats();
+  try { const s = await rpc('grid_stats', { p_game: GAME, p_grid: k }); if (k === gridKey()) { STATS = s; STATS_STATE = 'ok'; render(); } }
+  catch (e) { if (k === gridKey()) { STATS_STATE = 'error'; renderStats(); } }
+}
+function record(cell, answer) {
+  if (!isDaily() || !PLAYER) return Promise.resolve();
+  return rpc('record_answer', { p_game: GAME, p_grid: gridKey(), p_player: PLAYER, p_cell: cell, p_answer: answer }).catch(() => {});
+}
+function pickCount(cell, s) { if (!STATS) return 0; const a = STATS.answers.find(x => x.cell === cell && x.answer === songKey(s)); return a ? a.n : 0; }
+function pct(n) { return STATS && STATS.players ? Math.round(100 * n / STATS.players) : 0; }
+function renderStats() {
+  const el = $('statline'); if (!el) return;
+  if (!isDaily()) { el.textContent = 'Player stats are kept for the daily grid only.'; return; }
+  if (STATS_STATE === 'loading') { el.textContent = 'Loading today’s players…'; return; }
+  if (STATS_STATE === 'error') { el.textContent = 'Player stats aren’t reachable right now.'; return; }
+  if (!STATS) { el.textContent = ''; return; }
+  const n = STATS.players; el.innerHTML = '';
+  const b = document.createElement('b'); b.textContent = n; el.append(b, n === 1 ? ' player today' : ' players today');
+  if (n > 0) {
+    const total = STATS.answers.reduce((sum, a) => sum + a.n, 0);
+    const avg = document.createElement('b'); avg.textContent = (Math.round(10 * total / n) / 10).toFixed(1) + '/9';
+    el.append(' · avg score ', avg);
+  }
+}
+function decorate() {
+  const over = done();
+  for (let idx = 0; idx < 9; idx++) {
+    const btn = $('cell-' + idx); if (!btn) continue;
+    const val = S.cells[idx];
+    if (val !== null && STATS && STATS.players) {
+      const r = btn.querySelector('.rare'); if (r) r.textContent = pct(pickCount(idx, SONGS[val])) + '% picked this';
+    }
+    if (!over) continue;
+    btn.disabled = false; btn.classList.add('over-tap');
+    btn.onclick = () => openAnswers(idx);
+    if (val === null && STATS && STATS.answers.some(a => a.cell === idx)) {
+      const best = STATS.answers.filter(a => a.cell === idx).sort((a, b) => b.n - a.n)[0];
+      const name = btn.querySelector('.name'); if (name) name.remove();
+      const top = document.createElement('span'); top.className = 'top';
+      top.append('Most picked', document.createElement('br'));
+      const bb = document.createElement('b'); bb.textContent = best.answer.split(' | ')[0]; top.append(bb, ' · ' + pct(best.n) + '%');
+      btn.appendChild(top);
+    }
+  }
+  if (over) addShareRow();
+  if (over) { const p = $('sumText'); const hint = ' Tap any square to see every answer that worked and how often players picked it.'; if (p && !p.textContent.includes(hint.trim())) p.textContent += hint; }
+}
+function openAnswers(idx) {
+  active = null;
+  const row = G.rows[Math.floor(idx / 3)], c = G.cols[idx % 3];
+  $('prompt').textContent = rowLabel(row)[0] + ' + ' + COLS[c][0];
+  $('q').hidden = true;
+  const ul = $('results'); ul.innerHTML = '';
+  const list = answers(row, c).map(s => ({ s, n: pickCount(idx, s) })).sort((a, b) => b.n - a.n || a.s.title.localeCompare(b.s.title));
+  const hint = document.createElement('li'); hint.className = 'hint';
+  hint.textContent = list.length + (list.length === 1 ? ' answer worked' : ' answers worked') + (isDaily() && STATS ? ' · ' + STATS.players + (STATS.players === 1 ? ' player today' : ' players today') : '');
+  ul.appendChild(hint);
+  for (const { s, n } of list) {
+    const li = document.createElement('li'); li.className = 'ans' + (S.cells[idx] === s.i ? ' mine' : '');
+    const top = document.createElement('div'); top.className = 'ans-top';
+    const t = document.createElement('span'); t.className = 't'; t.textContent = s.title;
+    const p = document.createElement('span'); p.className = 'p'; p.textContent = isDaily() && STATS ? pct(n) + '%' : '';
+    top.append(t, p); li.appendChild(top);
+    const sm = document.createElement('small'); sm.textContent = s.credit || s.album || ''; li.appendChild(sm);
+    if (isDaily() && STATS) { const bar = document.createElement('div'); bar.className = 'bar'; const i = document.createElement('i'); i.style.width = pct(n) + '%'; bar.appendChild(i); li.appendChild(bar); }
+    if (S.cells[idx] === s.i) { const m = document.createElement('span'); m.className = 'mine-tag'; m.textContent = 'Your pick'; li.appendChild(m); }
+    ul.appendChild(li);
+  }
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  if (typeof fitSheet === 'function') fitSheet();
+}
+window.__gridTest = { firstAnswer: () => answers(G.rows[0], G.cols[0])[0].title };
+
+const LAUNCH = Date.UTC(2026, 10, 14);
+function puzzleNo() { if (!isDaily()) return null; const d = seed.slice(6).split('-').map(Number); return Math.round((Date.UTC(d[0], d[1] - 1, d[2]) - LAUNCH) / 864e5) + 1; }
+function shareText() {
+  const n = S.cells.filter(c => c !== null).length, no = puzzleNo();
+  const mode = (typeof MODE !== 'undefined') ? ' (' + MODE[0].toUpperCase() + MODE.slice(1) + ')' : '';
+  const head = document.title + (no ? ' #' + no : ' · random grid') + mode + ' ' + n + '/9';
+  const rows = [0, 1, 2].map(r => [0, 1, 2].map(c => S.cells[r * 3 + c] !== null ? '\u{1F7E9}' : '\u{1F7E5}').join('')).join('\n');
+  return head + '\n' + rows;
+}
+const shareUrl = () => location.origin + location.pathname;
+async function shareScore(btn) {
+  const text = shareText(), url = shareUrl();
+  if (navigator.share) {
+    try { await navigator.share({ text, url }); return; }
+    catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  copyScore($('copyScore'));
+}
+async function copyScore(btn) {
+  const text = shareText(), url = shareUrl(), plain = text + '\n' + url;
+  const name = document.title, esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const html = '<a href="' + url + '">' + esc(name) + '</a>' + esc(text.slice(name.length)).split('\n').join('<br>');
+  let ok = false;
+  try {
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+      await navigator.clipboard.write([new ClipboardItem({ 'text/plain': new Blob([plain], { type: 'text/plain' }), 'text/html': new Blob([html], { type: 'text/html' }) })]);
+      ok = true;
+    }
+  } catch (e) {}
+  if (!ok) { try { await navigator.clipboard.writeText(plain); ok = true; } catch (e) {} }
+  if (btn) { btn.textContent = ok ? 'Copied!' : 'Couldn’t copy'; setTimeout(() => { btn.textContent = 'Copy score'; }, 2000); }
+}
+function addShareRow() {
+  const sum = $('summary'); if (!sum || $('shareRow')) return;
+  const row = document.createElement('div'); row.className = 'share-row'; row.id = 'shareRow';
+  const a = document.createElement('button'); a.type = 'button'; a.className = 'btn primary'; a.id = 'shareScore'; a.textContent = 'Share score';
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.id = 'copyScore'; b.textContent = 'Copy score';
+  a.addEventListener('click', () => shareScore(a)); b.addEventListener('click', () => copyScore(b));
+  row.append(a, b); sum.appendChild(row);
+}
+window.__gridTest.shareText = () => shareText();
+const _render = render; render = function () { _render(); renderStats(); decorate(); };
+const _openSheet = openSheet; openSheet = function (idx) { $('q').hidden = false; _openSheet(idx); };
+const _load = load; load = function (sd) { STATS = null; STATS_STATE = 'idle'; _load(sd); loadStats(); };
+const _guess = guess; guess = function (s) {
+  const idx = active; if (idx === null) return;
+  const before = S.cells[idx]; _guess(s);
+  const ok = before === null && S.cells[idx] === s.i;
+  record(ok ? idx : 0, ok ? songKey(s) : '').then(loadStats);
+};
+$('q').addEventListener('input', renderResults);
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
+$('close').addEventListener('click', closeSheet);
+$('scrim').addEventListener('click', closeSheet);
+addEventListener('keydown', e => { if (e.key === 'Escape' && active !== null) closeSheet(); });
+$('giveup').addEventListener('click', () => { S.gaveUp = true; save(); render(); });
+$('today').addEventListener('click', () => load('daily-' + todayKey()));
+$('random').addEventListener('click', () => load('rand-' + Math.random().toString(36).slice(2, 7)));
+function setMode(m) {
+  MODE = m;
+  try { localStorage.setItem('bb:mode', m); } catch (e) {}
+  document.querySelectorAll('.mode').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
+setMode(MODE);
+const last = store.get('bb:last');
+load(last && last.startsWith('rand-') ? last : 'daily-' + todayKey());
+})();
+</script>
+
+</body>
+</html>

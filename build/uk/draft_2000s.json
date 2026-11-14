@@ -1,0 +1,458 @@
+[
+{
+"year": 2000,
+"round": "1",
+"pick": "19",
+"name": "Jamaal Magloire",
+"cls": "Sr",
+"marks": "+"
+},
+{
+"year": 2002,
+"round": "1",
+"pick": "23",
+"name": "Tayshaun Prince",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2003,
+"round": "2",
+"pick": "43",
+"name": "Keith Bogans",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2006,
+"round": "1",
+"pick": "21",
+"name": "Rajon Rondo",
+"cls": "So",
+"marks": "*"
+},
+{
+"year": 2008,
+"round": "2",
+"pick": "58",
+"name": "Joe Crawford",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2009,
+"round": "2",
+"pick": "41",
+"name": "Jodie Meeks",
+"cls": "Jr",
+"marks": ""
+},
+{
+"year": 2010,
+"round": "1",
+"pick": "1",
+"name": "John Wall",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2010,
+"round": "1",
+"pick": "5",
+"name": "DeMarcus Cousins",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2010,
+"round": "1",
+"pick": "14",
+"name": "Patrick Patterson",
+"cls": "Jr",
+"marks": ""
+},
+{
+"year": 2010,
+"round": "1",
+"pick": "18",
+"name": "Eric Bledsoe",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2010,
+"round": "1",
+"pick": "29",
+"name": "Daniel Orton",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2011,
+"round": "1",
+"pick": "8",
+"name": "Brandon Knight",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2011,
+"round": "2",
+"pick": "45",
+"name": "Josh Harrellson",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2011,
+"round": "2",
+"pick": "53",
+"name": "DeAndre Liggins",
+"cls": "Jr",
+"marks": ""
+},
+{
+"year": 2012,
+"round": "1",
+"pick": "1",
+"name": "Anthony Davis",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2012,
+"round": "1",
+"pick": "2",
+"name": "Michael Kidd-Gilchrist",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2012,
+"round": "1",
+"pick": "18",
+"name": "Terrence Jones",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2012,
+"round": "1",
+"pick": "29",
+"name": "Marquis Teague",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2012,
+"round": "2",
+"pick": "42",
+"name": "Doron Lamb",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2012,
+"round": "2",
+"pick": "46",
+"name": "Darius Miller",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2013,
+"round": "1",
+"pick": "6",
+"name": "Nerlens Noel",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2013,
+"round": "1",
+"pick": "29",
+"name": "Archie Goodwin",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2014,
+"round": "1",
+"pick": "7",
+"name": "Julius Randle",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2014,
+"round": "1",
+"pick": "17",
+"name": "James Young",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2015,
+"round": "1",
+"pick": "1",
+"name": "Karl-Anthony Towns",
+"cls": "Fr",
+"marks": "*~"
+},
+{
+"year": 2015,
+"round": "1",
+"pick": "6",
+"name": "Willie Cauley-Stein",
+"cls": "Jr",
+"marks": ""
+},
+{
+"year": 2015,
+"round": "1",
+"pick": "12",
+"name": "Trey Lyles",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2015,
+"round": "1",
+"pick": "13",
+"name": "Devin Booker",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2015,
+"round": "2",
+"pick": "44",
+"name": "Andrew Harrison",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2015,
+"round": "2",
+"pick": "48",
+"name": "Dakari Johnson",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2016,
+"round": "1",
+"pick": "7",
+"name": "Jamal Murray",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2016,
+"round": "1",
+"pick": "28",
+"name": "Skal Labissi\u00e8re",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2016,
+"round": "2",
+"pick": "34",
+"name": "Tyler Ulis",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2017,
+"round": "1",
+"pick": "5",
+"name": "De'Aaron Fox",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2017,
+"round": "1",
+"pick": "11",
+"name": "Malik Monk",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2017,
+"round": "1",
+"pick": "14",
+"name": "Bam Adebayo",
+"cls": "Fr",
+"marks": "+"
+},
+{
+"year": 2018,
+"round": "1",
+"pick": "9",
+"name": "Kevin Knox II",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2018,
+"round": "1",
+"pick": "11",
+"name": "Shai Gilgeous-Alexander",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2018,
+"round": "2",
+"pick": "41",
+"name": "Jarred Vanderbilt",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2018,
+"round": "2",
+"pick": "45",
+"name": "Hamidou Diallo",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2019,
+"round": "1",
+"pick": "12",
+"name": "P. J. Washington",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2019,
+"round": "1",
+"pick": "13",
+"name": "Tyler Herro",
+"cls": "Fr",
+"marks": "+"
+},
+{
+"year": 2019,
+"round": "1",
+"pick": "29",
+"name": "Keldon Johnson",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2020,
+"round": "1",
+"pick": "21",
+"name": "Tyrese Maxey",
+"cls": "Fr",
+"marks": "*"
+},
+{
+"year": 2020,
+"round": "1",
+"pick": "25",
+"name": "Immanuel Quickley",
+"cls": "So",
+"marks": ""
+},
+{
+"year": 2020,
+"round": "2",
+"pick": "42",
+"name": "Nick Richards",
+"cls": "Jr",
+"marks": ""
+},
+{
+"year": 2021,
+"round": "1",
+"pick": "22",
+"name": "Isaiah Jackson",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2021,
+"round": "2",
+"pick": "51",
+"name": "Brandon Boston Jr.",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2022,
+"round": "1",
+"pick": "7",
+"name": "Shaedon Sharpe",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2022,
+"round": "1",
+"pick": "29",
+"name": "TyTy Washington Jr.",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2023,
+"round": "1",
+"pick": "10",
+"name": "Cason Wallace",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2023,
+"round": "2",
+"pick": "58",
+"name": "Chris Livingston",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2024,
+"round": "1",
+"pick": "3",
+"name": "Reed Sheppard",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2024,
+"round": "1",
+"pick": "8",
+"name": "Rob Dillingham",
+"cls": "Fr",
+"marks": ""
+},
+{
+"year": 2024,
+"round": "2",
+"pick": "47",
+"name": "Antonio Reeves",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2025,
+"round": "2",
+"pick": "41",
+"name": "Koby Brea",
+"cls": "Sr",
+"marks": ""
+},
+{
+"year": 2025,
+"round": "2",
+"pick": "46",
+"name": "Amari Williams",
+"cls": "Sr",
+"marks": ""
+}
+]
