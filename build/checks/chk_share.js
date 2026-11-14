@@ -18,9 +18,9 @@ const { chromium } = require('playwright');
     await p.click('#copyScore'); await p.waitForTimeout(300);
     const btn = await p.textContent('#copyScore');
     const clip = await p.evaluate(() => navigator.clipboard.readText());
-    const og = await p.$eval('meta[property="og:image"]', m => m.content);
+    const og = await p.$eval('meta[property="og:image"]', m => m.content); const html = await p.evaluate(async () => { const it = await navigator.clipboard.read(); const t = it[0].types.includes('text/html') ? await (await it[0].getType('text/html')).text() : ''; return t; }); const home = await p.$eval('.topnav a', a => a.getAttribute('href'));
     if (f === 'flannel-grid.html') await p.screenshot({ path: 'share.png' });
-    console.log(f, JSON.stringify({ errs, text, btn, clip, og }));
+    console.log(f, JSON.stringify({ errs, text, btn, clip, html, home }));
     await ctx.close();
   }
   await b.close();
