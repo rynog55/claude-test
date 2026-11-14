@@ -1,0 +1,46 @@
+# name | groups | tags        The Office (US), seasons 1–9
+# groups: sales, accounting, warehouse, boss (ran the Scranton branch, even briefly), frontdesk (reception, HR, customer service,
+#         quality assurance, supplier relations), corporate (Dunder Mifflin or Sabre corporate), stamford (Stamford branch)
+# tags: married (married by the finale), parent (has kids by the finale), dated (dated a coworker on screen), musician (plays music on the show), pilot (in the Pilot episode), wedding (wedding shown on screen), left (left Dunder Mifflin on screen: quit, fired, retired or transferred away)
+Michael Scott|boss|married parent dated pilot left
+Dwight Schrute|sales boss|married parent dated pilot wedding
+Jim Halpert|sales boss stamford|married parent dated pilot wedding left
+Pam Beesly|frontdesk sales|married parent dated pilot wedding left
+Ryan Howard|sales frontdesk corporate|parent dated pilot left
+Andy Bernard|sales boss stamford|dated musician left
+Angela Martin|accounting|married parent dated pilot wedding
+Oscar Martinez|accounting|pilot
+Kevin Malone|accounting|musician pilot left
+Stanley Hudson|sales|married parent pilot left
+Phyllis Vance|sales|married pilot wedding
+Creed Bratton|frontdesk boss|musician
+Meredith Palmer|frontdesk|parent
+Kelly Kapoor|frontdesk|dated left
+Toby Flenderson|frontdesk|parent left
+Holly Flax|frontdesk|married parent dated left
+Erin Hannon|frontdesk|dated
+Pete Miller|frontdesk|dated
+Clark Green|sales frontdesk|
+Darryl Philbin|warehouse|parent dated musician left
+Roy Anderson|warehouse|married dated pilot wedding left
+Lonny Collins|warehouse|
+Madge Madsen|warehouse|
+Hidetoshi Hasagawa|warehouse|
+Nate Nickerson|warehouse|
+Val Johnson|warehouse|dated
+Jan Levinson|corporate|parent dated pilot left
+David Wallace|corporate|married parent left
+Charles Miner|corporate|
+Robert California|corporate|married left
+Jo Bennett|corporate|
+Gabe Lewis|corporate|dated left
+Nellie Bertram|boss|left
+Deangelo Vickers|boss|left
+Karen Filippelli|sales stamford|married parent dated left
+Josh Porter|stamford|
+Todd Packer|sales|
+Danny Cordray|sales|
+Cathy Simms|sales|
+Bob Vance||married wedding
+Mose Schrute||
+Senator Robert Lipton||married
