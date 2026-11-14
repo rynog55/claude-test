@@ -168,8 +168,8 @@ HEAD = """<!doctype html>
 <meta property="og:type" content="website">
 <meta property="og:title" content="{name}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="https://rynog55.github.io/claude-test/site/{img}">
-<meta property="og:url" content="https://rynog55.github.io/claude-test/site/{page}">
+<meta property="og:image" content="https://rynog55.github.io/grid-games/site/{img}">
+<meta property="og:url" content="https://rynog55.github.io/grid-games/site/{page}">
 <meta name="twitter:card" content="summary_large_image">
 <style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font:14px system-ui,-apple-system,sans-serif}}img{{max-width:100%}}[hidden]{{display:none!important}}</style>
 </head>
