@@ -90,11 +90,11 @@ h1 span { color: var(--accent); }
 
 .scrim { position: fixed; inset: 0; background: rgba(10,6,20,.5); z-index: 5; }
 .sheet {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; background: var(--panel); color: var(--ink);
-  border-radius: 18px 18px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,.25);
-  padding-top: 14px; padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  position: fixed; left: 0; right: 0; top: var(--vv-top, 0px); z-index: 6; background: var(--panel); color: var(--ink);
+  border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
-  max-height: 78vh; display: flex; flex-direction: column;
+  max-height: var(--vv-h, 85%); display: flex; flex-direction: column;
 }
 .sheet-inner { max-width: 540px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
 .prompt { font-family: var(--font-display); font-weight: 400; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
@@ -312,6 +312,16 @@ function guess(s) {
   if (!right) { const el = $('cell-' + idx); if (el) { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 400); } }
 }
 
+function fitSheet() {
+  const sh = document.getElementById('sheet'), vv = window.visualViewport;
+  if (!sh) return;
+  const h = vv ? vv.height : innerHeight, top = vv ? vv.offsetTop : 0;
+  sh.style.setProperty('--vv-h', Math.round(h * 0.94) + 'px');
+  sh.style.setProperty('--vv-top', Math.round(top) + 'px');
+}
+if (window.visualViewport) { visualViewport.addEventListener('resize', fitSheet); visualViewport.addEventListener('scroll', fitSheet); }
+addEventListener('resize', fitSheet); fitSheet();
+$('q').addEventListener('focus', () => setTimeout(fitSheet, 300));
 $('q').addEventListener('input', renderResults);
 $('q').addEventListener('keydown', e => { if (e.key === 'Enter') { const b = $('results').querySelector('button:not(:disabled)'); if (b) b.click(); } });
 $('close').addEventListener('click', closeSheet);
