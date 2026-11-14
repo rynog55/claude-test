@@ -50,7 +50,7 @@ for f in sorted(glob.glob('raw/d19*.json')):
         for tr in t.find_all('tr')[1:]:
             c = tr.find_all(['td', 'th'])
             if len(c) != len(hdr): continue
-            if not re.match(r'Kentucky\b', c[si].get_text(' ', strip=True)): continue
+            if not re.match(r'Kentucky\b(?!\s+(State|Wesleyan|Christian))', c[si].get_text(' ', strip=True)): continue
             for sup in c[pi].find_all('sup'): sup.decompose()
             raw = c[pi].get_text('', strip=True); a = c[pi].find('a')
             name = re.sub(r'[\*\^\+#~†‡§]+$', '', (a.get_text(strip=True) if a else raw)).strip()
