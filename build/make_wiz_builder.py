@@ -62,4 +62,9 @@ sub('"if (!n) ok = false;", "if (n < MIN) ok = false;"', '"if (!n) ok = false;",
 sub("open('lith/data.json')", "open('wizards/data.json')")
 sub("open('flannel-grid.html', 'w')", "open('wizard-grid.html', 'w')")
 sub("d = open(", "t = t.replace(\"'fl:\", \"'wz:\")\nt = t.replace('Band × song fact', 'Group × fact').replace('Type at least 2 letters of a song or band.', 'Type at least 2 letters of a name.').replace('That song isn’t on the playlist.', 'That character isn’t in the list.').replace('Empty squares now show songs that would have worked.', 'Empty squares now show characters who would have worked.')\nd = open(")
+# FLANNEL_MODES_FIX: drop Flannel's own Easy/Hard sentence, which the shared Flannel step adds
+FLANNEL_SENTENCE = "<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. "
+REPLACEMENT = ''
+p = p.replace("d = open(", "t = t.replace(" + repr(FLANNEL_SENTENCE) + ", " + repr(REPLACEMENT) + ")\nd = open(", 1)
+
 open('build_wiz.py', 'w').write(p); print('ok')

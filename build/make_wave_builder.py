@@ -67,4 +67,9 @@ sub("rep(\"cols: ['altno1', 'minor', 'y1'] };\", \"cols: ['altno1', 'long', 'y1'
 sub("open('lith/data.json')", "open('wave/data.json')")
 sub("open('flannel-grid.html', 'w')", "open('wave-grid.html', 'w')")
 sub("d = open(", "t = t.replace(\"'fl:\", \"'nw:\")\nd = open(")
+# FLANNEL_MODES_FIX: drop Flannel's own Easy/Hard sentence, which the shared Flannel step adds
+FLANNEL_SENTENCE = "<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. "
+REPLACEMENT = "<b>Easy</b> sticks to the bigger bands and band types like British acts, duos and Live Aid performers, with familiar facts, and every square has at least 2 right answers. <b>Hard</b> adds every band with 3 or more songs, more band types, and Spotify's mood, key, dance and popularity ratings. "
+p = p.replace("d = open(", "t = t.replace(" + repr(FLANNEL_SENTENCE) + ", " + repr(REPLACEMENT) + ")\nd = open(", 1)
+
 open('build_wave.py', 'w').write(p); print('ok')

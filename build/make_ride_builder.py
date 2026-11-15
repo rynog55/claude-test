@@ -76,4 +76,9 @@ sub('"if (!n) ok = false;", "if (n < MIN) ok = false;"', '"if (!n) ok = false;",
 sub("open('lith/data.json')", "open('rides/data.json')")
 sub("open('flannel-grid.html', 'w')", "open('ride-grid.html', 'w')")
 sub("d = open(", "t = t.replace(\"'fl:\", \"'rg:\")\nt = t.replace('Band × song fact', 'Park × ride fact').replace('Type at least 2 letters of a song or band.', 'Type at least 2 letters of a ride name.').replace('That song isn’t on the playlist.', 'That ride isn’t in the list.').replace('Empty squares now show songs that would have worked.', 'Empty squares now show rides that would have worked.')\nd = open(")
+# FLANNEL_MODES_FIX: drop Flannel's own Easy/Hard sentence, which the shared Flannel step adds
+FLANNEL_SENTENCE = "<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. "
+REPLACEMENT = ''
+p = p.replace("d = open(", "t = t.replace(" + repr(FLANNEL_SENTENCE) + ", " + repr(REPLACEMENT) + ")\nd = open(", 1)
+
 open('build_ride.py', 'w').write(p); print('ok')
