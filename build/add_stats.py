@@ -189,6 +189,11 @@ def build(src, dst, game, key):
     t = t.replace(h, '  <nav class="topnav" aria-label="Site"><a href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>All games</a></nav>\n' + h, 1)
     a = '<p class="sub" id="label">Daily grid</p>'; assert a in t
     t = t.replace(a, a + '\n      <p class="statline" id="statline" aria-live="polite"></p>', 1)
+    # Put the score and Share buttons above the grid so they're seen right away
+    sm = '  <div class="summary" id="summary" hidden>\n    <h2 id="sumTitle"></h2>\n    <p id="sumText"></p>\n  </div>\n\n'
+    bd = '  <div class="board" id="board"'
+    assert sm in t and bd in t
+    t = t.replace(sm, '', 1).replace(bd, sm + bd, 1)
     anchor = "$('q').addEventListener('input', renderResults);"; assert anchor in t
     js = JS.replace('__SB_URL__', SB_URL).replace('__SB_KEY__', key).replace('__GAME__', game)
     t = t.replace(anchor, js + anchor, 1)
