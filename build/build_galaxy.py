@@ -32,7 +32,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Galaxy <span>Grid</span></h1>\n      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Episodes I–VI. Nothing after.</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be films, groups like the Jedi or the Rebel Alliance, or traits like wielding a lightsaber. You get 9 guesses, and each character can be used once.</p>
-  <p class="rules">Only Episodes I to VI count, in their current versions with the Special Edition changes (so Jabba appears in A New Hope). Anakin and Darth Vader are one answer, and so are Palpatine and Darth Sidious. "Dies on screen" means within these six films. <b>Medium</b> uses the six films plus Jedi, Rebels and the Empire; <b>Hard</b> adds the Sith, the Republic, the Separatists and bounty hunters. The list covers about 90 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with Lucasfilm or Disney. Your guesses are saved on this device.</p>
+  <p class="rules">Only Episodes I to VI count, in their current versions with the Special Edition changes (so Jabba appears in A New Hope). Anakin and Darth Vader are one answer, and so are Palpatine and Darth Sidious. "Dies on screen" means within these six films. <b>Easy</b> uses the six films plus Jedi, Rebels and the Empire; <b>Hard</b> adds the Sith, the Republic, the Separatists and bounty hunters. The list covers about 90 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with Lucasfilm or Disney. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const TYPE_ROWS = { ep1: ['Episode I', 'The Phantom Menace'], ep2: ['Episode II', 'Attack of the Clones'], ep3: ['Episode III', 'Revenge of the Sith'], ep4: ['Episode IV', 'A New Hope'], ep5: ['Episode V', 'The Empire Strikes Back'], ep6: ['Episode VI', 'Return of the Jedi'], jedi: ['Jedi', 'Order members'], sith: ['Sith', 'Dark side lords'], rebel: ['Rebel Alliance', 'Members'], empire: ['Galactic Empire', 'Officers and rulers'], republic: ['Galactic Republic', 'Officials and troops'], separatist: ['Separatists', 'The Confederacy'], hunter: ['Bounty hunters', 'For hire'] };
@@ -73,7 +73,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -91,7 +91,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")

@@ -27,12 +27,12 @@ sub('Harry Potter trivia from the seven books</p>', 'The show only. Yes, season 
 sub("<h1>Wizard <span>Grid</span></h1>", "<h1>Throne <span>Grid</span></h1>")
 sub("Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker.",
     "Rows and columns can be great houses, groups like the Night's Watch or the Kingsguard, or a character's fate.")
-i = p.index("<b>Medium</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
+i = p.index("<b>Easy</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
 p = p[:i] + ("Only the HBO series counts (seasons 1 to 8), not the books or the spin-offs. "
              "A house counts by birth, or by marrying in and taking the name, so Catelyn is a Tully and a Stark; Jon Snow counts as Stark and Targaryen; "
              "Joffrey, Tommen and Myrcella count as Baratheon and Lannister. "
              "\"Dies on screen\" includes Jon Snow, who died in season 5 and came back. \"King or queen\" includes rulers and claimants. "
-             "<b>Medium</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. "
+             "<b>Easy</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. "
              "The list covers about 110 characters compiled by hand, so a character who fits might be missing. "
              "This is a fan-made game and isn't affiliated with HBO. ") + p[j:]
 i = p.index("const TYPE_ROWS = { G:"); j = p.index("const CLASH = [['y1','y2'],['pure','half']", i)

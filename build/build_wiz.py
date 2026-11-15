@@ -31,7 +31,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Wizard <span>Grid</span></h1>\n      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Harry Potter trivia from the seven books</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker. You get 9 guesses, and each character can be used once.</p>
-  <p class="rules"><b>Medium</b> uses the four houses, the Order, Dumbledore's Army, the Weasleys and Hogwarts staff. <b>Hard</b> adds Death Eaters and the Ministry, plus more traits. Facts come from the seven books, not the films or later stories, and a fact only counts when the books state it, so a character whose house or blood status is never given doesn't count for those squares. "Dies in the books" means during the story, so James and Lily Potter don't count. The list covers about 130 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with J.K. Rowling or Warner Bros. Your guesses are saved on this device.</p>
+  <p class="rules"><b>Easy</b> uses the four houses, the Order, Dumbledore's Army, the Weasleys and Hogwarts staff. <b>Hard</b> adds Death Eaters and the Ministry, plus more traits. Facts come from the seven books, not the films or later stories, and a fact only counts when the books state it, so a character whose house or blood status is never given doesn't count for those squares. "Dies in the books" means during the story, so James and Lily Potter don't count. The list covers about 130 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with J.K. Rowling or Warner Bros. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const TYPE_ROWS = { G: ['Gryffindor', 'House'], S: ['Slytherin', 'House'], R: ['Ravenclaw', 'House'], H: ['Hufflepuff', 'House'], order: ['Order of the Phoenix', 'Members'], da: ["Dumbledore's Army", 'Members'], de: ['Death Eaters', 'Followers of Voldemort'], weasley: ['Weasley family', 'By birth or marriage'], staff: ['Hogwarts staff', 'Teachers and more'], ministry: ['Ministry of Magic', 'Employees'] };
@@ -74,7 +74,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -92,7 +92,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")

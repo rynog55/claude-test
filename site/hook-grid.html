@@ -448,7 +448,7 @@ const LAUNCH = Date.UTC(2026, 10, 14);
 function puzzleNo() { if (!isDaily()) return null; const d = seed.slice(6).split('-').map(Number); return Math.round((Date.UTC(d[0], d[1] - 1, d[2]) - LAUNCH) / 864e5) + 1; }
 function shareText() {
   const n = S.cells.filter(c => c !== null).length, no = puzzleNo();
-  const mode = (typeof MODE !== 'undefined') ? ' (' + MODE[0].toUpperCase() + MODE.slice(1) + ')' : '';
+  const mode = (typeof MODE !== 'undefined') ? ' (' + (MODE === 'medium' ? 'Easy' : 'Hard') + ')' : '';
   const head = document.title + (no ? ' #' + no : ' · random grid') + mode + ' ' + n + '/9';
   const rows = [0, 1, 2].map(r => [0, 1, 2].map(c => S.cells[r * 3 + c] !== null ? '\u{1F7E9}' : '\u{1F7E5}').join('')).join('\n');
   return head + '\n' + rows;

@@ -159,7 +159,7 @@ h1 span { color: var(--accent); }
   </header>
 
   <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -177,7 +177,7 @@ h1 span { color: var(--accent); }
   </div>
 
   <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be great houses, groups like the Night's Watch or the Kingsguard, or a character's fate. You get 9 guesses, and each character can be used once.</p>
-  <p class="rules">Only the HBO series counts (seasons 1 to 8), not the books or the spin-offs. A house counts by birth, or by marrying in and taking the name, so Catelyn is a Tully and a Stark; Jon Snow counts as Stark and Targaryen; Joffrey, Tommen and Myrcella count as Baratheon and Lannister. "Dies on screen" includes Jon Snow, who died in season 5 and came back. "King or queen" includes rulers and claimants. <b>Medium</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. The list covers about 110 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with HBO. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+  <p class="rules">Only the HBO series counts (seasons 1 to 8), not the books or the spin-offs. A house counts by birth, or by marrying in and taking the name, so Catelyn is a Tully and a Stark; Jon Snow counts as Stark and Targaryen; Joffrey, Tommen and Myrcella count as Baratheon and Lannister. "Dies on screen" includes Jon Snow, who died in season 5 and came back. "King or queen" includes rulers and claimants. <b>Easy</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. The list covers about 110 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with HBO. <b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
 </div>
 
 <div class="scrim" id="scrim" hidden></div>
@@ -457,7 +457,7 @@ const LAUNCH = Date.UTC(2026, 10, 14);
 function puzzleNo() { if (!isDaily()) return null; const d = seed.slice(6).split('-').map(Number); return Math.round((Date.UTC(d[0], d[1] - 1, d[2]) - LAUNCH) / 864e5) + 1; }
 function shareText() {
   const n = S.cells.filter(c => c !== null).length, no = puzzleNo();
-  const mode = (typeof MODE !== 'undefined') ? ' (' + MODE[0].toUpperCase() + MODE.slice(1) + ')' : '';
+  const mode = (typeof MODE !== 'undefined') ? ' (' + (MODE === 'medium' ? 'Easy' : 'Hard') + ')' : '';
   const head = document.title + (no ? ' #' + no : ' · random grid') + mode + ' ' + n + '/9';
   const rows = [0, 1, 2].map(r => [0, 1, 2].map(c => S.cells[r * 3 + c] !== null ? '\u{1F7E9}' : '\u{1F7E5}').join('')).join('\n');
   return head + '\n' + rows;

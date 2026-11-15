@@ -31,7 +31,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Big Blue <span>Grid</span></h1>\n      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Kentucky Wildcats only. Go Cats.</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a <b>player</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows are Kentucky head coaches; a player counts for every coach he played for. Columns are titles, NBA draft results, honors and more. You get 9 guesses, and each player can be used once.</p>
-  <p class="rules">Players are everyone on a Kentucky roster from 1930–31 (Adolph Rupp's first season) to 2025–26, from wildcatworld.com's season rosters. Draft results and NBA All-Star selections come from Wikipedia's NBA draft pages, and honored jerseys, all-time top 10s, Hall of Famers and Olympians from Wikipedia's Kentucky page. "One-and-done" means one season on the roster, then drafted that year. "Top 10 all-time" means a top-10 spot in points, rebounds, assists, steals or blocks. <b>Medium</b> uses Rupp, Hall, Pitino, Tubby Smith and Calipari; <b>Hard</b> adds Sutton, Gillispie and Pope plus deeper columns. This is a fan-made game and isn't affiliated with the University of Kentucky. Your guesses are saved on this device.</p>
+  <p class="rules">Players are everyone on a Kentucky roster from 1930–31 (Adolph Rupp's first season) to 2025–26, from wildcatworld.com's season rosters. Draft results and NBA All-Star selections come from Wikipedia's NBA draft pages, and honored jerseys, all-time top 10s, Hall of Famers and Olympians from Wikipedia's Kentucky page. "One-and-done" means one season on the roster, then drafted that year. "Top 10 all-time" means a top-10 spot in points, rebounds, assists, steals or blocks. <b>Easy</b> uses Rupp, Hall, Pitino, Tubby Smith and Calipari; <b>Hard</b> adds Sutton, Gillispie and Pope plus deeper columns. This is a fan-made game and isn't affiliated with the University of Kentucky. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const TYPE_ROWS = { rupp: ['Adolph Rupp', '1930–1972'], hall: ['Joe B. Hall', '1972–1985'], sutton: ['Eddie Sutton', '1985–1989'], pitino: ['Rick Pitino', '1989–1997'], smith: ['Tubby Smith', '1997–2007'], gillispie: ['Billy Gillispie', '2007–2009'], calipari: ['John Calipari', '2009–2024'], pope: ['Mark Pope', '2024–'] };
@@ -79,7 +79,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -97,7 +97,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")

@@ -27,11 +27,11 @@ sub('Harry Potter trivia from the seven books</p>', 'That’s what she said.</p>
 sub("<h1>Wizard <span>Grid</span></h1>", "<h1>Scranton <span>Grid</span></h1>")
 sub("Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker.",
     "Rows and columns can be departments like Sales or the warehouse, or life events like getting married or dating a coworker.")
-i = p.index("<b>Medium</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
+i = p.index("<b>Easy</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
 p = p[:i] + ("Covers the US show, seasons 1 to 9. \"Ran the Scranton branch\" counts anyone who ran it, even briefly, so Creed counts. "
              "Front desk and annex covers reception, HR, customer service, quality assurance and supplier relations. "
              "\"Married\" and \"has kids\" mean by the finale. The office is small, so some squares have a single answer. "
-             "<b>Medium</b> uses Sales, Accounting, the warehouse, the bosses and the front desk; <b>Hard</b> adds corporate and the Stamford branch. "
+             "<b>Easy</b> uses Sales, Accounting, the warehouse, the bosses and the front desk; <b>Hard</b> adds corporate and the Stamford branch. "
              "The list covers about 40 characters compiled by hand, so a character who fits might be missing. "
              "This is a fan-made game and isn't affiliated with NBC or the show. ") + p[j:]
 i = p.index("const TYPE_ROWS = { G:"); j = p.index("const CLASH = [['y1','y2'],['pure','half']", i)

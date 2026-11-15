@@ -31,7 +31,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Throne <span>Grid</span></h1>\n      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">The show only. Yes, season 8 counts.</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be great houses, groups like the Night's Watch or the Kingsguard, or a character's fate. You get 9 guesses, and each character can be used once.</p>
-  <p class="rules">Only the HBO series counts (seasons 1 to 8), not the books or the spin-offs. A house counts by birth, or by marrying in and taking the name, so Catelyn is a Tully and a Stark; Jon Snow counts as Stark and Targaryen; Joffrey, Tommen and Myrcella count as Baratheon and Lannister. "Dies on screen" includes Jon Snow, who died in season 5 and came back. "King or queen" includes rulers and claimants. <b>Medium</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. The list covers about 110 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with HBO. Your guesses are saved on this device.</p>
+  <p class="rules">Only the HBO series counts (seasons 1 to 8), not the books or the spin-offs. A house counts by birth, or by marrying in and taking the name, so Catelyn is a Tully and a Stark; Jon Snow counts as Stark and Targaryen; Joffrey, Tommen and Myrcella count as Baratheon and Lannister. "Dies on screen" includes Jon Snow, who died in season 5 and came back. "King or queen" includes rulers and claimants. <b>Easy</b> uses the bigger houses, the Night's Watch, the Kingsguard and the Small Council; <b>Hard</b> adds Martell, Tully, Bolton and the Free Folk. The list covers about 110 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with HBO. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const TYPE_ROWS = { stark: ['House Stark', 'Winterfell'], lannister: ['House Lannister', 'Casterly Rock'], targaryen: ['House Targaryen', 'Dragonstone'], baratheon: ['House Baratheon', "Storm's End"], greyjoy: ['House Greyjoy', 'Iron Islands'], tyrell: ['House Tyrell', 'Highgarden'], martell: ['House Martell', 'Dorne'], tully: ['House Tully', 'Riverrun'], bolton: ['House Bolton', 'The Dreadfort'], watch: ["Night's Watch", 'Sworn brothers'], kingsguard: ['Kingsguard', 'Or Queensguard'], council: ['Small Council', 'Any time'], freefolk: ['Free Folk', 'Beyond the Wall'] };
@@ -73,7 +73,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -91,7 +91,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")

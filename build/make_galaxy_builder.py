@@ -29,10 +29,10 @@ sub("<h1>Wizard <span>Grid</span></h1>", "<h1>Galaxy <span>Grid</span></h1>")
 # rules prose (plain text inside the builder)
 sub("Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker.",
     "Rows and columns can be films, groups like the Jedi or the Rebel Alliance, or traits like wielding a lightsaber.")
-i = p.index("<b>Medium</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
+i = p.index("<b>Easy</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
 p = p[:i] + ("Only Episodes I to VI count, in their current versions with the Special Edition changes (so Jabba appears in A New Hope). "
              "Anakin and Darth Vader are one answer, and so are Palpatine and Darth Sidious. \"Dies on screen\" means within these six films. "
-             "<b>Medium</b> uses the six films plus Jedi, Rebels and the Empire; <b>Hard</b> adds the Sith, the Republic, the Separatists and bounty hunters. "
+             "<b>Easy</b> uses the six films plus Jedi, Rebels and the Empire; <b>Hard</b> adds the Sith, the Republic, the Separatists and bounty hunters. "
              "The list covers about 90 characters compiled by hand, so a character who fits might be missing. "
              "This is a fan-made game and isn't affiliated with Lucasfilm or Disney. ") + p[j:]
 # categories (plain JS text inside the builder)

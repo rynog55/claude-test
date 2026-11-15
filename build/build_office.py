@@ -31,7 +31,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Scranton <span>Grid</span></h1>\n      <p class="tagline" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">That’s what she said.</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Tap a square and name a <b>character</b> who fits both the <b>row on the left</b> and the <b>fact on top</b>. Rows and columns can be departments like Sales or the warehouse, or life events like getting married or dating a coworker. You get 9 guesses, and each character can be used once.</p>
-  <p class="rules">Covers the US show, seasons 1 to 9. "Ran the Scranton branch" counts anyone who ran it, even briefly, so Creed counts. Front desk and annex covers reception, HR, customer service, quality assurance and supplier relations. "Married" and "has kids" mean by the finale. The office is small, so some squares have a single answer. <b>Medium</b> uses Sales, Accounting, the warehouse, the bosses and the front desk; <b>Hard</b> adds corporate and the Stamford branch. The list covers about 40 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with NBC or the show. Your guesses are saved on this device.</p>
+  <p class="rules">Covers the US show, seasons 1 to 9. "Ran the Scranton branch" counts anyone who ran it, even briefly, so Creed counts. Front desk and annex covers reception, HR, customer service, quality assurance and supplier relations. "Married" and "has kids" mean by the finale. The office is small, so some squares have a single answer. <b>Easy</b> uses Sales, Accounting, the warehouse, the bosses and the front desk; <b>Hard</b> adds corporate and the Stamford branch. The list covers about 40 characters compiled by hand, so a character who fits might be missing. This is a fan-made game and isn't affiliated with NBC or the show. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const TYPE_ROWS = { sales: ['Sales', 'Scranton or elsewhere'], accounting: ['Accounting', 'The numbers people'], warehouse: ['Warehouse', 'Downstairs'], boss: ['Ran the Scranton branch', 'Even briefly'], frontdesk: ['Front desk & annex', 'Reception, HR and more'], corporate: ['Corporate', 'Dunder Mifflin or Sabre'], stamford: ['Stamford branch', 'Before the merger'] };
@@ -69,7 +69,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -87,7 +87,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")

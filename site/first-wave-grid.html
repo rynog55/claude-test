@@ -158,7 +158,7 @@ h1 span { color: var(--accent); }
   </header>
 
   <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -176,7 +176,7 @@ h1 span { color: var(--accent); }
   </div>
 
   <p class="rules">Tap a square and name a song from <b>your new wave playlist</b> that fits the <b>band on the left</b> and the <b>fact on top</b>. You get 9 guesses, and each song can be used once.</p>
-  <p class="rules">The answer list is the songs on your Spotify playlist of classic new wave, synth-pop and post-punk heard on satellite radio. This game isn't affiliated with SiriusXM. Length, popularity, danceability, mood, key and genre come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. US top 10 and UK No. 1 hits come from Wikipedia's chart pages. Years use the song's original release, and band facts were tagged by hand. <b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
+  <p class="rules">The answer list is the songs on your Spotify playlist of classic new wave, synth-pop and post-punk heard on satellite radio. This game isn't affiliated with SiriusXM. Length, popularity, danceability, mood, key and genre come from Spotify's data. Popularity was measured when you exported the playlist: "Deep cut" is the least-played quarter and "Spotify smash" the most-played quarter. US top 10 and UK No. 1 hits come from Wikipedia's chart pages. Years use the song's original release, and band facts were tagged by hand. <b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>
 </div>
 
 <div class="scrim" id="scrim" hidden></div>
@@ -468,7 +468,7 @@ const LAUNCH = Date.UTC(2026, 10, 14);
 function puzzleNo() { if (!isDaily()) return null; const d = seed.slice(6).split('-').map(Number); return Math.round((Date.UTC(d[0], d[1] - 1, d[2]) - LAUNCH) / 864e5) + 1; }
 function shareText() {
   const n = S.cells.filter(c => c !== null).length, no = puzzleNo();
-  const mode = (typeof MODE !== 'undefined') ? ' (' + MODE[0].toUpperCase() + MODE.slice(1) + ')' : '';
+  const mode = (typeof MODE !== 'undefined') ? ' (' + (MODE === 'medium' ? 'Easy' : 'Hard') + ')' : '';
   const head = document.title + (no ? ' #' + no : ' · random grid') + mode + ' ' + n + '/9';
   const rows = [0, 1, 2].map(r => [0, 1, 2].map(c => S.cells[r * 3 + c] !== null ? '\u{1F7E9}' : '\u{1F7E5}').join('')).join('\n');
   return head + '\n' + rows;

@@ -27,11 +27,11 @@ sub('Harry Potter trivia from the seven books</p>', 'Kentucky Wildcats only. Go 
 sub("<h1>Wizard <span>Grid</span></h1>", "<h1>Big Blue <span>Grid</span></h1>")
 sub("Rows and columns can be houses, groups like the Order of the Phoenix or Dumbledore's Army, or traits like Animagus or Quidditch Seeker.",
     "Rows are Kentucky head coaches; a player counts for every coach he played for. Columns are titles, NBA draft results, honors and more.")
-i = p.index("<b>Medium</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
+i = p.index("<b>Easy</b> uses the four houses"); j = p.index("Your guesses are saved on this device.</p>", i)
 p = p[:i] + ("Players are everyone on a Kentucky roster from 1930–31 (Adolph Rupp's first season) to 2025–26, from wildcatworld.com's season rosters. "
              "Draft results and NBA All-Star selections come from Wikipedia's NBA draft pages, and honored jerseys, all-time top 10s, Hall of Famers and Olympians "
              "from Wikipedia's Kentucky page. \"One-and-done\" means one season on the roster, then drafted that year. \"Top 10 all-time\" means a top-10 spot in "
-             "points, rebounds, assists, steals or blocks. <b>Medium</b> uses Rupp, Hall, Pitino, Tubby Smith and Calipari; <b>Hard</b> adds Sutton, Gillispie "
+             "points, rebounds, assists, steals or blocks. <b>Easy</b> uses Rupp, Hall, Pitino, Tubby Smith and Calipari; <b>Hard</b> adds Sutton, Gillispie "
              "and Pope plus deeper columns. This is a fan-made game and isn't affiliated with the University of Kentucky. ") + p[j:]
 i = p.index("const TYPE_ROWS = { G:"); j = p.index("const CLASH = [['y1','y2'],['pure','half']", i)
 k = p.index("['in_R','in_H']];", j) + len("['in_R','in_H']];")

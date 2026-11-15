@@ -31,7 +31,7 @@ rep('.board { display: grid; grid-template-columns: minmax(0, .85fr) repeat(3, m
 rep('<h1>Hook <span>Grid</span></h1>', '<h1>Ride <span>Grid</span></h1>\n      <p class="tagline" lang="es" style="margin:6px 0 0;font-style:italic;font-size:13.5px;color:var(--accent-2)">Por favor, manténganse alejados de las puertas.</p>')
 a = t.index('  <p class="rules">Tap a square'); b = t.index('</div>', a)
 t = t[:a] + """  <p class="rules">Disney parks trivia. Tap a square and name an <b>attraction</b> at the <b>park on the left</b> that fits the <b>fact on top</b>. Rides that exist at several parks count as one answer, so Space Mountain works for any park that has a version of it. You get 9 guesses, and each ride can be used once.</p>
-  <p class="rules"><b>Medium</b> uses the six US parks plus Disneyland Paris and Tokyo Disneyland, with the most familiar ride types. <b>Hard</b> adds Disney Adventure World, Tokyo DisneySea, Hong Kong and Shanghai, plus crossovers with every park and finer categories like Omnimover and trackless rides. The list covers about 110 rides operating in 2026; shows, walk-throughs and rides closed for long rebuilds are left out. Ride facts were compiled by hand, so a ride that fits might be missing. This is a fan-made game and isn't affiliated with Disney. Your guesses are saved on this device.</p>
+  <p class="rules"><b>Easy</b> uses the six US parks plus Disneyland Paris and Tokyo Disneyland, with the most familiar ride types. <b>Hard</b> adds Disney Adventure World, Tokyo DisneySea, Hong Kong and Shanghai, plus crossovers with every park and finer categories like Omnimover and trackless rides. The list covers about 110 rides operating in 2026; shows, walk-throughs and rides closed for long rebuilds are left out. Ride facts were compiled by hand, so a ride that fits might be missing. This is a fan-made game and isn't affiliated with Disney. Your guesses are saved on this device.</p>
 """ + t[b:]
 s0 = t.index('const TYPE_ROWS = {'); s1 = t.index("const ROWS = ")
 t = t[:s0] + """const PARK_NAMES = { MK: ['Magic Kingdom', 'Walt Disney World'], EP: ['EPCOT', 'Walt Disney World'], HS: ['Hollywood Studios', 'Walt Disney World'], AK: ['Animal Kingdom', 'Walt Disney World'], DL: ['Disneyland', 'California'], DCA: ['California Adventure', 'California'], DLP: ['Disneyland Paris', 'Disneyland Park'], DAW: ['Adventure World', 'Paris, formerly Studios'], TDL: ['Tokyo Disneyland', 'Tokyo'], TDS: ['Tokyo DisneySea', 'Tokyo'], HK: ['Hong Kong Disneyland', 'Hong Kong'], SH: ['Shanghai Disneyland', 'Shanghai'] };
@@ -87,7 +87,7 @@ rep("""      <p class="sub" id="label">Daily grid</p>
     </div>""", """      <p class="sub" id="label">Daily grid</p>
     </div>""")
 rep("""  <div class="board" id="board" aria-label="Puzzle grid"></div>""", """  <div class="modes" role="group" aria-label="Difficulty">
-    <button type="button" class="mode" id="mode-medium" data-mode="medium">Medium</button>
+    <button type="button" class="mode" id="mode-medium" data-mode="medium">Easy</button>
     <button type="button" class="mode" id="mode-hard" data-mode="hard">Hard</button>
   </div>
 
@@ -105,7 +105,7 @@ rep("const last = store.get(", """function setMode(m) {
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => { if (b.dataset.mode !== MODE) { setMode(b.dataset.mode); load(seed); } }));
 setMode(MODE);
 const last = store.get(""")
-rep("""Your guesses are saved on this device.</p>""", """<b>Medium</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
+rep("""Your guesses are saved on this device.</p>""", """<b>Easy</b> sticks to the bigger bands and well-known facts, and every square has at least 2 right answers. <b>Hard</b> adds every band, more band types, and Spotify's mood, key, energy and popularity ratings. Your guesses are saved on this device.</p>""")
 
 t = t.replace("'hk:", "'fl:")
 t = t.replace("'fl:' + seed", "'fl:' + MODE + ':' + seed")
