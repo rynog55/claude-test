@@ -8,7 +8,9 @@ def norm(n):
     n = re.sub(r'"[^"]*"|\([^)]*\)', '', n)
     n = re.sub(r'[^a-z]', '', n)
     return ALIAS.get(n, n)
-ALIAS = {'kennyrollins': 'kenrollins', 'williamevans': 'billyevans', 'wahwahjones': 'wallacejones', 'wallacewahwahjones': 'wallacejones'}
+HOF_ALLSTARS = {'danissel', 'cliffhagan'}
+EXTRA_DRAFTED = {'cliffhagan'}   # 1953, 3rd round (Boston); missing from the parsed 1953 table   # marked only as Hall of Famers on the draft pages, but were NBA All-Stars
+ALIAS = {'roblock': 'robertlock', 'kennyrollins': 'kenrollins', 'williamevans': 'billyevans', 'wahwahjones': 'wallacejones', 'wallacewahwahjones': 'wallacejones'}
 
 COACHES = [('rupp', 1931, 1972), ('hall', 1973, 1985), ('sutton', 1986, 1989), ('pitino', 1990, 1997),
            ('smith', 1998, 2007), ('gillispie', 2008, 2009), ('calipari', 2010, 2024), ('pope', 2025, 2026)]
@@ -51,8 +53,7 @@ for f in sorted(glob.glob('raw/d19*.json')):
             c = tr.find_all(['td', 'th'])
             if len(c) != len(hdr): continue
             if not re.match(r'Kentucky\b(?!\s+(State|Wesleyan|Christian))', c[si].get_text(' ', strip=True)): continue
-            for sup in c[pi].find_all('sup'): sup.decompose()
-            raw = c[pi].get_text('', strip=True); a = c[pi].find('a')
+            raw = re.sub(r'\[[^\]]*\]', '', c[pi].get_text('', strip=True)); a = c[pi].find('a')
             name = re.sub(r'[\*\^\+#~†‡§]+$', '', (a.get_text(strip=True) if a else raw)).strip()
             add_pick(name, y, c[ri].get_text(strip=True) if ri is not None else '', c[ki].get_text(strip=True) if ki is not None else '',
                      ''.join(ch for ch in raw if ch in '*+^~'))
@@ -83,8 +84,10 @@ for k, p in players.items():
         if d['rnd'] == '1' and pk <= 14: cols.append('top14')
         if pk == 1: cols.append('no1')
         if d['rnd'] == '2': cols.append('r2')
-        if set(d['marks']) & set('*+^'): cols.append('allstar')
+        if set(d['marks']) & set('*+'): cols.append('allstar')
         if len(seasons) == 1 and d['year'] == seasons[0]: cols.append('oneanddone')
+    if k in HOF_ALLSTARS and 'allstar' not in cols: cols.append('allstar')
+    if k in EXTRA_DRAFTED and 'drafted' not in cols: cols.append('drafted')
     if len(seasons) >= 4: cols.append('fouryear')
     if re.search(r',\s*(KY|Ky\.?|Kentucky)\b', p['home']): cols.append('kentuckian')
     m = re.match(r"(\d)'\s*(\d+)", p['ht'].replace('’', "'"))
